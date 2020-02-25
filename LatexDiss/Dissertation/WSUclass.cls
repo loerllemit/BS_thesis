@@ -347,13 +347,13 @@
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-% \setcounter{tocdepth}{4}
-% \setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 
 \cftsetindents{chapter}{0.25in}{0.25in}
 \cftsetindents{section}{0.5in}{0.35in}
 \cftsetindents{subsection}{.85in}{0.5in}
-\cftsetindents{subsubsection}{1.5in}{0.5in}
+\cftsetindents{subsubsection}{1.0in}{0.55in}
 
 \setlength{\cftbeforepartskip}{.25em}
 \setlength{\cftbeforechapskip}{.25em}
