@@ -228,7 +228,7 @@
 
 % Changes to masters thesis preliminary section if the 'masters' option is specified
 \DeclareOption{masters}{
-  \degree{Master of Science}
+  \degree{Bachelor of Science}
   \docname{thesis}
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
@@ -244,7 +244,7 @@
 
 % Changes to PhD preliminary section if the 'phd' option is specified
 \DeclareOption{phd}{
-  \degree{Doctor of Philosophy}
+  \degree{Bachelor of Science}
   \docname{dissertation}
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
