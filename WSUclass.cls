@@ -226,9 +226,25 @@
   }
 }
 
+% Changes to BS thesis preliminary section if the 'masters' option is specified
+\DeclareOption{bachelor}{
+  \degree{Bachelor of Science}
+  \docname{thesis}
+  \renewcommand{\makepreliminarypages}{
+    \preliminarymargins
+    \titlepage
+    \copyrightpage
+    \bachelorapprovalpage
+    \acknowledgmentspage
+    \abstractpage
+    \fixmargins
+    \renewcommand{\clearemptydoublepage}{\cle@remptydoublep@ge}
+  }
+}
+
 % Changes to masters thesis preliminary section if the 'masters' option is specified
 \DeclareOption{masters}{
-  \degree{Bachelor of Science}
+  \degree{Master of Science}
   \docname{thesis}
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
@@ -244,7 +260,7 @@
 
 % Changes to PhD preliminary section if the 'phd' option is specified
 \DeclareOption{phd}{
-  \degree{Bachelor of Science}
+  \degree{Doctor of Philosophy}
   \docname{dissertation}
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
@@ -560,6 +576,24 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     \end{center}
     \noindent
     To the Faculty of Washington State University:
+    \par\doublespace The members of the Committee appointed to examine the thesis
+of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accepted.\\[\baselineskip]
+    \par\singlespace
+    \datebox\hfill\signaturebox{\@Advisor, \@AdvisorTitle, Chair}\\
+    \datebox\hfill\signaturebox{\@MemberA, \@MemberATitle}\\
+    \datebox\hfill\signaturebox{\@MemberB, \@MemberBTitle}\\
+    \vfill
+    \clearemptydoublepage
+  }
+
+\newcommand{\bachelorapprovalpage}{
+    \thispagestyle{plain}
+    \begin{center}
+    \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Undergraduate Committee Approval}{bm:ComAp}
+    \vspace*{0.375in}
+    \end{center}
+    \noindent
+    To the Faculty of University of the Philippines Diliman National Institute of Physics:
     \par\doublespace The members of the Committee appointed to examine the thesis
 of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accepted.\\[\baselineskip]
     \par\singlespace
