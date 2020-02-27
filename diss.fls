@@ -1,9 +1,9 @@
-PWD c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation
+PWD c:\Users\loerl\Documents\Codes\thesis
 INPUT C:\Users\loerl\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.tex
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.log
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\WSUclass.cls
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\WSUclass.cls
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.tex
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.log
+INPUT c:\Users\loerl\Documents\Codes\thesis\WSUclass.cls
+INPUT c:\Users\loerl\Documents\Codes\thesis\WSUclass.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\book.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\book.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\bk12.clo
@@ -15,8 +15,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\tocloft\tocloft.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tocloft\tocloft.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\import\import.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\import\import.sty
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\preamble.sty
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\preamble.sty
+INPUT c:\Users\loerl\Documents\Codes\thesis\preamble.sty
+INPUT c:\Users\loerl\Documents\Codes\thesis\preamble.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amstext.sty
@@ -55,7 +55,7 @@ INPUT C:\Program Files\MiKTeX\tex\latex\caption\caption3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\caption\caption3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\makeidx.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\base\makeidx.sty
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.idx
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.idx
 INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\url\url.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\hyperref\hyperref.sty
@@ -141,21 +141,21 @@ INPUT C:\Program Files\MiKTeX\tex\latex\fmtcount\fcnumparser.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\fmtcount\fcnumparser.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdfmode.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.aux
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
@@ -170,20 +170,20 @@ INPUT C:\Program Files\MiKTeX\tex\latex\refcount\refcount.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\refcount\refcount.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\gettitlestring\gettitlestring.sty
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.pdf
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
 INPUT C:\Program Files\MiKTeX\tex\latex\biblatex\lbx\english.lbx
 INPUT C:\Program Files\MiKTeX\tex\latex\biblatex\lbx\english.lbx
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.bcf
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.bbl
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.bbl
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.bbl
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.bcf
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.bbl
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.bbl
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.bbl
 INPUT C:\Program Files\MiKTeX\tex\latex\fmtcount\fc-english.def
 INPUT C:\Program Files\MiKTeX\tex\latex\fmtcount\fc-english.def
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
@@ -192,8 +192,8 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1095.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1200.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm2488.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx2488.tfm
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.toc
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.toc
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.toc
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.toc
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
@@ -205,71 +205,69 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.toc
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lot
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lot
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lot
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lof
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lof
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.lof
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.tex
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.toc
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.lot
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.lot
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.lot
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.lof
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.lof
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.lof
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.tex
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1728.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1728.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecrm1440.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecbx1440.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecti1200.tfm
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.tex
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.tex
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.tex
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.tex
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.tex
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\eccc1200.tfm
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch1.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch2.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch3.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.out
-INPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.run.xml
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\LatexDiss\Dissertation\diss.run.xml
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\theory.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
+INPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml
 INPUT C:\Program Files\MiKTeX\fonts\enc\dvips\cm-super\cm-super-t1.enc
 INPUT C:\Program Files\MiKTeX\fonts\enc\dvips\cm-super\cm-super-ts1.enc
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
