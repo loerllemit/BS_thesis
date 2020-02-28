@@ -228,8 +228,8 @@
 
 % Changes to BS thesis preliminary section if the 'masters' option is specified
 \DeclareOption{bachelor}{
-  \degree{Bachelor of Science}
-  \docname{thesis}
+  \degree{Bachelor of Science in Applied Physics}
+  \docname{undergraduate thesis}
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
     \titlepage
@@ -469,18 +469,18 @@
     \begin{center}
     \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Title Page}{bm:Title}
     \vspace*{.1in}
-    \@TitleTop\\[\baselineskip]
+    \textbf{\@TitleTop\\[\baselineskip]
     \@TitleMiddle\\[\baselineskip]
-    \@TitleBottom\\
+    \@TitleBottom}\\
     \vfill
     By\\[\baselineskip]
     \MakeUppercase{\@Author} 
     \vfill
-    A \@docname~submitted in partial fulfillment of\\
+    An \@docname~submitted in partial fulfillment of\\
     the requirements for the degree of\\[\baselineskip]
     \MakeUppercase{\@degree} \\[3\baselineskip]
-    \MakeUppercase{\@University}\\
-    \@Department\\[\baselineskip]
+    \MakeUppercase{\@Department}\\
+    \@University\\[\baselineskip]
     \MakeUppercase{\@Month}~\@Year \\[\baselineskip]
     \copyright\ Copyright by \MakeUppercase{\@Author},~\@Year\\
     All Rights Reserved
