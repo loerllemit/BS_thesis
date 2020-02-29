@@ -162,8 +162,6 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
@@ -243,19 +241,13 @@ OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\eccc1200.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecti1200.tfm
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
+INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
 INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
 INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
 INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
@@ -281,8 +273,6 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\maintext.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
@@ -291,18 +281,6 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml
 INPUT C:\Program Files\MiKTeX\fonts\enc\dvips\cm-super\cm-super-t1.enc
 INPUT C:\Program Files\MiKTeX\fonts\enc\dvips\cm-super\cm-super-ts1.enc
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx1200.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx1200.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx1440.pfb
@@ -311,8 +289,6 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx1728.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx1728.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx2488.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfbx2488.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfcc1200.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfcc1200.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfrm1200.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfrm1200.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\cm-super\sfti1200.pfb
