@@ -233,9 +233,9 @@
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
     \titlepage
-    \copyrightpage
-    \bachelorapprovalpage
-    \acknowledgmentspage
+   % \copyrightpage
+   % \bachelorapprovalpage
+   % \acknowledgmentspage
     \abstractpage
     \fixmargins
     \renewcommand{\clearemptydoublepage}{\cle@remptydoublep@ge}
@@ -380,13 +380,13 @@
 
 % Redefine the Table of Contents to deal with some blank page
 % and bookmarking issues relating to ETD submission
-% \let\TEMPtableofcontents\tableofcontents
-% \renewcommand{\tableofcontents}{
-%   \clearemptydoublepage
-%   \providecommand\phantomsection{} \phantomsection
-%   \addcontentsline{toc}{chapter}{Table of Contents}
-%   \TEMPtableofcontents
-% }
+\let\TEMPtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{
+  \clearemptydoublepage
+  \providecommand\phantomsection{} \phantomsection
+  \addcontentsline{toc}{chapter}{Table of Contents}
+  \TEMPtableofcontents
+}
 
 
 % Redefine the List of Figures to deal with some blank page

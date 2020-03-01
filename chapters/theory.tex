@@ -1,7 +1,70 @@
 \chapter{THEORETICAL FRAMEWORK}
 \section{Electronic Structure}
-    \subsection{Electronic Bandstructure}
-        \subsubsection{Bloch Wavefunctions}
+The problem of electronic structure methods begins with the attempt to solve the general non-relativistic time-independent Schr\"{o}dinger equation given as 
+    \begin{equation} \label{eq:schrodinger}
+        \hat{\mathcal{H}} \Psi = E \Psi
+    \end{equation}
+where $\hat{\mathcal{H}}$ is the Hamiltonian operator for a system of electrons, $\Psi$ is the electronic wavefunction and $E$ is the energy of the system. Consider a single electron in three dimensional system, the Schr\"{o}dinger equation can be expressed as 
+    \begin{equation} \label{eq:1e_wave}
+        \hat{\mathcal{H}} \Psi_n = - \frac{\hbar^2}{2m} \left(\pdv[2]{x} + \pdv[2]{y} + \pdv[2]{z} \right) \Psi_n + V \Psi_n  = \epsilon_n \Psi_n
+    \end{equation}
+where $m$ is the mass of electron, $V$ is the effective potential energy and $\epsilon_n$ is the energy of electron in the orbital. The term orbital denotes the solution of the Schr\"{o}dinger equation for a system of only one electron. This will be useful in later sections because this will allow to distinguish between the exact quantum state of a system of $N$ interacting  electrons 
+from the approximate quantum state of $N$ electrons in $N$ orbitals, where each orbital is a solution to one-electron wavefunction in \eqref{eq:1e_wave}. If $V$ is zero for the case of free electrons (i.e. non-interacting), then the orbital model is exact. 
+ 
+Since electrons are restricted by the potential inside the atom, the simplest way of solving \eqref{eq:1e_wave} is by considering an infinite potential well. The electrons are confined inside a cube of length $L$ where the potential $V$ inside is zero and infinite at outside must satisfy the boundary condition
+
+\begin{equation}
+	\Psi_n(L_x,L_y,L_z) = 0	
+\end{equation}
+where $L_x,L_y,L_z$ can be either 0 or $L$. The solution will have a sine dependence
+
+\begin{equation}
+	\Psi_n(x,y,z) = \sqrt{\left(\frac{2}{L}\right)^3} \ \sin(\frac{n_x \pi }{L} x) \sin(\frac{n_y \pi}{L} y) \sin(\frac{n_z \pi}{L} z)
+\end{equation}
+where $n_x,n_y,n_z$ are integer quantum states. Provided that $ k_i = n_i \pi / L$ where $i=x,y, \text{or}\, z$; then the energy dispersion relation can be expressed as 
+\begin{equation} \label{eq:free_e}
+    \epsilon_k = \frac{\hbar^2}{2m} (k_x^2 + k_y^2 + k_z^2) = \frac{\hbar^2}{2m} k^2 \propto k^2
+\end{equation}
+Note that energy levels are discretized by the quantum states which arises from imposing the boundary conditions. 
+    \subsection{Electronic Band structure}
+    Inside the crystal lattice, the periodic arrangement of atoms or ions causes the potential to be periodic which eventually gives rise to the formation of energy bands. The wavefunction $\Psi$ will become periodic in space with a period $L$ and must obey the Born-von Karman boundary condition 
+\begin{equation} \label{eq:periodic}
+    \Psi_k(x,y,z) = \Psi_k(x + L, y, z) 
+\end{equation}
+and similarly for the $y$ and $z$ coordinates. It can be shown that wavefunctions satisfying \eqref{eq:1e_wave} and \eqref{eq:periodic} are the Bloch form of a travelling plane wave
+\begin{equation} \label{eq:Bloch}
+    \Psi_k(\va{r}) = u_k(\va{r}) \exp(i \va{k} \vdot \va{r})
+\end{equation}  
+where $u_k(\va{r})$ has the period of the crystal lattice with $u_k(\va{r}) = u_k(\va{r} + \va{R})$. Here $\va{R}$ is the translation vector which can be simply thought as the periodicity expressed as vector.  The Bloch expression can be written as
+\begin{align}
+    \Psi_k(\va{r} + \va{R}) &= u_k(\va{r} + \va{R}) \exp(i \va{k} \vdot (\va{r} + \va{R}))  \notag \\
+    \Psi_k(\va{r} + \va{R}) &= u_k(\va{r}) \exp(i \va{k} \vdot \va{r})  \exp(i \va{k} \vdot \va{R}) \notag \\
+    \Psi_k(\va{r} + \va{R}) &= \Psi_k(\va{r}) \exp(i \va{k} \vdot \va{R}) 
+\end{align}
+Notice that the wavefunction differs from the plane wave of free electrons only by a periodic modulation given by the new phase factor. This means that the electrons in the crystal lattice are treated as perturbed weakly by the periodic potential of the ion cores.
+
+% in which the components of $\va{k}$ satisfy
+% \begin{equation}
+%     k_i = \pm \frac{2n_i \pi}{L} \quad ; i = x,y,z \quad; n_i = 0, 1, 2, \dots
+% \end{equation}
+
+        \subsubsection{Band structure of free electron}
+            A special case of periodicity is where the potential is set to zero, which is applicable for the free electrons. The wavefunction will be a plane wave 
+            \begin{equation}
+                \Psi_k(\va{r})  = \exp(i \va{k} \vdot \va{r})
+            \end{equation} 
+        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Figure \ref{fig:free-electron}a shows the extended scheme
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/free electron"}
+	\caption[]{Free electron band structure}
+	\label{fig:free-electron}
+\end{figure}
+
+
+
+
         insert the symmetry points in IBZ.
     \subsection{Density of States}
     explains fermi dirac distribution

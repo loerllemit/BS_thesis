@@ -1,5 +1,5 @@
 % Change to 'masters' to produces the masters thesis preliminary pages
-\documentclass[oneside,phd,etd]{WSUclass}
+\documentclass[oneside,bachelor,etd]{WSUclass}
 
 \usepackage{import}
 
@@ -10,8 +10,10 @@
 \usepackage[utf8]{inputenc} % Remove warning on ascii conversion
 \usepackage[T1]{fontenc} % Remove warning on ascii conversion
 \usepackage[backend=biber,refsection=part,style=nature,natbib=true]{biblatex}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 %\hypersetup{colorlinks=true,citecolor=blue}
+\usepackage{physics}
+\usepackage{nicefrac}
 
 % Make chapter numbers into string words 1 -> ONE
 \usepackage{fmtcount}
@@ -55,6 +57,7 @@
  \mainmatter
 
 % OK. Everything is set up. Type your thesis here.
+
 \include{chapters/introduction}
 \include{chapters/rrl}
 \include{chapters/theory}
