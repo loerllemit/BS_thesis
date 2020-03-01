@@ -53,16 +53,35 @@ Notice that the wavefunction differs from the plane wave of free electrons only 
             \begin{equation}
                 \Psi_k(\va{r})  = \exp(i \va{k} \vdot \va{r})
             \end{equation} 
-        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Figure \ref{fig:free-electron}a shows the extended scheme
+        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Since the system is periodic in real space, it must be true for the reciprocal space, in this case by $2\pi/a$ where $a$ is some lattice constant. Figure \ref{fig:free-electron}a shows the extended zone scheme where there are no restrictions on the values of wavevector $\va{k}$. When wavevectors are outside the first Brillouin zone (BZ), they can be translated back to the first zone by subtracting a suitable reciprocal lattice vector. In mathematical sense
+        \begin{equation} \label{eq:band_fold}
+            \va{k} + \va{G} = \va{k'}
+        \end{equation}
+        where $\va{k'}$ is the unrestricted wavevector, $\va{k}$ is in the first Brillouin zone, and $\va{G}$ is the translational reciprocal lattice vector. The energy dispersion relation can always be written as 
+        \begin{align}
+            \epsilon(k_x,k_y,k_z) &= \frac{\hbar^2}{2m} (\va{k}+\va{G})^2 \notag \\
+                                &= \frac{\hbar^2}{2m}[(k_x + G_x)^2 + (k_y + G_y)^2 + (k_z + G_z)^2]
+        \end{align}
+        Figure \ref{fig:free-electron}b shows the reduced zone scheme where the  bands are folded into the first BZ by applying \eqref{eq:band_fold}. Any energy state beyond the first BZ is the same to a state inside the first BZ with a different band index $n$.
 
-\begin{figure}[tbh!]
+ \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/free electron"}
-	\caption[]{Free electron band structure}
+	\caption[Free electron band structure]{Free electron band structure}
 	\label{fig:free-electron}
 \end{figure}
 
+\subsubsection{Band structure of electrons in solids}
+When atoms are very far from each other with no interaction, each electron occupies specific discrete orbitals such as 1s, 2p, 3d, etc. When they are bring  closer enough, the outermost (valence) electrons interact with each other and will result in the  energy level splitting. The innermost (core) electrons remain as they are, since they are closer to the nuclei and bounded by a deep potential well. For a solid containing a large $N$ atoms, there will be $N$ orbitals (i.e. $N$ 3d-orbitals) trying to occupy the same energy level. Pauli's exclusion principle will prevent this from happening, hence what happens is there will be splitting of the energy level and eventually forms a band. Figure \ref{fig:band_model} summarizes the evolution of energy levels as the atoms are brought together.
 
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/band model"}
+	\caption[Band structure in solids]{Formation of bands and band gaps when isolated atoms are bring closer together}
+	\label{fig:band_model}
+\end{figure}    
+
+Another interesting property of band structure is the formation of energy band gaps. This happens when the valence electrons interact with the periodic potential of the nuclei. Assuming a weak periodic potential, most of the band structure will not changed very much, except possibly at the Brillouin zone boundaries with a wavevector of $\va{k} = n \pi/ a$. The orbitals with the wavevector at zone boundaries, chosen to be at high symmetry points, follows the Bragg diffraction condition and thus are diffracted. The valence electrons are scattered (or reflected) at the zone boundary in which the wavefunction are made up of equal plane waves travelling from the left and from the right. The wavefunction becomes a standing wave that resembles more of those bound states. Hence, there will be a forbidden region where travelling waves are not allowed. If sufficient energy is provided to the electron, they can overcome the  binding potential.
 
 
         insert the symmetry points in IBZ.
