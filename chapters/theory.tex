@@ -72,7 +72,7 @@ Notice that the wavefunction differs from the plane wave of free electrons only 
 \end{figure}
 
 \subsubsection{Band structure of electrons in solids}
-When atoms are very far from each other with no interaction, each electron occupies specific discrete orbitals such as 1s, 2p, 3d, etc. When they are bring  closer enough, the outermost (valence) electrons interact with each other and will result in the  energy level splitting. The innermost (core) electrons remain as they are, since they are closer to the nuclei and bounded by a deep potential well. For a solid containing a large $N$ atoms, there will be $N$ orbitals (i.e. $N$ 3d-orbitals) trying to occupy the same energy level. Pauli's exclusion principle will prevent this from happening, hence what happens is there will be splitting of the energy level and eventually forms a band. Figure \ref{fig:band_model} summarizes the evolution of energy levels as the atoms are brought together.
+When atoms are very far from each other with no interaction, each electron occupies specific discrete orbitals such as 1s, 2p, 3d, etc. When they are bring  closer enough, the outermost (valence) electrons interact with each other and will result in the  energy level splitting. The innermost (core) electrons remain as they are, since they are closer to the nuclei and bounded by a deep potential well. For a solid containing a large $N$ atoms, there will be $N$ orbitals (i.e. $N$ 3d-orbitals) trying to occupy the same energy level. Pauli's exclusion principle will prevent this from happening, hence what happens is there will be splitting of the energy level that are closely spaced and this will eventually form a continuous band of energy levels. Figure \ref{fig:band_model} summarizes the evolution of energy levels as the atoms are brought together.
 
 \begin{figure}[tbh!]
 	\centering
@@ -83,11 +83,34 @@ When atoms are very far from each other with no interaction, each electron occup
 
 Another interesting property of band structure is the formation of energy band gaps. This happens when the valence electrons interact with the periodic potential of the nuclei. Assuming a weak periodic potential, most of the band structure will not changed very much, except possibly at the Brillouin zone boundaries with a wavevector of $\va{k} = n \pi/ a$. The orbitals with the wavevector at zone boundaries, chosen to be at high symmetry points, follows the Bragg diffraction condition and thus are diffracted. The valence electrons are scattered (or reflected) at the zone boundary in which the wavefunction are made up of equal plane waves travelling from the left and from the right. The wavefunction becomes a standing wave that resembles more of those bound states. Hence, there will be a forbidden region where travelling waves are not allowed. If sufficient energy is provided to the electron, they can overcome the  binding potential.
 
+The band gap is generally referred to the energy difference between the top of valence band, Valence band maximum (VBM),  and the bottom of the conduction band, Conduction band minimum (CBM). If VBM and CBM coincides with each other, the material is said to be a conductor. Electrons can easily occupy the conduction band without any excitation, hence electrons are highly mobile that will lead to high current. For band gaps with a value comparable to the quantity $k_B T$, where $k_B$ is the Boltzmann constant and  $T$ is the absolute temperature near room temperature, then the material is semiconductor. If band gap is much larger than $k_B T$, then the material is insulator. However, this criterion is very loose because there are materials with large band gaps such as $ZnO$, $SrIn2O4$, that are categorized as semiconductors. These materials are generally called wide-band gap semiconductors. If the VBM and CBM are located in the same wavevector $k$, then the gap is direct. Otherwise, it is indirect. 
 
-        insert the symmetry points in IBZ.
+    {\color{red} insert the symmetry points in IBZ.}
+
     \subsection{Density of States}
-    explains fermi dirac distribution
-    \subsection{Projected Density of States}
+    Another useful quantity in describing the electronic structure is the density of states (DOS). In general, the density of states can be defined as 
+    \begin{equation} \label{eq:dos_sum}
+        D(\epsilon) = 2 \sum_n \sum_k \delta(\epsilon - \epsilon_n(k))
+    \end{equation}
+    where for each band index $n$, the sum is over all allowed values of $k$ lying inside the first Brillouin zone. The factor 2 comes from the allowed values of the spin quantum number for each allowed value of $k$. In the limit of large crystal, the $k$ points are very close together, and the sum can be replaced by an integral. Since each allowed states will take up a volume of $ (\Delta k)^3 = \pi^3/V$ where $V$ is the volume of the solid in real space, it is convenient to write \eqref{eq:dos_sum} as 
+    \begin{equation} \label{eq:dos_int}
+        D(\epsilon) = 2\, \frac{V}{\pi^3} \sum_n \sum_k \delta(\epsilon - \epsilon_n(k)) (\Delta k)^3
+    \end{equation}
+    for  in the limit of $V \rightarrow \infty $, $\Delta k \rightarrow 0$, it becomes
+
+    \begin{equation}
+        \lim_{V \to \infty} \frac{1}{V}\, D(\epsilon) = \frac{2}{\pi^3} \sum_n \int \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+    \end{equation}  
+    Usually, the total DOS is set to be the number of states per unit energy per unit volume. 
+
+    The DOS can be projected in terms of the orbital contribution of each atoms. This can be expanded in a complete orthonormal basis as
+
+    \begin{align}
+        D(\epsilon) &= \sum_i D_i(\epsilon) \\
+        &= \sum_i \sum_n \int \bra{\psi_n} i \ket{\psi_n}  \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+    \end{align}
+    where $D_i(\epsilon)$ is the projected density of states (PDOS) of orbital $i$. 
+     
 \section{Many-body Quantum Mechanics}
 insert text here
     \subsection{Time Independent Schr{\"o}dinger Equation}
