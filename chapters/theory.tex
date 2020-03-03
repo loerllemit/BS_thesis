@@ -27,7 +27,7 @@ where $n_x,n_y,n_z$ are integer quantum states. Provided that $ k_i = n_i \pi / 
 \end{equation}
 Note that energy levels are discretized by the quantum states which arises from imposing the boundary conditions. 
     \subsection{Electronic Band structure}
-    Inside the crystal lattice, the periodic arrangement of atoms or ions causes the potential to be periodic which eventually gives rise to the formation of energy bands. The wavefunction $\Psi$ will become periodic in space with a period $L$ and must obey the Born-von Karman boundary condition 
+    Inside the crystal lattice, the periodic arrangement of atoms or ions causes the potential to be periodic which eventually gives rise to the formation of energy bands. The wavefunction $\Psi$ will become periodic in space with a period $L$ and must obey the Born-von Karman boundary condition \citep{Herman1959}
 \begin{equation} \label{eq:periodic}
     \Psi_k(x,y,z) = \Psi_k(x + L, y, z) 
 \end{equation}
@@ -53,7 +53,7 @@ Notice that the wavefunction differs from the plane wave of free electrons only 
             \begin{equation}
                 \Psi_k(\va{r})  = \exp(i \va{k} \vdot \va{r})
             \end{equation} 
-        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Since the system is periodic in real space, it must be true for the reciprocal space, in this case by $2\pi/a$ where $a$ is some lattice constant. Figure \ref{fig:free-electron}a shows the extended zone scheme where there are no restrictions on the values of wavevector $\va{k}$. When wavevectors are outside the first Brillouin zone (BZ), they can be translated back to the first zone by subtracting a suitable reciprocal lattice vector. In mathematical sense
+        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Since the system is periodic in real space, it must be true for the reciprocal space, in this case by $2\pi/a$ where $a$ is some lattice constant. Figure \ref{fig:free-electron}a shows the extended zone scheme where there are no restrictions on the values of wavevector $\va{k}$. When wavevectors are outside the first Brillouin zone (BZ), they can be translated back to the first zone by subtracting a suitable reciprocal lattice vector. In mathematical sense \citep{Kittel2004}
         \begin{equation} \label{eq:band_fold}
             \va{k} + \va{G} = \va{k'}
         \end{equation}
@@ -85,10 +85,8 @@ Another interesting property of band structure is the formation of energy band g
 
 The band gap is generally referred to the energy difference between the top of valence band, Valence band maximum (VBM),  and the bottom of the conduction band, Conduction band minimum (CBM). If VBM and CBM coincides with each other, the material is said to be a conductor. Electrons can easily occupy the conduction band without any excitation, hence electrons are highly mobile that will lead to high current. For band gaps with a value comparable to the quantity $k_B T$, where $k_B$ is the Boltzmann constant and  $T$ is the absolute temperature near room temperature, then the material is semiconductor. If band gap is much larger than $k_B T$, then the material is insulator. However, this criterion is very loose because there are materials with large band gaps such as $ZnO$, $SrIn2O4$, that are categorized as semiconductors. These materials are generally called wide-band gap semiconductors. If the VBM and CBM are located in the same wavevector $k$, then the gap is direct. Otherwise, it is indirect. 
 
-    {\color{red} insert the symmetry points in IBZ.}
-
     \subsection{Density of States}
-    Another useful quantity in describing the electronic structure is the density of states (DOS). In general, the density of states can be defined as 
+    Another useful quantity in describing the electronic structure is the density of states (DOS). In general, the density of states can be defined as \citep{Ashcroft1976}
     \begin{equation} \label{eq:dos_sum}
         D(\epsilon) = 2 \sum_n \sum_k \delta(\epsilon - \epsilon_n(k))
     \end{equation}
@@ -103,17 +101,24 @@ The band gap is generally referred to the energy difference between the top of v
     \end{equation}  
     Usually, the total DOS is set to be the number of states per unit energy per unit volume. 
 
-    The DOS can be projected in terms of the orbital contribution of each atoms. This can be expanded in a complete orthonormal basis as
+    The DOS can be projected in terms of the orbital contribution of each atoms. This can be expanded in a complete orthonormal basis as \citep{Enkovaara2010}
 
     \begin{align}
         D(\epsilon) &= \sum_i D_i(\epsilon) \\
-        &= \sum_i \sum_n \int \bra{\psi_n} i \ket{\psi_n}  \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+        &= \sum_i \sum_n \int \bra{\psi_n} \alpha \ket{\psi_n}  \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
     \end{align}
-    where $D_i(\epsilon)$ is the projected density of states (PDOS) of orbital $i$. 
+    where $D_i(\epsilon)$ is the projected density of states (PDOS) of orbital $i$ with state $\alpha$. 
      
 \section{Many-body Quantum Mechanics}
-insert text here
-    \subsection{Time Independent Schr{\"o}dinger Equation}
+Despite the simplicity of Schr\"{o}dinger equation in \eqref{eq:schrodinger}, solving it is a formidable task when dealing with many-electron systems. Analytical solutions to this equation only exist for the very simplest systems (i.e. hydrogenic atoms). Solving beyond '2 particle' system (electron and nucleus) is already intractable. In addition, solid state systems typically contains more than hundreds of particles, resulting in hundreds of simultaneous equations. Even the use of computational methods relies on a number of approximations just to make computations feasible enough. Hence, this section will discuss various levels of approximations without neglecting the parameter-free of first-principles calculations. 
+
+   \subsection{Time Independent Schr{\"o}dinger Equation}
+The exact many-particle Hamiltonian is expressed as 
+\begin{multline}
+    \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{R_i}}}{M_i} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
+    - \frac{1}{4 \pi \epsilon_0} \sum_{i,j} \frac{e^2 Z_i}{\abs{\va*{R_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2 Z_i Z_j}{\abs{\va*{R_i} - \va*{R_j}}} 
+\end{multline}
+
     \subsection{Simplifying Assumptions}
     \subsection{Use of Atomic Units}
     \subsection{Hamiltonian Operator}
@@ -140,4 +145,4 @@ insert text here
     \subsection{Hybrid Functionals}
     \subsection{Hubbard U Correction}
 
-Example of double quotes ``word''. Lorem ipsum dol
+    {\color{red} insert the symmetry points in IBZ.}
