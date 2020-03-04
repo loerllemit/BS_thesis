@@ -113,13 +113,20 @@ The band gap is generally referred to the energy difference between the top of v
 Despite the simplicity of Schr\"{o}dinger equation in \eqref{eq:schrodinger}, solving it is a formidable task when dealing with many-electron systems. Analytical solutions to this equation only exist for the very simplest systems (i.e. hydrogenic atoms). Solving beyond '2 particle' system (electron and nucleus) is already intractable. In addition, solid state systems typically contains more than hundreds of particles, resulting in hundreds of simultaneous equations. Even the use of computational methods relies on a number of approximations just to make computations feasible enough. Hence, this section will discuss various levels of approximations without neglecting the parameter-free of first-principles calculations. 
 
    \subsection{Time Independent Schr{\"o}dinger Equation}
-The exact many-particle Hamiltonian is expressed as 
-\begin{multline}
+The exact many-particle Hamiltonian is consist of five operators which can be expressed as 
+\begin{equation}
+    \hat{\mathcal{H}} = \hat{\mathcal{T}_n} + \hat{\mathcal{T}_e} + \hat{\mathcal{U}}_{en} + \hat{\mathcal{U}}_{ee}  + \hat{\mathcal{U}}_{nn} 
+\end{equation}
+where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{U}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as 
+\begin{multline} \label{eq:many_se}
     \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{R_i}}}{M_i} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
     - \frac{1}{4 \pi \epsilon_0} \sum_{i,j} \frac{e^2 Z_i}{\abs{\va*{R_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2 Z_i Z_j}{\abs{\va*{R_i} - \va*{R_j}}} 
 \end{multline}
+where $M_i$ is the mass of the $i$th nuclei (or usually ions) with charge $Z_i$ located at site $\va*{R_i}$, and electrons have mass $m_e$  located at site $\va*{r}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
+describe the Coulomb interaction between electrons and nuclei, between electrons and other electrons, and between nuclei and other nuclei. 
 
-    \subsection{Simplifying Assumptions}
+\subsection{Simplifying Assumptions}
+    Solving \eqref{eq:many_se} exactly is very impractical and not worth the effort. Hence, we resort to approximations in order to find acceptable eigenstates. 
     \subsection{Use of Atomic Units}
     \subsection{Hamiltonian Operator}
 \subsection{Indistinguishability of electrons}
