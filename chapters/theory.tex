@@ -115,25 +115,50 @@ Despite the simplicity of Schr\"{o}dinger equation in \eqref{eq:schrodinger}, so
    \subsection{Time Independent Schr{\"o}dinger Equation}
 The exact many-particle Hamiltonian is consist of five operators which can be expressed as 
 \begin{equation}
-    \hat{\mathcal{H}} = \hat{\mathcal{T}_n} + \hat{\mathcal{T}_e} + \hat{\mathcal{U}}_{en} + \hat{\mathcal{U}}_{ee}  + \hat{\mathcal{U}}_{nn} 
+    \hat{\mathcal{H}} = \hat{\mathcal{T}_n} + \hat{\mathcal{T}_e} + \hat{\mathcal{V}}_{en} + \hat{\mathcal{V}}_{ee}  + \hat{\mathcal{V}}_{nn} 
 \end{equation}
-where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{U}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as 
+where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{V}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as 
 \begin{multline} \label{eq:many_se}
-    \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{R_i}}}{M_i} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
-    - \frac{1}{4 \pi \epsilon_0} \sum_{i,j} \frac{e^2 Z_i}{\abs{\va*{R_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2 Z_i Z_j}{\abs{\va*{R_i} - \va*{R_j}}} 
+    \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_I \frac{\laplacian_{\va*{R_I}}}{M_I} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
+    - \frac{1}{4 \pi \epsilon_0} \sum_{I,j} \frac{e^2 Z_I}{\abs{\va*{R_I} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R_I} - \va*{R_J}}} 
 \end{multline}
-where $M_i$ is the mass of the $i$th nuclei (or usually ions) with charge $Z_i$ located at site $\va*{R_i}$, and electrons have mass $m_e$  located at site $\va*{r}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
+where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R_I}$, and electrons have mass $m_e$  located at site $\va*{r}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
 describe the Coulomb interaction between electrons and nuclei, between electrons and other electrons, and between nuclei and other nuclei. 
 
 \subsection{Simplifying Assumptions}
     Solving \eqref{eq:many_se} exactly is very impractical and not worth the effort. Hence, we resort to approximations in order to find acceptable eigenstates. 
-    \subsection{Use of Atomic Units}
-    \subsection{Hamiltonian Operator}
-\subsection{Indistinguishability of electrons}
-\section{Early First Principle Calculations}
-    \subsection{n-electron problem}
+
+    The first level of approximation is the Born-Oppenheimer approximation or the Adiabatic approximation. It begins with the observation that the mass of nuclei is much larger compared to the electron, as such one can assume that electrons moving in a potential much faster than the nuclei and that the nuclei can be treated as fixed or 'frozen' with respect to motion. As a consequence, the nuclear kinetic energy will be zero and the nuclear interaction with the electron cloud  can be treated as an external parameter. Hence, the first  term in \eqref{eq:many_se} will vanish and the last term reduces to a constant which can be neglected. The third term will become the external potential. The Hamiltonian reduces to 
+    \begin{equation}
+        \hat{\mathcal{H}}  = \hat{\mathcal{T}} + \hat{\mathcal{V}} + \hat{\mathcal{V}}_{ext}
+    \end{equation}
+    and using Hartree atomic units $\hbar = m_e = e = 4 \pi / \epsilon_0 =1$ for simplicity 
+
+    \begin{equation} \label{eq:se_simple}
+        \hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r_i}} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r_i} - \va*{r_j}}} + \sum_{i,I} V_I(\abs{\va*{R_I} - \va*{r_j}})
+    \end{equation}
     \subsection{Hartree Method}
-    \subsection{Hartree-Fock Method}
+    Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The total energy will be sum of $N$ numbers of one-electron energies
+    \begin{equation}
+        E = E_1 + E_2 + \cdots + E_N
+    \end{equation}
+    then, the $N$-electron wavefunction can be approximated as a product of one-electron wavefunctions
+
+    \begin{equation}
+        \Psi = \Psi_1 \times \Psi_2 \times \cdots \times \Psi_N
+    \end{equation}
+
+    Hartree model successfully predicts the ground-state energy of Hydrogen atom to be around -13.6 eV. However, for other systems, Hartree model produced crude estimations because it does not take into account the quantum mechanical effects such as antisymmetry principle and the Pauli's exclusion principle. Moreover, the model does not include the exchange and correlation energies of every interacting electrons in the actual systems. 
+
+\subsection{Hartree-Fock Method}
+Due to the limitations of Hartree Model, Fock (1930) has taken into account the antisymmetric property of electron wavefunctions \citep{Fock1930}. Pauli's exclusion principle posits that no two fermions can occupy the same quantum state because the wavefunction is antisymmetric upon particle exchange \citep{Pauli1925}. The many-electron wavefunction will be expressed in terms of Slater determinant \citep{Slater1929}
+\begin{equation}
+   \mathbf{\Psi} = \frac{1}{\sqrt{N!}} \mdet{\Psi_1({\va*{r_1}}) & \Psi_2({\va*{r_1}}) & \cdots & \Psi_N({\va*{r_1}})  \\
+   \Psi_1({\va*{r_2}}) & \Psi_2({\va*{r_2}}) & \cdots & \Psi_N({\va*{r_2}})\\
+   \vdots & \vdots & \vdots & \vdots \\
+   \Psi_1({\va*{r_N}}) & \Psi_2({\va*{r_N}}) & \cdots & \Psi_N({\va*{r_N}})
+   }
+\end{equation}
 \section{Density Functional Theory}
     \subsection{Electron Density}
     \subsection{Hohenberg-Kohn (HK) Formalism}
@@ -153,3 +178,9 @@ describe the Coulomb interaction between electrons and nuclei, between electrons
     \subsection{Hubbard U Correction}
 
     {\color{red} insert the symmetry points in IBZ.}
+
+
+% \subsection{Hamiltonian Operator}
+% \subsection{Indistinguishability of electrons}
+% \section{Early First Principle Calculations}
+%    \subsection{n-electron problem}

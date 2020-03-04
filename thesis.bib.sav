@@ -47,4 +47,52 @@
   publisher = {Elsevier {BV}},
 }
 
+@Article{Hartree1928,
+  author    = {D. R. Hartree},
+  title     = {The Wave Mechanics of an Atom with a Non-Coulomb Central Field. Part I. Theory and Methods},
+  journal   = {Mathematical Proceedings of the Cambridge Philosophical Society},
+  year      = {1928},
+  volume    = {24},
+  number    = {1},
+  pages     = {89--110},
+  month     = {jan},
+  doi       = {10.1017/s0305004100011919},
+  publisher = {Cambridge University Press ({CUP})},
+}
+
+@Article{Fock1930,
+  author    = {V. Fock},
+  title     = {N{\"a}herungsmethode zur L{\"o}sung des quantenmechanischen Mehrk{\"o}rperproblems},
+  journal   = {Zeitschrift f{\"u}r Physik},
+  year      = {1930},
+  volume    = {61},
+  number    = {1-2},
+  pages     = {126--148},
+  month     = {jan},
+  doi       = {10.1007/bf01340294},
+  publisher = {Springer Science and Business Media {LLC}},
+}
+
+@Article{Pauli1925,
+  author    = {Pauli, Wolfgang},
+  title     = {{\"U}ber den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren},
+  journal   = {Zeitschrift f{\"u}r Physik},
+  year      = {1925},
+  volume    = {31},
+  number    = {1},
+  pages     = {765--783},
+  publisher = {Springer},
+}
+
+@Article{Slater1929,
+  author    = {Slater, John C},
+  title     = {The theory of complex spectra},
+  journal   = {Physical Review},
+  year      = {1929},
+  volume    = {34},
+  number    = {10},
+  pages     = {1293},
+  publisher = {APS},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
