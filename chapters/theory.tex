@@ -1,6 +1,6 @@
 \chapter{THEORETICAL FRAMEWORK}
 \section{Electronic Structure}
-The problem of electronic structure methods begins with the attempt to solve the general non-relativistic time-independent Schr\"{o}dinger equation given as 
+The problem of electronic structure methods begins with the attempt to solve the general non-relativistic time-independent Schr\"{o}dinger equation given as \citep{Schroedinger1926}
     \begin{equation} \label{eq:schrodinger}
         \hat{\mathcal{H}} \Psi = E \Psi
     \end{equation}
@@ -109,10 +109,10 @@ The band gap is generally referred to the energy difference between the top of v
     \end{align}
     where $D_i(\epsilon)$ is the projected density of states (PDOS) of orbital $i$ with state $\alpha$. 
      
-\section{Many-body Quantum Mechanics}
+\section{Many-body Physics}
 Despite the simplicity of Schr\"{o}dinger equation in \eqref{eq:schrodinger}, solving it is a formidable task when dealing with many-electron systems. Analytical solutions to this equation only exist for the very simplest systems (i.e. hydrogenic atoms). Solving beyond '2 particle' system (electron and nucleus) is already intractable. In addition, solid state systems typically contains more than hundreds of particles, resulting in hundreds of simultaneous equations. Even the use of computational methods relies on a number of approximations just to make computations feasible enough. Hence, this section will discuss various levels of approximations without neglecting the parameter-free of first-principles calculations. 
 
-   \subsection{Time Independent Schr{\"o}dinger Equation}
+   \subsection{Many-particle Hamiltonian Operator}
 The exact many-particle Hamiltonian is consist of five operators which can be expressed as 
 \begin{equation}
     \hat{\mathcal{H}} = \hat{\mathcal{T}_n} + \hat{\mathcal{T}_e} + \hat{\mathcal{V}}_{en} + \hat{\mathcal{V}}_{ee}  + \hat{\mathcal{V}}_{nn} 
@@ -120,25 +120,29 @@ The exact many-particle Hamiltonian is consist of five operators which can be ex
 where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{V}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as 
 \begin{multline} \label{eq:many_se}
     \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_I \frac{\laplacian_{\va*{R_I}}}{M_I} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
-    - \frac{1}{4 \pi \epsilon_0} \sum_{I,j} \frac{e^2 Z_I}{\abs{\va*{R_I} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R_I} - \va*{R_J}}} 
+    - \frac{1}{4 \pi \epsilon_0} \sum_{I,i} \frac{e^2 Z_I}{\abs{\va*{R_I} - \va*{r_i}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R_I} - \va*{R_J}}} 
 \end{multline}
-where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R_I}$, and electrons have mass $m_e$  located at site $\va*{r}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
+where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R_I}$, and electrons have mass $m_e$  located at site $\va*{r_i}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
 describe the Coulomb interaction between electrons and nuclei, between electrons and other electrons, and between nuclei and other nuclei. 
 
 \subsection{Simplifying Assumptions}
     Solving \eqref{eq:many_se} exactly is very impractical and not worth the effort. Hence, we resort to approximations in order to find acceptable eigenstates. 
 
-    The first level of approximation is the Born-Oppenheimer approximation or the Adiabatic approximation. It begins with the observation that the mass of nuclei is much larger compared to the electron, as such one can assume that electrons moving in a potential much faster than the nuclei and that the nuclei can be treated as fixed or 'frozen' with respect to motion. As a consequence, the nuclear kinetic energy will be zero and the nuclear interaction with the electron cloud  can be treated as an external parameter. Hence, the first  term in \eqref{eq:many_se} will vanish and the last term reduces to a constant which can be neglected. The third term will become the external potential. The Hamiltonian reduces to 
+    The first level of approximation is the Born-Oppenheimer approximation or the Adiabatic approximation \citep{Born1927}. It begins with the observation that the mass of nuclei is much larger compared to the electron, as such one can assume that electrons moving in a potential much faster than the nuclei and that the nuclei can be treated as fixed or 'frozen' with respect to motion. As a consequence, the nuclear kinetic energy will be zero and the nuclear interaction with the electron cloud  can be treated as an external parameter. Hence, the first  term in \eqref{eq:many_se} will vanish and the last term reduces to a constant which can be neglected. The third term will become the external potential. The Hamiltonian reduces to 
     \begin{equation}
         \hat{\mathcal{H}}  = \hat{\mathcal{T}} + \hat{\mathcal{V}} + \hat{\mathcal{V}}_{ext}
     \end{equation}
     and using Hartree atomic units $\hbar = m_e = e = 4 \pi / \epsilon_0 =1$ for simplicity 
 
     \begin{equation} \label{eq:se_simple}
-        \hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r_i}} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r_i} - \va*{r_j}}} + \sum_{i,I} V_I(\abs{\va*{R_I} - \va*{r_j}})
+        \hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r_i}} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r_i} - \va*{r_j}}} + \sum_{i} V_{I}(\abs{\va*{R_I} - \va*{r_j}})
     \end{equation}
     \subsection{Hartree Method}
-    Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The total energy will be sum of $N$ numbers of one-electron energies
+    Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The second term will be replaced by Hartree energy given as 
+    \begin{equation}
+        \hat{\mathcal{V}}_H = \frac{1}{2} \iint \frac{\rho(\va*{r}) \rho(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}}} \dd[3]{r} \dd[3]{r'}
+    \end{equation}
+    where $\rho(\va*{r})$ is the electron density. The total energy will be sum of $N$ numbers of one-electron energies
     \begin{equation}
         E = E_1 + E_2 + \cdots + E_N
     \end{equation}
@@ -159,12 +163,41 @@ Due to the limitations of Hartree Model, Fock (1930) has taken into account the 
    \Psi_1({\va*{r_N}}) & \Psi_2({\va*{r_N}}) & \cdots & \Psi_N({\va*{r_N}})
    }
 \end{equation}
-\section{Density Functional Theory}
-    \subsection{Electron Density}
-    \subsection{Hohenberg-Kohn (HK) Formalism}
+Using the Slater determinant form of the wavefunction, the Hamiltonian can be written as before with the addition of exchange term
+
+\begin{equation}
+    \hat{\mathcal{H}}  = \hat{\mathcal{T}}  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x
+\end{equation}
+where 
+\begin{equation}
+    \hat{\mathcal{V}}_x = - \sum_j \int \frac{\psi_j^*(\va*{r}') \psi(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}} } \frac{\psi_j(\va*{r})}{\psi(\va*{r})} \dd{\va*{r}}
+\end{equation}
+$\hat{\mathcal{V}}_H$ comes from the Hartree approximation of electron-elecron interaction and $\hat{\mathcal{V}}_x$ comes from the antisymmetric
+nature of wave function. 
+
+\section{Density Functional Theory (DFT)}
+Density Functional Theory reframes the problem of calculating electronic properties in terms of the ground state electron density instead of the traditional electronic wavefunctions \citep{Kohn1999}. The incredible success of DFT in predicting ground state properties have led to widespread applications in materials modelling research. 
+
+ %   \subsection{Electron Density}
+    
+ \subsection{Hohenberg-Kohn (HK) Formalism}
+ The modern formulations of DFT started in the seminal work of Hohenberg and Kohn in 1964 \citep{Hohenberg1964}. Hohenberg and Kohn have shown that the ground state properties can be written as unique functional of the ground state electron density. This statement has large implication because the problem of solving 3$n$-dimensional equation simultaneously can be replaced by $n$ separate three-dimensional equations with the use of electron density, $\rho(x,y,z)$. 
     \subsubsection{First HK Theorem}
-        \subsubsection{Second HK Theorem}
-    \subsection{Kohn Sham (KS) Formalism}
+    The first theorem shows that electron density is a unique functional of the external potential. It states that there is a one-to-one correspondence between the ground state density $\rho_0(r)$ of a many-electron system and the external potential $V_{ext}$, to within an additive constant. Alternatively, it is impossible to have two external potentials acting on an electron, $V_{ext}(r)$ and $V_{ext}'(r)$, whose difference is not a constant, that give rise to the same ground    state electron density, $\rho_0(r)$. That is,  
+\begin{equation}
+    \rho(r) = \rho'(r) \quad \quad \Longleftrightarrow \quad \quad V_{ext}'(r) - V_{ext}(r) = c
+\end{equation}
+If the external potential is known beforehand, then the ground state electron density can be obtained and vice versa. As the ground state electron density uniquely determines the Hamiltonian of the system, it follows that all measurable properties of the system can be expressed as a functional of the electron density. 
+    \subsubsection{Second HK Theorem}
+    The second theorem proves the existence of the energy as a functional of the electron density. It states that there exists a universal functional for the energy $E[\rho]$ such that for any given $V_{ext}(r)$, the exact ground-state energy is the global minimum of this functional, and the ground-state density $\rho_0(r)$ is the density $\rho(r)$ that minimizes the functional. Note that the total energy in HK formulation gives an exact form and not approximate ones. The form of the energy functional  can be expressed as 
+    \begin{align}
+        E_{HK} [\rho(r)] &= \bra{\psi} \hat{\mathcal{T}} + \hat{\mathcal{V}} + \hat{\mathcal{V}}_{ext} \ket{\psi}  \\
+        &= \bra{\psi} \hat{\mathcal{T}} + \hat{\mathcal{V}} \ket{\psi}  + \bra{\psi} \hat{\mathcal{V}}_{ext} \ket{\psi} \\
+         &= F[\rho(r)] + \int V_{ext}(r) \rho(r) \dd[3]{r}
+    \end{align}
+    where $F[\rho(r)]$ is the unknown functional that includes all internal energies, kinetic, and potential, that are independent of the external potential. The HK thoerems aserts only the existence of energy functional but it does not provide a practical solution on solving the energy functional.  
+
+    \subsection{Kohn Sham (KS) Formulation}
         \subsubsection{KS Equation}
         \subsubsection{Energy Terms}
     \subsection{Self Consistent Field Calculation}
