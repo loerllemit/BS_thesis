@@ -41,6 +41,7 @@ where $u_k(\va{r})$ has the period of the crystal lattice with $u_k(\va{r}) = u_
     \Psi_k(\va{r} + \va{R}) &= u_k(\va{r}) \exp(i \va{k} \vdot \va{r})  \exp(i \va{k} \vdot \va{R}) \notag \\
     \Psi_k(\va{r} + \va{R}) &= \Psi_k(\va{r}) \exp(i \va{k} \vdot \va{R}) 
 \end{align}
+
 Notice that the wavefunction differs from the plane wave of free electrons only by a periodic modulation given by the new phase factor. This means that the electrons in the crystal lattice are treated as perturbed weakly by the periodic potential of the ion cores.
 
 % in which the components of $\va{k}$ satisfy
@@ -165,8 +166,8 @@ Due to the limitations of Hartree Model, Fock (1930) has taken into account the 
 \end{equation}
 Using the Slater determinant form of the wavefunction, the Hamiltonian can be written as before with the addition of exchange term
 
-\begin{equation}
-    \hat{\mathcal{H}}  = \hat{\mathcal{T}}  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x
+\begin{equation} \label{eq:HF_H}
+    \hat{\mathcal{H}}_{HF}  = \hat{\mathcal{T}}  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x
 \end{equation}
 where 
 \begin{equation}
@@ -195,9 +196,28 @@ If the external potential is known beforehand, then the ground state electron de
         &= \bra{\psi} \hat{\mathcal{T}} + \hat{\mathcal{V}} \ket{\psi}  + \bra{\psi} \hat{\mathcal{V}}_{ext} \ket{\psi} \\
          &= F[\rho(r)] + \int V_{ext}(r) \rho(r) \dd[3]{r}
     \end{align}
-    where $F[\rho(r)]$ is the unknown functional that includes all internal energies, kinetic, and potential, that are independent of the external potential. The HK thoerems aserts only the existence of energy functional but it does not provide a practical solution on solving the energy functional.  
+    where $F[\rho(r)]$ is the unknown functional that includes all internal energies, kinetic, and potential, that are independent of the external potential. The HK theorems only asserts  the existence of energy functional but it does not provide a practical solution on solving the energy functional.  
 
     \subsection{Kohn Sham (KS) Formulation}
+    Kohn and Sham (1965) introduced an artificial system of non-interacting electrons with the same ground state electron density as the many-body Schr\"{o}dinger equation \citep{Kohn1965}. The Kohn-Sham Hamiltonian is just an extension of Hartree-Fock Hamiltonian described in \eqref{eq:HF_H}. However, it was implicitly assumed that $\hat{\mathcal{T}}$ is the  kinetic energy operator of non-interacting electrons. This assumption neglects the correlation of the interacting system, hence a correction factor must be added. The kinetic energy of the real system can be rewritten as 
+    \begin{equation}
+        \hat{\mathcal{T}} = \hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c
+    \end{equation}
+    where $\hat{\mathcal{T}}_{KS}$ is kinetic energy of the non-interacting electron, and $\hat{\mathcal{V}}_c$ is the correlation energy that measures how much movement of one electron is influenced by the presence of other electrons. The total KS Hamiltonian has the form 
+    \begin{align} \label{eq:HF_H}
+        \hat{\mathcal{H}}_{KS}  &= (\hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c)  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x \notag \\
+        &= \hat{\mathcal{T}}_{KS} + \hat{\mathcal{V}}_{ext} +{\mathcal{V}}_H + \hat{\mathcal{V}}_{xc}
+    \end{align}
+    where $\hat{\mathcal{V}}_{xc} = \hat{\mathcal{V}}_{x} + \hat{\mathcal{V}}_{c}$ is the combined exchange-correlation energy.  It is instructive to see that the difference between Hartree Hamiltonian from Hartree-Fock Hamiltonian gives the exchange term while the difference between Hartree-Fock Hamiltonian and Kohn-Sham Hamiltonian gives the correlation term \citep{Cottenier2002}. The theorem of Kohn and Sham can be formally formulated as follows:
+
+    The exact ground state density $\rho({\va*{r}})$ of an $N$-electron system is 
+\begin{equation}
+    \rho({\va*{r}}) = \sum_{i=1}^N \phi_i(\va*{r})^* \phi_i(\va*{r}) \phi_i(\va*{r}) 
+\end{equation}
+where the single-particle wavefunctions $\phi_i(\va*{r})$ are the $N$ lowest energy solutions of the Kohn-Sham equation
+\begin{equation}
+    \hat{\mathcal{H}}_{KS}\, \phi_i(\va*{r}) = \epsilon_i\, \phi_i(\va*{r})
+\end{equation}
         \subsubsection{KS Equation}
         \subsubsection{Energy Terms}
     \subsection{Self Consistent Field Calculation}

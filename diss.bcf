@@ -2197,18 +2197,8 @@
     <bcf:citekey order="11">Slater1929</bcf:citekey>
     <bcf:citekey order="12">Kohn1999</bcf:citekey>
     <bcf:citekey order="13">Hohenberg1964</bcf:citekey>
-    <bcf:citekey order="14">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="15">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="16">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="17">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="18">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="19">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="20">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="21">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="22">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="23">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="24">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="25">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="14">Kohn1965</bcf:citekey>
+    <bcf:citekey order="15">Cottenier2002</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

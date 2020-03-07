@@ -172,10 +172,6 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -269,27 +265,8 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.tex
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecti1200.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\eccc1200.tfm
-OUTPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.tex
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
-INPUT c:\Users\loerl\Documents\Codes\thesis\costperMb2015_4.jpg
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\introduction.aux
@@ -301,10 +278,6 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\ch4.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
-INPUT c:\Users\loerl\Documents\Codes\thesis\app.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml

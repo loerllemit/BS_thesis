@@ -128,7 +128,7 @@
   publisher = {APS},
 }
 
-@Article{kohn1999nobel,
+@Article{Kohn1999,
   author    = {Kohn, Walter},
   title     = {Nobel Lecture: Electronic structure of matter—wave functions and density functionals},
   journal   = {Reviews of Modern Physics},
@@ -136,6 +136,17 @@
   volume    = {71},
   number    = {5},
   pages     = {1253},
+  publisher = {APS},
+}
+
+@Article{Kohn1965,
+  author    = {Kohn, Walter and Sham, Lu Jeu},
+  title     = {Self-consistent equations including exchange and correlation effects},
+  journal   = {Physical review},
+  year      = {1965},
+  volume    = {140},
+  number    = {4A},
+  pages     = {A1133},
   publisher = {APS},
 }
 
