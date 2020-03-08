@@ -172,6 +172,8 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.aux
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -265,6 +267,25 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.tex
 OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.tex
+OUTPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.tex
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\bands_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\bands_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\bands_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\bands_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\pdos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\pdos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\pdos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\pdos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\band-dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\band-dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\band-dos_O-antisite.pdf
+INPUT c:\Users\loerl\Documents\Codes\thesis\images\band-dos_O-antisite.pdf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ecti1200.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\eccc1200.tfm
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.aux
@@ -278,6 +299,8 @@ INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\computational.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\implementation.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.aux
+INPUT c:\Users\loerl\Documents\Codes\thesis\chapters\rnd.aux
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.out
 INPUT c:\Users\loerl\Documents\Codes\thesis\diss.run.xml
