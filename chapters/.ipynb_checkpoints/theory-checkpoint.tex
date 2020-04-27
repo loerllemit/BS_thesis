@@ -184,7 +184,7 @@ Density Functional Theory reframes the problem of calculating electronic propert
  \subsection{Hohenberg-Kohn (HK) Formalism}
  The modern formulations of DFT started in the seminal work of Hohenberg and Kohn in 1964 \citep{Hohenberg1964}. Hohenberg and Kohn have shown that the ground state properties can be written as unique functional of the ground state electron density. This statement has large implication because the problem of solving 3$n$-dimensional equation simultaneously can be replaced by $n$ separate three-dimensional equations with the use of electron density, $\rho(x,y,z)$. 
     \subsubsection{First HK Theorem}
-    The first theorem shows that electron density is a unique functional of the external potential. It states that there is a one-to-one correspondence between the ground state density $\rho_0(r)$ of a many-electron system and the external potential $V_{ext}$, to within an additive constant. Alternatively, it is impossible to have two external potentials, $V_{ext}(r)$ and $V_{ext}'(r)$, acting on an electron whose difference is not a constant, that give rise to the same ground    state electron density, $\rho_0(r)$. That is,  
+    The first theorem shows that electron density is a unique functional of the external potential. It states that there is a one-to-one correspondence between the ground state density $\rho_0(r)$ of a many-electron system and the external potential $V_{ext}$, to within an additive constant. Alternatively, it is impossible to have two external potentials acting on an electron, $V_{ext}(r)$ and $V_{ext}'(r)$, whose difference is not a constant, that give rise to the same ground    state electron density, $\rho_0(r)$. That is,  
 \begin{equation}
     \rho(r) = \rho'(r) \quad \quad \Longleftrightarrow \quad \quad V_{ext}'(r) - V_{ext}(r) = c
 \end{equation}
@@ -199,7 +199,7 @@ If the external potential is known beforehand, then the ground state electron de
     where $F[\rho(r)]$ is the unknown functional that includes all internal energies, kinetic, and potential, that are independent of the external potential. The HK theorems only asserts  the existence of energy functional but it does not provide a practical solution on solving the energy functional.  
 
     \subsection{Kohn Sham (KS) Formulation}
-    Kohn and Sham (1965) introduced an artificial system of non-interacting electrons with the same ground state electron density as the many-body Schr\"{o}dinger equation \citep{Kohn1965}. Instead of using the fully interacting multi-electron wavefunctions, the KS formulation resorts to single-particle wavefunctions for solving the many-body problem. The Kohn-Sham Hamiltonian is just an extension of Hartree-Fock Hamiltonian described in \eqref{eq:HF_H}. However, it was implicitly assumed that $\hat{\mathcal{T}}$ is the  kinetic energy operator of non-interacting electrons. This assumption neglects the correlation of the interacting system, hence a correction factor must be added. The kinetic energy of the real interacting system can be rewritten as 
+    Kohn and Sham (1965) introduced an artificial system of non-interacting electrons with the same ground state electron density as the many-body Schr\"{o}dinger equation \citep{Kohn1965}. The Kohn-Sham Hamiltonian is just an extension of Hartree-Fock Hamiltonian described in \eqref{eq:HF_H}. However, it was implicitly assumed that $\hat{\mathcal{T}}$ is the  kinetic energy operator of non-interacting electrons. This assumption neglects the correlation of the interacting system, hence a correction factor must be added. The kinetic energy of the real system can be rewritten as 
     \begin{equation}
         \hat{\mathcal{T}} = \hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c
     \end{equation}
@@ -211,34 +211,17 @@ If the external potential is known beforehand, then the ground state electron de
     where $\hat{\mathcal{V}}_{xc} = \hat{\mathcal{V}}_{x} + \hat{\mathcal{V}}_{c}$ is the combined exchange-correlation energy.  It is instructive to see that the difference between Hartree Hamiltonian from Hartree-Fock Hamiltonian gives the exchange term while the difference between Hartree-Fock Hamiltonian and Kohn-Sham Hamiltonian gives the correlation term \citep{Cottenier2002}. The theorem of Kohn and Sham can be formally formulated as follows:
 
     The exact ground state density $\rho({\va*{r}})$ of an $N$-electron system is 
-\begin{equation} \label{eq:charge_dens}
-\rho({\va*{r}}) = \sum_{i=1}^N \phi_i(\va*{r})^* \phi_i(\va*{r}) 
+\begin{equation}
+\rho({\va*{r}}) = \sum_{i=1}^N \phi_i(\va*{r})^* \phi_i(\va*{r}) \phi_i(\va*{r}) 
 \end{equation}
-where the single-particle KS orbitals $\phi_i(\va*{r})$ are the $N$ lowest energy solutions of the Kohn-Sham equation
-\begin{equation}\label{eq:KS}
+where the single-particle wavefunctions $\phi_i(\va*{r})$ are the $N$ lowest energy solutions of the Kohn-Sham equation
+\begin{equation}
     \hat{\mathcal{H}}_{KS}\, \phi_i(\va*{r}) = \epsilon_i\, \phi_i(\va*{r})
 \end{equation}
-\subsection{Self Consistent Field Calculation}
-In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{H}}_{KS}$ must be known beforehand. However, the Hamiltonian depends entirely  on the charge density $\rho({\va*{r}})$ that can only be  solved from single-particle KS orbital $\phi_i(\va*{r})$ given in \eqref{eq:charge_dens} which in turn calculated from the KS equation and cycle continues on. This infinite loop is visualized in Figure \ref{fig:KS_loop}
-
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=0.3\linewidth]{"images/KS_loop"}
-	\caption[Kohn Sham loop]{Solving Kohn Sham equation leads to a circular argument}
-	\label{fig:KS_loop}
-\end{figure}
-
-To circumvent this, an iterative scheme was developed  in which a trial charge density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation. Spefic steps are illustrated in Figure \ref{fig:scf_loop}. First, initial charge density 
-
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=0.7\linewidth]{"images/scf_loop"}
-	\caption[Kohn Sham loop]{Self Consistent Field}
-	\label{fig:scf_loop}
-\end{figure}
- %       \subsubsection{Energy Terms}
+        \subsubsection{KS Equation}
+        \subsubsection{Energy Terms}
+    \subsection{Self Consistent Field Calculation}
 \section{Exchange-correlation Functional}
-blah
     \subsection{Local Density Approximation (LDA)}
     \subsection{Generalized Gradient Approximation (GGA)}
 
