@@ -2199,6 +2199,15 @@
     <bcf:citekey order="13">Hohenberg1964</bcf:citekey>
     <bcf:citekey order="14">Kohn1965</bcf:citekey>
     <bcf:citekey order="15">Cottenier2002</bcf:citekey>
+    <bcf:citekey order="16">Woods2019</bcf:citekey>
+    <bcf:citekey order="17">Verma2020</bcf:citekey>
+    <bcf:citekey order="17">Marques2012</bcf:citekey>
+    <bcf:citekey order="17">Segala2009</bcf:citekey>
+    <bcf:citekey order="18">Kohn1965</bcf:citekey>
+    <bcf:citekey order="19">Dirac1930</bcf:citekey>
+    <bcf:citekey order="20">Ceperley1980</bcf:citekey>
+    <bcf:citekey order="21">Foulkes2001</bcf:citekey>
+    <bcf:citekey order="22">Perdew1981</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

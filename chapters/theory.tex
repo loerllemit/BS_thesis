@@ -219,7 +219,7 @@ where the single-particle KS orbitals $\phi_i(\va*{r})$ are the $N$ lowest energ
     \hat{\mathcal{H}}_{KS}\, \phi_i(\va*{r}) = \epsilon_i\, \phi_i(\va*{r})
 \end{equation}
 \subsection{Self Consistent Field Calculation}
-In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{H}}_{KS}$ must be known beforehand. However, the Hamiltonian depends entirely  on the charge density $\rho({\va*{r}})$ that can only be  solved from single-particle KS orbital $\phi_i(\va*{r})$ given in \eqref{eq:charge_dens} which in turn calculated from the KS equation and cycle continues on. This infinite loop is visualized in Figure \ref{fig:KS_loop}
+In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{H}}_{KS}$ must be known beforehand. However, the Hamiltonian depends entirely  on the electron density $\rho({\va*{r}})$ that can only be  solved from single-particle KS orbital $\phi_i(\va*{r})$ given in \eqref{eq:charge_dens}. The orbital $\phi_i(\va*{r})$ are in turn calculated from the KS equation and the cycle continues on. This infinite loop is visualized in Figure \ref{fig:KS_loop}
 
 \begin{figure}[tbh!]
 	\centering
@@ -228,23 +228,41 @@ In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{
 	\label{fig:KS_loop}
 \end{figure}
 
-To circumvent this, an iterative scheme was developed  in which a trial charge density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation. Spefic steps are illustrated in Figure \ref{fig:scf_loop}. First, initial charge density 
+To circumvent this, an iterative scheme was developed  in which a trial electron density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation \citep{Woods2019}. Spefic steps are illustrated in Figure \ref{fig:scf_loop}. First, an initial trial electron density is provided. The trial electron density is usually derived from the superposition of known atomic potentials. Second,    the KS equation is solved using the trial electron density. The resulting eigenfunction, in this case the orbital $\phi_i(\va*{r})$, will then be used to calculate the new electron density. The new electron density is compared to the previous electron density and if the error is less than some acceptable deviation, then this will be the ground state density. Otherwise, the electron density is updated and the iteration is repeated $k$th times until convergence is achieved. Factors that affect the rate of convergence will be discussed on the next chapter. 
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/scf_loop"}
-	\caption[Kohn Sham loop]{Self Consistent Field}
+	\caption[Kohn Sham loop]{Convergence of electron density and other observable quantities using Self Consistent Field calculation}
 	\label{fig:scf_loop}
 \end{figure}
  %       \subsubsection{Energy Terms}
-\section{Exchange-correlation Functional}
-blah
-    \subsection{Local Density Approximation (LDA)}
-    \subsection{Generalized Gradient Approximation (GGA)}
+\section{Exchange-Correlation Functional}
+So far, no analytical form for the exchange-correlation functional has been found yet that perfectly describes any interacting system \citep{Verma2020,Marques2012,Segala2009}. The success of DFT depends on the improvement and refinement of the exchange-correlation functional and how it enables to predict many observable properties. Hence, the search for the universal functional is a hot topic of ongoing research. The choice of XC functional varies from different applications of DFT. Thus, there is no one particular functional in the literature which universally performs better than others across all applications.
 
+    \subsection{Local Density Approximation (LDA)}
+    The simplest commonly used exchange-correlation functional is the so called Local Density Approximation (LDA).  LDA assumes that the electronic contribution to the exchange-correlation energy from each point in space is the same as to what it would be for a homogeneous electron gas with the uniform density throughout the whole system. This approximation was originally introduced by Kohn and Sham, and holds for a slowly varying density \citep{Kohn1965}. Using the approximation, the XC energy functional is given by 
+
+\begin{equation}
+    E^{LDA}_{XC} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{XC}[\rho({\va*{r}}) ] \dd[3]{r}
+\end{equation}
+where $\epsilon_{XC}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{XC}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions 
+
+\begin{equation}
+    \epsilon_{XC}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
+\end{equation}
+The exchange part was expressed analytically by Dirac \citep{Dirac1930}
+\begin{equation}
+    \epsilon_{X}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}}) 
+\end{equation}
+while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrizations of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be useful only for slowly varying densities. However, in real atomic systems, these constraints are rarely satisfied and may lead to break down in rapidly varying density limit. Nevertheless, LDA is fairly accurate in predicting ionization energies, dissociation energies, cohesive energies, and bond lengths. 
+    \subsection{Generalized Gradient Approximation (GGA)}
+    Improvements of LDA by introducing density gradient 
 \section{Corrections to DFT}
+    \subsection{Band Gap Problem}
     \subsection{GW Method}
     \subsection{Hybrid Functionals}
+    \subsection{TB-MbJ Metapotential}
     \subsection{Hubbard U Correction}
  Hello World. Test me if this will work.
     {\color{red} insert the symmetry points in IBZ.}
