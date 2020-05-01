@@ -243,7 +243,7 @@ So far, no analytical form for the exchange-correlation functional has been foun
     \subsection{Local Density Approximation (LDA)}
     The simplest commonly used exchange-correlation functional is the so called Local Density Approximation (LDA).  LDA assumes that the electronic contribution to the exchange-correlation energy from each point in space is the same as to what it would be for a homogeneous electron gas with the uniform density throughout the whole system. This approximation was originally introduced by Kohn and Sham, and holds for a slowly varying density \citep{Kohn1965}. Using the approximation, the XC energy functional is given by 
 
-\begin{equation}
+\begin{equation} \label{eq:LDA-XC}
     E^{LDA}_{XC} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{XC}[\rho({\va*{r}}) ] \dd[3]{r}
 \end{equation}
 where $\epsilon_{XC}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{XC}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions 
@@ -255,16 +255,45 @@ The exchange part was expressed analytically by Dirac \citep{Dirac1930}
 \begin{equation}
     \epsilon_{X}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}}) 
 \end{equation}
-while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrizations of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be useful only for slowly varying densities. However, in real atomic systems, these constraints are rarely satisfied and may lead to break down in rapidly varying density limit. Nevertheless, LDA is fairly accurate in predicting ionization energies, dissociation energies, cohesive energies, and bond lengths. 
+while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrization of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be best for solids with slowly varying densities like  a nearly-free-electron metals and worst for inhomogeneous systems such as atoms where the density must go continuously to zero just outside the atom. The partial success of LDA in inhomogeneous systems is due to systematic error cancellation in which the correlation is underestimated  but the exchange is overestimated resulting to a good value of $E^{LDA}_{XC}$ \citep{Gunnarsson1976,Gunnarsson1977}. However, LDA tends to overestimate cohesive energies and binding energies for metals and insulators \citep{Staroverov2004,Csonka2009,Harl2010}. Errors in LDA are severely exaggerated for weakly bonded systems such as van der Waals and H-bond systems \citep{Lee1993,Hamann1997,Feibelman2008}. Nevertheless, LDA is fairly accurate in predicting elastic properties, such as bulk modulus \citep{Froyen1983,Tan2012}.
+
     \subsection{Generalized Gradient Approximation (GGA)}
-    Improvements of LDA by introducing density gradient 
+    Attempts to improve the shortcomings of LDA has led to the  use of gradient corrections. These so called Generalized Gradient Approximations (GGA) systematically calculate gradient corrections of the form $\abs{\grad \rho({\va*{r}})}$, $\abs{\grad \rho({\va*{r}})}^2$, $\abs{\laplacian\rho({\va*{r}})}$, etc. to the LDA. Such functionals can be generalized as 
+\begin{equation}
+    E^{GGA}_{XC} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
+\end{equation}
+where $f^{GGA}$ is some arbitrary function of electron  density and its gradient. GGA functionals are often term as semi-local because of their $\grad \rho({\va*{r}})$ dependence. Because of the flexibility in choosing $f^{GGA}$, a plethora of functionals have been developed and depending on the system under study, various results can be obtained. A more specific form of the GGA functional can be written as \citep{Csonka2009}
+\begin{equation} \label{eq:GGA-XC}
+    E^{GGA}_{XC} [\rho]= \int \rho({\va*{r}})\, \epsilon_{XC}[\rho({\va*{r}})]\, F_{XC}[s]  \dd[3]{r}
+\end{equation}
+where $\epsilon_{XC}[\rho({\va*{r}})]$ is the exchange-correlation energy per particle of an electron gas in a uniform electron density $\rho({\va*{r}})$ (i.e. similar to LDA). $F_{XC}$ is the enhancement factor that tells how much XC energy is enhanced over its LDA value for a given  $\rho({\va*{r}})$. Note the resemblance of GGA functional in \eqref{eq:GGA-XC} to the LDA functional in \eqref{eq:LDA-XC} which differ only by an enhancement factor. Here $s$ is a dimensionless reduced gradient
+\begin{equation}
+    s = \frac{\abs{\grad \rho({\va*{r}})}}{2 (3\pi^2)^{1/3} \rho({\va*{r}})^{4/3}}
+\end{equation}
+The most popular GGA functionals used in the literature are Perdew-Burke-Ernzerhof (PBE), Becke88 (B88), PW91. Among the functionals, PBE is the  simplest and has  exchange enhancement factor of the form
+\begin{equation}
+    F_{XC}^{PBE}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
+\end{equation}
+where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient is zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{XC}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and it is beyond the scope of this thesis.  
+
+GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition,  
+
 \section{Corrections to DFT}
     \subsection{Band Gap Problem}
     \subsection{GW Method}
     \subsection{Hybrid Functionals}
     \subsection{TB-MbJ Metapotential}
     \subsection{Hubbard U Correction}
- Hello World. Test me if this will work.
+ Hello World. Test me if this will work. testing latexmk right. i am  having error. test 1 test 2 test 3    test 4 test 5 test 6. I am tired of not syncing automatically. test 8 test 10 
+test 12
+test 13
+test 14
+
+test 15
+test 16
+
+test 17
+test 18
     {\color{red} insert the symmetry points in IBZ.}
 
 
