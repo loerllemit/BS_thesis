@@ -1,0 +1,303 @@
+\chapter{THEORETICAL FRAMEWORK}
+\section{Electronic Structure}
+The problem of electronic structure methods begins with the attempt to solve the general non-relativistic time-independent Schr\"{o}dinger equation given as \citep{Schroedinger1926}
+    \begin{equation} \label{eq:schrodinger}
+        \hat{\mathcal{H}} \Psi = E \Psi
+    \end{equation}
+where $\hat{\mathcal{H}}$ is the Hamiltonian operator for a system of electrons, $\Psi$ is the electronic wavefunction and $E$ is the energy of the system. Consider a single electron in three dimensional system, the Schr\"{o}dinger equation can be expressed as 
+    \begin{equation} \label{eq:1e_wave}
+        \hat{\mathcal{H}} \Psi_n = - \frac{\hbar^2}{2m} \left(\pdv[2]{x} + \pdv[2]{y} + \pdv[2]{z} \right) \Psi_n + V \Psi_n  = \epsilon_n \Psi_n
+    \end{equation}
+where $m$ is the mass of electron, $V$ is the effective potential energy and $\epsilon_n$ is the energy of electron in the orbital. The term orbital denotes the solution of the Schr\"{o}dinger equation for a system of only one electron. This will be useful in later sections because this will allow to distinguish between the exact quantum state of a system of $N$ interacting  electrons 
+from the approximate quantum state of $N$ electrons in $N$ orbitals, where each orbital is a solution to one-electron wavefunction in \eqref{eq:1e_wave}. If $V$ is zero for the case of free electrons (i.e. non-interacting), then the orbital model is exact. 
+ 
+Since electrons are restricted by the potential inside the atom, the simplest way of solving \eqref{eq:1e_wave} is by considering an infinite potential well. The electrons are confined inside a cube of length $L$ where the potential $V$ inside is zero and infinite at outside must satisfy the boundary condition
+
+\begin{equation}
+	\Psi_n(L_x,L_y,L_z) = 0	
+\end{equation}
+where $L_x,L_y,L_z$ can be either 0 or $L$. The solution will have a sine dependence
+
+\begin{equation}
+	\Psi_n(x,y,z) = \sqrt{\left(\frac{2}{L}\right)^3} \ \sin(\frac{n_x \pi }{L} x) \sin(\frac{n_y \pi}{L} y) \sin(\frac{n_z \pi}{L} z)
+\end{equation}
+where $n_x,n_y,n_z$ are integer quantum states. Provided that $ k_i = n_i \pi / L$ where $i=x,y, \text{or}\, z$; then the energy dispersion relation can be expressed as 
+\begin{equation} \label{eq:free_e}
+    \epsilon_k = \frac{\hbar^2}{2m} (k_x^2 + k_y^2 + k_z^2) = \frac{\hbar^2}{2m} k^2 \propto k^2
+\end{equation}
+Note that energy levels are discretized by the quantum states which arises from imposing the boundary conditions. 
+    \subsection{Electronic Band structure}
+    Inside the crystal lattice, the periodic arrangement of atoms or ions causes the potential to be periodic which eventually gives rise to the formation of energy bands. The wavefunction $\Psi$ will become periodic in space with a period $L$ and must obey the Born-von Karman boundary condition \citep{Herman1959}
+\begin{equation} \label{eq:periodic}
+    \Psi_k(x,y,z) = \Psi_k(x + L, y, z) 
+\end{equation}
+and similarly for the $y$ and $z$ coordinates. It can be shown that wavefunctions satisfying \eqref{eq:1e_wave} and \eqref{eq:periodic} are the Bloch form of a travelling plane wave
+\begin{equation} \label{eq:Bloch}
+    \Psi_k(\va{r}) = u_k(\va{r}) \exp(i \va{k} \vdot \va{r})
+\end{equation}  
+where $u_k(\va{r})$ has the period of the crystal lattice with $u_k(\va{r}) = u_k(\va{r} + \va{R})$. Here $\va{R}$ is the translation vector which can be simply thought as the periodicity expressed as vector.  The Bloch expression can be written as
+\begin{align}
+    \Psi_k(\va{r} + \va{R}) &= u_k(\va{r} + \va{R}) \exp(i \va{k} \vdot (\va{r} + \va{R}))  \notag \\
+    \Psi_k(\va{r} + \va{R}) &= u_k(\va{r}) \exp(i \va{k} \vdot \va{r})  \exp(i \va{k} \vdot \va{R}) \notag \\
+    \Psi_k(\va{r} + \va{R}) &= \Psi_k(\va{r}) \exp(i \va{k} \vdot \va{R}) 
+\end{align}
+
+Notice that the wavefunction differs from the plane wave of free electrons only by a periodic modulation given by the new phase factor. This means that the electrons in the crystal lattice are treated as perturbed weakly by the periodic potential of the ion cores.
+
+% in which the components of $\va{k}$ satisfy
+% \begin{equation}
+%     k_i = \pm \frac{2n_i \pi}{L} \quad ; i = x,y,z \quad; n_i = 0, 1, 2, \dots
+% \end{equation}
+
+        \subsubsection{Band structure of free electron}
+            A special case of periodicity is where the potential is set to zero, which is applicable for the free electrons. The wavefunction will be a plane wave 
+            \begin{equation}
+                \Psi_k(\va{r})  = \exp(i \va{k} \vdot \va{r})
+            \end{equation} 
+        that represents travelling wave with a momentum $\va{p} = \hbar \va{k}$. The energy dispersion relation is still given by \eqref{eq:free_e} but this time the allowed energy values are distributed essentially from zero to infinity. Figure \ref{fig:free-electron} shows the parabolic dependence of energy with the wavevector $k$. Since the system is periodic in real space, it must be true for the reciprocal space, in this case by $2\pi/a$ where $a$ is some lattice constant. Figure \ref{fig:free-electron}a shows the extended zone scheme where there are no restrictions on the values of wavevector $\va{k}$. When wavevectors are outside the first Brillouin zone (BZ), they can be translated back to the first zone by subtracting a suitable reciprocal lattice vector. In mathematical sense \citep{Kittel2004}
+        \begin{equation} \label{eq:band_fold}
+            \va{k} + \va{G} = \va{k'}
+        \end{equation}
+        where $\va{k'}$ is the unrestricted wavevector, $\va{k}$ is in the first Brillouin zone, and $\va{G}$ is the translational reciprocal lattice vector. The energy dispersion relation can always be written as 
+        \begin{align}
+            \epsilon(k_x,k_y,k_z) &= \frac{\hbar^2}{2m} (\va{k}+\va{G})^2 \notag \\
+                                &= \frac{\hbar^2}{2m}[(k_x + G_x)^2 + (k_y + G_y)^2 + (k_z + G_z)^2]
+        \end{align}
+        Figure \ref{fig:free-electron}b shows the reduced zone scheme where the  bands are folded into the first BZ by applying \eqref{eq:band_fold}. Any energy state beyond the first BZ is the same to a state inside the first BZ with a different band index $n$.
+
+ \begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/free electron"}
+	\caption[Free electron band structure]{Free electron band structure}
+	\label{fig:free-electron}
+\end{figure}
+
+\subsubsection{Band structure of electrons in solids}
+When atoms are very far from each other with no interaction, each electron occupies specific discrete orbitals such as 1s, 2p, 3d, etc. When they are bring  closer enough, the outermost (valence) electrons interact with each other and will result in the  energy level splitting. The innermost (core) electrons remain as they are, since they are closer to the nuclei and bounded by a deep potential well. For a solid containing a large $N$ atoms, there will be $N$ orbitals (i.e. $N$ 3d-orbitals) trying to occupy the same energy level. Pauli's exclusion principle will prevent this from happening, hence what happens is there will be splitting of the energy level that are closely spaced and this will eventually form a continuous band of energy levels. Figure \ref{fig:band_model} summarizes the evolution of energy levels as the atoms are brought together.
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/band model"}
+	\caption[Band structure in solids]{Formation of bands and band gaps when isolated atoms are bring closer together}
+	\label{fig:band_model}
+\end{figure}    
+
+Another interesting property of band structure is the formation of energy band gaps. This happens when the valence electrons interact with the periodic potential of the nuclei. Assuming a weak periodic potential, most of the band structure will not changed very much, except possibly at the Brillouin zone boundaries with a wavevector of $\va{k} = n \pi/ a$. The orbitals with the wavevector at zone boundaries, chosen to be at high symmetry points, follows the Bragg diffraction condition and thus are diffracted. The valence electrons are scattered (or reflected) at the zone boundary in which the wavefunction are made up of equal plane waves travelling from the left and from the right. The wavefunction becomes a standing wave that resembles more of those bound states. Hence, there will be a forbidden region where travelling waves are not allowed. If sufficient energy is provided to the electron, they can overcome the  binding potential.
+
+The band gap is generally referred to the energy difference between the top of valence band, Valence band maximum (VBM),  and the bottom of the conduction band, Conduction band minimum (CBM). If VBM and CBM coincides with each other, the material is said to be a conductor. Electrons can easily occupy the conduction band without any excitation, hence electrons are highly mobile that will lead to high current. For band gaps with a value comparable to the quantity $k_B T$, where $k_B$ is the Boltzmann constant and  $T$ is the absolute temperature near room temperature, then the material is semiconductor. If band gap is much larger than $k_B T$, then the material is insulator. However, this criterion is very loose because there are materials with large band gaps such as $ZnO$, $SrIn2O4$, that are categorized as semiconductors. These materials are generally called wide-band gap semiconductors. If the VBM and CBM are located in the same wavevector $k$, then the gap is direct. Otherwise, it is indirect. 
+
+    \subsection{Density of States}
+    Another useful quantity in describing the electronic structure is the density of states (DOS). In general, the density of states can be defined as \citep{Ashcroft1976}
+    \begin{equation} \label{eq:dos_sum}
+        D(\epsilon) = 2 \sum_n \sum_k \delta(\epsilon - \epsilon_n(k))
+    \end{equation}
+    where for each band index $n$, the sum is over all allowed values of $k$ lying inside the first Brillouin zone. The factor 2 comes from the allowed values of the spin quantum number for each allowed value of $k$. In the limit of large crystal, the $k$ points are very close together, and the sum can be replaced by an integral. Since each allowed states will take up a volume of $ (\Delta k)^3 = \pi^3/V$ where $V$ is the volume of the solid in real space, it is convenient to write \eqref{eq:dos_sum} as 
+    \begin{equation} \label{eq:dos_int}
+        D(\epsilon) = 2\, \frac{V}{\pi^3} \sum_n \sum_k \delta(\epsilon - \epsilon_n(k)) (\Delta k)^3
+    \end{equation}
+    for  in the limit of $V \rightarrow \infty $, $\Delta k \rightarrow 0$, it becomes
+
+    \begin{equation}
+        \lim_{V \to \infty} \frac{1}{V}\, D(\epsilon) = \frac{2}{\pi^3} \sum_n \int \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+    \end{equation}  
+    Usually, the total DOS is set to be the number of states per unit energy per unit volume. 
+
+    The DOS can be projected in terms of the orbital contribution of each atoms. This can be expanded in a complete orthonormal basis as \citep{Enkovaara2010}
+
+    \begin{align}
+        D(\epsilon) &= \sum_i D_i(\epsilon) \\
+        &= \sum_i \sum_n \int \bra{\psi_n} \alpha \ket{\psi_n}  \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+    \end{align}
+    where $D_i(\epsilon)$ is the projected density of states (PDOS) of orbital $i$ with state $\alpha$. 
+     
+\section{Many-body Physics}
+Despite the simplicity of Schr\"{o}dinger equation in \eqref{eq:schrodinger}, solving it is a formidable task when dealing with many-electron systems. Analytical solutions to this equation only exist for the very simplest systems (i.e. hydrogenic atoms). Solving beyond '2 particle' system (electron and nucleus) is already intractable. In addition, solid state systems typically contains more than hundreds of particles, resulting in hundreds of simultaneous equations. Even the use of computational methods relies on a number of approximations just to make computations feasible enough. Hence, this section will discuss various levels of approximations without neglecting the parameter-free of first-principles calculations. 
+
+   \subsection{Many-particle Hamiltonian Operator}
+The exact many-particle Hamiltonian is consist of five operators which can be expressed as 
+\begin{equation}
+    \hat{\mathcal{H}} = \hat{\mathcal{T}_n} + \hat{\mathcal{T}_e} + \hat{\mathcal{V}}_{en} + \hat{\mathcal{V}}_{ee}  + \hat{\mathcal{V}}_{nn} 
+\end{equation}
+where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{V}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as 
+\begin{multline} \label{eq:many_se}
+    \hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_I \frac{\laplacian_{\va*{R_I}}}{M_I} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
+    - \frac{1}{4 \pi \epsilon_0} \sum_{I,i} \frac{e^2 Z_I}{\abs{\va*{R_I} - \va*{r_i}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R_I} - \va*{R_J}}} 
+\end{multline}
+where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R_I}$, and electrons have mass $m_e$  located at site $\va*{r_i}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
+describe the Coulomb interaction between electrons and nuclei, between electrons and other electrons, and between nuclei and other nuclei. 
+
+\subsection{Simplifying Assumptions}
+    Solving \eqref{eq:many_se} exactly is very impractical and not worth the effort. Hence, we resort to approximations in order to find acceptable eigenstates. 
+
+    The first level of approximation is the Born-Oppenheimer approximation or the Adiabatic approximation \citep{Born1927}. It begins with the observation that the mass of nuclei is much larger compared to the electron, as such one can assume that electrons moving in a potential much faster than the nuclei and that the nuclei can be treated as fixed or 'frozen' with respect to motion. As a consequence, the nuclear kinetic energy will be zero and the nuclear interaction with the electron cloud  can be treated as an external parameter. Hence, the first  term in \eqref{eq:many_se} will vanish and the last term reduces to a constant which can be neglected. The third term will become the external potential. The Hamiltonian reduces to 
+    \begin{equation}
+        \hat{\mathcal{H}}  = \hat{\mathcal{T}} + \hat{\mathcal{V}} + \hat{\mathcal{V}}_{ext}
+    \end{equation}
+    and using Hartree atomic units $\hbar = m_e = e = 4 \pi / \epsilon_0 =1$ for simplicity 
+
+    \begin{equation} \label{eq:se_simple}
+        \hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r_i}} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r_i} - \va*{r_j}}} + \sum_{i} V_{I}(\abs{\va*{R_I} - \va*{r_j}})
+    \end{equation}
+    \subsection{Hartree Method}
+    Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The second term will be replaced by Hartree energy given as 
+    \begin{equation}
+        \hat{\mathcal{V}}_H = \frac{1}{2} \iint \frac{\rho(\va*{r}) \rho(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}}} \dd[3]{r} \dd[3]{r'}
+    \end{equation}
+    where $\rho(\va*{r})$ is the electron density. The total energy will be sum of $N$ numbers of one-electron energies
+    \begin{equation}
+        E = E_1 + E_2 + \cdots + E_N
+    \end{equation}
+    then, the $N$-electron wavefunction can be approximated as a product of one-electron wavefunctions
+
+    \begin{equation}
+        \Psi = \Psi_1 \times \Psi_2 \times \cdots \times \Psi_N
+    \end{equation}
+
+    Hartree model successfully predicts the ground-state energy of Hydrogen atom to be around -13.6 eV. However, for other systems, Hartree model produced crude estimations because it does not take into account the quantum mechanical effects such as antisymmetry principle and the Pauli's exclusion principle. Moreover, the model does not include the exchange and correlation energies of every interacting electrons in the actual systems. 
+
+\subsection{Hartree-Fock Method}
+Due to the limitations of Hartree Model, Fock (1930) has taken into account the antisymmetric property of electron wavefunctions \citep{Fock1930}. Pauli's exclusion principle posits that no two fermions can occupy the same quantum state because the wavefunction is antisymmetric upon particle exchange \citep{Pauli1925}. The many-electron wavefunction will be expressed in terms of Slater determinant \citep{Slater1929}
+\begin{equation}
+   \mathbf{\Psi} = \frac{1}{\sqrt{N!}} \mdet{\Psi_1({\va*{r_1}}) & \Psi_2({\va*{r_1}}) & \cdots & \Psi_N({\va*{r_1}})  \\
+   \Psi_1({\va*{r_2}}) & \Psi_2({\va*{r_2}}) & \cdots & \Psi_N({\va*{r_2}})\\
+   \vdots & \vdots & \vdots & \vdots \\
+   \Psi_1({\va*{r_N}}) & \Psi_2({\va*{r_N}}) & \cdots & \Psi_N({\va*{r_N}})
+   }
+\end{equation}
+Using the Slater determinant form of the wavefunction, the Hamiltonian can be written as before with the addition of exchange term
+
+\begin{equation} \label{eq:HF_H}
+    \hat{\mathcal{H}}_{HF}  = \hat{\mathcal{T}}  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x
+\end{equation}
+where 
+\begin{equation}
+    \hat{\mathcal{V}}_x = - \sum_j \int \frac{\psi_j^*(\va*{r}') \psi(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}} } \frac{\psi_j(\va*{r})}{\psi(\va*{r})} \dd{\va*{r}}
+\end{equation}
+$\hat{\mathcal{V}}_H$ comes from the Hartree approximation of electron-elecron interaction and $\hat{\mathcal{V}}_x$ comes from the antisymmetric
+nature of wave function. 
+
+\section{Density Functional Theory (DFT)}
+Density Functional Theory reframes the problem of calculating electronic properties in terms of the ground state electron density instead of the traditional electronic wavefunctions \citep{Kohn1999}. The incredible success of DFT in predicting ground state properties have led to widespread applications in materials modelling research. 
+
+ %   \subsection{Electron Density}
+    
+ \subsection{Hohenberg-Kohn (HK) Formalism}
+ The modern formulations of DFT started in the seminal work of Hohenberg and Kohn in 1964 \citep{Hohenberg1964}. Hohenberg and Kohn have shown that the ground state properties can be written as unique functional of the ground state electron density. This statement has large implication because the problem of solving 3$n$-dimensional equation simultaneously can be replaced by $n$ separate three-dimensional equations with the use of electron density, $\rho(x,y,z)$. 
+    \subsubsection{First HK Theorem}
+    The first theorem shows that electron density is a unique functional of the external potential. It states that there is a one-to-one correspondence between the ground state density $\rho_0(r)$ of a many-electron system and the external potential $V_{ext}$, to within an additive constant. Alternatively, it is impossible to have two external potentials, $V_{ext}(r)$ and $V_{ext}'(r)$, acting on an electron whose difference is not a constant, that give rise to the same ground    state electron density, $\rho_0(r)$. That is,  
+\begin{equation}
+    \rho(r) = \rho'(r) \quad \quad \Longleftrightarrow \quad \quad V_{ext}'(r) - V_{ext}(r) = c
+\end{equation}
+If the external potential is known beforehand, then the ground state electron density can be obtained and vice versa. As the ground state electron density uniquely determines the Hamiltonian of the system, it follows that all measurable properties of the system can be expressed as a functional of the electron density. 
+    \subsubsection{Second HK Theorem}
+    The second theorem proves the existence of the energy as a functional of the electron density. It states that there exists a universal functional for the energy $E[\rho]$ such that for any given $V_{ext}(r)$, the exact ground-state energy is the global minimum of this functional, and the ground-state density $\rho_0(r)$ is the density $\rho(r)$ that minimizes the functional. Note that the total energy in HK formulation gives an exact form and not approximate ones. The form of the energy functional  can be expressed as 
+    \begin{align}
+        E_{HK} [\rho(r)] &= \bra{\psi} \hat{\mathcal{T}} + \hat{\mathcal{V}} + \hat{\mathcal{V}}_{ext} \ket{\psi}  \\
+        &= \bra{\psi} \hat{\mathcal{T}} + \hat{\mathcal{V}} \ket{\psi}  + \bra{\psi} \hat{\mathcal{V}}_{ext} \ket{\psi} \\
+         &= F[\rho(r)] + \int V_{ext}(r) \rho(r) \dd[3]{r}
+    \end{align}
+    where $F[\rho(r)]$ is the unknown functional that includes all internal energies, kinetic, and potential, that are independent of the external potential. The HK theorems only asserts  the existence of energy functional but it does not provide a practical solution on solving the energy functional.  
+
+    \subsection{Kohn Sham (KS) Formulation}
+    Kohn and Sham (1965) introduced an artificial system of non-interacting electrons with the same ground state electron density as the many-body Schr\"{o}dinger equation \citep{Kohn1965}. Instead of using the fully interacting multi-electron wavefunctions, the KS formulation resorts to single-particle wavefunctions for solving the many-body problem. The Kohn-Sham Hamiltonian is just an extension of Hartree-Fock Hamiltonian described in \eqref{eq:HF_H}. However, it was implicitly assumed that $\hat{\mathcal{T}}$ is the  kinetic energy operator of non-interacting electrons. This assumption neglects the correlation of the interacting system, hence a correction factor must be added. The kinetic energy of the real interacting system can be rewritten as 
+    \begin{equation}
+        \hat{\mathcal{T}} = \hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c
+    \end{equation}
+    where $\hat{\mathcal{T}}_{KS}$ is kinetic energy of the non-interacting electron, and $\hat{\mathcal{V}}_c$ is the correlation energy that measures how much movement of one electron is influenced by the presence of other electrons. The total KS Hamiltonian has the form 
+    \begin{align} \label{eq:HF_H}
+        \hat{\mathcal{H}}_{KS}  &= (\hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c)  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x \notag \\
+        &= \hat{\mathcal{T}}_{KS} + \hat{\mathcal{V}}_{ext} +{\mathcal{V}}_H + \hat{\mathcal{V}}_{xc}
+    \end{align}
+    where $\hat{\mathcal{V}}_{xc} = \hat{\mathcal{V}}_{x} + \hat{\mathcal{V}}_{c}$ is the combined exchange-correlation energy.  It is instructive to see that the difference between Hartree Hamiltonian from Hartree-Fock Hamiltonian gives the exchange term while the difference between Hartree-Fock Hamiltonian and Kohn-Sham Hamiltonian gives the correlation term \citep{Cottenier2002}. The theorem of Kohn and Sham can be formally formulated as follows:
+
+    The exact ground state density $\rho({\va*{r}})$ of an $N$-electron system is 
+\begin{equation} \label{eq:charge_dens}
+\rho({\va*{r}}) = \sum_{i=1}^N \phi_i(\va*{r})^* \phi_i(\va*{r}) 
+\end{equation}
+where the single-particle KS orbitals $\phi_i(\va*{r})$ are the $N$ lowest energy solutions of the Kohn-Sham equation
+\begin{equation}\label{eq:KS}
+    \hat{\mathcal{H}}_{KS}\, \phi_i(\va*{r}) = \epsilon_i\, \phi_i(\va*{r})
+\end{equation}
+\subsection{Self Consistent Field Calculation}
+In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{H}}_{KS}$ must be known beforehand. However, the Hamiltonian depends entirely  on the electron density $\rho({\va*{r}})$ that can only be  solved from single-particle KS orbital $\phi_i(\va*{r})$ given in \eqref{eq:charge_dens}. The orbital $\phi_i(\va*{r})$ are in turn calculated from the KS equation and the cycle continues on. This infinite loop is visualized in Figure \ref{fig:KS_loop}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.3\linewidth]{"images/KS_loop"}
+	\caption[Kohn Sham loop]{Solving Kohn Sham equation leads to a circular argument}
+	\label{fig:KS_loop}
+\end{figure}
+
+To circumvent this, an iterative scheme was developed  in which a trial electron density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation \citep{Woods2019}. Spefic steps are illustrated in Figure \ref{fig:scf_loop}. First, an initial trial electron density is provided. The trial electron density is usually derived from the superposition of known atomic potentials. Second,    the KS equation is solved using the trial electron density. The resulting eigenfunction, in this case the orbital $\phi_i(\va*{r})$, will then be used to calculate the new electron density. The new electron density is compared to the previous electron density and if the error is less than some acceptable deviation, then this will be the ground state density. Otherwise, the electron density is updated and the iteration is repeated $k$th times until convergence is achieved. Factors that affect the rate of convergence will be discussed on the next chapter. 
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/scf_loop"}
+	\caption[Kohn Sham loop]{Convergence of electron density and other observable quantities using Self Consistent Field calculation}
+	\label{fig:scf_loop}
+\end{figure}
+ %       \subsubsection{Energy Terms}
+\section{Exchange-Correlation Functional}
+So far, no analytical form for the exchange-correlation functional has been found yet that perfectly describes any interacting system \citep{Verma2020,Marques2012,Segala2009}. The success of DFT depends on the improvement and refinement of the exchange-correlation functional and how it enables to predict many observable properties. Hence, the search for the universal functional is a hot topic of ongoing research. The choice of XC functional varies from different applications of DFT. Thus, there is no one particular functional in the literature which universally performs better than others across all applications.
+
+    \subsection{Local Density Approximation (LDA)}
+    The simplest commonly used exchange-correlation functional is the so called Local Density Approximation (LDA).  LDA assumes that the electronic contribution to the exchange-correlation energy from each point in space is the same as to what it would be for a homogeneous electron gas with the uniform density throughout the whole system. This approximation was originally introduced by Kohn and Sham, and holds for a slowly varying density \citep{Kohn1965}. Using the approximation, the XC energy functional is given by 
+
+\begin{equation} \label{eq:LDA-XC}
+    E^{LDA}_{XC} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{XC}[\rho({\va*{r}}) ] \dd[3]{r}
+\end{equation}
+where $\epsilon_{XC}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{XC}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions 
+
+\begin{equation}
+    \epsilon_{XC}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
+\end{equation}
+The exchange part was expressed analytically by Dirac \citep{Dirac1930}
+\begin{equation}
+    \epsilon_{X}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}}) 
+\end{equation}
+while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrization of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be best for solids with slowly varying densities like  a nearly-free-electron metals and worst for inhomogeneous systems such as atoms where the density must go continuously to zero just outside the atom. The partial success of LDA in inhomogeneous systems is due to systematic error cancellation in which the correlation is underestimated  but the exchange is overestimated resulting to a good value of $E^{LDA}_{XC}$ \citep{Gunnarsson1976,Gunnarsson1977}. However, LDA tends to overestimate cohesive energies and binding energies for metals and insulators \citep{Staroverov2004,Csonka2009,Harl2010}. Errors in LDA are severely exaggerated for weakly bonded systems such as van der Waals and H-bond systems \citep{Lee1993,Hamann1997,Feibelman2008}. Nevertheless, LDA is fairly accurate in predicting elastic properties, such as bulk modulus \citep{Froyen1983,Tan2012}.
+
+    \subsection{Generalized Gradient Approximation (GGA)}
+    Attempts to improve the shortcomings of LDA has led to the  use of gradient corrections. These so called Generalized Gradient Approximations (GGA) systematically calculate gradient corrections of the form $\abs{\grad \rho({\va*{r}})}$, $\abs{\grad \rho({\va*{r}})}^2$, $\abs{\laplacian\rho({\va*{r}})}$, etc. to the LDA. Such functionals can be generalized as 
+\begin{equation}
+    E^{GGA}_{XC} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
+\end{equation}
+where $f^{GGA}$ is some arbitrary function of electron  density and its gradient. GGA functionals are often term as semi-local because of their $\grad \rho({\va*{r}})$ dependence. Because of the flexibility in choosing $f^{GGA}$, a plethora of functionals have been developed and depending on the system under study, various results can be obtained. A more specific form of the GGA functional can be written as \citep{Csonka2009}
+\begin{equation} \label{eq:GGA-XC}
+    E^{GGA}_{XC} [\rho]= \int \rho({\va*{r}})\, \epsilon_{XC}[\rho({\va*{r}})]\, F_{XC}[s]  \dd[3]{r}
+\end{equation}
+where $\epsilon_{XC}[\rho({\va*{r}})]$ is the exchange-correlation energy per particle of an electron gas in a uniform electron density $\rho({\va*{r}})$ (i.e. similar to LDA). $F_{XC}$ is the enhancement factor that tells how much XC energy is enhanced over its LDA value for a given  $\rho({\va*{r}})$. Note the resemblance of GGA functional in \eqref{eq:GGA-XC} to the LDA functional in \eqref{eq:LDA-XC} which differ only by an enhancement factor. Here $s$ is a dimensionless reduced gradient
+\begin{equation}
+    s = \frac{\abs{\grad \rho({\va*{r}})}}{2 (3\pi^2)^{1/3} \rho({\va*{r}})^{4/3}}
+\end{equation}
+The most popular GGA functionals used in the literature are Perdew-Burke-Ernzerhof (PBE), Becke88 (B88), PW91. Among the functionals, PBE is the  simplest and has  exchange enhancement factor of the form
+\begin{equation}
+    F_{XC}^{PBE}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
+\end{equation}
+where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient is zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{XC}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and it is beyond the scope of this thesis.  
+
+GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition,  
+
+\section{Corrections to DFT}
+    \subsection{Band Gap Problem}
+    \subsection{GW Method}
+    \subsection{Hybrid Functionals}
+    \subsection{TB-MbJ Metapotential}
+    \subsection{Hubbard U Correction}
+ Hello World. Test me if this will work. testing latexmk right. i am  having error. test 1 test 2 test 3    test 4 test 5 test 6. I am tired of not syncing automatically. test 8 test 10 
+test 12
+test 13
+test 14
+
+test 15
+test 16
+
+test 17
+test 18
+    {\color{red} insert the symmetry points in IBZ.}
+
+
+% \subsection{Hamiltonian Operator}
+% \subsection{Indistinguishability of electrons}
+% \section{Early First Principle Calculations}
+%    \subsection{n-electron problem}
