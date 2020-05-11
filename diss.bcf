@@ -2218,7 +2218,21 @@
     <bcf:citekey order="25">Froyen1983</bcf:citekey>
     <bcf:citekey order="25">Tan2012</bcf:citekey>
     <bcf:citekey order="26">Csonka2009</bcf:citekey>
-    <bcf:citekey order="27">Burke1997</bcf:citekey>
+    <bcf:citekey order="27">Perdew1996</bcf:citekey>
+    <bcf:citekey order="28">Perdew2008</bcf:citekey>
+    <bcf:citekey order="29">Becke1988</bcf:citekey>
+    <bcf:citekey order="30">Perdew1992</bcf:citekey>
+    <bcf:citekey order="31">Lee1988</bcf:citekey>
+    <bcf:citekey order="32">Handy2001</bcf:citekey>
+    <bcf:citekey order="33">Xu2004</bcf:citekey>
+    <bcf:citekey order="34">Burke1997</bcf:citekey>
+    <bcf:citekey order="35">Becke1988</bcf:citekey>
+    <bcf:citekey order="35">Langreth1983</bcf:citekey>
+    <bcf:citekey order="35">Perdew1992a</bcf:citekey>
+    <bcf:citekey order="35">Proynov1995</bcf:citekey>
+    <bcf:citekey order="36">Kim1994</bcf:citekey>
+    <bcf:citekey order="36">PerezJorda1995</bcf:citekey>
+    <bcf:citekey order="36">Ruiz1995</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
