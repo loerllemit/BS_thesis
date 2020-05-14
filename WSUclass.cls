@@ -67,6 +67,9 @@
 % The name of this document (thesis/dissertation)
 \newcommand{\docname}[1]{\gdef\@docname{#1}}
 
+% Complete title
+\newcommand{\Title}[1]{\gdef\@Title{\uppercase{#1}}}
+
 % First line of title
 \newcommand{\TitleTop}[1]{\gdef\@TitleTop{\mbox{\uppercase{#1}}}}
 
@@ -143,6 +146,7 @@
   \Author{Author}
   \University{University}
   \Department{Department}
+  \Title{ }
   \TitleTop{First line of title}
   \TitleMiddle{ }
   \TitleBottom{ } % default is empty
@@ -233,9 +237,9 @@
   \renewcommand{\makepreliminarypages}{
     \preliminarymargins
     \titlepage
-   % \copyrightpage
-   % \bachelorapprovalpage
-   % \acknowledgmentspage
+    \copyrightpage
+    \bachelorapprovalpage
+    \acknowledgmentspage
     \abstractpage
     \fixmargins
     \renewcommand{\clearemptydoublepage}{\cle@remptydoublep@ge}
@@ -469,12 +473,20 @@
     \begin{center}
     \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Title Page}{bm:Title}
     \vspace*{.1in}
+    % Insert university logo
+    \begin{figure}
+      \centering
+      \includegraphics{images/upd-logo.png}
+      \label{fig: cover-uplogo}
+    \end{figure}
+    \MakeUppercase{University of the Philippines}\\[\baselineskip]
+    \vfill
     \textbf{\@TitleTop\\[\baselineskip]
     \@TitleMiddle\\[\baselineskip]
     \@TitleBottom}\\
     \vfill
-    By\\[\baselineskip]
-    \MakeUppercase{\@Author} 
+    by\\[\baselineskip]
+    \MakeUppercase{\textbf {\@Author}}
     \vfill
     An \@docname~submitted in partial fulfillment of\\
     the requirements for the degree of\\[\baselineskip]
@@ -482,8 +494,8 @@
     \MakeUppercase{\@Department}\\
     \@University\\[\baselineskip]
     \MakeUppercase{\@Month}~\@Year \\[\baselineskip]
-    \copyright\ Copyright by \MakeUppercase{\@Author},~\@Year\\
-    All Rights Reserved
+    %\copyright\ Copyright by \MakeUppercase{\@Author},~\@Year\\
+    %All Rights Reserved
     \end{center}
     \clearpage
     }
@@ -592,12 +604,16 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Undergraduate Committee Approval}{bm:ComAp}
     \vspace*{0.375in}
     \end{center}
-    \noindent
-    To the Faculty of University of the Philippines Diliman National Institute of Physics:
-    \par\doublespace The members of the Committee appointed to examine the thesis
-of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accepted.\\[\baselineskip]
-    \par\singlespace
-    \datebox\hfill\signaturebox{\@Advisor, \@AdvisorTitle, Chair}\\
+    % \noindent
+
+    This thesis entitled, \textbf{\@Title}, prepared and submitted by \textbf{\MakeUppercase \@Author}, in partial fulfillment of the requirements for the degree of \textbf{Bachelor of Science}, major in \textbf{Applied Physics} is hereby accepted.
+
+    % To the Faculty of University of the Philippines Diliman National Institute of Physics:
+    % \par\doublespace The members of the Committee appointed to examine the thesis
+% of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accepted.\\[\baselineskip]
+    % \par\singlespace
+    \vfill
+    \datebox\hfill\signaturebox{\@Advisor, \@AdvisorTitle, Adviser}\\
     \datebox\hfill\signaturebox{\@MemberA, \@MemberATitle}\\
     \datebox\hfill\signaturebox{\@MemberB, \@MemberBTitle}\\
     \vfill
@@ -723,7 +739,7 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     by \@Author, \@DegreeShort\\
     \@University\\
     \@Month~\@Year\\[3\baselineskip]
-    \@DepRepTitle: \@Advisor \\[2\baselineskip]
+    %\@DepRepTitle: \@Advisor \\[2\baselineskip]
     \end{center}
     \renewcommand{\baselinestretch}{1.66}\small\normalsize
     \@Abstract
