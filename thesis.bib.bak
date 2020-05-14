@@ -554,4 +554,17 @@
   publisher = {Elsevier {BV}},
 }
 
+@Article{Ruiz1995,
+  author    = {Eliseo Ruiz and Dennis R. Salahub and Alberto Vela},
+  journal   = {Journal of the American Chemical Society},
+  title     = {Defining the Domain of Density Functionals: Charge-Transfer Complexes},
+  year      = {1995},
+  month     = {jan},
+  number    = {3},
+  pages     = {1141--1142},
+  volume    = {117},
+  doi       = {10.1021/ja00108a036},
+  publisher = {American Chemical Society ({ACS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
