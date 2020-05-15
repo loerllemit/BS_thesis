@@ -84,7 +84,7 @@ When atoms are very far from each other with no interaction, each electron occup
 
 Another interesting property of band structure is the formation of energy band gaps. This happens when the valence electrons interact with the periodic potential of the nuclei. Assuming a weak periodic potential, most of the band structure will not changed very much, except possibly at the Brillouin zone boundaries with a wavevector of $\va{k} = n \pi/ a$. The orbitals with the wavevector at zone boundaries, chosen to be at high symmetry points, follows the Bragg diffraction condition and thus are diffracted. The valence electrons are scattered (or reflected) at the zone boundary in which the wavefunction are made up of equal plane waves travelling from the left and from the right. The wavefunction becomes a standing wave that resembles more of those bound states. Hence, there will be a forbidden region where travelling waves are not allowed. If sufficient energy is provided to the electron, they can overcome the  binding potential.
 
-The band gap is generally referred to the energy difference between the top of valence band, Valence band maximum (VBM),  and the bottom of the conduction band, Conduction band minimum (CBM). If VBM and CBM coincides with each other, the material is said to be a conductor. Electrons can easily occupy the conduction band without any excitation, hence electrons are highly mobile that will lead to high current. For band gaps with a value comparable to the quantity $k_B T$, where $k_B$ is the Boltzmann constant and  $T$ is the absolute temperature near room temperature, then the material is semiconductor. If band gap is much larger than $k_B T$, then the material is insulator. However, this criterion is very loose because there are materials with large band gaps such as $ZnO$, $SrIn2O4$, that are categorized as semiconductors. These materials are generally called wide-band gap semiconductors. If the VBM and CBM are located in the same wavevector $k$, then the gap is direct. Otherwise, it is indirect.
+The band gap is generally referred to the energy difference between the top of valence band, Valence band maximum (VBM),  and the bottom of the conduction band, Conduction band minimum (CBM). If VBM and CBM coincides with each other, the material is said to be a conductor. Electrons can easily occupy the conduction band without any excitation, hence electrons are highly mobile that will lead to high current. For band gaps with a value comparable to the quantity $k_B T$, where $k_B$ is the Boltzmann constant and  $T$ is the absolute temperature near room temperature, then the material is semiconductor. If band gap is much larger than $k_B T$, then the material is insulator. However, this criterion is very loose because there are materials with large band gaps such as \ch{ZnO}, \ch{SrIn2O4}, and diamond that are categorized as semiconductors. These materials are generally called wide-band gap semiconductors. If the VBM and CBM are located in the same wavevector $k$, then the gap is direct. Otherwise, it is indirect.
 
 \subsection{Density of States}
 Another useful quantity in describing the electronic structure is the density of states (DOS). In general, the density of states can be defined as \citep{Ashcroft1976}
@@ -186,7 +186,7 @@ The modern formulations of DFT started in the seminal work of Hohenberg and Kohn
 \subsubsection{First HK Theorem}
 The first theorem shows that electron density is a unique functional of the external potential. It states that there is a one-to-one correspondence between the ground state density $\rho_0(r)$ of a many-electron system and the external potential $V_{ext}$, to within an additive constant. Alternatively, it is impossible to have two external potentials, $V_{ext}(r)$ and $V_{ext}'(r)$, acting on an electron whose difference is not a constant, that give rise to the same ground    state electron density, $\rho_0(r)$. That is,
 \begin{equation}
-	\rho(r) = \rho'(r) \quad \quad \Longleftrightarrow \quad \quad V_{ext}'(r) - V_{ext}(r) = c
+	\rho(r) = \rho'(r) \quad \quad \Longleftrightarrow \quad \quad V_{ext}'(r) - V_{ext}(r) = \text{constant}
 \end{equation}
 If the external potential is known beforehand, then the ground state electron density can be obtained and vice versa. As the ground state electron density uniquely determines the Hamiltonian of the system, it follows that all measurable properties of the system can be expressed as a functional of the electron density.
 \subsubsection{Second HK Theorem}
@@ -206,7 +206,7 @@ Kohn and Sham (1965) introduced an artificial system of non-interacting electron
 where $\hat{\mathcal{T}}_{KS}$ is kinetic energy of the non-interacting electron, and $\hat{\mathcal{V}}_c$ is the correlation energy that measures how much movement of one electron is influenced by the presence of other electrons. The total KS Hamiltonian has the form
 \begin{align} \label{eq:H_KS}
 	\hat{\mathcal{H}}_{KS} & = (\hat{\mathcal{T}}_{KS} +  \hat{\mathcal{V}}_c)  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x \notag \\
-	                       & = \hat{\mathcal{T}}_{KS} + \hat{\mathcal{V}}_{ext} +{\mathcal{V}}_H + \hat{\mathcal{V}}_{xc}
+	                       & = \hat{\mathcal{T}}_{KS} + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_{xc}
 \end{align}
 where $\hat{\mathcal{V}}_{xc} = \hat{\mathcal{V}}_{x} + \hat{\mathcal{V}}_{c}$ is the combined exchange-correlation energy.  It is instructive to see that the difference between Hartree Hamiltonian from Hartree-Fock Hamiltonian gives the exchange term while the difference between Hartree-Fock Hamiltonian and Kohn-Sham Hamiltonian gives the correlation term \citep{Cottenier2002}. The theorem of Kohn and Sham can be formally formulated as follows:
 
@@ -244,45 +244,81 @@ So far, no analytical form for the exchange-correlation functional has been foun
 The simplest commonly used exchange-correlation functional is the so called Local Density Approximation (LDA).  LDA assumes that the electronic contribution to the exchange-correlation energy from each point in space is the same as to what it would be for a homogeneous electron gas with the uniform density throughout the whole system. This approximation was originally introduced by Kohn and Sham, and holds for a slowly varying density \citep{Kohn1965}. Using the approximation, the XC energy functional is given by
 
 \begin{equation} \label{eq:LDA-XC}
-	E^{LDA}_{XC} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{XC}[\rho({\va*{r}}) ] \dd[3]{r}
+	E^{LDA}_{xc} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{xc}[\rho({\va*{r}}) ] \dd[3]{r}
 \end{equation}
-where $\epsilon_{XC}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{XC}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions
+where $\epsilon_{xc}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{xc}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions
 
 \begin{equation}
-	\epsilon_{XC}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
+	\epsilon_{xc}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
 \end{equation}
 The exchange part was expressed analytically by Dirac \citep{Dirac1930}
 \begin{equation}
-	\epsilon_{X}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}})
+	\epsilon_{x}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}})
 \end{equation}
-while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrization of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be best for solids with slowly varying densities like  a nearly-free-electron metals and worst for inhomogeneous systems such as atoms where the density must go continuously to zero just outside the atom. The partial success of LDA in inhomogeneous systems is due to systematic error cancellation in which the correlation is underestimated  but the exchange is overestimated resulting to a good value of $E^{LDA}_{XC}$ \citep{Gunnarsson1976,Gunnarsson1977}. However, LDA tends to overestimate cohesive energies and binding energies for metals and insulators \citep{Staroverov2004,Csonka2009,Harl2010}. Errors in LDA are severely exaggerated for weakly bonded systems such as van der Waals and H-bond systems \citep{Lee1993,Hamann1997,Feibelman2008}. Nevertheless, LDA is fairly accurate in predicting elastic properties, such as bulk modulus \citep{Froyen1983,Tan2012}.
+while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrization of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be best for solids with slowly varying densities like  a nearly-free-electron metals and worst for inhomogeneous systems such as atoms where the density must go continuously to zero just outside the atom. The partial success of LDA in inhomogeneous systems is due to systematic error cancellation in which the correlation is underestimated  but the exchange is overestimated resulting to a good value of $E^{LDA}_{xc}$ \citep{Gunnarsson1976,Gunnarsson1977}. However, LDA tends to overestimate cohesive energies and binding energies for metals and insulators \citep{Staroverov2004,Csonka2009,Harl2010}. Errors in LDA are severely exaggerated for weakly bonded systems such as van der Waals and H-bond systems \citep{Lee1993,Hamann1997,Feibelman2008}. Nevertheless, LDA is fairly accurate in predicting elastic properties, such as bulk modulus \citep{Froyen1983,Tan2012}.
 
 \subsection{Generalized Gradient Approximation (GGA)}
 Attempts to improve the shortcomings of LDA has led to the  use of gradient corrections. These so called Generalized Gradient Approximations (GGA) systematically calculate gradient corrections of the form $\abs{\grad \rho({\va*{r}})}$, $\abs{\grad \rho({\va*{r}})}^2$, $\abs{\laplacian\rho({\va*{r}})}$, etc. to the LDA. Such functionals can be generalized as
 \begin{equation}
-	E^{GGA}_{XC} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
+	E^{GGA}_{xc} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
 \end{equation}
 where $f^{GGA}$ is some arbitrary function of electron  density and its gradient. GGA functionals are often term as semi-local because of their $\grad \rho({\va*{r}})$ dependence. Because of the flexibility in choosing $f^{GGA}$, a plethora of functionals have been developed and depending on the system under study, various results can be obtained. A more specific form of the GGA functional can be written as \citep{Csonka2009}
 \begin{equation} \label{eq:GGA-XC}
-	E^{GGA}_{XC} [\rho]= \int \rho({\va*{r}})\, \epsilon_{XC}[\rho({\va*{r}})]\, F_{XC}[s]  \dd[3]{r}
+	E^{GGA}_{xc} [\rho]= \int \rho({\va*{r}})\, \epsilon_{xc}[\rho({\va*{r}})]\, F_{xc}[s]  \dd[3]{r}
 \end{equation}
-where $\epsilon_{XC}[\rho({\va*{r}})]$ is the exchange-correlation energy per particle of an electron gas in a uniform electron density $\rho({\va*{r}})$ (i.e. similar to LDA). $F_{XC}$ is the enhancement factor that tells how much XC energy is enhanced over its LDA value for a given  $\rho({\va*{r}})$. Note the resemblance of GGA functional in \eqref{eq:GGA-XC} to the LDA functional in \eqref{eq:LDA-XC} which differ only by an enhancement factor. Here $s$ is a dimensionless reduced gradient
+where $\epsilon_{xc}[\rho({\va*{r}})]$ is the exchange-correlation energy per particle of an electron gas in a uniform electron density $\rho({\va*{r}})$ (i.e. similar to LDA). $F_{xc}$ is the enhancement factor that tells how much XC energy is enhanced over its LDA value for a given  $\rho({\va*{r}})$. Note the resemblance of GGA functional in \eqref{eq:GGA-XC} to the LDA functional in \eqref{eq:LDA-XC} which differ only by an enhancement factor. Here $s$ is a dimensionless reduced gradient
 \begin{equation}
 	s = \frac{\abs{\grad \rho({\va*{r}})}}{2 (3\pi^2)^{1/3} \rho({\va*{r}})^{4/3}}
 \end{equation}
 The most popular GGA functionals used in the literature are Perdew-Burke-Ernzerhof (PBE) \citep{Perdew1996}, PBEsol \citep{Perdew2008},Becke88 (B88) \citep{Becke1988},  Perdew-Wang (PW91) \citep{Perdew1992}, Lee-Yang-Parr (LYP) \citep{Lee1988}, OptX (O) \citep{Handy2001} and Xu (X) \citep{Xu2004}. Among the functionals, PBE is the  simplest and has  exchange enhancement factor of the form
 \begin{equation}
-	F_{XC}^{PBE}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
+	F_{xc}^{PBE}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
 \end{equation}
-where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient approaches to zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{XC}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and its discussion is beyond the scope of this thesis.
+where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient approaches to zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{xc}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and its discussion is beyond the scope of this thesis.
 
 GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition, GGA tends to give better total energies, atomization energies, and energy barriers \citep{Becke1988,Langreth1983,Perdew1992a,Proynov1995}. However, GGA-based schemes typically fail on the region of weak interatomic interactions such as weak Hydrogen bonds, van der Waals interation, and charge-transfer complexes \citep{Kim1994,PerezJorda1995,Ruiz1995}.
 
 \section{Corrections to DFT}
-One important limitation of DFT that matters most in solid-state physics is the underestimation of band gap in semiconductors. A good theory must successfully predict the  properties of wide range of materials including those novel materials. Hence, this section will discuss the inherent band gap problem and existing methods on improving the band gap.   
+One important limitation of DFT that matters most in solid-state physics is the underestimation of band gap in semiconductors. A good theory must successfully predict the  properties of wide range of materials including those novel materials as it is critical for applications in optoelectronics and nanotechnology. Hence, this section will discuss the inherent band gap problem and existing methods on improving the band gap.   
+
 \subsection{Band Gap Problem}
-ssdf
+Given a set of eigenvalues, the band gap $E_g$ is the difference in energy between the lowest unoccupied and highest occupied states
+\begin{equation} \label{eq:band-gap}
+	E_g^{KS} = \epsilon_{\text{CBM}} - \epsilon_{\text{VBM}}
+\end{equation}
+where the CBM and VBM refer to conduction band minimum and valance band maximum, respectively. Note that $E_g^{KS}$ is obtained from the calculation of Kohn-Sham band structure. The CBM and VBM can be approximated as 
+\begin{align}
+	\epsilon_{\text{CBM}} &\approx E_{N + 1} - E_{N} \label{eq:cbm}	\\
+	\epsilon_{\text{VBM}} &\approx E_{N} - E_{N - 1}	\label{eq:vbm}
+\end{align}
+where $E_{N}$ and $E_{N \pm 1}$ are the ground-state total energies of the neutral system and with one electron added or removed, respectively. By combining equations \eqref{eq:band-gap}-\eqref{eq:vbm}, the band gap can be calculated as \citep{MoriSanchez2008}
+
+\begin{align} \label{eq:band-gap1}
+	E_g^{KS} &\approx (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1}) \\
+	&\approx I - A \nonumber
+\end{align}
+The first term is precisely the ionization energy. In the case of solids, the same quantity is referred as work function which can be measured directly from photoelectron spectroscopy (PES) experiments. The second term is the electron affinity and can similarly be measured. 
+
+The origin of the band gap problem stems from the fact that \eqref{eq:band-gap1} is an approximation to the 'quasiparticle gap' or 'electrical gap' \citep{Perdew2017}
+\begin{equation}
+	E_g^{qp} = (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1}) 
+\end{equation}
+
+For the case of molecules and atoms, the calculation of total energies under DFT in the neutral state ($E_{N}$), cationic state ($E_{N-1}$), and anionic state ($E_{N+1}$) is possible. Therefore, $E_g^{qp}$ can be calculated directly from  differences in total energies without invoking to Kohn-Sham eigenvalues. However, in the case of extended systems such as solids, the change in electron density upon the addition or removable of one electron is extremely small ($\Delta\rho \sim 10^{-20} \rho$). By taking the limit $\Delta\rho \rightarrow 0$, it can be shown that \citep{Perdew1982,Perdew1983}
+
+\begin{equation}
+	\lim_{\Delta\rho \to 0} E_g^{qp} = E_g^{KS} + \Delta_{xc}
+\end{equation}
+where the correction factor $\Delta_{xc}$ is given by
+
+\begin{equation}
+	\Delta_{xc}  = \lim_{\Delta\rho \to 0}\, V_{xc}[\rho + \Delta\rho] - V_{xc}[\rho - \Delta\rho]
+\end{equation}
+This implies that quasiparticle gap and the Kohn–Sham band gap
+differs by a constant, $\Delta_{xc}$. This also means that $\Delta_{xc}$ must not be zero, suggesting $\Delta_{xc}$ has a discontinuity at the specified limit \citep{Sham1983,Baerends2017}. The problem with this formulation is that the exact exchange-correlation functional is not yet known. If LDA or GGA functional is used instead, $V_{xc}$ will be a continuous function by construction and therefore there is no discontinuity (i.e. $\Delta_{xc} = 0$). The band gap problem of DFT is a result of the Kohn-Sham formulation of DFT, and in particular to the approximations made in exchange-correlation functional.  
+
 \subsection{GW Method}
+
 \subsection{Hybrid Functionals}
 \subsection{TB-MbJ Metapotential}
 \subsection{Hubbard U Correction}

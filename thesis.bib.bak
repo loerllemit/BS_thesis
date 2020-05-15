@@ -567,4 +567,68 @@
   publisher = {American Chemical Society ({ACS})},
 }
 
+@Article{MoriSanchez2008,
+  author    = {Paula Mori-S{\'{a}}nchez and Aron J. Cohen and Weitao Yang},
+  journal   = {Physical Review Letters},
+  title     = {Localization and Delocalization Errors in Density Functional Theory and Implications for Band-Gap Prediction},
+  year      = {2008},
+  month     = {apr},
+  number    = {14},
+  volume    = {100},
+  doi       = {10.1103/physrevlett.100.146401},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Perdew2017,
+  author    = {John P. Perdew and Weitao Yang and Kieron Burke and Zenghui Yang and Eberhard K. U. Gross and Matthias Scheffler and Gustavo E. Scuseria and Thomas M. Henderson and Igor Ying Zhang and Adrienn Ruzsinszky and Haowei Peng and Jianwei Sun and Egor Trushin and Andreas Görling},
+  journal   = {Proceedings of the National Academy of Sciences},
+  title     = {Understanding band gaps of solids in generalized Kohn{\textendash}Sham theory},
+  year      = {2017},
+  month     = {mar},
+  number    = {11},
+  pages     = {2801--2806},
+  volume    = {114},
+  doi       = {10.1073/pnas.1621352114},
+  publisher = {Proceedings of the National Academy of Sciences},
+}
+
+@Article{Perdew1982,
+  author    = {John P. Perdew and Robert G. Parr and Mel Levy and Jose L. Balduz},
+  journal   = {Physical Review Letters},
+  title     = {Density-Functional Theory for Fractional Particle Number: Derivative Discontinuities of the Energy},
+  year      = {1982},
+  month     = {dec},
+  number    = {23},
+  pages     = {1691--1694},
+  volume    = {49},
+  doi       = {10.1103/physrevlett.49.1691},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Perdew1983,
+  author    = {John P. Perdew and Mel Levy},
+  journal   = {Physical Review Letters},
+  title     = {Physical Content of the Exact Kohn-Sham Orbital Energies: Band Gaps and Derivative Discontinuities},
+  year      = {1983},
+  month     = {nov},
+  number    = {20},
+  pages     = {1884--1887},
+  volume    = {51},
+  doi       = {10.1103/physrevlett.51.1884},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Sham1983,
+  author    = {L. J. Sham and M. Schlüter},
+  journal   = {Physical Review Letters},
+  title     = {Density-Functional Theory of the Energy Gap},
+  year      = {1983},
+  month     = {nov},
+  number    = {20},
+  pages     = {1888--1891},
+  volume    = {51},
+  doi       = {10.1103/physrevlett.51.1888},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

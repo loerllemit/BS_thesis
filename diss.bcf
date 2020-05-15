@@ -2233,6 +2233,12 @@
     <bcf:citekey order="36">Kim1994</bcf:citekey>
     <bcf:citekey order="36">PerezJorda1995</bcf:citekey>
     <bcf:citekey order="36">Ruiz1995</bcf:citekey>
+    <bcf:citekey order="37">MoriSanchez2008</bcf:citekey>
+    <bcf:citekey order="38">Perdew2017</bcf:citekey>
+    <bcf:citekey order="39">Perdew1982</bcf:citekey>
+    <bcf:citekey order="39">Perdew1983</bcf:citekey>
+    <bcf:citekey order="40">Sham1983</bcf:citekey>
+    <bcf:citekey order="40">Baerends2017</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
