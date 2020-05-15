@@ -311,13 +311,21 @@ For the case of molecules and atoms, the calculation of total energies under DFT
 \end{equation}
 where the correction factor $\Delta_{xc}$ is given by
 
-\begin{equation}
+\begin{equation} \label{eq:xc_discon}
 	\Delta_{xc}  = \lim_{\Delta\rho \to 0}\, V_{xc}[\rho + \Delta\rho] - V_{xc}[\rho - \Delta\rho]
 \end{equation}
 This implies that quasiparticle gap and the Kohn–Sham band gap
 differs by a constant, $\Delta_{xc}$. This also means that $\Delta_{xc}$ must not be zero, suggesting $\Delta_{xc}$ has a discontinuity at the specified limit \citep{Sham1983,Baerends2017}. The problem with this formulation is that the exact exchange-correlation functional is not yet known. If LDA or GGA functional is used instead, $V_{xc}$ will be a continuous function by construction and therefore there is no discontinuity (i.e. $\Delta_{xc} = 0$). The band gap problem of DFT is a result of the Kohn-Sham formulation of DFT, and in particular to the approximations made in exchange-correlation functional.  
 
-\subsection{GW Method}
+\subsection{GW Approximation}
+The most suitable method for studying  single particle excitation spectra such as ionization energies and electron affinities of extended systems is the Green's function. The Green's function relies on the calculation of the self-energy operator which is non-local and energy dependent.  The self-energy is best approximated by the so called quasiparticle $GW$ approximation. $GW$ stands for the single-particle Green's function ($G$) and the dynamically screened Coulomb interaction ($W$). In practice, the exchange-correlation potential is replaced by the self-energy $\Sigma$
+
+\begin{equation}
+	V_{xc}(\va*{r}) \phi_i(\va*{r}) \rightarrow \int \Sigma(\va*{r},\va*{r}',\epsilon_i) \phi_i(\va*{r})\, \dd{r'} 
+\end{equation}
+ $\Sigma$ gives the finite discontinuity of $\Delta_{xc}$ in \eqref{eq:xc_discon}, thus yields the correct quasiparticle band gap. 
+
+ Product of G and W
 
 \subsection{Hybrid Functionals}
 \subsection{TB-MbJ Metapotential}
