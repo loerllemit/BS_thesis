@@ -318,16 +318,30 @@ This implies that quasiparticle gap and the Kohn–Sham band gap
 differs by a constant, $\Delta_{xc}$. This also means that $\Delta_{xc}$ must not be zero, suggesting $\Delta_{xc}$ has a discontinuity at the specified limit \citep{Sham1983,Baerends2017}. The problem with this formulation is that the exact exchange-correlation functional is not yet known. If LDA or GGA functional is used instead, $V_{xc}$ will be a continuous function by construction and therefore there is no discontinuity (i.e. $\Delta_{xc} = 0$). The band gap problem of DFT is a result of the Kohn-Sham formulation of DFT, and in particular to the approximations made in exchange-correlation functional.  
 
 \subsection{GW Approximation}
-The most suitable method for studying  single particle excitation spectra such as ionization energies and electron affinities of extended systems is the Green's function. The Green's function relies on the calculation of the self-energy operator which is non-local and energy dependent.  The self-energy is best approximated by the so called quasiparticle $GW$ approximation. $GW$ stands for the single-particle Green's function ($G$) and the dynamically screened Coulomb interaction ($W$). In practice, the exchange-correlation potential is replaced by the self-energy $\Sigma$
+The most suitable method for studying  single particle excitation spectra such as ionization energies and electron affinities of extended systems is the Green's function. The Green's function relies on the calculation of the self-energy operator which is non-local, energy dependent, and non-Hermitian \citep{Setten2012}.  The self-energy is best approximated by the so called quasiparticle $GW$ approximation, after the pioneering works of Hedin and Lundqvist \citep{Hedin1965,Hedin1970}. $GW$ stands for the single-particle Green's function ($G$) and the dynamically screened Coulomb interaction ($W$). In practice, the exchange-correlation functional is replaced by the self-energy $\Sigma$ \citep{Hybertsen1986}
 
 \begin{equation}
-	V_{xc}(\va*{r}) \phi_i(\va*{r}) \rightarrow \int \Sigma(\va*{r},\va*{r}',\epsilon_i) \phi_i(\va*{r})\, \dd{r'} 
+	\hat{\mathcal{V}}_{xc} \phi_i(\va*{r}) \rightarrow \int \Sigma(\va*{r},\va*{r}',\epsilon_i) \phi_i(\va*{r}')  \, \dd{r'}
 \end{equation}
- $\Sigma$ gives the finite discontinuity of $\Delta_{xc}$ in \eqref{eq:xc_discon}, thus yields the correct quasiparticle band gap. 
+so that the Kohn-Sham equation in \eqref{eq:KS} is modified as
+\begin{equation}
+	(\hat{\mathcal{T}}_{KS} + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H) \phi_i(\va*{r})  + \int \Sigma(\va*{r},\va*{r}',\epsilon_i) \phi_i(\va*{r}')  \, \dd{r'} = \epsilon_i \phi_i(\va*{r})
+\end{equation}
+The $GW$ approximation for $\Sigma$ is \citep{Godby1986}
+\begin{equation}
+	\Sigma(\va*{r},\va*{r}',\omega) = \frac{i}{4\pi} \int G(\va*{r},\va*{r}',\omega + \omega') W(\va*{r},\va*{r}',\omega') \, \dd{\omega'}
+\end{equation}
+where $\omega$ is the angular frequency related to energy as $\epsilon = \hbar \omega$. The precise meaning of $G$ and $W$ can be found in the seminal work of Hedin and Lundqvist \citep{Hedin1970} which involves the use of six coupled equations that are solved self-consistently. The self-energy $\Sigma$ takes into account the finite discontinuity of $\Delta_{xc}$ in \eqref{eq:xc_discon}, thus yielding the correct quasiparticle band gap. Figure \ref{fig:GW} illustrates the effectiveness of GW Approximation in improving the band gaps of semiconductors. Clearly, the band gaps calculated using LDA are greatly underestimated. The price to pay in using $GW$ Approximation is that such calculations are considerably more computationally expensive, due partly to complications in convergence of total energies and unfavorable scaling with respect to the system size \citep{Samsonidze2011,Deslippe2013,Gao2016}.
 
- Product of G and W
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"images/theory/GW"}
+	\caption[Improvement of band gap under GW Approximation]{Improvement of band gap of semiconductors under GW Approximation. Squares correspond to band gaps calculated using LDA while circles correspond to GW Approximation. If the data point is below the dotted line, the calculated band gap is underestimated. Otherwise, it is overestimated. Illustration taken from \citep{Schilfgaarde2006}.}
+	\label{fig:GW}
+\end{figure}
 
 \subsection{Hybrid Functionals}
+blah
 \subsection{TB-MbJ Metapotential}
 \subsection{Hubbard U Correction}
 Hello World. Test me if this will work. testing latexmk right. i am  having error. test 1 test 2 test 3    test 4 test 5 test 6. I am tired of not syncing automatically. test 8 test 10

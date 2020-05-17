@@ -2239,6 +2239,17 @@
     <bcf:citekey order="39">Perdew1983</bcf:citekey>
     <bcf:citekey order="40">Sham1983</bcf:citekey>
     <bcf:citekey order="40">Baerends2017</bcf:citekey>
+    <bcf:citekey order="41">Setten2012</bcf:citekey>
+    <bcf:citekey order="42">Hedin1965</bcf:citekey>
+    <bcf:citekey order="42">Hedin1970</bcf:citekey>
+    <bcf:citekey order="43">Hybertsen1986</bcf:citekey>
+    <bcf:citekey order="44">Godby1986</bcf:citekey>
+    <bcf:citekey order="45">Hedin1970</bcf:citekey>
+    <bcf:citekey order="46">Samsonidze2011</bcf:citekey>
+    <bcf:citekey order="46">Deslippe2013</bcf:citekey>
+    <bcf:citekey order="46">Gao2016</bcf:citekey>
+    <bcf:citekey order="47">Schilfgaarde2006</bcf:citekey>
+    <bcf:citekey order="48">Schilfgaarde2006</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
