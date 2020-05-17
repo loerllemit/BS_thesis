@@ -170,7 +170,7 @@ Using the Slater determinant form of the wavefunction, the Hamiltonian can be wr
 	\hat{\mathcal{H}}_{HF}  = \hat{\mathcal{T}}  + \hat{\mathcal{V}}_{ext} + \hat{\mathcal{V}}_H + \hat{\mathcal{V}}_x
 \end{equation}
 where
-\begin{equation}
+\begin{equation} \label{eq:HF-ex}
 	\hat{\mathcal{V}}_x = - \sum_j \int \frac{\psi_j^*(\va*{r}') \psi(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}} } \frac{\psi_j(\va*{r})}{\psi(\va*{r})} \dd{\va*{r}}
 \end{equation}
 $\hat{\mathcal{V}}_H$ comes from the Hartree approximation of electron-elecron interaction and $\hat{\mathcal{V}}_x$ comes from the antisymmetric
@@ -252,7 +252,7 @@ where $\epsilon_{xc}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per p
 	\epsilon_{xc}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
 \end{equation}
 The exchange part was expressed analytically by Dirac \citep{Dirac1930}
-\begin{equation}
+\begin{equation} \label{eq:Dirac-ex}
 	\epsilon_{x}[\rho({\va*{r}}) ] = - \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3} \rho({\va*{r}})
 \end{equation}
 while the correlation part has been found  numerically by Ceperley and Alder \citep{Ceperley1980} using a stochastic quantum Monte Carlo method \citep{Foulkes2001}. Later, an accurate parametrization of this data was published Perdew and Zunger (LDA-PZ) which is still used in DFT calculations \citep{Perdew1981}. LDA was expected to be best for solids with slowly varying densities like  a nearly-free-electron metals and worst for inhomogeneous systems such as atoms where the density must go continuously to zero just outside the atom. The partial success of LDA in inhomogeneous systems is due to systematic error cancellation in which the correlation is underestimated  but the exchange is overestimated resulting to a good value of $E^{LDA}_{xc}$ \citep{Gunnarsson1976,Gunnarsson1977}. However, LDA tends to overestimate cohesive energies and binding energies for metals and insulators \citep{Staroverov2004,Csonka2009,Harl2010}. Errors in LDA are severely exaggerated for weakly bonded systems such as van der Waals and H-bond systems \citep{Lee1993,Hamann1997,Feibelman2008}. Nevertheless, LDA is fairly accurate in predicting elastic properties, such as bulk modulus \citep{Froyen1983,Tan2012}.
@@ -331,7 +331,7 @@ The $GW$ approximation for $\Sigma$ is \citep{Godby1986}
 \begin{equation}
 	\Sigma(\va*{r},\va*{r}',\omega) = \frac{i}{4\pi} \int G(\va*{r},\va*{r}',\omega + \omega') W(\va*{r},\va*{r}',\omega') \, \dd{\omega'}
 \end{equation}
-where $\omega$ is the angular frequency related to energy as $\epsilon = \hbar \omega$. The precise meaning of $G$ and $W$ can be found in the seminal work of Hedin and Lundqvist \citep{Hedin1970} which involves the use of six coupled equations that are solved self-consistently. The self-energy $\Sigma$ takes into account the finite discontinuity of $\Delta_{xc}$ in \eqref{eq:xc_discon}, thus yielding the correct quasiparticle band gap. Figure \ref{fig:GW} illustrates the effectiveness of GW Approximation in improving the band gaps of semiconductors. Clearly, the band gaps calculated using LDA are greatly underestimated. The price to pay in using $GW$ Approximation is that such calculations are considerably more computationally expensive, due partly to complications in convergence of total energies and unfavorable scaling with respect to the system size \citep{Samsonidze2011,Deslippe2013,Gao2016}.
+where $\omega$ is the angular frequency related to energy as $\epsilon = \hbar \omega$. The precise meaning of $G$ and $W$ can be found in the seminal work of Hedin and Lundqvist \citep{Hedin1970} which involves the use of six coupled equations that are solved self-consistently. The self-energy $\Sigma$ takes into account the finite discontinuity of $\Delta_{xc}$ in \eqref{eq:xc_discon}, thus yielding the correct quasiparticle band gap. Figure \ref{fig:GW} illustrates the effectiveness of $GW$ Approximation in improving the band gaps of semiconductors. Clearly, the band gaps calculated using LDA are greatly underestimated. The price to pay in using $GW$ Approximation is that such calculations are considerably more computationally expensive, due partly to complications in convergence of total energies and unfavorable scaling with respect to the system size \citep{Samsonidze2011,Deslippe2013,Gao2016}.
 
 \begin{figure}[tbh!]
 	\centering
@@ -341,7 +341,8 @@ where $\omega$ is the angular frequency related to energy as $\epsilon = \hbar \
 \end{figure}
 
 \subsection{Hybrid Functionals}
-blah
+Hybrid functional uses a mixture of  non-local Hartree-Fock exchange with local or semi-local DFT exchange. The exchange functional in standard DFT was only approximated under LDA and GGA functional (i.e. eqn  \eqref{eq:Dirac-ex}). However, the exact exchange is given previously in equation  \eqref{eq:HF-ex}.
+
 \subsection{TB-MbJ Metapotential}
 \subsection{Hubbard U Correction}
 Hello World. Test me if this will work. testing latexmk right. i am  having error. test 1 test 2 test 3    test 4 test 5 test 6. I am tired of not syncing automatically. test 8 test 10
