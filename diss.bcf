@@ -2250,6 +2250,15 @@
     <bcf:citekey order="46">Gao2016</bcf:citekey>
     <bcf:citekey order="47">Schilfgaarde2006</bcf:citekey>
     <bcf:citekey order="48">Schilfgaarde2006</bcf:citekey>
+    <bcf:citekey order="49">Becke1993</bcf:citekey>
+    <bcf:citekey order="50">Perdew1996a</bcf:citekey>
+    <bcf:citekey order="50">Adamo1999</bcf:citekey>
+    <bcf:citekey order="51">Becke1988</bcf:citekey>
+    <bcf:citekey order="51">Lee1988</bcf:citekey>
+    <bcf:citekey order="52">Paier2007</bcf:citekey>
+    <bcf:citekey order="53">Perdew1996a</bcf:citekey>
+    <bcf:citekey order="54">Heyd2003</bcf:citekey>
+    <bcf:citekey order="54">Krukau2006</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

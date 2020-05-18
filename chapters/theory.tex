@@ -341,15 +341,35 @@ where $\omega$ is the angular frequency related to energy as $\epsilon = \hbar \
 \end{figure}
 
 \subsection{Hybrid Functionals}
-Hybrid functional uses a mixture of  non-local Hartree-Fock exchange with local or semi-local DFT exchange. The exchange functional in standard DFT was only approximated under LDA and GGA functional (i.e. eqn  \eqref{eq:Dirac-ex}). However, the exact exchange is given previously in equation  \eqref{eq:HF-ex}.
+Hybrid functional admixes a fixed amount of  non-local Hartree-Fock exchange with the local or semi-local DFT exchange. The exchange functional in standard DFT was only approximated under LDA and GGA functional (i.e. eqtn  \eqref{eq:Dirac-ex}). However, the HF exchange is given in exact form in eqtn  \eqref{eq:HF-ex}. The simplest hybrid functional is the linear combination of the two exchange
+\begin{equation}
+	E_{xc}^{\text{hybrid}} = a_0 E_x^{\text{HF}} + (1 - a_0) E_x^{\text{DFT}} + E_c, \quad 0 \leq a_0 \leq 1
+\end{equation}
+
+The hybrid functional used by Becke \citep{Becke1993} has the form $E_x^{\text{HF}} = E_x^{\text{DFT}}$ with $a_0 = 0.5$ using LDA formulation. The PBE0 \citep{Perdew1996a,Adamo1999} hybrid functional is constructed by a rational mixing of 25\% HF exchange and 75\% PBE exchange, with 100\% PBE correlation having the form
+\begin{equation}
+	E_{xc}^{\text{PBE0}} = \frac{1}{4} E_x^{\text{HF}} + \frac{3}{4} E_x^{\text{PBE}} + E_c^{\text{PBE}}
+\end{equation}
+By far the most commonly used functional is the B3LYP (Becke,3-parameter,Lee,Yang,Par) \citep{Becke1988,Lee1988} hybrid functional which has the form  \citep{Paier2007}
+\begin{equation}
+	E_{xc}^{\text{B3LYP}} = E_x^{\text{LDA}} + a_0 (E_x^{\text{HF}} - E_x^{\text{LDA}} ) + a_x (E_x^{\text{B88}} - E_x^{\text{LDA}} ) + E_c^{\text{LDA}} + a_c (E_c^{\text{LYP}} - E_c^{\text{LDA}})
+\end{equation}
+where $a_0=0.20$,$a_x=0.72$, and $a_c=0.81$. The parameters were
+determined by fitting to a data of measured atomization
+energies \citep{Perdew1996a}.
+
+A critical feature of Hartree-Fock exhange is that it is nonlocal, that is, it cannot be evaluated at one particular spatial location, unless the electron density is known for all locations. Introducing nonlocality greatly increases the computational cost in solving Kohn-Sham equation. These type of functional are very difficult to apply in bulk and spatially extended systems. As a result, HF exact exchange find almost its use in quantum chemistry calculations involving molecules. 
+However, progress is being done in developing the screened hybrid functionals in which the exchange interaction is split into two regions, a long-range (i.e. interstitial region) and a short-range (i.e. core region)  interaction. The HF exchange is only incorporated to the short-range portion while standard DFT exchange acts on all portion. The Heyd, Scuseria, and Ernzerhof (HSE) functional is based on this approach which is calculated as \citep{Heyd2003,Krukau2006}
+\begin{equation}
+	E_{xc}^{\text{HSE}} = \frac{1}{4} E_x^{\text{HF,SR}}(\omega) +  \frac{3}{4} E_x^{\text{PBE,SR}}(\omega) + E_x^{\text{PBE,LR}}(\omega) + E_c^{\text{PBE}}
+\end{equation} 
+where the screening parameter $\omega$ defines the separation
+range, SR and LR refer to short range and long range, respectively. 
+
 
 \subsection{TB-MbJ Metapotential}
 \subsection{Hubbard U Correction}
-Hello World. Test me if this will work. testing latexmk right. i am  having error. test 1 test 2 test 3    test 4 test 5 test 6. I am tired of not syncing automatically. test 8 test 10
-let us see
-TEST 102
-test 103
-test 104 test 105 test 106 test 107
+Hello World. Test me if this will work. testing latexmk right. i 
 	{\color{red} insert the symmetry points in IBZ.}
 
 % \subsection{Hamiltonian Operator}

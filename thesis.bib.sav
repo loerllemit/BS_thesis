@@ -806,30 +806,4 @@
   publisher = {{AIP} Publishing},
 }
 
-@Article{Heyd2003,
-  author    = {Jochen Heyd and Gustavo E. Scuseria and Matthias Ernzerhof},
-  title     = {Hybrid functionals based on a screened Coulomb potential},
-  doi       = {10.1063/1.1564060},
-  number    = {18},
-  pages     = {8207--8215},
-  volume    = {118},
-  journal   = {The Journal of Chemical Physics},
-  month     = {may},
-  publisher = {{AIP} Publishing},
-  year      = {2003},
-}
-
-@Article{Krukau2006,
-  author    = {Aliaksandr V. Krukau and Oleg A. Vydrov and Artur F. Izmaylov and Gustavo E. Scuseria},
-  title     = {Influence of the exchange screening parameter on the performance of screened hybrid functionals},
-  doi       = {10.1063/1.2404663},
-  number    = {22},
-  pages     = {224106},
-  volume    = {125},
-  journal   = {The Journal of Chemical Physics},
-  month     = {dec},
-  publisher = {{AIP} Publishing},
-  year      = {2006},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
