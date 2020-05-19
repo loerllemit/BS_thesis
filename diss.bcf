@@ -2259,6 +2259,15 @@
     <bcf:citekey order="53">Perdew1996a</bcf:citekey>
     <bcf:citekey order="54">Heyd2003</bcf:citekey>
     <bcf:citekey order="54">Krukau2006</bcf:citekey>
+    <bcf:citekey order="55">Staroverov2004</bcf:citekey>
+    <bcf:citekey order="56">Tao2003</bcf:citekey>
+    <bcf:citekey order="57">Staroverov2004</bcf:citekey>
+    <bcf:citekey order="58">Tran2009</bcf:citekey>
+    <bcf:citekey order="59">Perdew1999</bcf:citekey>
+    <bcf:citekey order="60">Sun2015</bcf:citekey>
+    <bcf:citekey order="61">Tran2009</bcf:citekey>
+    <bcf:citekey order="62">Singh2010</bcf:citekey>
+    <bcf:citekey order="62">Singh2010a</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

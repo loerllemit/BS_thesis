@@ -223,7 +223,7 @@ In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{
 
 \begin{figure}[tbh!]
 	\centering
-	\includegraphics[width=0.3\linewidth]{"images/KS_loop"}
+	\includegraphics[width=0.3\linewidth]{"images/theory/KS_loop"}
 	\caption[Kohn Sham loop]{Solving Kohn Sham equation leads to a circular argument}
 	\label{fig:KS_loop}
 \end{figure}
@@ -232,7 +232,7 @@ To circumvent this, an iterative scheme was developed  in which a trial electron
 
 \begin{figure}[tbh!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{"images/scf_loop"}
+	\includegraphics[width=0.7\linewidth]{"images/theory/scf_loop"}
 	\caption[Kohn Sham loop]{Convergence of electron density and other observable quantities using Self Consistent Field calculation}
 	\label{fig:scf_loop}
 \end{figure}
@@ -244,7 +244,7 @@ So far, no analytical form for the exchange-correlation functional has been foun
 The simplest commonly used exchange-correlation functional is the so called Local Density Approximation (LDA).  LDA assumes that the electronic contribution to the exchange-correlation energy from each point in space is the same as to what it would be for a homogeneous electron gas with the uniform density throughout the whole system. This approximation was originally introduced by Kohn and Sham, and holds for a slowly varying density \citep{Kohn1965}. Using the approximation, the XC energy functional is given by
 
 \begin{equation} \label{eq:LDA-XC}
-	E^{LDA}_{xc} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{xc}[\rho({\va*{r}}) ] \dd[3]{r}
+	E^{\text{LDA}}_{xc} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{xc}[\rho({\va*{r}}) ] \dd[3]{r}
 \end{equation}
 where $\epsilon_{xc}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{xc}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions
 
@@ -259,20 +259,20 @@ while the correlation part has been found  numerically by Ceperley and Alder \ci
 
 \subsection{Generalized Gradient Approximation (GGA)}
 Attempts to improve the shortcomings of LDA has led to the  use of gradient corrections. These so called Generalized Gradient Approximations (GGA) systematically calculate gradient corrections of the form $\abs{\grad \rho({\va*{r}})}$, $\abs{\grad \rho({\va*{r}})}^2$, $\abs{\laplacian\rho({\va*{r}})}$, etc. to the LDA. Such functionals can be generalized as
-\begin{equation}
-	E^{GGA}_{xc} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
+\begin{equation}\label{eq:GGA_xc}
+	E^{\text{GGA}}_{xc} [\rho]= \int f^{GGA}[\rho({\va*{r}}),\grad \rho({\va*{r}})] \dd[3]{r}
 \end{equation}
 where $f^{GGA}$ is some arbitrary function of electron  density and its gradient. GGA functionals are often term as semi-local because of their $\grad \rho({\va*{r}})$ dependence. Because of the flexibility in choosing $f^{GGA}$, a plethora of functionals have been developed and depending on the system under study, various results can be obtained. A more specific form of the GGA functional can be written as \citep{Csonka2009}
 \begin{equation} \label{eq:GGA-XC}
-	E^{GGA}_{xc} [\rho]= \int \rho({\va*{r}})\, \epsilon_{xc}[\rho({\va*{r}})]\, F_{xc}[s]  \dd[3]{r}
+	E^{\text{GGA}}_{xc} [\rho]= \int \rho({\va*{r}})\, \epsilon_{xc}[\rho({\va*{r}})]\, F_{xc}[s]  \dd[3]{r}
 \end{equation}
 where $\epsilon_{xc}[\rho({\va*{r}})]$ is the exchange-correlation energy per particle of an electron gas in a uniform electron density $\rho({\va*{r}})$ (i.e. similar to LDA). $F_{xc}$ is the enhancement factor that tells how much XC energy is enhanced over its LDA value for a given  $\rho({\va*{r}})$. Note the resemblance of GGA functional in \eqref{eq:GGA-XC} to the LDA functional in \eqref{eq:LDA-XC} which differ only by an enhancement factor. Here $s$ is a dimensionless reduced gradient
 \begin{equation}
 	s = \frac{\abs{\grad \rho({\va*{r}})}}{2 (3\pi^2)^{1/3} \rho({\va*{r}})^{4/3}}
 \end{equation}
 The most popular GGA functionals used in the literature are Perdew-Burke-Ernzerhof (PBE) \citep{Perdew1996}, PBEsol \citep{Perdew2008},Becke88 (B88) \citep{Becke1988},  Perdew-Wang (PW91) \citep{Perdew1992}, Lee-Yang-Parr (LYP) \citep{Lee1988}, OptX (O) \citep{Handy2001} and Xu (X) \citep{Xu2004}. Among the functionals, PBE is the  simplest and has  exchange enhancement factor of the form
-\begin{equation}
-	F_{xc}^{PBE}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
+\begin{equation} \label{eq:F_x}
+	F_{x}^{\text{PBE}}(s) = 1 + \kappa  - \frac{\kappa}{1+\mu s^2/\kappa}
 \end{equation}
 where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient approaches to zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{xc}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and its discussion is beyond the scope of this thesis.
 
@@ -367,7 +367,25 @@ where the screening parameter $\omega$ defines the separation
 range, SR and LR refer to short range and long range, respectively. 
 
 
-\subsection{TB-MbJ Metapotential}
+\subsection{Meta-GGA}
+Meta-GGA is an extension of the GGA in which the local kinetic energy density is included in the input to the functional. The GGA exchange-correlation functional in \eqref{eq:GGA-XC} is modified to include the non-interacting kinetic energy density $\tau$ \citep{Staroverov2004}
+\begin{equation}
+	E^{\text{MGGA}}_{xc} [\rho]= \int \rho({\va*{r}})\, \epsilon_{xc}[\rho({\va*{r}})]\, F_{xc}[\rho({\va*{r}}),\grad \rho({\va*{r}}),\tau(\va*{r})] \,  \dd[3]{r}
+\end{equation}
+where $\tau(\va*{r})$ is  defined as 
+\begin{equation}
+	\tau(\va*{r}) = \frac{1}{2} \sum_{i=1}^N \abs{\grad \phi_i(\va*{r})}^2
+\end{equation}
+
+The implementation of Tao, Perdew, Staroverov, and Scuseria (TPSS) functional is based on meta-GGA functional \citep{Tao2003}. Its exchange enhancement factor  has a similar form as the PBE-GGA functional in \eqref{eq:F_x} \citep{Staroverov2004}
+\begin{equation}
+	F_{x}^{\text{TPSS}}(s) = 1 + \kappa  - \frac{\kappa}{1+\chi/\kappa}
+\end{equation}
+where $\chi$ is a complicated function of $\rho({\va*{r}}),\grad \rho({\va*{r}})$, and $\tau(\va*{r})$. Other  meta-GGAs  have  also been  proposed  recently such as Tran, Blaha-modified Becke, Johnson (TB-mBJ) functional \citep{Tran2009};  Perdew, Kurth, Zupan, and Blaha functional\citep{Perdew1999}; and Strongly Constrained and Appropriately Normed Density functional (SCAN) \citep{Sun2015}.
+
+Since there are kinetic energy density corrections incorporated in the functional, the accuracy of meta-GGAs can compete with the computationally expensive hybrid or GW calculations. It is as cheap as the standard DFT such as LDA or GGA and hence can be scaled to large systems efficiently \citep{Tran2009}. It also improves the band gaps of various insulators, semiconductors, oxides and halides but it fails sometimes on materials containing $d$ and $f$ orbitals \citep{Singh2010,Singh2010a}. 
+
+
 \subsection{Hubbard U Correction}
 Hello World. Test me if this will work. testing latexmk right. i 
 	{\color{red} insert the symmetry points in IBZ.}
