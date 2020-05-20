@@ -832,4 +832,88 @@
   year      = {2006},
 }
 
+@Article{Tao2003,
+  author    = {Jianmin Tao and John P. Perdew and Viktor N. Staroverov and Gustavo E. Scuseria},
+  title     = {Climbing the Density Functional Ladder: Nonempirical Meta{\textendash}Generalized Gradient Approximation Designed for Molecules and Solids},
+  doi       = {10.1103/physrevlett.91.146401},
+  number    = {14},
+  volume    = {91},
+  journal   = {Physical Review Letters},
+  month     = {sep},
+  publisher = {American Physical Society ({APS})},
+  year      = {2003},
+}
+
+@Article{Tran2009,
+  author    = {Fabien Tran and Peter Blaha},
+  title     = {Accurate Band Gaps of Semiconductors and Insulators with a Semilocal Exchange-Correlation Potential},
+  doi       = {10.1103/physrevlett.102.226401},
+  number    = {22},
+  volume    = {102},
+  journal   = {Physical Review Letters},
+  month     = {jun},
+  publisher = {American Physical Society ({APS})},
+  year      = {2009},
+}
+
+@Article{Singh2010,
+  author    = {David J. Singh},
+  title     = {Structure and optical properties of high light output halide scintillators},
+  doi       = {10.1103/physrevb.82.155145},
+  number    = {15},
+  volume    = {82},
+  journal   = {Physical Review B},
+  month     = {oct},
+  publisher = {American Physical Society ({APS})},
+  year      = {2010},
+}
+
+@Article{Singh2010a,
+  author    = {David J. Singh},
+  title     = {Electronic structure calculations with the Tran-Blaha modified Becke-Johnson density functional},
+  doi       = {10.1103/physrevb.82.205102},
+  number    = {20},
+  volume    = {82},
+  journal   = {Physical Review B},
+  month     = {nov},
+  publisher = {American Physical Society ({APS})},
+  year      = {2010},
+}
+
+@Article{Perdew1999,
+  author    = {John P. Perdew and Stefan Kurth and Ale{\v{s}} Zupan and Peter Blaha},
+  title     = {Accurate Density Functional with Correct Formal Properties: A Step Beyond the Generalized Gradient Approximation},
+  doi       = {10.1103/physrevlett.82.2544},
+  number    = {12},
+  pages     = {2544--2547},
+  volume    = {82},
+  journal   = {Physical Review Letters},
+  month     = {mar},
+  publisher = {American Physical Society ({APS})},
+  year      = {1999},
+}
+
+@Article{Sun2015,
+  author    = {Jianwei Sun and Adrienn Ruzsinszky and John{\hspace{0.167em}}P. Perdew},
+  title     = {Strongly Constrained and Appropriately Normed Semilocal Density Functional},
+  doi       = {10.1103/physrevlett.115.036402},
+  number    = {3},
+  volume    = {115},
+  journal   = {Physical Review Letters},
+  month     = {jul},
+  publisher = {American Physical Society ({APS})},
+  year      = {2015},
+}
+
+@Book{Lee2016,
+  author    = {June Gunn Lee},
+  publisher = {Taylor \& Francis Inc},
+  title     = {Computational Materials Science An Introduction},
+  year      = {2016},
+  isbn      = {1498749739},
+  date      = {2016-11-28},
+  ean       = {9781498749732},
+  pagetotal = {351},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
