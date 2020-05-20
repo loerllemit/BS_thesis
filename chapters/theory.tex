@@ -228,7 +228,7 @@ In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{
 	\label{fig:KS_loop}
 \end{figure}
 
-To circumvent this, an iterative scheme was developed  in which a trial electron density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation \citep{Woods2019}. Spefic steps are illustrated in Figure \ref{fig:scf_loop}. First, an initial trial electron density is provided. The trial electron density is usually derived from the superposition of known atomic potentials. Second,    the KS equation is solved using the trial electron density. The resulting eigenfunction, in this case the orbital $\phi_i(\va*{r})$, will then be used to calculate the new electron density. The new electron density is compared to the previous electron density and if the error is less than some acceptable deviation, then this will be the ground state density. Otherwise, the electron density is updated and the iteration is repeated $k$th times until convergence is achieved. Factors that affect the rate of convergence will be discussed on the next chapter.
+To circumvent this, an iterative scheme was developed  in which a trial electron density is introduced and the KS equation is iteratively solved  to achieve convergence. This iterative process is often referred as Self Consistent Field (SCF) calculation \citep{Woods2019}. Specific steps are illustrated in Figure \ref{fig:scf_loop}. First, an initial trial electron density is provided. The trial electron density is usually derived from the superposition of known atomic potentials. Second,    the KS equation is solved using the trial electron density. The resulting eigenfunction, in this case the orbital $\phi_i(\va*{r})$, will then be used to calculate the new electron density. The new electron density is compared to the previous electron density and if the error is less than some acceptable deviation, then this will be the ground state density. Otherwise, the electron density is updated and the iteration is repeated $k$th times until convergence is achieved. Factors that affect the rate of convergence will be discussed on the next chapter.
 
 \begin{figure}[tbh!]
 	\centering
@@ -246,7 +246,7 @@ The simplest commonly used exchange-correlation functional is the so called Loca
 \begin{equation} \label{eq:LDA-XC}
 	E^{\text{LDA}}_{xc} [\rho]= \int \rho({\va*{r}}) \,\epsilon_{xc}[\rho({\va*{r}}) ] \dd[3]{r}
 \end{equation}
-where $\epsilon_{xc}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{xc}[\rho({\va*{r}}) ]$ can be further split into exhange and corelation contributions
+where $\epsilon_{xc}[\rho({\va*{r}}) ]$ is the exchange-correlation energy per particle of a uniform electron gas of density $\rho({\va*{r}})$. The quantity $\epsilon_{xc}[\rho({\va*{r}}) ]$ can be further split into exchange and corelation contributions
 
 \begin{equation}
 	\epsilon_{xc}[\rho({\va*{r}}) ] = \epsilon_{X}[\rho({\va*{r}}) ] + \epsilon_{C}[\rho({\va*{r}})]
@@ -276,7 +276,7 @@ The most popular GGA functionals used in the literature are Perdew-Burke-Ernzerh
 \end{equation}
 where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When the density gradient approaches to zero ($\abs{\grad \rho({\va*{r}})} \rightarrow 0,s \rightarrow 0$), $F_{xc}^{PBE}(s)$ will become unity and \eqref{eq:GGA-XC} reduces to LDA formulation. The form of the  correlation functional is a complicated function of $s$ and its discussion is beyond the scope of this thesis.
 
-GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition, GGA tends to give better total energies, atomization energies, and energy barriers \citep{Becke1988,Langreth1983,Perdew1992a,Proynov1995}. However, GGA-based schemes typically fail on the region of weak interatomic interactions such as weak Hydrogen bonds, van der Waals interation, and charge-transfer complexes \citep{Kim1994,PerezJorda1995,Ruiz1995}.
+GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition, GGA tends to give better total energies, atomization energies, and energy barriers \citep{Becke1988,Langreth1983,Perdew1992a,Proynov1995}. However, GGA-based schemes typically fail on the region of weak interatomic interactions such as weak Hydrogen bonds, van der Waals interaction, and charge-transfer complexes \citep{Kim1994,PerezJorda1995,Ruiz1995}.
 
 \section{Corrections to DFT}
 One important limitation of DFT that matters most in solid-state physics is the underestimation of band gap in semiconductors. A good theory must successfully predict the  properties of wide range of materials including those novel materials as it is critical for applications in optoelectronics and nanotechnology. Hence, this section will discuss the inherent band gap problem and existing methods on improving the band gap.   
@@ -358,7 +358,7 @@ where $a_0=0.20$,$a_x=0.72$, and $a_c=0.81$. The parameters were
 determined by fitting to a data of measured atomization
 energies \citep{Perdew1996a}.
 
-A critical feature of Hartree-Fock exhange is that it is nonlocal, that is, it cannot be evaluated at one particular spatial location, unless the electron density is known for all locations. Introducing nonlocality greatly increases the computational cost in solving Kohn-Sham equation. These type of functional are very difficult to apply in bulk and spatially extended systems. As a result, HF exact exchange find almost its use in quantum chemistry calculations involving molecules. 
+A critical feature of Hartree-Fock exchange is that it is nonlocal, that is, it cannot be evaluated at one particular spatial location, unless the electron density is known for all locations. Introducing nonlocality greatly increases the computational cost in solving Kohn-Sham equation. These type of functional are very difficult to apply in bulk and spatially extended systems. As a result, HF exact exchange find almost its use in quantum chemistry calculations involving molecules. 
 However, progress is being done in developing the screened hybrid functionals in which the exchange interaction is split into two regions, a long-range (i.e. interstitial region) and a short-range (i.e. core region)  interaction. The HF exchange is only incorporated to the short-range portion while standard DFT exchange acts on all portion. The Heyd, Scuseria, and Ernzerhof (HSE) functional is based on this approach which is calculated as \citep{Heyd2003,Krukau2006}
 \begin{equation}
 	E_{xc}^{\text{HSE}} = \frac{1}{4} E_x^{\text{HF,SR}}(\omega) +  \frac{3}{4} E_x^{\text{PBE,SR}}(\omega) + E_x^{\text{PBE,LR}}(\omega) + E_c^{\text{PBE}}
@@ -387,7 +387,7 @@ Since there are kinetic energy density corrections incorporated in the functiona
 
 
 \subsection{Hubbard U Correction}
-Hello World. Test me if this will work. testing latexmk right. i 
+
 	{\color{red} insert the symmetry points in IBZ.}
 
 % \subsection{Hamiltonian Operator}
