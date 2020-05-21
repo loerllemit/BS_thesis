@@ -390,6 +390,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/theory/scf_loop.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/theory/GW.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/theory/GW.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/theory/GW.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/theory/hubbard.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/theory/hubbard.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/theory/hubbard.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.tex
@@ -447,6 +450,7 @@ INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/publi
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb

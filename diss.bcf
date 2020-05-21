@@ -2270,6 +2270,20 @@
     <bcf:citekey order="63">Tran2009</bcf:citekey>
     <bcf:citekey order="64">Singh2010</bcf:citekey>
     <bcf:citekey order="64">Singh2010a</bcf:citekey>
+    <bcf:citekey order="65">Himmetoglu2013</bcf:citekey>
+    <bcf:citekey order="66">Shen1991</bcf:citekey>
+    <bcf:citekey order="67">Tolba2018</bcf:citekey>
+    <bcf:citekey order="68">Liechtenstein1995</bcf:citekey>
+    <bcf:citekey order="68">Dudarev1998</bcf:citekey>
+    <bcf:citekey order="68">Cococcioni2005</bcf:citekey>
+    <bcf:citekey order="69">Himmetoglu2011</bcf:citekey>
+    <bcf:citekey order="70">Liechtenstein1995</bcf:citekey>
+    <bcf:citekey order="70">Dudarev1998</bcf:citekey>
+    <bcf:citekey order="71">Cococcioni2005</bcf:citekey>
+    <bcf:citekey order="71">Kulik2006</bcf:citekey>
+    <bcf:citekey order="72">Dompablo2011</bcf:citekey>
+    <bcf:citekey order="73">Tran2006</bcf:citekey>
+    <bcf:citekey order="74">Tran2006</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

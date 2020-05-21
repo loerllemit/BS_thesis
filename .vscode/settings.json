@@ -2,7 +2,7 @@
     "files.autoSave": "afterDelay",
     "editor.fontSize": 15,
     "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
-    "files.autoSaveDelay": 3000,
+    "files.autoSaveDelay": 10000,
     "editor.cursorSmoothCaretAnimation": true,
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.update.aggressive.enabled": true,

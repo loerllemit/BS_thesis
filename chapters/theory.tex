@@ -224,7 +224,7 @@ In order to solve the KS equation \eqref{eq:KS}, the Hamiltonian $\hat{\mathcal{
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.3\linewidth]{"images/theory/KS_loop"}
-	\caption[Kohn Sham loop]{Solving Kohn Sham equation leads to a circular argument}
+	\caption[Kohn-Sham loop]{Solving Kohn Sham equation leads to a circular argument}
 	\label{fig:KS_loop}
 \end{figure}
 
@@ -233,7 +233,7 @@ To circumvent this, an iterative scheme was developed  in which a trial electron
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/theory/scf_loop"}
-	\caption[Kohn Sham loop]{Convergence of electron density and other observable quantities using Self Consistent Field calculation}
+	\caption[Self consistent field diagram]{Convergence of electron density and other observable quantities using Self Consistent Field calculation}
 	\label{fig:scf_loop}
 \end{figure}
 %       \subsubsection{Energy Terms}
@@ -386,9 +386,32 @@ where $\chi$ is a complicated function of $\rho({\va*{r}}),\grad \rho({\va*{r}})
 Since there are kinetic energy density corrections incorporated in the functional, the accuracy of meta-GGAs can compete with the computationally expensive hybrid or GW calculations. It is as cheap as the standard DFT such as LDA or GGA and hence can be scaled to large systems efficiently \citep{Tran2009}. It also improves the band gaps of various insulators, semiconductors, oxides and halides but it fails sometimes on materials containing $d$ and $f$ orbitals \citep{Singh2010,Singh2010a}. 
 
 
-\subsection{Hubbard U Correction}
+\subsection{Hubbard-U Correction}
+One of the corrective approach used in the DFT electronic band gap problem is the DFT+U method. One pertinent problem in DFT is the description of strongly correlated systems in which the exchange-correlation functional tends to over-delocalize valence electrons. This problem is more pronounced to systems whose ground state energies are characterized by localized valence electrons such as $d$ orbitals, $f$ orbitals, and Mott insulators \citep{Himmetoglu2013}. The inability of XC functionals to fully cancel the self-interaction in the Hartree term leads to an excessive delocalization, hence, creating a larger dispersion (i.e. larger valence bandwidth) and smaller band gap than what expected. The strong correlation stems from the Coulomb repulsion between electrons that forces them to localize \citep{Shen1991}. This Coulomb potential is described by the term "U". Various models have been proposed to treat correlated systems, and one of the simplest is the "Hubbard-U" model which takes into account the "on-site" repulsion of electrons at the same atomic orbitals \citep{Tolba2018}. The total energy can be written as \citep{Liechtenstein1995,Dudarev1998,Cococcioni2005}
+\begin{equation}
+	E_{\text{DFT}+U} [\rho({\va*{r}})] = E_{\text{DFT}} [\rho({\va*{r}})] + E_{\text{HUB}}[{n^I_{mm'}}] - E_{\text{dc}} [n^I]
+\end{equation}
+where $E_{\text{DFT}} [\rho({\va*{r}})]$ is the eigenvalue of the Kohn-Sham equation in \eqref{eq:KS}, $E_{\text{HUB}}$ is the energy of Hubbard functional that describes the correlated systems, and $E_{\text{dc}}$ is the double-counting correction when treating electronic interactions as a mean field. Based on this formulation, DFT+U energy can be expanded as 
+\begin{equation}
+	E_{\text{DFT}+U} [\rho({\va*{r}})] = E_{\text{DFT}} [\rho({\va*{r}})] + \sum_I \left[\frac{U^I}{2} \sum_{m \neq m'}  {n^I_{m}} {n^I_{m'}} - \frac{U^I}{2} n^I (n^I - 1)\right] 
+\end{equation}
+where $n^I_{m}$ are the occupation numbers of localized orbitals identified by the atomic site index $I$ and state index $m$ (magnetic quantum number for a particular angular quantum number $l$). The occupations are computed from the projection of Kohn-Sham orbitals onto the localized basis set such as the atomic orbital states \citep{Himmetoglu2011}
+\begin{equation}
+	n^I_{mm'} = \sum_{k,i} f_{ki} \braket{\phi_{ki}}{\psi^I_m} \braket{\psi^I_{m'}}{\phi_{ki}}
+\end{equation}
+where $\phi_{ki}$ are the Kohn-Sham states (labeled by k-point $k$ and band index $i$), $f_{ki}$ represents their occupations according to Fermi-Dirac distribution, and $\psi^I_{m}$ are the atomic orbitals. In some published works, the on-site  Coulomb term $U$ is replaced by an effective potential $U_{eff} =U + J $, where $J$ is the  site exchange term that accounts for Hund's rule coupling \citep{Liechtenstein1995,Dudarev1998}. The 
+effective potential is proved to be crucial in describing strong spin-orbit coupling. 
 
-	{\color{red} insert the symmetry points in IBZ.}
+Hubbard-U calculations depend on the values of $U$, where it can be either formulated from first principles or achieved empirically by tuning it such that it agrees with the experimental results. The former can be achieved through linear response method in which the response of  the localized states to a small perturbation is calculated \citep{Cococcioni2005,Kulik2006}. The latter is usually compared to the experimental band gap. Nevertheless, the empirical tuning is much preferred because of the significant computational cost in doing linear response calculations, and also the calculated $U$ is not necessarily better than the empirical one \citep{Dompablo2011}. As stated earlier, Hubbard-U calculation can be used to correct the band gaps of strongly correlated systems. This is applicable to semiconductors containing of $d$ and $f$ orbitals such as \ch{ZnO}, \ch{CeO2}, \ch{TiO2}, etc. Figure \ref{fig:hubbard} shows the improvement of band gaps of transition-metal oxides using Hubbard-U correction. Note that the band gap of MnO is underestimated while FeO is incorrectly predicted as metallic when LDA is used. 
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/theory/hubbard"}
+	\caption[Improvement of band gap under Hubbard Correction]{Comparison of density of states calculated by LDA and LDA+U for (a) MnO and (b) FeO. The solid vertical bars indicate the end of fundamental band gap. Fermi energy is set at 0 eV. Illustration taken from \citep{Tran2006}.}
+	\label{fig:hubbard}
+\end{figure}
+
+	
 
 % \subsection{Hamiltonian Operator}
 % \subsection{Indistinguishability of electrons}
