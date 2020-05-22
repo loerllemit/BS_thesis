@@ -1,8 +1,18 @@
 \chapter{DFT Calculation of Solids}
 \section{Basis Sets}
-    \subsection{Plane Wave}
+Solving the Kohn-Sham equation in \eqref{eq:KS} requires the use of mathematical representations to describe the single-particle Kohn-Sham orbitals $\phi_i(\va*{r})$. One possibility is to express these orbitals as a basis sets that are known or solvable. One starts by expanding the orbital in a generic basis set 
+
+\begin{equation}
+    \phi_i(\va*{r}) = \sum^M_\alpha c^i_\alpha \chi_\alpha
+\end{equation}
+where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\chi_\alpha$. Since $\phi_i(\va*{r})$ spans the whole infinite space,$M$ must be in principle infinite. 
+
+
+
     \subsection{Gaussian Orbital}
     \subsection{Slater type orbitals}
+    \subsection{Plane Wave}
+
 \section{Pseudopotential Approach}
     This is sample text
     \subsection{Freezing the core electrons}

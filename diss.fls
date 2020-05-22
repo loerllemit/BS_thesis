@@ -283,6 +283,8 @@ INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/rnd.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/rnd.aux
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
 OUTPUT /scratch1/christian.llemit/codes/thesis/diss.aux
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -417,6 +419,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/band-dos_O-antisite.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/dos-pdos_O-antisite.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/dos-pdos_O-antisite.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/dos-pdos_O-antisite.pdf
+OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.tex
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.tex
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/eccc1200.tfm
 INPUT /scratch1/christian.llemit/codes/thesis/diss.aux
@@ -432,6 +437,8 @@ INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/rnd.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/rnd.aux
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
+INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
 INPUT /scratch1/christian.llemit/codes/thesis/diss.out
 INPUT /scratch1/christian.llemit/codes/thesis/diss.out
 INPUT /scratch1/christian.llemit/codes/thesis/diss.run.xml
