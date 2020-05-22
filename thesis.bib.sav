@@ -1059,4 +1059,16 @@
   isbn      = {9789080721517},
 }
 
+@Article{Junquera2001,
+  author    = {Javier Junquera and {\'{O}}scar Paz and Daniel S{\'{a}}nchez-Portal and Emilio Artacho},
+  journal   = {Physical Review B},
+  title     = {Numerical atomic orbitals for linear-scaling calculations},
+  year      = {2001},
+  month     = {nov},
+  number    = {23},
+  volume    = {64},
+  doi       = {10.1103/physrevb.64.235111},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

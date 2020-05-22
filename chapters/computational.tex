@@ -1,17 +1,56 @@
 \chapter{DFT Calculation of Solids}
 \section{Basis Sets}
-Solving the Kohn-Sham equation in \eqref{eq:KS} requires the use of mathematical representations to describe the single-particle Kohn-Sham orbitals $\phi_i(\va*{r})$. One possibility is to express these orbitals as a basis sets that are known or solvable. One starts by expanding the orbital in a generic basis set 
+Solving the Kohn-Sham equation in \eqref{eq:KS} requires the use of mathematical representations to describe the single-particle Kohn-Sham orbitals $\phi_i(\va*{r})$. One possibility is to express these orbitals as a basis sets that are known and numerically solvable. One starts by expressing orbitals as a linear combination of generic basis set 
 
-\begin{equation}
-    \phi_i(\va*{r}) = \sum^M_\alpha c^i_\alpha \chi_\alpha
+\begin{equation} \label{eq:basis_set}
+    \phi_i(\va*{r}) = \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha}
 \end{equation}
-where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\chi_\alpha$. Since $\phi_i(\va*{r})$ spans the whole infinite space,$M$ must be in principle infinite. 
+where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\ket{\chi_\alpha}$. Since $\phi_i(\va*{r})$ spans the whole infinite space, $M$ must be in principle infinite. However, in practice the basis set is truncated just enough for an accurate description of the orbital. The choice of the basis set depends on several factors such as (a) efficiency and (b) unbiased \citep{Cottenier2013}. A basis set is efficient if it resembles  $\phi_i(\va*{r})$ closely, hence requiring less expansion coefficients and smaller dimension size. However, this assumes that the solution to the problem must be known beforehand. Such basis set can never be general because it will quickly yield a solution for a specific problem but will poorly perform for other cases. The problem is that optimizing a basis set for a specific system can cause bias. This means that if a property of a system is calculated, but the basis set is optimized for only one particular system, the result will be biased towards that one \citep{Junquera2001,Louwerse2012}. It is the goal of theoretical condensed matter physics to find a basis set that is simultaneously efficient and unbiased. 
+\subsection{local basis}
+\subsection{nonlocal basis}
+\subsection{augmented basis}
+\subsection{Gaussian Orbital}
 
-
-
-    \subsection{Gaussian Orbital}
     \subsection{Slater type orbitals}
     \subsection{Plane Wave}
+    \subsection{Augmented Plane Wave}
+
+\section{Matrix Formulation for KS equation}
+The use of basis sets transforms the Kohn-Sham equation into an ordinary matrix algebra  that can be solved numerically. The Kohn-Sham equation in \eqref{eq:KS} is expanded in terms of basis sets using \eqref{eq:basis_set} 
+
+\begin{equation}\label{eq:KS_basis}
+	\hat{\mathcal{H}}_{KS}\,  \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha} = \epsilon_i\,  \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha}
+\end{equation}
+Left "multiply" with  $\bra{\chi_\beta}$:
+\begin{equation}
+    \sum^M_\alpha  \bra{\chi_\beta} \hat{\mathcal{H}}_{KS} \ket{\chi_\alpha} c^i_\alpha = \sum^M_\alpha \braket{\chi_\beta}{\chi_\alpha} c^i_\alpha \epsilon_i
+\end{equation}
+which can be simplified as 
+\begin{equation}
+    \sum^M_\alpha  H_{\beta\alpha} c^i_\alpha = \sum^M_\alpha S_{\beta\alpha} c^i_\alpha \epsilon_i
+\end{equation}
+where $ H_{\beta\alpha}$ and $S_{\beta\alpha}$ are the energy-independent Hamiltionian and the overlap matrix, respectively \citep{Kohanoff2006}. The elements of these matrices are defined as 
+
+\begin{align}
+    H_{\beta\alpha} &= \bra{\chi_\beta} \hat{\mathcal{H}}_{KS} \ket{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \hat{\mathcal{H}}_{KS}\chi_\alpha(\va*{r}) \dd[3]{r}\\
+    S_{\beta\alpha} &= \braket{\chi_\beta}{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \chi_\alpha(\va*{r}) \dd[3]{r}
+\end{align}
+The overlap matrix $S_{\beta\alpha}$ takes into account the possible non-orthogonality of the basis functions \citep{Woods2019}. The general matrix eigenvalue problem can be recast into a compact form \citep{Requist2008}
+\begin{equation} \label{eq:matrix_eigen}
+    \bm{H c =  S c \Lambda}
+\end{equation}
+where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $\bm{c}$ has the eigenfunction (expansion coefficients of the KS orbital) as columns. In solving \eqref{eq:matrix_eigen}, the normalization condition must be taken into account
+\begin{align} 
+   \int \phi_i(\va*{r}) \phi^*_i(\va*{r}) &= \int \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha \chi^*_\alpha c^i_\beta \chi_\beta \dd[3]{r} = 1 \\
+   &= \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta \int \chi^*_\alpha  \chi_\beta\, \dd[3]{r} = 1 \\
+   &= \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta S_{\alpha\beta} = 1 \label{eq:orbital_norm}
+\end{align}
+
+There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. 
+
+%kohanoff
+
+\newpage
 
 \section{Pseudopotential Approach}
     This is sample text
