@@ -5,10 +5,18 @@ Solving the Kohn-Sham equation in \eqref{eq:KS} requires the use of mathematical
 \begin{equation} \label{eq:basis_set}
     \phi_i(\va*{r}) = \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha}
 \end{equation}
-where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\ket{\chi_\alpha}$. Since $\phi_i(\va*{r})$ spans the whole infinite space, $M$ must be in principle infinite. However, in practice the basis set is truncated just enough for an accurate description of the orbital. The choice of the basis set depends on several factors such as (a) efficiency and (b) unbiased \citep{Cottenier2013}. A basis set is efficient if it resembles  $\phi_i(\va*{r})$ closely, hence requiring less expansion coefficients and smaller dimension size. However, this assumes that the solution to the problem must be known beforehand. Such basis set can never be general because it will quickly yield a solution for a specific problem but will poorly perform for other cases. The problem is that optimizing a basis set for a specific system can cause bias. This means that if a property of a system is calculated, but the basis set is optimized for only one particular system, the result will be biased towards that one \citep{Junquera2001,Louwerse2012}. It is the goal of theoretical condensed matter physics to find a basis set that is simultaneously efficient and unbiased. 
-\subsection{local basis}
-\subsection{nonlocal basis}
-\subsection{augmented basis}
+where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\ket{\chi_\alpha}$. Since $\phi_i(\va*{r})$ spans the whole infinite space, $M$ must be in principle infinite. However, in practice the basis set is truncated just enough for an accurate description of the orbital. The choice of the basis set depends on several factors such as (a) efficiency and (b) unbiased \citep{Cottenier2013}. A basis set is efficient if it resembles  $\phi_i(\va*{r})$ closely, hence requiring less expansion coefficients and smaller dimension size. However, this assumes that the solution to the problem must be known beforehand. Such basis set can never be general because it will quickly yield a solution for a specific problem but will poorly perform for other cases. The problem is that optimizing a basis set for a specific system can cause bias. This means that if a property of a system is calculated, but the basis set is optimized for only one particular system, the result will be biased towards that one \citep{Junquera2001,Louwerse2012}. It is the goal of theoretical condensed matter physics to find a basis set that is simultaneously efficient and unbiased. There are three types of basis sets that are commonly used for expansions, namely: local, nonlocal, and augmented basis. 
+
+
+\subsection{Local Basis Set}
+A local basis has its peak centered on a local point and is well applicable to orbitals around individual atoms in real space. Gaussian basis sets or any atom-centered basis orbitals are examples of this type. It is a popular choice for atoms and molecules whose orbitals are highly localized around each atom.
+
+
+Since it is local, this type of basis cannot properly described the long-range interaction of metals and the periodicity of crystalline solids. 
+
+\subsection{Nonlocal Basis Set}
+Plane Wave
+\subsection{Augmented Basis Set}
 \subsection{Gaussian Orbital}
 
     \subsection{Slater type orbitals}
