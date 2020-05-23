@@ -21,7 +21,7 @@ where $A$ is some normalization constant. Note that STO exponentially decays awa
 GTO has the advantage that all integrals associated with it can be performed analytically. Since these basis sets are localized, they cannot properly described the long-range interaction of metals and the periodicity of crystalline solids. 
 
 \subsection{Nonlocal Basis Set}
-Nonlocal basis set span the whole space. An important class of basis orbital under this category is the plane wave basis described as 
+Nonlocal basis set span the whole space. An important class of basis orbital under this category is the plane wave basis (PW) described as 
 \begin{equation}
     \ket{\chi^{\text{PW}}_\alpha} = A e^{i \alpha r}
 \end{equation}
@@ -29,12 +29,12 @@ which can be generalized as a dot product of wavevector $\va{k}$ and position ve
 \begin{equation}
     \ket{\chi^{\text{PW}}_{\va{k}}} = A e^{ \va{k} \vdot \va{r}}
 \end{equation}
-ass
+PWs are the most commonly used in DFT  because of the following reasons: PWs are already solutions to periodic systems satisfying the Bloch condition; PWs are convenient  in taking gradients and integrals because of their exponential form; changing the domain of PWs are easily executed using Fourier transformation; and lastly, PWs are independent of the atomic positions because of its nonlocal nature. 
 
 
 \subsection{Augmented Basis Set}
 
-    \subsection{Augmented Plane Wave}
+    % \subsection{Augmented Plane Wave}
 
 \section{Matrix Formulation for KS equation}
 The use of basis sets transforms the Kohn-Sham equation into an ordinary matrix algebra  that can be solved numerically. The Kohn-Sham equation in \eqref{eq:KS} is expanded in terms of basis sets using \eqref{eq:basis_set} 
