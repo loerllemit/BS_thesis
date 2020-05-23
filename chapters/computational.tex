@@ -10,17 +10,30 @@ where $i$ is the band index, the sum runs over all the basis functions up to the
 
 \subsection{Local Basis Set}
 A local basis has its peak centered on a local point and is well applicable to orbitals around individual atoms in real space. Gaussian basis sets or any atom-centered basis orbitals are examples of this type. It is a popular choice for atoms and molecules whose orbitals are highly localized around each atom.
-
-
-Since it is local, this type of basis cannot properly described the long-range interaction of metals and the periodicity of crystalline solids. 
+Hence, less than 20 basis functions per atom are sufficient enough to achieve acceptable accuracy. As an example, the Slater type basis orbitals (STO) are written as \citep{Slater1932}
+\begin{equation}
+    \ket{\chi^{\text{STO}}_\alpha} = A e^{-\alpha r}
+\end{equation}
+where $A$ is some normalization constant. Note that STO exponentially decays away from an atom centered at $\va*{r}$. On the other hand, Gaussian type basis orbitals (GTO)  are written as \citep{Boys1950}
+\begin{equation}
+    \ket{\chi^{\text{GTO}}_\alpha} = A e^{-\alpha r^2}
+\end{equation}
+GTO has the advantage that all integrals associated with it can be performed analytically. Since these basis sets are localized, they cannot properly described the long-range interaction of metals and the periodicity of crystalline solids. 
 
 \subsection{Nonlocal Basis Set}
-Plane Wave
-\subsection{Augmented Basis Set}
-\subsection{Gaussian Orbital}
+Nonlocal basis set span the whole space. An important class of basis orbital under this category is the plane wave basis described as 
+\begin{equation}
+    \ket{\chi^{\text{PW}}_\alpha} = A e^{i \alpha r}
+\end{equation}
+which can be generalized as a dot product of wavevector $\va{k}$ and position vector $\va{r}$
+\begin{equation}
+    \ket{\chi^{\text{PW}}_{\va{k}}} = A e^{ \va{k} \vdot \va{r}}
+\end{equation}
+ass
 
-    \subsection{Slater type orbitals}
-    \subsection{Plane Wave}
+
+\subsection{Augmented Basis Set}
+
     \subsection{Augmented Plane Wave}
 
 \section{Matrix Formulation for KS equation}
@@ -54,9 +67,8 @@ where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $
    &= \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta S_{\alpha\beta} = 1 \label{eq:orbital_norm}
 \end{align}
 
-There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. 
+There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
 
-%kohanoff
 
 \newpage
 

@@ -1059,4 +1059,50 @@
   isbn      = {9789080721517},
 }
 
+@Article{Junquera2001,
+  author    = {Javier Junquera and {\'{O}}scar Paz and Daniel S{\'{a}}nchez-Portal and Emilio Artacho},
+  journal   = {Physical Review B},
+  title     = {Numerical atomic orbitals for linear-scaling calculations},
+  year      = {2001},
+  month     = {nov},
+  number    = {23},
+  volume    = {64},
+  doi       = {10.1103/physrevb.64.235111},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Requist2008,
+  author    = {Ryan Requist and Oleg Pankratov},
+  title     = {Generalized Kohn-Sham system in one-matrix functional theory},
+  doi       = {10.1103/physrevb.77.235121},
+  number    = {23},
+  volume    = {77},
+  journal   = {Physical Review B},
+  month     = {jun},
+  publisher = {American Physical Society ({APS})},
+  year      = {2008},
+}
+
+@Book{Kohanoff2006,
+  author    = {Kohanoff, Jorge},
+  title     = {Electronic structure calculations for solids and molecules: theory and computational methods},
+  isbn      = {9780511755613},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {2006},
+}
+
+@Article{Boys1950,
+  author    = {S. F. Boys and Alfred Charles Egerton},
+  journal   = {Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences},
+  title     = {{Electronic wave functions - I. A general method of calculation for the stationary states of any molecular system}},
+  year      = {1950},
+  month     = {feb},
+  number    = {1063},
+  pages     = {542--554},
+  volume    = {200},
+  doi       = {10.1098/rspa.1950.0036},
+  publisher = {The Royal Society},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
