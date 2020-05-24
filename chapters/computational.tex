@@ -27,14 +27,22 @@ Nonlocal basis set span the whole space. An important class of basis orbital und
 \end{equation}
 which can be generalized as a dot product of wavevector $\va{k}$ and position vector $\va{r}$
 \begin{equation}
-    \ket{\chi^{\text{PW}}_{\va{k}}} = A e^{ \va{k} \vdot \va{r}}
+    \ket{\chi^{\text{PW}}_{\va{k}}} = A e^{i \va{k} \vdot \va{r}}
 \end{equation}
-PWs are the most commonly used in DFT  because of the following reasons: PWs are already solutions to periodic systems satisfying the Bloch condition; PWs are convenient  in taking gradients and integrals because of their exponential form; changing the domain of PWs are easily executed using Fourier transformation; and lastly, PWs are independent of the atomic positions because of its nonlocal nature. 
-
+PWs are the most commonly used in DFT  because of the following reasons: PWs are already solutions to periodic systems satisfying the Bloch condition; PWs are convenient  in taking gradients and integrals because of their exponential form; changing the domain of PWs from  real space to reciprocal space are easily executed using Fourier transformation; PWs are orthogonal which simplifies calculation; and lastly, PWs are independent of the atomic positions because of its nonlocal nature. However, there are also disadvantages of using it. It requires an enormous amount of PWs to properly describe the rapid fluctuation of orbital wavefunctions near the core region of an atom or ion. A direct fix to this problem is the application of pseudopotentials to smoothen the strong Coulomb potential of the nucleus, which will be the topic of later section \citep{Segall2002}. 
 
 \subsection{Augmented Basis Set}
+Augmented basis sets are combinations of local and nonlocal basis sets. Under this category is the Augmented plane waves (APW) basis. The APW divides the space into two regions: the core region,where the orbitals are atomic-like; and the interstital region, where the orbitals  resemble plane waves \citep{Slater1953}. The basis orbitals are taken to be \citep{Sjoestedt2000}
+\begin{equation}
+    \ket{\chi^{\text{APW}}_{\va{k}}} = 
+    \begin{dcases}
+        \text{atomic basis}    \quad &, \abs{\va{r}-\va{R}} \leq r_0 \\
+        A e^{i \va{k} \vdot \va{r}} &, \abs{\va{r}-\va{R}} > r_0 \\
+    \end{dcases}
+\end{equation}
+where $\va{R}$ is the center of the atom and $r_0$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_0$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs. 
 
-    % \subsection{Augmented Plane Wave}
+
 
 \section{Matrix Formulation for KS equation}
 The use of basis sets transforms the Kohn-Sham equation into an ordinary matrix algebra  that can be solved numerically. The Kohn-Sham equation in \eqref{eq:KS} is expanded in terms of basis sets using \eqref{eq:basis_set} 
@@ -56,7 +64,7 @@ where $ H_{\beta\alpha}$ and $S_{\beta\alpha}$ are the energy-independent Hamilt
     H_{\beta\alpha} &= \bra{\chi_\beta} \hat{\mathcal{H}}_{KS} \ket{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \hat{\mathcal{H}}_{KS}\chi_\alpha(\va*{r}) \dd[3]{r}\\
     S_{\beta\alpha} &= \braket{\chi_\beta}{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \chi_\alpha(\va*{r}) \dd[3]{r}
 \end{align}
-The overlap matrix $S_{\beta\alpha}$ takes into account the possible non-orthogonality of the basis functions \citep{Woods2019}. The general matrix eigenvalue problem can be recast into a compact form \citep{Requist2008}
+The overlap matrix $S_{\beta\alpha}$ takes into account the possible non-orthogonality of the basis functions \citep{Woods2019}. Note that for plane wave (PW) basis sets, which are orthonormal, the overlap matrix $S_{\beta\alpha}$ becomes an unit matrix. The general matrix eigenvalue problem can be recast into a compact form \citep{Requist2008}
 \begin{equation} \label{eq:matrix_eigen}
     \bm{H c =  S c \Lambda}
 \end{equation}
@@ -69,17 +77,25 @@ where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $
 
 There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
 
+\section{Pseudopotential (PP) Approach}
+    The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, the potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
 
-\newpage
+    \begin{figure}[tbh!]
+        \centering
+        \includegraphics[width=0.8\linewidth]{"images/computational/PP_combine"}
+        \caption[ Schematic illustration of a pseudo wavefunction pseudized from a 3s wavefunction of Si orbital]{Schematic illustration of a  (a) pseudo wavefunction pseudized from a 3s wavefunction of Si orbital and the (b) corresponding pseudo- (PP) and all-electron (AE) potentials. The all-electron approach takes into account all electrons including core and valence electrons. Illustration taken from \citep{Jochym2008}.}
+        \label{fig:PP}
+    \end{figure}
 
-\section{Pseudopotential Approach}
-    This is sample text
-    \subsection{Freezing the core electrons}
-    \subsection{Pseudizing the valence electrons}
-    \subsection{Common Pseudopotentials}
-        \subsubsection{Norm-Conserving PP}
-        \subsubsection{Ultrasoft PP}
-        \subsubsection{Projector Augmented Wave}
+There are two criteria for choosing a good pseudopotential, namely: softness and transferability. A pseudopotential is soft  if it requires few plane waves to model the system. This is similar to efficiency of basis sets. A pseudopotential is transferable  if it can be used in whatever environment (e.g. molecule, solid, cluster, surface, metal, insulator, etc). The choice depends on which pseudopotential is advantageous to use  and the type of calculation being done. The common pseudopotentials used in DFT codes are Norm-Conserving pseudopotential, Ultrasoft pseudopotential, and Projector Augmented Wave. 
+
+\subsection{Norm-Conserving PP}
+blah
+\subsection{Ultrasoft PP}
+blah
+\subsection{Projector Augmented Wave}
+blah 
+
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}
         \subsubsection{Periodic Boundary Conditions (PBC)}

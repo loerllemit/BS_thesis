@@ -259,6 +259,12 @@ INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/koma-sc
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/fmtcount/fmtcount.sty
@@ -402,6 +408,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/theory/hubbard.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.tex
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
