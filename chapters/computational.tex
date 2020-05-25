@@ -125,8 +125,27 @@ When defects are introduced into the supercell, it forms a periodic array of def
 %add figure
 
 \section{DFT Calculation in Reciprocal Space}
-In previous discussions,  $k$ was defined as any wavevector in the reciprocal space. However, it can always be transform to $k \rightarrow k + G$ so that the new $k$ is in the first Brillouin zone and that any wavevectors are equivalent to the new one by a reciprocal lattice vector $G$. See Appendix \ref{chap:BZ} for discussions about reciprocal lattice and Brillouin zones. This transformation will limit DFT calculations inside the first Brillouin zone instead of the whole reciprocal space. 
+Working in reciprocal space is greatly convenient if functions are expressed in terms of plane waves. Plane waves propagate in real space but they become point in the reciprocal space, wherein each point corresponds to a particular wavevector $\va{k}$. The lattice points in real space will define the allowed wavevectors $ \va{G}$, the reciprocal lattice vector which is subset of the reciprocal space. See Appendix \ref{chap:BZ} for discussions about reciprocal lattice and Brillouin zones. Since real space and reciprocal space have inverse relationship, increasing the supercell size by a certain factor will cause the supercell in reciprocal space to shrink by  a same factor, and vice versa. Figure \ref{fig:reciprocal} illustrates this relationship. Note that no information is lost when transforming between the two spaces. In addition, bigger supercells require fewer k-points but in the expense of many atoms included in calculations.
+\begin{figure}[tbh!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{"images/computational/reciprocal"}
+    \caption[Relationship between a supercell in real space and reciprocal space]{Relationship between a supercell in (a) real space and the corresponding (b) reciprocal space.}
+    \label{fig:reciprocal}
+\end{figure}
 
+In previous discussions,  $\va{k}$ was defined as any wavevector in the reciprocal space. However, it can always be transform to $\va{k} \rightarrow \va{k} + \va{G} $ so that the new $\va{k}$ is in the first Brillouin zone and that any wavevectors are equivalent to the new one by a reciprocal lattice vector $\va{G}$.  This transformation will limit DFT calculations inside the first Brillouin zone instead of the whole reciprocal space. 
+
+Furthermore, one can take advantage of the symmetry of the solid to reduce the first Brillouin zone into what is called irreducible Brillouin zone (IBZ). Hence, DFT calculations will be narrowed down further into this Brillouin zone. Note that each k-points will have a weight factor that depends on how many times it was folded during symmetry operations (e.g. rotation and inversion). Figure \ref{fig:dft_solid} summarizes the various techniques employed in simplifying DFT calculations in solids starting from a bulk solid, then a supercell simulation, transformed to reciprocal space confined in first Brillouin zone, and further reduced to a irreducible zone by symmetry operations. All these techniques and the pseudopotential approximations made DFT calculations computationally feasible.
+\begin{figure}[tbh!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{"images/computational/dft_solid"}
+    \caption[Various techniques used in treating solids in DFT calculations.]{Various techniques used in treating solids in DFT calculations. Figure taken from \citep{Lee2016}.}
+    \label{fig:dft_solid}
+\end{figure}
+
+\section{k-point sampling}
+\subsection{Monkhorst-Pack method}
+\subsection{Gamma Point Sampling}
 
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}

@@ -414,6 +414,12 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.pn
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/reciprocal.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/reciprocal.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/reciprocal.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
