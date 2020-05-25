@@ -411,6 +411,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/chapters/computational.tex
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PP_combine.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/PAW.pdf
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex

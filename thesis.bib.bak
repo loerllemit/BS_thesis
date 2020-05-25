@@ -1280,4 +1280,41 @@
   publisher = {Elsevier {BV}},
 }
 
+@Article{Vanderbilt1990,
+  author    = {David Vanderbilt},
+  journal   = {Physical Review B},
+  title     = {Soft self-consistent pseudopotentials in a generalized eigenvalue formalism},
+  year      = {1990},
+  month     = {apr},
+  number    = {11},
+  pages     = {7892--7895},
+  volume    = {41},
+  doi       = {10.1103/physrevb.41.7892},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Bloechl1994,
+  author    = {P. E. Blöchl},
+  journal   = {Physical Review B},
+  title     = {Projector augmented-wave method},
+  year      = {1994},
+  month     = {dec},
+  number    = {24},
+  pages     = {17953--17979},
+  volume    = {50},
+  doi       = {10.1103/physrevb.50.17953},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Rostgaard2009,
+  author      = {Carsten Rostgaard},
+  title       = {{The Projector Augmented-wave Method}},
+  date        = {2009-10-10},
+  eprint      = {0910.1921v2},
+  eprintclass = {cond-mat.mtrl-sci},
+  eprinttype  = {arXiv},
+  file        = {:http\://arxiv.org/pdf/0910.1921v2:PDF},
+  keywords    = {cond-mat.mtrl-sci, physics.chem-ph},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

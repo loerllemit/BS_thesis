@@ -100,8 +100,22 @@ where $r_c$ is the chosen cutoff radius that separates the core region from the 
 Ultrasoft pseudopotentials were introduced in order for the calculations to have lowest numbers of plane waves basis set used since it was shown that the norm of the all-electron and pseudo wavefunction was not necessary requirement for transferability. Hence, this was done by Vanderbilt \citep{Vanderbilt1990} who showed that smoother but highly transferable pseudopotentials are possible. The cutoff radius $r_c$ is situated farther than the equivalent norm-conserving pseudopotential and the pseudo wavefunction is flatter. This leads to fewer plane waves that gives significant reduction in computational time. Similar to norm-conserving pseudopotentials, the ultrasoft pseudopotential only gives valence charge densities, not total charge
 densities.
 
-\subsection{Projector Augmented Wave}
+\subsection{Projector Augmented Wave (PAW)}
+The Projector Augmented Wave takes into account both all-electron and pseudo wavefunction into calculations. It aims 
+for both efficiency of using pseudopotential and the accuracy of using all-electron potential \citep{Bloechl1994}. However, the all-electron wavefunction is limited only on the core region and will be truncated beyond the cut-off radius $r_c$. A correction factor is added to subtract the overlapping part of the pseudo wavefunction in the core region \citep{Rostgaard2009}. Hence, the PAW wavefunction involves three terms
+\begin{equation}
+    \psi_{\text{PAW}} =  \psi_{\text{AE}} + \psi_{\text{PP}}  - \psi_{\text{net}}
+\end{equation}
+The actions of the terms in the equation above are visualized in Figure \refeq{fig:PAW}. The $\psi_{\text{PP}}$ is expanded in plane wave basis sets while $\psi_{\text{AE}}$ is only defined within the cutoff radius $r_c$. The $\psi_{\text{net}}$ subtracts the overlapping part of $\psi_{\text{PP}}$ in the core region. 
 
+Note that in Kohn-Sham formulation, these wavefunctions $\psi$ become the independent Kohn-Sham orbitals $\phi$. PAW calculations are accurate as all-electron calculations with much less computational effort. Unlike the two pseudopotentials mentioned before, PAW pseudopotential returns both the core and valence charge densities. 
+
+\begin{figure}[tbh!]
+    \centering
+    \includegraphics[width=0.48\linewidth]{"images/computational/PAW"}
+    \caption[ Schematic illustration of the wavefunctions used in PAW pseudopotential]{Schematic illustration of the wavefunctions used in PAW pseudopotential. Illustration taken from \citep{Lee2016}.}
+    \label{fig:PAW}
+\end{figure}
 
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}
