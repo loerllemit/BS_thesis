@@ -1211,7 +1211,73 @@
   school = {Durham University},
   title  = {Development of non-local density functional methods},
   year   = {2008},
+  type   = {phdthesis},
   eprint = {http://etheses.dur.ac.uk/2174/},
+}
+
+@Article{Troullier1990,
+  author    = {N. Troullier and Jos{\'{e}}Lu{\'{\i}}s Martins},
+  journal   = {Solid State Communications},
+  title     = {A straightforward method for generating soft transferable pseudopotentials},
+  year      = {1990},
+  month     = {may},
+  number    = {7},
+  pages     = {613--616},
+  volume    = {74},
+  doi       = {10.1016/0038-1098(90)90686-6},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Hamann1979,
+  author    = {D. R. Hamann and M. Schlüter and C. Chiang},
+  journal   = {Physical Review Letters},
+  title     = {Norm-Conserving Pseudopotentials},
+  year      = {1979},
+  month     = {nov},
+  number    = {20},
+  pages     = {1494--1497},
+  volume    = {43},
+  doi       = {10.1103/physrevlett.43.1494},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Troullier1991,
+  author    = {N. Troullier and Jos{\'{e}} Luriaas Martins},
+  journal   = {Physical Review B},
+  title     = {Efficient pseudopotentials for plane-wave calculations},
+  year      = {1991},
+  month     = {jan},
+  number    = {3},
+  pages     = {1993--2006},
+  volume    = {43},
+  doi       = {10.1103/physrevb.43.1993},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Rappe1990,
+  author    = {Andrew M. Rappe and Karin M. Rabe and Efthimios Kaxiras and J. D. Joannopoulos},
+  journal   = {Physical Review B},
+  title     = {Optimized pseudopotentials},
+  year      = {1990},
+  month     = {jan},
+  number    = {2},
+  pages     = {1227--1230},
+  volume    = {41},
+  doi       = {10.1103/physrevb.41.1227},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Fuchs1999,
+  author    = {Martin Fuchs and Matthias Scheffler},
+  journal   = {Computer Physics Communications},
+  title     = {Ab initio pseudopotentials for electronic structure calculations of poly-atomic systems using density-functional theory},
+  year      = {1999},
+  month     = {jun},
+  number    = {1},
+  pages     = {67--98},
+  volume    = {119},
+  doi       = {10.1016/s0010-4655(98)00201-x},
+  publisher = {Elsevier {BV}},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

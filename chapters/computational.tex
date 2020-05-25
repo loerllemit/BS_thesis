@@ -36,11 +36,11 @@ Augmented basis sets are combinations of local and nonlocal basis sets. Under th
 \begin{equation}
     \ket{\chi^{\text{APW}}_{\va{k}}} = 
     \begin{dcases}
-        \text{atomic basis}    \quad &, \abs{\va{r}-\va{R}} \leq r_0 \\
-        A e^{i \va{k} \vdot \va{r}} &, \abs{\va{r}-\va{R}} > r_0 \\
+        \text{atomic basis}    \quad &, \abs{\va{r}-\va{R}} \leq r_c \\
+        A e^{i \va{k} \vdot \va{r}} &, \abs{\va{r}-\va{R}} > r_c \\
     \end{dcases}
 \end{equation}
-where $\va{R}$ is the center of the atom and $r_0$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_0$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs. 
+where $\va{R}$ is the center of the atom and $r_c$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_0$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs. 
 
 
 
@@ -78,7 +78,7 @@ where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $
 There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
 
 \section{Pseudopotential (PP) Approach}
-    The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, the potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
+    The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, both potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
 
     \begin{figure}[tbh!]
         \centering
@@ -87,14 +87,21 @@ There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is th
         \label{fig:PP}
     \end{figure}
 
-There are two criteria for choosing a good pseudopotential, namely: softness and transferability. A pseudopotential is soft  if it requires few plane waves to model the system. This is similar to efficiency of basis sets. A pseudopotential is transferable  if it can be used in whatever environment (e.g. molecule, solid, cluster, surface, metal, insulator, etc). The choice depends on which pseudopotential is advantageous to use  and the type of calculation being done. The common pseudopotentials used in DFT codes are Norm-Conserving pseudopotential, Ultrasoft pseudopotential, and Projector Augmented Wave. 
+There are two criteria for choosing a good pseudopotential, namely: softness and transferability \citep{Troullier1990,Fuchs1999}. A pseudopotential is soft  if it requires few plane waves to model the system. This is similar to efficiency of basis sets. A pseudopotential is transferable  if it can be used in whatever environment (e.g. molecule, solid, cluster, surface, metal, insulator, etc). The choice depends on which pseudopotential is advantageous to use  and the type of calculation being done. The common pseudopotentials used in DFT codes are Norm-Conserving pseudopotential, Ultrasoft pseudopotential, and Projector Augmented Wave. 
 
-\subsection{Norm-Conserving PP}
-blah
-\subsection{Ultrasoft PP}
-blah
+\subsection{Norm-Conserving Pseudopotential (NCPP)}
+In norm-conserving pseudopotentials, the pseudopotential and all-electron charge densities are set  equal so that the norm is conserved in both potentials \citep{Hamann1979,Troullier1991}. Pseudopotentials are generated to meet this criterion 
+\begin{equation}
+    \int_0^{r_c} \abs{\phi_{\text{PP}}(\va*{r})}^2 \dd{\va*{r}} = \int_0^{r_c} \abs{\phi_{\text{AE}}(\va*{r})}^2 \dd{\va*{r}}
+\end{equation} 
+where $r_c$ is the chosen cutoff radius that separates the core region from the valence region. The constraint imposed on this pseudopotential leads to an improvement in transferability of potentials to different chemical environments. In addition, reducing $r_c$ improves the transferability  because in this way the pseudo wavefunction becomes closer to the all-electron result. However, the cutoff radius should be chosen outside the location of the maximum node of the all-electron wavefunction. Note that this pseudopotential gives only the valence charge density and not the total charge density. Other norm-conserving schemes were proposed by Troullier and Martin (TM) \citep{Troullier1991}, and by Rappe, Rabe, Kaxiras, and Joannopoulos (RRKJ) \citep{Rappe1990}.
+
+\subsection{Ultrasoft Pseudopotential (USPP)}
+Ultrasoft pseudopotentials were introduced in order for the calculations to have lowest numbers of plane waves basis set used since it was shown that the norm of the all-electron and pseudo wavefunction was not necessary requirement for transferability. Hence, this was done by Vanderbilt \citep{Vanderbilt1990} who showed that smoother but highly transferable pseudopotentials are possible. The cutoff radius $r_c$ is situated farther than the equivalent norm-conserving pseudopotential and the pseudo wavefunction is flatter. This leads to fewer plane waves that gives significant reduction in computational time. Similar to norm-conserving pseudopotentials, the ultrasoft pseudopotential only gives valence charge densities, not total charge
+densities.
+
 \subsection{Projector Augmented Wave}
-blah 
+
 
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}
