@@ -102,7 +102,7 @@ densities.
 
 \subsection{Projector Augmented Wave (PAW)}
 The Projector Augmented Wave takes into account both all-electron and pseudo wavefunction into calculations. It aims 
-for both efficiency of using pseudopotential and the accuracy of using all-electron potential \citep{Bloechl1994}. However, the all-electron wavefunction is limited only on the core region and will be truncated beyond the cut-off radius $r_c$. A correction factor is added to subtract the overlapping part of the pseudo wavefunction in the core region \citep{Rostgaard2009}. Hence, the PAW wavefunction involves three terms
+for both efficiency of using pseudopotential and the accuracy of using all-electron potential \citep{Bloechl1994,Kresse1999}. However, the all-electron wavefunction is limited only on the core region and will be truncated beyond the cut-off radius $r_c$. A correction factor is added to subtract the overlapping part of the pseudo wavefunction in the core region \citep{Rostgaard2009}. Hence, the PAW wavefunction involves three terms
 \begin{equation}
     \psi_{\text{PAW}} =  \psi_{\text{AE}} + \psi_{\text{PP}}  - \psi_{\text{net}}
 \end{equation}
@@ -116,6 +116,17 @@ Note that in Kohn-Sham formulation, these wavefunctions $\psi$ become the indepe
     \caption[ Schematic illustration of the wavefunctions used in PAW pseudopotential]{Schematic illustration of the wavefunctions used in PAW pseudopotential. Illustration taken from \citep{Lee2016}.}
     \label{fig:PAW}
 \end{figure}
+
+\section{Supercells}
+Most solids are characterized by its regular repeating three-dimensional structure called a crystal lattice. Hence, it is possible to study solids by just looking at the building block, which is ordinarily called the unit cell. In order to model solids that are feasible for computational simulation, repeating unit cells that are stack together must be needed. These  stacked unit cells  are collectively called supercell. When implementing DFT, the periodic boundary conditions must be taken into account. In this case, the supercell is duplicated periodically throughout the whole space. However, the actual calculation is applied only on a single supercell while the rest (called images) simply copies it with no significant computational cost. 
+
+When defects are introduced into the supercell, it forms a periodic array of defects across all the images of the supercell. A supercell must be large enough so that the calculation is independent of the location of the defect inside the supercell and also to reduce  the interaction  with its images. Thus, the Kohn-Sham equation and other pertinent calculations are solved only within  a single supercell.
+
+%add figure
+
+\section{DFT Calculation in Reciprocal Space}
+In previous discussions,  $k$ was defined as any wavevector in the reciprocal space. However, it can always be transform to $k \rightarrow k + G$ so that the new $k$ is in the first Brillouin zone and that any wavevectors are equivalent to the new one by a reciprocal lattice vector $G$. See Appendix \ref{chap:BZ} for discussions about reciprocal lattice and Brillouin zones. This transformation will limit DFT calculations inside the first Brillouin zone instead of the whole reciprocal space. 
+
 
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}

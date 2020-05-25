@@ -1307,14 +1307,13 @@
 }
 
 @Article{Rostgaard2009,
-  author      = {Carsten Rostgaard},
-  title       = {{The Projector Augmented-wave Method}},
-  date        = {2009-10-10},
-  eprint      = {0910.1921v2},
-  eprintclass = {cond-mat.mtrl-sci},
-  eprinttype  = {arXiv},
-  file        = {:http\://arxiv.org/pdf/0910.1921v2:PDF},
-  keywords    = {cond-mat.mtrl-sci, physics.chem-ph},
+  author     = {Carsten Rostgaard},
+  title      = {{The Projector Augmented-wave Method}},
+  date       = {2009-10-10},
+  eprint     = {0910.1921v2},
+  eprinttype = {arXiv},
+  file       = {:http\://arxiv.org/pdf/0910.1921v2:PDF},
+  keywords   = {cond-mat.mtrl-sci, physics.chem-ph},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
