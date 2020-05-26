@@ -144,7 +144,16 @@ Furthermore, one can take advantage of the symmetry of the solid to reduce the f
 \end{figure}
 
 \section{k-point Sampling}
-It was shown that DFT calculations can be solved within the irreducible Brillouin zone. However, there are infinite numbers of k-points inside IBZ that are well qualified for a plane wave. One way to deal with this problem is to sample finite number of k-points that represent each region well. This sampling technique is justified by the fact that orbitals and other quantities vary smoothly in the IBZ. Sampling in IBZ must satisfy two goals: select few k-points as possible to reduce computational time, and select enough so that they represent the actual quantities well. Convergence tests  in which the  number of k-points are varied until quantities such as total energy does not change anymore must be conducted. The quantity is said to be converged with respect to k-points.  Convergence tests are very helpful in finding the optimum number of k-points with minimum error. There are standard schemes for generating k-points grid mesh and probably the most popular one is the Monkhorst-Pack method.  
+It was shown that DFT calculations can be solved within the irreducible Brillouin zone. However, there are infinite numbers of k-points inside IBZ that are well qualified for a plane wave. One way to deal with this problem is to sample finite number of k-points that represent each region well. This sampling technique is justified by the fact that orbitals and other quantities vary smoothly in the IBZ. Sampling in IBZ must satisfy two goals: select few k-points as possible to reduce computational time, and select enough so that they represent the actual quantities well. Convergence tests  in which the  number of k-points are varied until quantities such as total energy does not change anymore must be conducted. The quantity is said to be converged with respect to k-points.  Convergence tests are very helpful in finding the optimum number of k-points with minimum error. Any integrated function $f(\va{r})$ can be written over the Brillouin zone
+\begin{equation}
+    f(\va{r}) = \int_{BZ} F(\va{k}) \dd{\va{k}}
+\end{equation}
+where $F(\va{k})$ is the Fourier transform of $f(\va{r})$. To evaluate computationally, the integral can be approximated by weighted sum over special k-points
+\begin{equation}
+    \int_{BZ} F(\va{k}) \dd{\va{k}} \approx \sum_{j} w_{j}  F(\va{k}_j)
+\end{equation}
+where $w_{j}$ are the weighted factors. 
+There are standard schemes for generating k-points grid mesh and probably the most popular one is the Monkhorst-Pack method.  
 
 \subsection{Monkhorst-Pack method}
 The Monkhorst-Pack method generates a grid of uniform special k-points along the three lattice vectors in the reciprocal space \citep{Monkhorst1976}. The construction of the special points is based on the formula
