@@ -183,7 +183,7 @@ where $\phi_{n,k}(\va{r})$ now depends both on the band index $n$ and the waveve
     u_{n,k} (\va{r}) =  \sum_{\va*{G}} C_{n,k}(\va{G})\, e^{i \va{G} \vdot \va{r}}
 \end{equation}
 where $C_{n,k}(\va{G})$ is the expansion coefficient of plane wave basis sets. The phase factor $\exp({i \va{G} \vdot \va{r}}) $ represents a plane wave travelling in space, perpendicular to $\va{G}$. Thus, the KS orbital can be rewritten as 
-\begin{equation}
+\begin{equation} \label{eq:orbital_rec}
     \phi_{n,k}(\va{r})  = \sum_{\va*{G}} C_{n,k}(\va{G})\, e^{i (\va{k} + \va{G} ) \vdot \va{r}}
 \end{equation}
 The coefficients $C_{n,k}(\va{G})$ can be solved by taking the inverse Fourier transform of $\phi_{n,k}(\va{r}) $
@@ -194,7 +194,7 @@ The coefficients $C_{n,k}(\va{G})$ can be solved by taking the inverse Fourier t
 \end{align}
 Similarly, the electron density in real space and reciprocal space are Fourier transform of each other
 \begin{align}
-    \rho({\va{r}}) &= \sum_{\va*{G}} \rho({\va{G}}) e^{i \va{G} \vdot \va{r}} \\
+    \rho({\va{r}}) &= \sum_{\va*{G}} \rho({\va{G}}) e^{i \va{G} \vdot \va{r}} \label{eq:density_rec}  \\
     \rho({\va{G}})  &= \int \rho({\va{r}}) e^{-i \va{G} \vdot \va{r}} \dd{\va*{r}}
 \end{align}
 
@@ -225,7 +225,7 @@ The remaining external potential and exchange-correlation energy can be obtained
     \hat{\mathcal{V}}_{xc}(\va{G}) &= \int \hat{\mathcal{V}}_{xc}(\va{r}) e^{-i \va{G} \vdot \va{r}} \dd{\va*{r}}
 \end{align}
 Their matrix representations are similar to \eqref{eq:hartree_rec}. Taking all the derivations above, the complete Kohn-Sham equation in reciprocal space  is 
-\begin{multline}
+\begin{multline}\label{eq:KS_rec}
     \sum_{\va*{G}'} \left[ \frac{1}{2} \abs{\va{k} + \va{G}}^2 \delta_{\va{G},\va{G}'} + \hat{\mathcal{V}}_{ext}(\va{G} - \va{G}') + \hat{\mathcal{V}}_H(\va{G} - \va{G}') + \hat{\mathcal{V}}_{xc}(\va{G} - \va{G}') \right] C_{n,k}(\va{G}') \\
     = \epsilon_{n,k}\, C_{n,k}(\va{G})
 \end{multline}
@@ -235,24 +235,35 @@ which can be rewritten as a general matrix equation
 \end{equation}
 This is similar to \eqref{eq:matrix_eigen} but the overlapping matrix is set to identity matrix.
 
+\section{Energy Cutoffs}
+The plane wave basis expansion of both KS orbital and the electron density in \eqref{eq:orbital_rec} and \eqref{eq:density_rec} is evaluated in the complete set of reciprocal lattice vector $\va{G}$, which is infinite. This means that it will take infinitely long to compute desired properties. Nevertheless, orbitals and electron densities tend to become smoothly varying at large $\va{G}$-vectors. Thus, their plane wave components become negligible for large $\va{G}$. The expansion can be truncated by introducing kinetic energy cut-off $E_{cut}$ defined as 
+\begin{equation}
+    E_{cut} = \abs{\va{k} + \va{G}_{cut}}^2
+\end{equation}
+the $\va{G}_{cut}$ serves as the upper bound for the expansion series of KS orbital in \eqref{eq:orbital_rec}. This means that plane waves whose kinetic energy is less than this cut-off energy are the only ones included in DFT calculations. The cut-off radius of electron densities is usually a multiple of $E_{cut}$ quantified by 
+\begin{equation}
+    m E_{cut} = \abs{\va{k} + \va{G}_{rho}}^2
+\end{equation}
+where $m$ is a multiplier of $E_{cut}$, and $\va{G}_{rho}$ serves as the upper bound for the expansion series of electron density in \eqref{eq:density_rec}. The number of plane waves can be estimated as 
+\begin{equation}
+    N_{\text{PW}} \approx \frac{1}{2 \pi^2} V E_{cut}^{3/2}
+\end{equation}
+where $V$ is the volume of the supercell. The cut-off energy that is  appropriate for a given calculation is  not usually known in advance, as it varies on the configuration of the system. However, convergence tests can be conducted  where the cut-off energies is increased until the desired properties stop changing. Note that wavevectors $\va{k}$ were discretized by using k-point sampling in the IBZ, $\va{G}$-vectors become finite by energy cutoff,  and the band index $n$ depends on the number of orbital states, which is also finite. Hence, solving Kohn-Sham in \eqref{eq:KS_rec} becomes computationally tractable. 
+
+\section{Relaxation}
+
+\section{Smearing}
+\subsection{Gaussian Smearing}
+\subsection{Fermi Smearing}
+\subsection{Methfessel–Paxton Smearing}
+\subsection{Tetrahedron Method}
+
+
 \section{k-point Integration}
 
 \textcolor{red}{? For a periodic system, integrals in real space over the (infinitely extended) system are replaced by integrals over the (finite) first Brillouin zone in reciprocal space, by virtue of Bloch's theorem ?
 For a  general system, there should, in principle be a  set orbitals for every possible value of k}
 
-
-\section{Practical Aspects}
-    TEST FILES
-    \subsection{Energy Cutoffs}
-    HELLOW WORLD
-        \subsubsection{Cutoff for Wavefunction}
-        \subsubsection{Cutoff for Charge Density}
-    \subsection{Smearing}
-        \subsubsection{Gaussian Smearing}
-        \subsubsection{Fermi Smearing}
-        \subsubsection{Methfessel–Paxton Smearing}
-
-        \subsection{Relaxation}
 
 
 
