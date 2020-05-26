@@ -40,7 +40,7 @@ Augmented basis sets are combinations of local and nonlocal basis sets. Under th
         A e^{i \va{k} \vdot \va{r}} &, \abs{\va{r}-\va{R}} > r_c \\
     \end{dcases}
 \end{equation}
-where $\va{R}$ is the center of the atom and $r_c$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_0$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs. 
+where $\va{R}$ is the center of the atom and $r_c$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_c$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs. 
 
 
 
@@ -75,7 +75,7 @@ where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $
    &= \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta S_{\alpha\beta} = 1 \label{eq:orbital_norm}
 \end{align}
 
-There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$ simultaneous equations are solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
+There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$  equations are simultaneously solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
 
 \section{Pseudopotential (PP) Approach}
     The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, both potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
@@ -144,9 +144,27 @@ Furthermore, one can take advantage of the symmetry of the solid to reduce the f
 \end{figure}
 
 \section{k-point sampling}
-\subsection{Monkhorst-Pack method}
-\subsection{Gamma Point Sampling}
+It was shown that DFT calculations can be solved within the irreducible Brillouin zone. However, there are infinite numbers of k-points inside IBZ that are well qualified for a plane wave. One way to deal with this problem is to sample finite number of k-points that represent each region well. This sampling technique is justified by the fact that orbitals and other quantities vary smoothly in the IBZ. Sampling in IBZ must satisfy two goals: select few k-points as possible to reduce computational time, and select enough so that they represent the actual quantities well. Convergence tests  in which the  number of k-points are varied until quantities such as total energy does not change anymore must be conducted. The quantity is said to be converged with respect to k-points.  Convergence tests are very helpful in finding the optimum number of k-points with minimum error. There are standard schemes for generating k-points grid mesh and probably the most popular one is the Monkhorst-Pack method.  
 
+\subsection{Monkhorst-Pack method}
+The Monkhorst-Pack method generates a grid of uniform special k-points along the three lattice vectors in the reciprocal space \citep{Monkhorst1976}. The construction of the special points is based on the formula
+\begin{equation}
+    u_{r} = \frac{2r - q_r -1}{2 q_r} \qquad , r = 1, \dots, q_r
+\end{equation}
+where $q_r$ determines the number of k-points  used along one of the axis in $r = x, y, {\text{ or }} z$, and  $r$ varies from 1 to $q_r$. The k-point is given by
+\begin{equation}
+    \va{k} = u_x \va{b}_1 + u_y \va{b}_2 + u_z \va{b}_3
+\end{equation}
+wherein $\va{b}_1, \va{b}_2, \va{b}_3$ are the primitive lattice vectors of the reciprocal lattice. $u_r$ gives the fractional part of the corresponding component of the reciprocal lattice vector. For instance, in a $4 \times 4 \times 4$ grid this will correspond to $q_x = q_y = q_z = 4$ with a total number of $q_x \times q_y \times q_z = 64$ k-points. The number of k-points will be further reduced by symmetry operations inside the irreducible Brillouin zone. 
+
+The center of the mesh can be centered on the origin ($\va{k} = 0  \text{ or } \Gamma$ point) or shifted by a fixed amount away from the origin. The former is important if one needs to know the electronic states at the $\Gamma$ point. The latter generally breaks the symmetry, hence, it must be use with care. 
+
+
+
+\subsection{Gamma Point Sampling}
+For very large supercell, the associated first Brillouin zone are very small that it approaches the zone center or the $\Gamma$ point. Thus, it would be practical to use only one k-point  with high weight factor. Calculations based on the sampling at the $\Gamma$ point reduce significant computational cost because the real and reciprocal space coincide with each  other at the origin and the KS orbital will real quantity so that any consideration for complex numbers is not necessary. $\Gamma$ point calculation are routinely used in massive calculations. 
+
+\section{k-point Integration}
 \section{Choosing the appropriate Calculation Size}
     \subsection{Use of Supercell}
         \subsubsection{Periodic Boundary Conditions (PBC)}
@@ -157,8 +175,8 @@ Furthermore, one can take advantage of the symmetry of the solid to reduce the f
     \subsection{k-point sampling}
         \subsubsection{Monkhorst-Pack method}
         \subsubsection{Gamma Point Sampling}
-        Example of double quotes ``word''. Lore
 \section{Bloch Representations}
+\textcolor{red}{? For a periodic system, integrals in real space over the (infinitely extended) system are replaced by integrals over the (finite) first Brillouin zone in reciprocal space, by virtue of Bloch's theorem ?}
     \subsection{Electrons in solid}
     \subsection{Bloch Theorem in periodic systems}
     \subsection{Fourier Expansion of Bloch representations}

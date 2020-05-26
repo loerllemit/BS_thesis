@@ -1316,4 +1316,17 @@
   keywords   = {cond-mat.mtrl-sci, physics.chem-ph},
 }
 
+@Article{Kresse1999,
+  author    = {G. Kresse and D. Joubert},
+  journal   = {Physical Review B},
+  title     = {From ultrasoft pseudopotentials to the projector augmented-wave method},
+  year      = {1999},
+  month     = {jan},
+  number    = {3},
+  pages     = {1758--1775},
+  volume    = {59},
+  doi       = {10.1103/physrevb.59.1758},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
