@@ -26,7 +26,7 @@ where $n_x,n_y,n_z$ are integer quantum states. Provided that $ k_i = n_i \pi / 
 	\epsilon_k = \frac{\hbar^2}{2m} (k_x^2 + k_y^2 + k_z^2) = \frac{\hbar^2}{2m} k^2 \propto k^2
 \end{equation}
 Note that energy levels are discretized by the quantum states which arises from imposing the boundary conditions.
-\subsection{Electronic Band structure}
+\subsection{Electronic Band structure} \label{sec:bands}
 Inside the crystal lattice, the periodic arrangement of atoms or ions causes the potential to be periodic which eventually gives rise to the formation of energy bands. The wavefunction $\Psi$ will become periodic in space with a period $L$ and must obey the Born-von Karman boundary condition \citep{Herman1959}
 \begin{equation} \label{eq:periodic}
 	\Psi_k(x,y,z) = \Psi_k(x + L, y, z)
@@ -140,7 +140,7 @@ and using Hartree atomic units $\hbar = m_e = e = 4 \pi / \epsilon_0 =1$ for sim
 \end{equation}
 \subsection{Hartree Method}
 Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The second term will be replaced by Hartree energy given as
-\begin{equation}
+\begin{equation} \label{eq:hartree_E}
 	\hat{\mathcal{V}}_H = \frac{1}{2} \iint \frac{\rho(\va*{r}) \rho(\va*{r}')}{\abs{{\va*{r} - \va*{r}'}}} \dd[3]{r} \dd[3]{r'}
 \end{equation}
 where $\rho(\va*{r})$ is the electron density. The total energy will be sum of $N$ numbers of one-electron energies
