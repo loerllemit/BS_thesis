@@ -1329,4 +1329,25 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Monkhorst1976,
+  author    = {Hendrik J. Monkhorst and James D. Pack},
+  journal   = {Physical Review B},
+  title     = {Special points for Brillouin-zone integrations},
+  year      = {1976},
+  month     = {jun},
+  number    = {12},
+  pages     = {5188--5192},
+  volume    = {13},
+  doi       = {10.1103/physrevb.13.5188},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Hellman1937,
+  author  = {Hellman, Hans},
+  journal = {Franz Deuticke, Leipzig},
+  title   = {Einf{\"u}hrung in die Quantenchemie},
+  year    = {1937},
+  pages   = {285},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

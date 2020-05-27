@@ -250,8 +250,19 @@ where $m$ is a multiplier of $E_{cut}$, and $\va{G}_{rho}$ serves as the upper b
 \end{equation}
 where $V$ is the volume of the supercell. The cut-off energy that is  appropriate for a given calculation is  not usually known in advance, as it varies on the configuration of the system. However, convergence tests can be conducted  where the cut-off energies is increased until the desired properties stop changing. Note that wavevectors $\va{k}$ were discretized by using k-point sampling in the IBZ, $\va{G}$-vectors become finite by energy cutoff,  and the band index $n$ depends on the number of orbital states, which is also finite. Hence, solving Kohn-Sham in \eqref{eq:KS_rec} becomes computationally tractable. 
 
-\section{Relaxation}
+\section{Ionic Relaxation}
+For every DFT calculations, the system must be fully relaxed both electronically and structurally. The electronic relaxation is given by the self-consistent field calculation in section \ref{sec:scf}. The structural relaxation or ionic relaxation computes the forces of each atom and are moved to  directions of minimum forces for the next electronic relaxation. The force on the $I$th atom  positioned at $\va{R}_I$ can be calculated from Hellman-Feynman theorem as \citep{Hellman1937,Feynman1939}
+\begin{align}
+    \va{F}_I =  - \pdv{E}{\va{R}_I} &= - \bra{\phi} \pdv{ \hat{\mathcal{H}}}{\va{R}_I} \ket{\phi} - \pdv{E_{II}}{\va{R}_I}  \\
+    &= - \int \rho({\va{r}}) \pdv{\hat{\mathcal{V}}_{ext}(\va{r})}{\va{R}_I}  \dd{\va*{r}} - \pdv{E_{II}}{\va{R}_I}
+\end{align}
+Note that the calculation of forces is given strictly in terms of the electron density and the external potential, independent of electron kinetic energy, Hartree potential, and exchange-correlation terms. Thus, forces can be calculated by taking simple derivative operations on two potential terms. This is why force calculations are very fast that they are almost unnoticed in a  DFT calculation. The atoms will move in the direction of least force and the process is repeated again until the total force of the system is negligible. 
 
+Common numerical algorithms used to implement ionic relaxation are the quasi-Newton method, the conjugate gradient (CG) method, and the damped MD method. 
+
+\textcolor{red}{put schematic diagram}
+\section{Mixing Schemes}
+\section{Diagonalization techniques}
 \section{Smearing}
 \subsection{Gaussian Smearing}
 \subsection{Fermi Smearing}

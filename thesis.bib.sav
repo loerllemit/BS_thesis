@@ -1342,4 +1342,25 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Hellman1937,
+  author  = {Hellman, Hans},
+  journal = {Franz Deuticke, Leipzig},
+  title   = {Einf{\"u}hrung in die Quantenchemie},
+  year    = {1937},
+  pages   = {285},
+}
+
+@Article{Feynman1939,
+  author    = {R. P. Feynman},
+  journal   = {Physical Review},
+  title     = {Forces in Molecules},
+  year      = {1939},
+  month     = {aug},
+  number    = {4},
+  pages     = {340--343},
+  volume    = {56},
+  doi       = {10.1103/physrev.56.340},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
