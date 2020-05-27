@@ -2328,11 +2328,12 @@
     <bcf:citekey order="106">Curtis2015</bcf:citekey>
     <bcf:citekey order="107">Dai1999</bcf:citekey>
     <bcf:citekey order="108">Probert2003</bcf:citekey>
-    <bcf:citekey order="109">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="110">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="111">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="112">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="113">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="109">Kerker1981</bcf:citekey>
+    <bcf:citekey order="110">Johnson1988</bcf:citekey>
+    <bcf:citekey order="111">Broyden1965</bcf:citekey>
+    <bcf:citekey order="112">Raczkowski2001</bcf:citekey>
+    <bcf:citekey order="113">Pulay1980</bcf:citekey>
+    <bcf:citekey order="113">Kresse1996</bcf:citekey>
     <bcf:citekey order="114">wetterstrand2016</bcf:citekey>
     <bcf:citekey order="115">wetterstrand2016</bcf:citekey>
     <bcf:citekey order="116">wetterstrand2016</bcf:citekey>
@@ -2340,6 +2341,11 @@
     <bcf:citekey order="118">wetterstrand2016</bcf:citekey>
     <bcf:citekey order="119">wetterstrand2016</bcf:citekey>
     <bcf:citekey order="120">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="121">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="122">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="123">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="124">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="125">wetterstrand2016</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

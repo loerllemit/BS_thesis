@@ -272,7 +272,13 @@ Common numerical algorithms used to implement ionic relaxation are the quasi-New
 
 
 
-\section{Mixing Schemes}
+\section{Density Mixing Schemes}
+In each iteration of the self consistent field calculation, it starts with a given electron density $\phi_i(\va*{r})$ and obtain the corresponding Kohn-Sham Hamiltonian and its eigenstates (see section \ref{sec:scf}). A new electron density can be computed from the occupied eigenstates. Afterwards, the new input density is updated from the old ones and will be used for the next iteration. The end goal is to reach the self consistent solution, i.e. $\rho_{out}({\va{r}}) = \rho_{in}({\va{r}})$, which can be thought as fixed point problem of the form $x_{n+1} = f(x_n)$. If the procedure converges, then the final value is the fixed point $\bar{x} = f(\bar{x})$. The simplest strategy is the linear mixing  scheme \citep{Kerker1981}
+\begin{equation}
+    \rho_{in}^{n+1}({\va{r}}) = \alpha \rho_{out}^{n}({\va{r}}) + (1 - \alpha) \rho_{in}^{n}({\va{r}})
+\end{equation}
+where $\alpha$ is the empirical mixing parameter adjusted to minimize the number of iterations needed for self consistency. The larger the $\alpha$, the more is contributed from the output density. The purpose of density mixing is to prevent the charge sloshing. Charge sloshing is the consistent charge overshooting, or the  large charge redistribution, that occurs from one iteration to the next. Density mixing will damp out these charge displacements leading to a better convergence \citep{Johnson1988}. Other advanced mixing schemes commonly used are Broyden mixing \citep{Broyden1965}, Thomas-Fermi charge mixing \citep{Raczkowski2001}, and Pulay mixing \citep{Pulay1980, Kresse1996}. The detailed explanations of these mixing schemes will not be discussed and interested readers are referred to the corresponding references. 
+
 \section{Smearing}
 \subsection{Gaussian Smearing}
 \subsection{Fermi Smearing}
