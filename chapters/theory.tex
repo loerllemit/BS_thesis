@@ -95,10 +95,10 @@ where for each band index $n$, the sum is over all allowed values of $k$ lying i
 \begin{equation} \label{eq:dos_int}
 	D(\epsilon) = 2\, \frac{V}{\pi^3} \sum_n \sum_k \delta(\epsilon - \epsilon_n(k)) (\Delta k)^3
 \end{equation}
-for  in the limit of $V \rightarrow \infty $, $\Delta k \rightarrow 0$, it becomes
+for  in the limit of $V \rightarrow \infty $, $\Delta k \rightarrow 0$, so that
 
-\begin{equation}
-	\lim_{V \to \infty} \frac{1}{V}\, D(\epsilon) = \frac{2}{\pi^3} \sum_n \int \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
+\begin{equation} \label{eq:dos_lim}
+	g(\epsilon) = \lim_{V \to \infty} \frac{1}{V}\, D(\epsilon) = \frac{2}{\pi^3} \sum_n \int \delta(\epsilon - \epsilon_n(k)) \dd[3]{k}
 \end{equation}
 Usually, the total DOS is set to be the number of states per unit energy per unit volume.
 

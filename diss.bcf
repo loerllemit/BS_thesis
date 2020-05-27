@@ -2334,18 +2334,13 @@
     <bcf:citekey order="112">Raczkowski2001</bcf:citekey>
     <bcf:citekey order="113">Pulay1980</bcf:citekey>
     <bcf:citekey order="113">Kresse1996</bcf:citekey>
-    <bcf:citekey order="114">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="115">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="116">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="117">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="118">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="119">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="120">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="121">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="122">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="123">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="124">wetterstrand2016</bcf:citekey>
-    <bcf:citekey order="125">wetterstrand2016</bcf:citekey>
+    <bcf:citekey order="114">Dirac1926</bcf:citekey>
+    <bcf:citekey order="114">Fermi1926</bcf:citekey>
+    <bcf:citekey order="115">Fu1983</bcf:citekey>
+    <bcf:citekey order="116">Methfessel1989</bcf:citekey>
+    <bcf:citekey order="117">Bloechl1994a</bcf:citekey>
+    <bcf:citekey order="118">Lee2016</bcf:citekey>
+    <bcf:citekey order="119">Lee2016</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

@@ -150,7 +150,7 @@ It was shown that DFT calculations can be solved within the irreducible Brilloui
     f(\va{r}) = \int_{BZ} F(\va{k}) \dd{\va{k}}
 \end{equation}
 where $F(\va{k})$ is the Fourier transform of $f(\va{r})$. To evaluate computationally, the integral can be approximated by weighted sum over special k-points
-\begin{equation}
+\begin{equation}\label{eq:BZ_approx}
     \int_{BZ} F(\va{k}) \dd{\va{k}} \approx \sum_{j} w_{j}  F(\va{k}_j)
 \end{equation}
 where $w_{j}$ are the weighted factors. 
@@ -280,21 +280,60 @@ In each iteration of the self consistent field calculation, it starts with a giv
 where $\alpha$ is the empirical mixing parameter adjusted to minimize the number of iterations needed for self consistency. The larger the $\alpha$, the more is contributed from the output density. The purpose of density mixing is to prevent the charge sloshing. Charge sloshing is the consistent charge overshooting, or the  large charge redistribution, that occurs from one iteration to the next. Density mixing will damp out these charge displacements leading to a better convergence \citep{Johnson1988}. Other advanced mixing schemes commonly used are Broyden mixing \citep{Broyden1965}, Thomas-Fermi charge mixing \citep{Raczkowski2001}, and Pulay mixing \citep{Pulay1980, Kresse1996}. The detailed explanations of these mixing schemes will not be discussed and interested readers are referred to the corresponding references. 
 
 \section{Smearing}
-\subsection{Gaussian Smearing}
-\subsection{Fermi Smearing}
-\subsection{Methfessel–Paxton Smearing}
-\subsection{Tetrahedron Method}
+For materials that have band gap such as insulators and semiconductors, the electron densities decay smoothly near the band gap. However, metals have abrupt change of occupations from 0 to 1 at the Fermi level. This implies that any integration of functions that are discontinuous at the Fermi level will require a dense grid of k-points to achieve an acceptable accuracy. This will slow down the speed of convergence for a given set of k-points. The best way to deal with this problem is to use smearing. For instance, consider the total energy 
+\begin{equation}
+ E = \sum_{i} \int_{BZ} \epsilon_{ik}\, \Theta(\epsilon_{ik} - \mu) \dd{\va{k}}
+\end{equation}
+where $\Theta(\epsilon_{ik} - \mu)$ is the Dirac step function defined as 
+\begin{equation}
+    \Theta(x)= 
+    \begin{dcases}
+        1   \quad &, x \leq 0 \\
+        0 &, x > 1 \\
+    \end{dcases}
+\end{equation}
+Here, $\epsilon_{ik}$ is the energy of the $i$th band state located at wavevector $\va{k}$. Due to finite computer resources, the integral can be approximated by weighted sum over special k-points similar to \eqref{eq:BZ_approx}
+\begin{equation}
+    E = \sum_{i} \sum_{k \in \text{IBZ}} w_k \epsilon_{ik} \, \Theta(\epsilon_{ik} - \mu)
+\end{equation}
+where $w_k$ are the weighted factors of each sampled k-points. The next step is to replace the Dirac step function by a smearing  function. This will result to a much faster convergence speed without destroying the accuracy. The final approximate form will be
+
+\begin{equation}
+    E =  \sum_{k \in \text{IBZ}} w_k \sum_{i} f_{ik} \epsilon_{ik}
+\end{equation}
+where $f_{ik}$ is the smearing function which is also known as the partial occupancy. In similar vein, the electron density in 
+\eqref{eq:charge_dens} is reformulated to include the partial occupancy of the KS orbitals 
+ 
+\begin{equation} 
+	\rho({\va*{r}}) = \sum_{k \in \text{IBZ}} w_k \sum_{i=1}^N f_{ik}\, \phi_{ik}(\va*{r})^* \phi_{ik}(\va*{r})
+\end{equation}
+The equation above implies that for a  general system, in principle, there should be a  set orbitals for every possible value of k-points. There are different smearing methods used in the literature. For example, the Fermi smearing method replaces the smearing function using Fermi-Dirac distribution \citep{Dirac1926,Fermi1926}
+\begin{equation}
+    f_{ik} = \frac{1}{\exp[(\epsilon_{ik} - E_f)/k_B T] + 1}
+\end{equation}
+where $E_f$ is the Fermi energy, $k_B$ is the Boltzmann's constant, and $T$ is the absolute temperature. The $k_B T$ is also called the broadening parameter that quantifies the degree of broadening of the Fermi-Dirac distribution. Figure \ref{fig:occupancy} illustrates the partial occupancies as a function of energy. Observe that there are eigenstates above the Fermi energy when smearing is applied. This means that eigenstates are partially filled inside the Fermi surface but the discontinuity at $E_f$ is removed by a smooth function. Note that $T$ has no physical meaning in DFT, unless the  system under study is really at finite electronic temperature. Gaussian smearing is also possible which is given by \citep{Fu1983}
+\begin{equation}
+    f_{ik} = \frac{1}{2} \left[1-erf\left(\frac{\epsilon_{ik} - E_f}{k_B T} \right)\right]
+\end{equation}
+where $erf(x)$ is the Gauss error function. The Methfessel–Paxton smearing method \citep{Methfessel1989}  approximates  the smearing function $f_{ik}$ by a hierarchy of increasingly accurate smooth functions based on Hermite polynomials. Smaller k-points are adequate to accurately describe DFT quantities. 
+
+Lastly, the linear tetrahedron method divides the irreducible Brillouin zone (IBZ) into many small tetrahedrons \citep{Bloechl1994a}. The energy eigenvalues $\epsilon_{ik}$ inside each tetrahedron are  linearly
+interpolated and integrated within these tetrahedrons. This method is especially suited for  transition metals and rare earths whose delicate details of the Fermi surface requires a finer resolution. It  is also preferred method for band structure and DOS calculations of semiconductors. The smearing method can also be used to broaden the Dirac delta function. For instance, the $\delta$ function is replaced by a Gaussian distribution
+\begin{equation}
+    \delta(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp(-x^2/2\sigma^2)
+\end{equation}
+where $\sigma$ is the broadening parameter. This broadening  is very useful for calculations requiring delta functions such as density of states (DOS) in \eqref{eq:dos_lim}.
+
+As a final note, the amount of broadening of smearing function must be optimized. Too large smearing might result in large error in calculation, whereas too small smearing requires a much finer k-point mesh, a computationally demanding task. 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\linewidth]{"images/computational/occupancy"}
+    \caption[ Partial occupancies near the Fermi energy using Fermi smearing ]{Partial occupancies near the Fermi energy using Fermi smearing. Illustration taken from \citep{Lee2016}.}
+    \label{fig:occupancy}
+\end{figure}
 
 
 
-
-
-
-
-\section{k-point Integration}
-
-\textcolor{red}{? For a periodic system, integrals in real space over the (infinitely extended) system are replaced by integrals over the (finite) first Brillouin zone in reciprocal space, by virtue of Bloch's theorem ?
-For a  general system, there should, in principle be a  set orbitals for every possible value of k}
 
 
 
