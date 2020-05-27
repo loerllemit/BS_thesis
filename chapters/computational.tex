@@ -75,7 +75,8 @@ where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $
    &= \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta S_{\alpha\beta} = 1 \label{eq:orbital_norm}
 \end{align}
 
-There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$  equations are simultaneously solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. Also, most DFT codes spend substantial amount of time in matrix diagonalization.
+There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$  equations are simultaneously solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density. 
+Common numerical algorithms used in matrix diagonalization are Davidson iterative diagonalization \citep{Davidson1975,Crouzeix1994}, Residual minimization/direct inversion in the iterative subspace (RMM–DIIS) \citep{Wood1985,Rayson2008}, and Conjugate-gradient-like band-by-band diagonalization \citep{Vorst1988,Kresse1996}. Numerical algorithms must be efficient and optimized since  most DFT codes spend substantial amount of time in matrix diagonalization.
 
 \section{Pseudopotential (PP) Approach}
     The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, both potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
@@ -256,18 +257,32 @@ For every DFT calculations, the system must be fully relaxed both electronically
     \va{F}_I =  - \pdv{E}{\va{R}_I} &= - \bra{\phi} \pdv{ \hat{\mathcal{H}}}{\va{R}_I} \ket{\phi} - \pdv{E_{II}}{\va{R}_I}  \\
     &= - \int \rho({\va{r}}) \pdv{\hat{\mathcal{V}}_{ext}(\va{r})}{\va{R}_I}  \dd{\va*{r}} - \pdv{E_{II}}{\va{R}_I}
 \end{align}
-Note that the calculation of forces is given strictly in terms of the electron density and the external potential, independent of electron kinetic energy, Hartree potential, and exchange-correlation terms. Thus, forces can be calculated by taking simple derivative operations on two potential terms. This is why force calculations are very fast that they are almost unnoticed in a  DFT calculation. The atoms will move in the direction of least force and the process is repeated again until the total force of the system is negligible. 
+Note that the calculation of forces is given strictly in terms of the electron density and the external potential, independent of electron kinetic energy, Hartree potential, and exchange-correlation terms. Thus, forces can be calculated by taking simple derivative operations on two potential terms. This is why force calculations are very fast that they are almost unnoticed in a  DFT calculation. The atoms will move in the direction of least force and the process is repeated again until the total force of the system is negligible. The schematic diagram of the complete relaxation in DFT calculations is shown in Figure \ref{fig:ionic_relax}. The inner loop bounded by dashed lines is the self-consistent field calculation that was shown previously in Figure \ref{fig:scf_loop}. The outer loop is the ionic relaxation. If the total force of the system is almost zero, then desired material properties such total energy, pressure, stress, etc. can be calculated.
 
-Common numerical algorithms used to implement ionic relaxation are the quasi-Newton method, the conjugate gradient (CG) method, and the damped MD method. 
+Common numerical algorithms used to implement ionic relaxation are the quasi-Newton method \citep{Curtis2015}, the conjugate gradient (CG) method \citep{Dai1999}, and the damped molecular dynamics method \citep{Probert2003}. 
 
-\textcolor{red}{put schematic diagram}
+
+
+\begin{figure}[tbh!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{"images/computational/ionic_relax"}
+    \caption[ Schematic diagram of the complete relaxation in DFT simulations]{Schematic diagram of the complete relaxation in DFT simulations.}
+    \label{fig:ionic_relax}
+\end{figure}
+
+
+
 \section{Mixing Schemes}
-\section{Diagonalization techniques}
 \section{Smearing}
 \subsection{Gaussian Smearing}
 \subsection{Fermi Smearing}
 \subsection{Methfessel–Paxton Smearing}
 \subsection{Tetrahedron Method}
+
+
+
+
+
 
 
 \section{k-point Integration}

@@ -416,6 +416,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/computational/reciprocal.pd
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/computational/dft_solid.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/ionic_relax.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/ionic_relax.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/computational/ionic_relax.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/implementation.tex
