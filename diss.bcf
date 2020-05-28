@@ -2341,6 +2341,9 @@
     <bcf:citekey order="117">Bloechl1994a</bcf:citekey>
     <bcf:citekey order="118">Lee2016</bcf:citekey>
     <bcf:citekey order="119">Lee2016</bcf:citekey>
+    <bcf:citekey order="120">Giannozzi2009</bcf:citekey>
+    <bcf:citekey order="120">Giannozzi2017</bcf:citekey>
+    <bcf:citekey order="121">Garrity2014</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

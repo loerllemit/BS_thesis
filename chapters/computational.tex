@@ -236,7 +236,7 @@ which can be rewritten as a general matrix equation
 \end{equation}
 This is similar to \eqref{eq:matrix_eigen} but the overlapping matrix is set to identity matrix.
 
-\section{Energy Cutoffs}
+\section{Cutoff Energy }
 The plane wave basis expansion of both KS orbital and the electron density in \eqref{eq:orbital_rec} and \eqref{eq:density_rec} is evaluated in the complete set of reciprocal lattice vector $\va{G}$, which is infinite. This means that it will take infinitely long to compute desired properties. Nevertheless, orbitals and electron densities tend to become smoothly varying at large $\va{G}$-vectors. Thus, their plane wave components become negligible for large $\va{G}$. The expansion can be truncated by introducing kinetic energy cut-off $E_{cut}$ defined as 
 \begin{equation}
     E_{cut} = \abs{\va{k} + \va{G}_{cut}}^2
@@ -245,7 +245,7 @@ the $\va{G}_{cut}$ serves as the upper bound for the expansion series of KS orbi
 \begin{equation}
     m E_{cut} = \abs{\va{k} + \va{G}_{rho}}^2
 \end{equation}
-where $m$ is a multiplier of $E_{cut}$, and $\va{G}_{rho}$ serves as the upper bound for the expansion series of electron density in \eqref{eq:density_rec}. The number of plane waves can be estimated as 
+where $m$ is called a dual, a multiplier of $E_{cut}$, and $\va{G}_{rho}$ serves as the upper bound for the expansion series of electron density in \eqref{eq:density_rec}. The number of plane waves can be estimated as 
 \begin{equation}
     N_{\text{PW}} \approx \frac{1}{2 \pi^2} V E_{cut}^{3/2}
 \end{equation}

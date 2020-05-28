@@ -1,4 +1,26 @@
 \chapter{Results and Discussion}
+\section{Convergence Tests}
+Convergence tests on the ZnO unit cell were done by varying the k-points, and the kinetic energy cut-offs  of the Kohn-Sham orbital and the electron density, respectively. When the k-points are varied, the cut-off energies  were fixed by the minimum energy set by the pseudopotential used. In this case  As shown in Figure in \ref{fig:conv_k}, the pressure and total energy converges at $k \geq 2$ which corresponds to the Monkhorst-Pack grid of $7 \times 7 \times 2$. One can choose the minimum k-point required for convergence to be used for subsequent calculations. However, higher values are preferred as to make sure the convergence is guaranteed for all configuration of the system. In this thesis, the k-point used was $k = 6$ which corresponds to the Monkhorst-Pack grid $11 \times 11 \times 6$. Next, 
+
+\begin{figure}[tbh!] 
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/rnd/kpoints"}
+	\caption[Convergence of pressure and total energies with respect to k-points]{Convergence of pressure and total energies with respect to k-points. The x-axis denotes the k-point $k$ in the Monkhorst-Pack grid of $(k+5) \times (k +5 ) \times k$}
+	\label{fig:conv_k}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/rnd/ecutwfc"}
+	\caption[Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital]{Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/rnd/ecutrho"}
+	\caption[Convergence of pressure and total energies with respect to cutoff energy of the electron density]{Convergence of pressure and total energies with respect to cutoff energy of the electron density}
+\end{figure}
+
 
 \begin{figure}[tbh!]
 	\centering

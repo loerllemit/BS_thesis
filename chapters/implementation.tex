@@ -1,15 +1,22 @@
 \chapter{Software Implementation}
     \section{QUANTUM ESPRESSO}
-        \subsection{MKL Libraries}
-        \subsection{PWSCF routines}
+    The Quantum opEn  Source  Package  for  Research  in  Electronic  Structure, Simulation, and Optimization (QUANTUM ESPRESSO) is an integrated suite of open source codes for electronic structure calculations and materials modeling based on Density functional theory, plane waves, and pseudopotential approach \citep{Giannozzi2009,Giannozzi2017}. 
+        % \subsection{MKL Libraries}
+        % \subsection{PWSCF routines}
             cbands, cegterg, cdiaghg 
-    \section{Intel Compilers}
+    % \section{Intel Compilers}
     \section{Executables}
     \section{Computational Details}
     Zn has 30 electrons and O has 8 electrons but the valence electrons are the only one taken into account
-        \subsection{Convergence Testing}
-        \subsection{Hubbard correction parameters}
         \subsection{Supercell creation}
+
+        \subsection{Convergence Testing}
+        The optimum values of the k-points, and kinetic energy-cutoffs  to be used in subsequent calculations were determine from convergence tests. Initially, k-points were varied for a fixed plane wave cutoff energy and electron density cutoff energy. These fixed values were set at $E_{\text{wfc}} = 40$ Ry and $E_{\text{rho}} = 320$ Ry, which are the suggested minimum values set by the pseudopotential used \citep{Garrity2014}.  Since the c-axis of \ch{ZnO} is longer, its corresponding reciprocal lattice is smaller. Hence, the grid points in the $k_z$ direction were scaled down properly. The Monkhorst-Pack grid was set at $(k+5) \times (k +5 ) \times k$.
+
+
+
+
+        \subsection{Hubbard correction parameters}
         \subsection{Slab Model}
         \subsection{Structural relaxation}
         \subsection{scf calculation}
