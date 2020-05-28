@@ -13,8 +13,7 @@
     This thesis used the Garrity-Bennett-Rabe-Vanderbilt (GBRV) ultrasoft pseudopotential library that was designed at Rutgers university \citep{Garrity2014}. The pseudopotential was generated using GGA exchange–correlation correlation functional based on Perdew-Burke-Ernzerhof (PBE) functional \citep{Perdew1996}. For the $\ch{Zn}$ atom, the pseudopotential included 3s, 3p, 3d, 4s orbitals for valence calculations  while the inner core orbitals were approximated using an ultrasoft pseudopotential. The 3s and 3p orbitals are considered as "semi-core" orbitals since they do not participate on chemical bonding but were included only in electronic structure calculations. For the O atom, only  2s and 2p orbitals were taken into account. Thus, Zn has 20 valence electrons while O has 6 valence electrons. 
 
     \subsection{Supercell creation}
-
-
+    The supercells are generated from the unit cell of wurtzite \ch{ZnO} shown in Figure \ref{fig:ZnO_unit}
         \subsection{Convergence Testing}
         The optimum values of the k-points, and kinetic energy-cutoffs  to be used in subsequent calculations were determine from convergence tests. Initially, k-points were varied for a fixed plane wave cutoff energy and electron density cutoff energy. These fixed values were set at $E_{\text{wfc}} = 40$ Ry and $E_{\text{rho}} = 320$ Ry, which are the suggested minimum values set by the pseudopotential used \citep{Garrity2014}.  Since the c-axis of \ch{ZnO} is longer, its corresponding reciprocal lattice is smaller. Hence, the grid points in the $k_z$ direction were scaled down properly. The Monkhorst-Pack grid was set at $(k+5) \times (k +5 ) \times k$.
 
