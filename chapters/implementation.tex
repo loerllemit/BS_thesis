@@ -30,11 +30,10 @@
     \subsection{SCF calculation}
         Since the optimum values of k-points and cutoff energies were determined from the convergence tests, the main program of Quantum Espresso which is the self-consistent field calculation can proceed smoothly. The flow diagram of the SCF calculation together with the structural relaxation is shown in Figure \ref{fig:ionic_relax}. The convergence threshold for the scf calculation was set at $1 \times 10^{-6}$. If the change in electron density was below this threshold, the electron density is the ground state density and pertinent properties such as total energy can be calculated. Broyden charge density mixing was used as a mixing mode to update the charge density with  $\alpha = 0.4$ as the mixing parameter.   The occupations were smoothed by a gaussian smearing with a broadening factor of 0.001 Ry. 
 
-
-
-
-
         \subsection{Bandstructure calculation}
-        \subsection{dos calculation}
+        After scf calculation, the total energy and electron density were in the ground state. However, to visualize the band gap, selected k-points along the high symmetry points must be used instead of the uniform Monkhorst-Pack grid. For a fixed potential obtained from scf calculation, the banstructure calculation proceeded by calculating the Kohn-Sham states along the high symmetry points given by the path $\Gamma-A-H-K-\Gamma-M-L-H$. 
 
-DOST COARE
+        \subsection{DOS calculation}
+        For density of states (DOS) calculation, a denser k-point mesh grid was used to properly described the contribution of each orbitals to a  specific energy range. A $12 \times 12 \times 12$ Monkhorst-Pack grid was used for DOS calculation. The smearing used was linear tetrahedron method since it is the preferred smearing for DOS calculations. The partial density of states (PDOS) was calculated the same way as the  DOS calculation.
+
+% DOST COARE
