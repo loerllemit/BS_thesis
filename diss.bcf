@@ -2344,6 +2344,8 @@
     <bcf:citekey order="120">Giannozzi2009</bcf:citekey>
     <bcf:citekey order="120">Giannozzi2017</bcf:citekey>
     <bcf:citekey order="121">Garrity2014</bcf:citekey>
+    <bcf:citekey order="122">Perdew1996</bcf:citekey>
+    <bcf:citekey order="123">Garrity2014</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
