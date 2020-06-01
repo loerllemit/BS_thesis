@@ -7,8 +7,10 @@
     % \section{Intel Compilers}
     
     \section{Executables}
-    \textcolor{red}{insert text
+    \textcolor{red}{include parallelization techniques, COARE 
     }
+    All the simulations were ran in COARE BLAH BLAH
+    bands.x dos.x 
     \section{Computational Details}
     This section outlines the computational recipes of successfully simulating material properties using Density Functional Theory executed in  Quantum Espresso code. 
 
@@ -34,6 +36,5 @@
         After scf calculation, the total energy and electron density were in the ground state. However, to visualize the band gap, selected k-points along the high symmetry points must be used instead of the uniform Monkhorst-Pack grid. For a fixed potential obtained from scf calculation, the banstructure calculation proceeded by calculating the Kohn-Sham states along the high symmetry points given by the path $\Gamma-A-H-K-\Gamma-M-L-H$. 
 
         \subsection{DOS calculation}
-        For density of states (DOS) calculation, a denser k-point mesh grid was used to properly described the contribution of each orbitals to a  specific energy range. A $12 \times 12 \times 12$ Monkhorst-Pack grid was used for DOS calculation. The smearing used was linear tetrahedron method since it is the preferred smearing for DOS calculations. The partial density of states (PDOS) was calculated the same way as the  DOS calculation.
+        For density of states (DOS) calculation, a denser k-point mesh grid was used to properly described the contribution of each orbitals to a  specific energy range. A $12 \times 12 \times 12$ Monkhorst-Pack grid was used for DOS calculation. The smearing used was linear tetrahedron method since it is the preferred smearing for DOS calculations. The partial density of states (PDOS) was calculated the same way as the  DOS calculation. Since the resulting plots contained a lot of numerical noise, a Savitzky-Golay filter was applied to smooth out the noisy signal by fitting a polynomial of varying degree \citep{Savitzky1964,Luo2005}.
 
-% DOST COARE
