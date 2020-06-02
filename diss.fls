@@ -267,6 +267,12 @@ INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtoo
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/bm.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tabulary/tabulary.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tabulary/tabulary.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
@@ -379,6 +385,9 @@ INPUT /scratch1/christian.llemit/codes/thesis/chapters/rrl.tex
 INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/ZnO_unit.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/ZnO_unit.png
 INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/ZnO_unit.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/hex.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/hex.png
+INPUT /scratch1/christian.llemit/codes/thesis/images/rrl/hex.png
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/theory.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/theory.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/theory.tex
