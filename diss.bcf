@@ -2356,6 +2356,7 @@
     <bcf:citekey order="128">Garrity2014</bcf:citekey>
     <bcf:citekey order="129">Savitzky1964</bcf:citekey>
     <bcf:citekey order="129">Luo2005</bcf:citekey>
+    <bcf:citekey order="130">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
