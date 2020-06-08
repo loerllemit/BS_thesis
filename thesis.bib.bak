@@ -2213,4 +2213,79 @@
   publisher = {Elsevier {BV}},
 }
 
+@Article{Sabine1969,
+  author    = {T. M. Sabine and S. Hogg},
+  journal   = {Acta Crystallographica Section B Structural Crystallography and Crystal Chemistry},
+  title     = {The wurtzite Z parameter for beryllium oxide and zinc oxide},
+  year      = {1969},
+  month     = {nov},
+  number    = {11},
+  pages     = {2254--2256},
+  volume    = {25},
+  doi       = {10.1107/s0567740869005528},
+  publisher = {International Union of Crystallography ({IUCr})},
+}
+
+@Article{Chitra2020,
+  author    = {M. Chitra and G. Mangamma and K. Uthayarani and N. Neelakandeswari and E.K. Girija},
+  journal   = {Physica E: Low-dimensional Systems and Nanostructures},
+  title     = {Band gap engineering in {ZnO} based nanocomposites},
+  year      = {2020},
+  month     = {may},
+  pages     = {113969},
+  volume    = {119},
+  doi       = {10.1016/j.physe.2020.113969},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Goh2017,
+  author    = {E.S. Goh and J.W. Mah and T.L. Yoon},
+  journal   = {Computational Materials Science},
+  title     = {Effects of Hubbard term correction on the structural parameters and electronic properties of wurtzite {ZnO}},
+  year      = {2017},
+  month     = {oct},
+  pages     = {111--116},
+  volume    = {138},
+  doi       = {10.1016/j.commatsci.2017.06.032},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Haq2013,
+  author    = {Bakhtiar Ul Haq and R. Ahmed and Souraya Goumri-Said and A. Shaari and A. Afaq},
+  journal   = {Phase Transitions},
+  title     = {Electronic structure engineering of {ZnO} with the modified Becke{\textendash}Johnson exchange versus the classical correlation potential approaches},
+  year      = {2013},
+  month     = {dec},
+  number    = {12},
+  pages     = {1167--1177},
+  volume    = {86},
+  doi       = {10.1080/01411594.2012.755183},
+  publisher = {Informa {UK} Limited},
+}
+
+@Article{Erhart2006a,
+  author    = {Paul Erhart and Karsten Albe and Andreas Klein},
+  journal   = {Physical Review B},
+  title     = {First-principles study of intrinsic point defects in {ZnO}: Role of band structure, volume relaxation, and finite-size effects},
+  year      = {2006},
+  month     = {may},
+  number    = {20},
+  volume    = {73},
+  doi       = {10.1103/physrevb.73.205203},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Ma2013,
+  author    = {Xinguo Ma and Ying Wu and Yanhui Lv and Yongfa Zhu},
+  journal   = {The Journal of Physical Chemistry C},
+  title     = {Correlation Effects on Lattice Relaxation and Electronic Structure of {ZnO} within the {GGA}$\mathplus$U Formalism},
+  year      = {2013},
+  month     = {nov},
+  number    = {49},
+  pages     = {26029--26039},
+  volume    = {117},
+  doi       = {10.1021/jp407281x},
+  publisher = {American Chemical Society ({ACS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

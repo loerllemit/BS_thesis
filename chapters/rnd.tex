@@ -21,26 +21,62 @@ Convergence tests on the ZnO unit cell were done by varying the k-points, and th
 	\caption[Convergence of pressure and total energies with respect to cutoff energy of the electron density]{Convergence of pressure and total energies with respect to cutoff energy of the electron density}
 \end{figure}
 
-\section{Hubbard-U parameters on band gap variation}
-The influence of both $U_p$, acting on O 2p orbitals,  and $U_d$, acting on Zn 3d orbitals, on the p-d hybridization is evident in the variation of band gap as shown in Figure \ref{fig:hubbard_val}. Huge increase in the magnitude of the electronic band gap of almost 0.2 eV with the increment of 0.5 eV in the value of $U_p$. 
+\clearpage
+\section{Hubbard-U parameters}
+The influence of both $U_p$, acting on O 2p orbitals,  and $U_d$, acting on Zn 3d orbitals, on the p-d hybridization is evident in the variation of band gap as shown in Figure \ref{fig:hubbard_val}. For a fixed $U_d$, there is a huge increase in the magnitude of the electronic band gap of almost 0.2 eV with the increment of $U_p$ by 0.5 eV. The rate of increase in band gap is high enough that most band gap values have exceeded the reference band gap, shown as a horizontal dashed line in Figure \ref{fig:hubbard_val}.  On the other hand,  the band gap increases steadily with $U_d$ for a given $U_p$. The higher the $U_d$ value, the lower $U_p$ needed to widen the band gap. In either case, the band gap monotonically increase with both parameters. The observed trend agrees very well with the recent results of Goh et al. \citep{Goh2017}. 
 
 
-Since standard DFT such as GGA  underestimates the band gaps, the position of the defect states is also underestimated.
+Among the values, $U_d = 15$ eV and $U_p = 7$ eV has the band gap  value of 3.395 eV which is closest to the experimental value of 3.37 eV. Other combinations of $U_d$ and $U_p$ listed in Table \ref{tab:hubbard_table} are equally valid in correcting the band gap. Nevertheless, this study chose $U_d = 15$ eV and $U_p = 7$ eV as the correction parameters since the calculated band gap falls between the experimental band gap of 3.37 eV to 3.44 eV. Standard DFT calculations using GGA will produce severe underestimation of the band gap with  a value of 0.7589 eV, an error of more than 75\%, consistent with the reports of Haq et al. \citep{Haq2013} and Erhart et al. \citep{Erhart2006a}. This underestimation will affect energetics of the defect states and will lead to erroneous results.
 
-\begin{figure}[tbh!]
+For the structural relaxation, the calculated equilibrium lattice parameters and the unit cell volume  using DFT-GGA and DFT+U are listed in Table \ref{tab:hubbard_table}.  Both lattice parameter $a$ and $c$ increase with $U_d$ values regardless of $U_p$. However, the change is in order of 0.001 \AA \ which is relatively small and can be tolerated. Hence, DFT-U calculations do not substantially alter the lattice parameters. The c/a ratio determines the elongation of wurtzite ZnO along the c-axis. A decreasing trend of c/a ratio can be observed with increasing $U_d$. Ma et al. \citep{Ma2013} suggested that a strong on-site correction causes the localization of Zn 3d-states which further attracts the electron toward the core resulting to  compression of wurtzite ZnO. The calculated unit cell volume does not deviate by more than 1.5\%. The lattice parameters calculated using GGA are overestimate by 1.28\% and 2\% for lattice parameters $a$ and $c$, respectively. The calculated c/a ratio and unit cell volume are higher compared to the experimental values. However, the discrepancies in GGA calculations are considered to be tolerable and are still in good agreement with experimental data. Since the associated computational expense in structural relaxation, DFT+U relaxations will not be used. GGA will be used instead in structural relaxation of defect structures of ZnO  due to its computational simplicity and errors are generally tolerable.
+
+An energy bandstructure diagram in Figure \ref{fig:hubbard_band-dos} shows the shifting of the conduction band upwards with the application of Hubbard-U correction. The valence band consists of two separated regions, with widths of blah blah, respectively. Standard GGA calculations resulted to the overlapping of these two regions  which are separated in DFT+U calculation. The conduction band minimum (CBM) is exactly similar in terms of width and dispersion for both calculations which differed only by a translation of energy due to widening of band gap. Also, the top of the valence band shows similar dispersion in both calculations. The observed similarities indicate that the effective masses of electrons and holes  are not affected by the DFT+U correction \citep{Goh2017}. 
+
+
+
+
+
+\begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rnd/hubbard_val"}
 	\caption[Variation of band gap with respect to Hubbard parameter $U_p$ applied to O 2p orbitals for a given $U_d$ applied to Zn 3d orbitals. ]{Variation of band gap with respect to Hubbard parameter $U_p$ applied to O 2p orbitals for a given $U_d$ values applied to Zn 3d orbitals. The horizontal dashed line indicates the experimental band gap of 3.37 eV.}
 	\label{fig:hubbard_val}
 \end{figure}
 
+\begin{table}[htbp!]
+	\centering
+	\caption{Comparison of  structural parameters and electronic band gap using different DFT methods. }
+	\resizebox{0.9\textwidth}{!}{%
+	\begin{threeparttable}[t]
+	\begin{tabular}{@{}cccccccc@{}}
+	\toprule
+	Method & $U_d$ (eV) & $U_p$ (eV)  & a (\AA)     & c (\AA)     & c/a    & Volume (\AA$^3$) & band gap (eV) \\ \midrule
+	DFT+U  & 11 & 7.5 & 3.2458 & 5.2137 & 1.6063 & 47.5685 & 3.4085   \\
+	DFT+U  & 13 & 7.0 & 3.2501 & 5.2197 & 1.6060 & 47.7503 & 3.3344   \\
+	DFT+U  & 15 & 7.0 & 3.2517 & 5.2211 & 1.6057 & 47.8092 & 3.3950    \\
+	DFT+U  & 17 & 6.5 & 3.2557 & 5.2272 & 1.6056 & 47.9827 & 3.2897   \\
+	DFT+U  & 19 & 6.5 & 3.2569 & 5.2284 & 1.6053 & 48.0309 & 3.3312   \\
+	GGA    &  -  &  -   & 3.2842 & 5.2982 & 1.6132 & 49.4886 & 0.7589   \\
+	expt.\tnote{a} &  -  &   -  & 3.2427 & 5.1948 & 1.6020 & 47.3057 & 3.3700     \\ \bottomrule
+	\end{tabular}
+	\vspace{-8pt}
+	\begin{tablenotes}[para]
+		\footnotesize
+		\item[a] structural parameters were obtained from \citep{Sabine1969}, whereas the band gap value is from  \citep{Chitra2020}
+	\end{tablenotes}
+	\end{threeparttable}
+	}
+	\label{tab:hubbard_table}
+	\end{table}
 
-\section{Geometric Relaxation}
- The calculated equilibrium lattice parameters and the band gaps using DFT and DFT+U are listed in Table blah.  
- 
-change in lattice parameters
+	\begin{figure}[tbh!]
+		\centering
+		\includegraphics[width=0.8\linewidth]{"images/rnd/band-dos_juxtapose"}
+		\caption[Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines)with $U_d =15$ and $U_p= 7$]{Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines) with $U_d =15$ and $U_p= 7$. Fermi level is shifted to zero indicated as horizontal dotted line. }
+		\label{fig:hubbard_band-dos}
+	\end{figure}
 
-For Zn interstitial, the octahedral site was considered in this study. The tetrahedral site is reported to be energetically less favorable or unstable. 
+
 \clearpage
 
 \section{Formation Energies}
@@ -108,8 +144,10 @@ For Zn interstitial, the octahedral site was considered in this study. The tetra
 	%\label{fig:free-electron}
 \end{figure}
 
-
 % Zinc 
+
+For Zn interstitial, the octahedral site was considered in this study. The tetrahedral site is reported to be energetically less favorable or unstable. 
+
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rnd/band-dos_Zn_i"}
