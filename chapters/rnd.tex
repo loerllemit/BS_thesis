@@ -4,26 +4,37 @@ Convergence tests on the ZnO unit cell were done by varying the k-points, and th
 
 \begin{figure}[tbh!] 
 	\centering
-	\includegraphics[width=0.8\linewidth]{"images/rnd/kpoints"}
+	\includegraphics[width=0.7\linewidth]{"images/rnd/kpoints"}
 	\caption[Convergence of pressure and total energies with respect to k-points]{Convergence of pressure and total energies with respect to k-points. The x-axis denotes the k-point $k$ in the Monkhorst-Pack grid of $(k+5) \times (k +5 ) \times k$}
 	\label{fig:conv_k}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{"images/rnd/ecutwfc"}
+	\includegraphics[width=0.7\linewidth]{"images/rnd/ecutwfc"}
 	\caption[Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital]{Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{"images/rnd/ecutrho"}
+	\includegraphics[width=0.7\linewidth]{"images/rnd/ecutrho"}
 	\caption[Convergence of pressure and total energies with respect to cutoff energy of the electron density]{Convergence of pressure and total energies with respect to cutoff energy of the electron density}
 \end{figure}
 
-\section{Hubbard-U parameters}
-Since standard DFT such as GGA  underestimates the band gaps, the position of the defect states is also underestimated. 
-\section{Formation Energies}
+\section{Hubbard-U parameters on band gap variation}
+The influence of both $U_p$, acting on O 2p orbitals,  and $U_d$, acting on Zn 3d orbitals, on the p-d hybridization is evident in the variation of band gap as shown in Figure \ref{fig:hubbard_val}. Huge increase in the magnitude of the electronic band gap of almost 0.2 eV with the increment of 0.5 eV in the value of $U_p$. 
+
+
+Since standard DFT such as GGA  underestimates the band gaps, the position of the defect states is also underestimated.
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"images/rnd/hubbard_val"}
+	\caption[Variation of band gap with respect to Hubbard parameter $U_p$ applied to O 2p orbitals for a given $U_d$ applied to Zn 3d orbitals. ]{Variation of band gap with respect to Hubbard parameter $U_p$ applied to O 2p orbitals for a given $U_d$ values applied to Zn 3d orbitals. The horizontal dashed line indicates the experimental band gap of 3.37 eV.}
+	\label{fig:hubbard_val}
+\end{figure}
+
+
 \section{Geometric Relaxation}
  The calculated equilibrium lattice parameters and the band gaps using DFT and DFT+U are listed in Table blah.  
  
@@ -31,6 +42,8 @@ change in lattice parameters
 
 For Zn interstitial, the octahedral site was considered in this study. The tetrahedral site is reported to be energetically less favorable or unstable. 
 \clearpage
+
+\section{Formation Energies}
 
 \section{Vacancies}
 

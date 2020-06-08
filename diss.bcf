@@ -2394,9 +2394,10 @@
     <bcf:citekey order="142">Garrity2014</bcf:citekey>
     <bcf:citekey order="143">Perdew1996</bcf:citekey>
     <bcf:citekey order="144">Garrity2014</bcf:citekey>
-    <bcf:citekey order="145">Savitzky1964</bcf:citekey>
-    <bcf:citekey order="145">Luo2005</bcf:citekey>
-    <bcf:citekey order="146">Janotti2007</bcf:citekey>
+    <bcf:citekey order="145">Sabine1969</bcf:citekey>
+    <bcf:citekey order="146">Savitzky1964</bcf:citekey>
+    <bcf:citekey order="146">Luo2005</bcf:citekey>
+    <bcf:citekey order="147">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

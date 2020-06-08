@@ -2201,4 +2201,16 @@
   publisher = {{IOP} Publishing},
 }
 
+@Article{Parhizgar2018,
+  author    = {Sara Sadat Parhizgar and Javad Beheshtian},
+  journal   = {Computational Condensed Matter},
+  title     = {Effect of nitrogen doping on electronic and optical properties of {ZnO} sheet: {DFT+U} study},
+  year      = {2018},
+  month     = {jun},
+  pages     = {1--6},
+  volume    = {15},
+  doi       = {10.1016/j.cocom.2018.03.001},
+  publisher = {Elsevier {BV}},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
