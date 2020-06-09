@@ -381,6 +381,7 @@ INPUT /scratch1/christian.llemit/codes/thesis/chapters/introduction.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/introduction.tex
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/rrl.aux
@@ -557,7 +558,6 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/dos-pdos-zoom_Zn_i-p2.p
 OUTPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.aux
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.tex
 INPUT /scratch1/christian.llemit/codes/thesis/chapters/conclusion.tex
-INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/jknappen/ec/eccc1200.tfm
 OUTPUT /scratch1/christian.llemit/codes/thesis/app.aux
 INPUT /scratch1/christian.llemit/codes/thesis/app.tex
