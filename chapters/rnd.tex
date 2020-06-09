@@ -1,6 +1,6 @@
 \chapter{Results and Discussion} \label{chap:rnd}
 \section{Convergence Tests}
-Convergence tests on the ZnO unit cell were done by varying the k-points, and the kinetic energy cut-offs  of the Kohn-Sham orbital and the electron density, respectively. When the k-points are varied, the cut-off energies  were fixed by the minimum energy set by the pseudopotential used. In this case  As shown in Figure in \ref{fig:conv_k}, the pressure and total energy converges at $k \geq 2$ which corresponds to the Monkhorst-Pack grid of $7 \times 7 \times 2$. One can choose the minimum k-point required for convergence to be used for subsequent calculations. However, higher values are preferred as to make sure the convergence is guaranteed for all configuration of the system. In this thesis, the k-point used was $k = 6$ which corresponds to the Monkhorst-Pack grid $11 \times 11 \times 6$. Next, 
+Convergence tests on the ZnO unit cell were done by varying the k-points, and the kinetic energy cut-offs  of the Kohn-Sham orbital and the electron density, respectively.  As shown in Figure \ref{fig:conv_k}, the calculated pressure and total energy converges at $k \geq 2$ which corresponds to the Monkhorst-Pack grid of $7 \times 7 \times 2$. One can choose this minimum k-point required for convergence to be used for subsequent calculations. However, higher values are preferred as to make sure the convergence is guaranteed for all configuration of the system. In this thesis, the k-point used was set $k = 6$ which corresponds to the Monkhorst-Pack grid of $11 \times 11 \times 6$. Next, the cutoff energy of the Kohn-Sham orbitals $E_{\text{wfc}}$ were varied until convergence was achieved. At $E_{\text{wfc}} = 40$ Ry, very small fluctuations are observed for both the total energy and pressure as verified in Figure \ref{fig:conv_wfc}. However, $E_{\text{wfc}} = 90$ Ry was chosen so that it can take into account the possible errors due to supercell image interaction and spurious interaction of defects \citep{White1994,Makov1995,Martyna1999}. Lastly, the cutoff energy of the electron density $E_{\text{rho}}$ converged at 720 Ry corresponding to the dual value of 8 ($8 \times E_{\text{wfc}}$) as illustrated in Figure \ref{fig:conv_rho}. The values of $E_{\text{wfc}} = 90$ Ry, $E_{\text{rho}} = 720$ Ry, and Monkhorst-Pack of $11 \times 11 \times 6$ will be used as convergence parameters for all supercell simulations. 
 
 \begin{figure}[tbh!] 
 	\centering
@@ -12,16 +12,17 @@ Convergence tests on the ZnO unit cell were done by varying the k-points, and th
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rnd/ecutwfc"}
-	\caption[Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital]{Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital}
+	\caption[Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital]{Convergence of pressure and total energies with respect to cutoff energy of the Kohn-Sham orbital $E_{\text{wfc}}$.}
+	\label{fig:conv_wfc}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rnd/ecutrho"}
-	\caption[Convergence of pressure and total energies with respect to cutoff energy of the electron density]{Convergence of pressure and total energies with respect to cutoff energy of the electron density}
+	\caption[Convergence of pressure and total energies with respect to cutoff energy of the electron density]{Convergence of pressure and total energies with respect to cutoff energy of the electron density $E_{\text{rho}}$.}
+	\label{fig:conv_rho}
 \end{figure}
 
-\clearpage
 \section{Hubbard-U parameters}
 The influence of both $U_p$, acting on O 2p orbitals,  and $U_d$, acting on Zn 3d orbitals, on the p-d hybridization is evident in the variation of band gap as shown in Figure \ref{fig:hubbard_val}. For a fixed $U_d$, there is a huge increase in the magnitude of the electronic band gap of almost 0.2 eV with the increment of $U_p$ by 0.5 eV. The rate of increase in band gap is high enough that most band gap values have exceeded the reference band gap, shown as a horizontal dashed line in Figure \ref{fig:hubbard_val}.  On the other hand,  the band gap increases steadily with $U_d$ for a given $U_p$. The higher the $U_d$ value, the lower $U_p$ needed to widen the band gap. In either case, the band gap monotonically increase with both parameters. The observed trend agrees very well with the recent results of Goh et al. \citep{Goh2017}. 
 

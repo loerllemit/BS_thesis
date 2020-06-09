@@ -2314,4 +2314,56 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Zwicker1985,
+  author    = {G. Zwicker and K. Jacobi},
+  journal   = {Solid State Communications},
+  title     = {Experimental band structure of {ZnO}},
+  year      = {1985},
+  month     = {may},
+  number    = {8},
+  pages     = {701--704},
+  volume    = {54},
+  doi       = {10.1016/0038-1098(85)90591-5},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{White1994,
+  author    = {Christopher A. White and Martin Head-Gordon},
+  journal   = {The Journal of Chemical Physics},
+  title     = {Derivation and efficient implementation of the fast multipole method},
+  year      = {1994},
+  month     = {oct},
+  number    = {8},
+  pages     = {6593--6605},
+  volume    = {101},
+  doi       = {10.1063/1.468354},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Martyna1999,
+  author    = {Glenn J. Martyna and Mark E. Tuckerman},
+  journal   = {The Journal of Chemical Physics},
+  title     = {A reciprocal space based method for treating long range interactions inab initioand force-field-based calculations in clusters},
+  year      = {1999},
+  month     = {feb},
+  number    = {6},
+  pages     = {2810--2821},
+  volume    = {110},
+  doi       = {10.1063/1.477923},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Makov1995,
+  author    = {G. Makov and M. C. Payne},
+  journal   = {Physical Review B},
+  title     = {Periodic boundary conditions inab initiocalculations},
+  year      = {1995},
+  month     = {feb},
+  number    = {7},
+  pages     = {4014--4022},
+  volume    = {51},
+  doi       = {10.1103/physrevb.51.4014},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
