@@ -30,9 +30,9 @@ Among the values, $U_d = 15$ eV and $U_p = 7$ eV has the band gap  value of 3.39
 
 For the structural relaxation, the calculated equilibrium lattice parameters and the unit cell volume  using DFT-GGA and DFT+U are listed in Table \ref{tab:hubbard_table}.  Both lattice parameter $a$ and $c$ increase with $U_d$ values regardless of $U_p$. However, the change is in order of 0.001 \AA \ which is relatively small and can be tolerated. Hence, DFT-U calculations do not substantially alter the lattice parameters. The c/a ratio determines the elongation of wurtzite ZnO along the c-axis. A decreasing trend of c/a ratio can be observed with increasing $U_d$. Ma et al. \citep{Ma2013} suggested that a strong on-site correction causes the localization of Zn 3d-states which further attracts the electron toward the core resulting to  compression of wurtzite ZnO. The calculated unit cell volume does not deviate by more than 1.5\%. The lattice parameters calculated using GGA are overestimate by 1.28\% and 2\% for lattice parameters $a$ and $c$, respectively. The calculated c/a ratio and unit cell volume are higher compared to the experimental values. However, the discrepancies in GGA calculations are considered to be tolerable and are still in good agreement with experimental data. Since the associated computational expense in structural relaxation, DFT+U relaxations will not be used. GGA will be used instead in structural relaxation of defect structures of ZnO  due to its computational simplicity and errors are generally tolerable.
 
-An energy bandstructure diagram in Figure \ref{fig:hubbard_band-dos} shows the shifting of the conduction band upwards with the application of Hubbard-U correction. The valence band consists of two separated regions, with widths of blah blah, respectively. Standard GGA calculations resulted to the overlapping of these two regions  which are separated in DFT+U calculation. The conduction band minimum (CBM) is exactly similar in terms of width and dispersion for both calculations which differed only by a translation of energy due to widening of band gap. Also, the top of the valence band shows similar dispersion in both calculations. The observed similarities indicate that the effective masses of electrons and holes  are not affected by the DFT+U correction \citep{Goh2017}. 
+An energy bandstructure diagram in Figure \ref{fig:hubbard_band-dos} shows the shifting of the conduction band upwards with the application of Hubbard-U correction. The blue dashed lines were calculated using DFT-GGA method while the solid red lines were calculated using DFT+U method.   The valence band consists of two separated regions, with widths of 5.61 eV and 2.70 eV, respectively. Standard GGA calculations resulted to the overlapping of these two regions  which are separated in DFT+U calculation. The conduction band minimum (CBM) is exactly similar in terms of width and dispersion for both calculations which differed only by a translation of energy due to widening of band gap. Also, the top of the valence band shows similar dispersion in both calculations but there are slight perturbations appearing 4 eV below the Fermi level. The observed similarities indicate that the effective masses of electrons and holes  are not affected by the DFT+U correction \citep{Goh2017}. 
 
-
+Analysis of the total density of states (DOS) and projected density of states (PDOS) was done to determine the modification of the bands due to  Hubbard correction on the atomic orbitals, as depicted in Figure \ref{fig:hubbard_pdos}. Figure \ref{fig:hubbard_pdos}a shows the DOS diagram of GGA and DFT+U. Clearly, the valence band consisted of two regions where the lower region is shifted to lower energies in DFT+U calculation, supported  by the bandstructure diagram in Figure \ref{fig:hubbard_band-dos}. The valence band is dominated by the Zn 3d states and O 2p states as indicated in Figure  \ref{fig:hubbard_pdos}b. However, the highest peak of Zn 3d orbital have shifted downwards while O 2p states moved by a negligible amount upon the application of DFT+U calculation as shown in Figure \ref{fig:hubbard_pdos}c. The DFT+U calculation reduces the artificial strong hybridization of O 2p states and Zn 3d states by lowering the position of the latter \citep{Goh2017}. The top of Zn 3d states is positioned 8 eV below the Fermi level. The obtained value was consistent with reports of Zwicker and Jacobi \citep{Zwicker1985} where they obtained a value of 7.8 eV by using angle-resolved photoelectron spectroscopy. X-ray photoemission results of Ruckh et al. \citep{Ruckh1994} and Vesely et al. \citep{Vesely1972} reported to have d-band position of 8.2 eV and 8.5 eV, respectively. The conduction band is composed mainly of O 2p states, Zn 3p and 4s states \citep{Harun2020}.
 
 
 
@@ -71,11 +71,18 @@ An energy bandstructure diagram in Figure \ref{fig:hubbard_band-dos} shows the s
 
 	\begin{figure}[tbh!]
 		\centering
-		\includegraphics[width=0.8\linewidth]{"images/rnd/band-dos_juxtapose"}
+		\includegraphics[width=0.7\linewidth]{"images/rnd/band-dos_juxtapose"}
 		\caption[Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines)with $U_d =15$ and $U_p= 7$]{Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines) with $U_d =15$ and $U_p= 7$. Fermi level is shifted to zero indicated as horizontal dotted line. }
 		\label{fig:hubbard_band-dos}
 	\end{figure}
 
+
+	\begin{figure}[tbh!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{"images/rnd/dos-pdos_juxtapose"}
+		\caption[h]{ a}
+		\label{fig:hubbard_pdos}
+	\end{figure}
 
 \clearpage
 

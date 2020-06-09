@@ -2406,9 +2406,14 @@
     <bcf:citekey order="152">Erhart2006a</bcf:citekey>
     <bcf:citekey order="153">Ma2013</bcf:citekey>
     <bcf:citekey order="154">Goh2017</bcf:citekey>
-    <bcf:citekey order="155">Sabine1969</bcf:citekey>
-    <bcf:citekey order="156">Chitra2020</bcf:citekey>
-    <bcf:citekey order="157">Janotti2007</bcf:citekey>
+    <bcf:citekey order="155">Goh2017</bcf:citekey>
+    <bcf:citekey order="156">Zwicker1985</bcf:citekey>
+    <bcf:citekey order="157">Ruckh1994</bcf:citekey>
+    <bcf:citekey order="158">Vesely1972</bcf:citekey>
+    <bcf:citekey order="159">Harun2020</bcf:citekey>
+    <bcf:citekey order="160">Sabine1969</bcf:citekey>
+    <bcf:citekey order="161">Chitra2020</bcf:citekey>
+    <bcf:citekey order="162">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

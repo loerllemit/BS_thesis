@@ -2278,7 +2278,7 @@
 @Article{Ma2013,
   author    = {Xinguo Ma and Ying Wu and Yanhui Lv and Yongfa Zhu},
   journal   = {The Journal of Physical Chemistry C},
-  title     = {Correlation Effects on Lattice Relaxation and Electronic Structure of {ZnO} within the {GGA}$\mathplus$U Formalism},
+  title     = {Correlation Effects on Lattice Relaxation and Electronic Structure of {ZnO} within the {GGA+U} Formalism},
   year      = {2013},
   month     = {nov},
   number    = {49},
@@ -2286,6 +2286,32 @@
   volume    = {117},
   doi       = {10.1021/jp407281x},
   publisher = {American Chemical Society ({ACS})},
+}
+
+@Article{Ruckh1994,
+  author    = {M. Ruckh and D. Schmid and H. W. Schock},
+  journal   = {Journal of Applied Physics},
+  title     = {Photoemission studies of the {ZnO}/{CdS} interface},
+  year      = {1994},
+  month     = {nov},
+  number    = {10},
+  pages     = {5945--5948},
+  volume    = {76},
+  doi       = {10.1063/1.358417},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Vesely1972,
+  author    = {C. J. Vesely and R. L. Hengehold and D. W. Langer},
+  journal   = {Physical Review B},
+  title     = {uv Photoemission Measurements of the {UpperdLevels} in the {IIB}-{VIA} Compounds},
+  year      = {1972},
+  month     = {mar},
+  number    = {6},
+  pages     = {2296--2301},
+  volume    = {5},
+  doi       = {10.1103/physrevb.5.2296},
+  publisher = {American Physical Society ({APS})},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
