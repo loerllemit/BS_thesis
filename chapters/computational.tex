@@ -304,7 +304,7 @@ where $w_k$ are the weighted factors of each sampled k-points. The next step is 
 where $f_{ik}$ is the smearing function which is also known as the partial occupancy. In similar vein, the electron density in 
 \eqref{eq:charge_dens} is reformulated to include the partial occupancy of the KS orbitals 
  
-\begin{equation} 
+\begin{equation} \label{eq:rho_general}
 	\rho({\va*{r}}) = \sum_{k \in \text{IBZ}} w_k \sum_{i=1}^N f_{ik}\, \phi_{ik}(\va*{r})^* \phi_{ik}(\va*{r})
 \end{equation}
 The equation above implies that for a  general system, in principle, there should be a  set orbitals for every possible value of k-points. There are different smearing methods used in the literature. For example, the Fermi smearing method replaces the smearing function using Fermi-Dirac distribution \citep{Dirac1926,Fermi1926}
@@ -335,6 +335,9 @@ As a final note, the amount of broadening of smearing function must be optimized
 \section{Formation Energies}
 Formation energies of defects can be derived directly from total energies.
 
+
+In order to calculate the most stable structure, the formation energy was calculated using the
+following expression
 
 
 

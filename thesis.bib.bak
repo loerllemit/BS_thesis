@@ -2343,7 +2343,7 @@
 @Article{Martyna1999,
   author    = {Glenn J. Martyna and Mark E. Tuckerman},
   journal   = {The Journal of Chemical Physics},
-  title     = {A reciprocal space based method for treating long range interactions inab initioand force-field-based calculations in clusters},
+  title     = {A reciprocal space based method for treating long range interactions in ab initio and force-field-based calculations in clusters},
   year      = {1999},
   month     = {feb},
   number    = {6},
@@ -2364,6 +2364,44 @@
   volume    = {51},
   doi       = {10.1103/physrevb.51.4014},
   publisher = {American Physical Society ({APS})},
+}
+
+@Article{Broyden1970,
+  author    = {C. G. Broyden},
+  journal   = {{IMA} Journal of Applied Mathematics},
+  title     = {The Convergence of a Class of Double-rank Minimization Algorithms 1. General Considerations},
+  year      = {1970},
+  number    = {1},
+  pages     = {76--90},
+  volume    = {6},
+  doi       = {10.1093/imamat/6.1.76},
+  publisher = {Oxford University Press ({OUP})},
+}
+
+@Article{Fletcher1970,
+  author    = {R. Fletcher},
+  journal   = {The Computer Journal},
+  title     = {A new approach to variable metric algorithms},
+  year      = {1970},
+  month     = {mar},
+  number    = {3},
+  pages     = {317--322},
+  volume    = {13},
+  doi       = {10.1093/comjnl/13.3.317},
+  publisher = {Oxford University Press ({OUP})},
+}
+
+@Article{Goldfarb1970,
+  author    = {Donald Goldfarb},
+  journal   = {Mathematics of Computation},
+  title     = {A family of variable-metric methods derived by variational means},
+  year      = {1970},
+  month     = {jan},
+  number    = {109},
+  pages     = {23--23},
+  volume    = {24},
+  doi       = {10.1090/s0025-5718-1970-0258249-6},
+  publisher = {American Mathematical Society ({AMS})},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
