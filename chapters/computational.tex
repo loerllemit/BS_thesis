@@ -332,23 +332,80 @@ As a final note, the amount of broadening of smearing function must be optimized
     \label{fig:occupancy}
 \end{figure}
 
-\section{Formation Energies}
+\section{Defect Formation Energies}
 Formation energies of defects can be derived directly from total energies.
 
 
 In order to calculate the most stable structure, the formation energy was calculated using the
 following expression
 
+\begin{equation}
+    \Delta G^f = G[\text{def}] + G[\text{bulk}] - \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f)
+\end{equation}
+
+In practical, 
+\begin{align}
+    G &= H^{\text{el}} + H^{\text{vib}} - TS^{\text{vib}} + PV   \\
+    &\approx H^{\text{el}} \Longrightarrow \Delta G^f = \Delta H^f
+\end{align}
+
+\begin{equation} \label{eq:formation_E}
+    \Delta H^f [X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] -  \sum_i n_i \mu_i + (E_{\text{vbm}} + E_f) + E_{\text{corr}}
+\end{equation}
+
+where $n_i > 0$ added otherwise $n_i < 0$ for removed
+
+\begin{equation}
+    \mu_{\ch{Zn}} +    \mu_{\ch{O}} =     \mu_{\ch{ZnO}}
+\end{equation}
+
+\begin{align}
+    \Delta \mu_{\ch{Zn}} &= \mu_{\ch{Zn}} - \mu_{\ch{Zn}}(\text{metal}) \label{eq:del-mu_Zn} \\
+    \Delta \mu_{\ch{O}}  &= \mu_{\ch{O}} - \mu_{\ch{Zn}}(\ch{O2}) \label{eq:del-mu_O}
+\end{align}
+
+such that 
+
+\begin{align}
+    \Delta \mu_{\ch{ZnO}} &= \Delta \mu_{\ch{Zn}} +   \Delta \mu_{\ch{O}} \\
+    &= (\mu_{\ch{Zn}} + \mu_{\ch{O}}) - \mu_{\ch{Zn}}(\text{metal}) - \mu_{\ch{Zn}}(\ch{O2}) \\
+    &= \mu_{\ch{ZnO}} - \mu_{\ch{Zn}}(\text{metal}) - \mu_{\ch{O}}(\ch{O2}) \\
+    &= \Delta H^f (\ch{ZnO})
+\end{align}
+
+$\mu_{\ch{ZnO}}$ calculated from DFT total energy of ZnO unit cell, $\mu_{\ch{Zn}}(\text{metal})$ from bulk hcp \ch{Zn} and lastly, $\mu_{\ch{O}}(\ch{O2})$ taken from half the total energy of isolated \ch{O2} molecule. 
+
+The upper bound of $\mu_{\ch{Zn}}$ and  $\mu_{\ch{O}}$ is constrained by their corresponding chemical potential at the standard phase. That is, 
+
+\begin{alignat}{2}
+    \mu_{\ch{Zn}} &\leq \mu_{\ch{Zn}}(\text{metal}) &&\Longrightarrow \Delta \mu_{\ch{Zn}} \leq 0 \\
+    \mu_{\ch{O}} &\leq \mu_{\ch{O}}(\ch{O2}) &&\Longrightarrow \Delta \mu_{\ch{O}} \leq 0
+\end{alignat}
+
+The lower bound of $\mu_{\ch{O}}$ (O-poor) is the upper bound of $\mu_{\ch{Zn}}$ (Zn-rich) and vice versa.
+
+\begin{alignat}{2}
+    \Delta \mu_{\ch{O}} &\geq \Delta H^f (\ch{ZnO}), \Delta \mu_{\ch{Zn}} &&\leq 0 \quad [\text{O-poor,Zn-rich}]\\ 
+    \Delta \mu_{\ch{Zn}} &\geq \Delta H^f (\ch{ZnO}), \Delta \mu_{\ch{O}} &&\leq 0 \quad [\text{O-rich,Zn-poor}]
+\end{alignat}
+
+Using \eqref{eq:del-mu_Zn} and \eqref{eq:del-mu_O}, the above equations can be generalized as
+
+\begin{align}
+    \mu_{\ch{O}} &= \mu_{\ch{O}}(\ch{O2}) + \lambda\, \Delta H^f (\ch{ZnO}) \\ 
+    \mu_{\ch{Zn}} &= \mu_{\ch{Zn}}(\text{metal}) + (1 - \lambda) \Delta H^f (\ch{ZnO})
+\end{align}
+where the parameter $\lambda$ varies from zero (O-rich,Zn-poor) to unity (O-poor,Zn-rich). The parametrization form is useful since the calculation of defect formation energies in \eqref{eq:formation_E} depends on the nonstandard chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$.
+
+The transition level is defined as 
+
+\begin{equation}
+    \epsilon(q/q')  = \frac{\Delta H^f[X^q;E_f=0] - \Delta H^f[X^{q'};E_f=0]}{q' - q}
+\end{equation}
 
 
 
-    % \subsection{Electrons in solid}
-    % \subsection{Bloch Theorem in periodic systems}
-    % \subsection{Fourier Expansion of Bloch representations}
-    %     \subsubsection{Fourier Expansions}
-    %     \subsubsection{Fast Fourier Transformation (FFT)}
-    %     \subsubsection{Kohn-Sham Matrix Representations}
-% \section{Plane Wave (PW) Expansion}
+
 %     \subsection{Basis Set}
 %         \subsubsection{Local Basis Set}
 %         \subsubsection{Plane Wave Basis Set}
@@ -361,6 +418,15 @@ following expression
 %     \subsection{Band Structure of electrons in solids}
 %     \subsection{Electronic Density of States}
 
+
+
+% \subsection{Electrons in solid}
+    % \subsection{Bloch Theorem in periodic systems}
+    % \subsection{Fourier Expansion of Bloch representations}
+    %     \subsubsection{Fourier Expansions}
+    %     \subsubsection{Fast Fourier Transformation (FFT)}
+    %     \subsubsection{Kohn-Sham Matrix Representations}
+% \section{Plane Wave (PW) Expansion}
 
 
 
