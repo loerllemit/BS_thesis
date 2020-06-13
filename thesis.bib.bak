@@ -2404,4 +2404,17 @@
   publisher = {American Mathematical Society ({AMS})},
 }
 
+@Article{Shanno1970,
+  author    = {D. F. Shanno},
+  journal   = {Mathematics of Computation},
+  title     = {Conditioning of quasi-Newton methods for function minimization},
+  year      = {1970},
+  month     = {sep},
+  number    = {111},
+  pages     = {647--647},
+  volume    = {24},
+  doi       = {10.1090/s0025-5718-1970-0274029-x},
+  publisher = {American Mathematical Society ({AMS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

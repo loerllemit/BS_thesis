@@ -333,27 +333,37 @@ As a final note, the amount of broadening of smearing function must be optimized
 \end{figure}
 
 \section{Defect Formation Energies}
-Formation energies of defects can be derived directly from total energies.
+One of the keys in probing point defects is the Gibbs free energy of defect formation, $\Delta G^f $. It determines the stability of point defects at a given temperature, pressure, and composition. However, $\Delta G^f $ cannot be computed directly from first-principles calculations, but its electronic contribution denoted as $\Delta H^f $ is obtained from the total energy of a supercell model with appropriate approximations. Formally, under dilute defects, the Gibbs 
+formation energy can be evaluated as  \citep{Zhang1991,Walle1993,}
 
-
-In order to calculate the most stable structure, the formation energy was calculated using the
-following expression
-
-\begin{equation}
-    \Delta G^f = G[\text{def}] + G[\text{bulk}] - \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f)
+\begin{equation} \label{eq:gibbs_formation}
+    \Delta G^f = G[\text{def}] - G[\text{bulk}] - \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f)
 \end{equation}
 
-In practical, 
+where $G[\text{def}]$ and $G[\text{bulk}]$ denote the Gibbs free energy of a simulation model containing a defect in charge state $q$ and that of the perfect-crystal supercell, respectively;  $n_i$ and $\mu_i$ are the number and the chemical potential of constituent atoms of type $i$ ($i$ = \ch{Zn}, \ch{O} for \ch{ZnO}), respectively;  $E_{\text{vbm}}$ is the absolute energy of the valence band maximum and  $E_f$ is the  chemical potential of electrons (i.e. Fermi level) measured with respect to the top of the valence band. The Fermi level is strictly not an independent parameter since it is determined from the charge neurality principle. However, for practical considerations, it is informative to examine the dependence of defect formation energy with varying $E_f$ in order to examine the behavior of defects when the doping or its charge changes. Hence, $E_f$ is varied from zero to fundamental band gap $E_g$. By thermodynamic principles, the Gibbs free energy is often decomposed as 
+
 \begin{align}
-    G &= H^{\text{el}} + H^{\text{vib}} - TS^{\text{vib}} + PV   \\
-    &\approx H^{\text{el}} \Longrightarrow \Delta G^f = \Delta H^f
+    G &= H^{\text{el}} + H^{\text{vib}} - TS^{\text{vib}} + PV   
 \end{align}
 
-\begin{equation} \label{eq:formation_E}
-    \Delta H^f [X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] -  \sum_i n_i \mu_i + (E_{\text{vbm}} + E_f) + E_{\text{corr}}
+where $H^{\text{el}}$ denotes the electronic contribution to the total energy; $H^{\text{vib}}$ and $S^{\text{vib}}$  are the vibrational contributions to the total energy and entropy, respectively. $T,P$ and $V$ are the usual temperature, pressure and volume, respectively. For most calculations in solids, the vibrational contributions and the $PV$ term are negligible at moderate temperatures and atmospheric pressure. Hence, the Gibbs free energy can be approximated in terms of   $H^{\text{el}}$, which is obtained from supercell simulations.  The Gibbs free energy of defect formation is in turn given by the approximation
+
+\begin{equation}
+    G \approx H^{\text{el}} \Longrightarrow \Delta G^f = \Delta H^f
 \end{equation}
 
-where $n_i > 0$ added otherwise $n_i < 0$ for removed
+where $\Delta H^f$, shortly called the defect formation energy, is given by the general formula 
+
+\begin{equation} \label{eq:formation_E}
+    \Delta H^f [X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] -  \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f) + E_{\text{corr}}
+\end{equation}
+
+where the first  term is  the total energy  of a supercell containing a defect $X$ at charge $q$ and the  second term is the total energy of the defect-free supercell. The other terms retain their usual meanings given in equation \eqref{eq:gibbs_formation}. Note that $n_i > 0$ ($n_i < 0$) if the atom of type $i$ is added (removed) to form the defect. The last term $E_{\text{corr}}$ is the correction term that accounts for errors in finite k-point sampling and the electrostatic interactions between the supercell and its images. For instance, the defect formation energy, neglecting the correction term, of a positively charged Oxygen vacancy in ZnO crystal lattice is given by 
+\begin{equation}
+    \Delta H^f [V^{1+}_{\ch{O}}] = E_{\text{tot}}[V^{1+}_{\ch{O}}] - E_{\text{tot}}[\text{\ch{ZnO}}] - (-1) \mu_{\ch{O}} + (E_{\text{vbm}} + E_f)
+\end{equation}
+
+
 
 \begin{equation}
     \mu_{\ch{Zn}} +    \mu_{\ch{O}} =     \mu_{\ch{ZnO}}
@@ -397,7 +407,8 @@ Using \eqref{eq:del-mu_Zn} and \eqref{eq:del-mu_O}, the above equations can be g
 \end{align}
 where the parameter $\lambda$ varies from zero (O-rich,Zn-poor) to unity (O-poor,Zn-rich). The parametrization form is useful since the calculation of defect formation energies in \eqref{eq:formation_E} depends on the nonstandard chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$.
 
-The transition level is defined as 
+When two distinct charged defects of the same atom have the same formation energy, the position of the fermi level is defined as the defect transition level. 
+
 
 \begin{equation}
     \epsilon(q/q')  = \frac{\Delta H^f[X^q;E_f=0] - \Delta H^f[X^{q'};E_f=0]}{q' - q}
