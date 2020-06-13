@@ -340,7 +340,7 @@ formation energy can be evaluated as  \citep{Zhang1991,Walle1993,}
     \Delta G^f = G[\text{def}] - G[\text{bulk}] - \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f)
 \end{equation}
 
-where $G[\text{def}]$ and $G[\text{bulk}]$ denote the Gibbs free energy of a simulation model containing a defect in charge state $q$ and that of the perfect-crystal supercell, respectively;  $n_i$ and $\mu_i$ are the number and the chemical potential of constituent atoms of type $i$ ($i$ = \ch{Zn}, \ch{O} for \ch{ZnO}), respectively;  $E_{\text{vbm}}$ is the absolute energy of the valence band maximum and  $E_f$ is the  chemical potential of electrons (i.e. Fermi level) measured with respect to the top of the valence band. The Fermi level is strictly not an independent parameter since it is determined from the charge neurality principle. However, for practical considerations, it is informative to examine the dependence of defect formation energy with varying $E_f$ in order to examine the behavior of defects when the doping or its charge changes. Hence, $E_f$ is varied from zero to fundamental band gap $E_g$. By thermodynamic principles, the Gibbs free energy is often decomposed as 
+where $G[\text{def}]$ and $G[\text{bulk}]$ denote the Gibbs free energy of a simulation model containing a defect in charge state $q$ and that of the perfect-crystal supercell, respectively;  $n_i$ and $\mu_i$ are the number and the chemical potential of constituent atoms of type $i$ ($i$ = \ch{Zn}, \ch{O} for \ch{ZnO}), respectively;  $E_{\text{vbm}}$ is the absolute energy of the valence band maximum and  $E_f$ is the  chemical potential of electrons (i.e. Fermi level) measured with respect to the top of the valence band. The Fermi level is strictly not an independent parameter since it is determined from the charge neurality principle. However, for practical considerations, it is informative to examine the dependence of defect formation energy with varying $E_f$ in order to examine the behavior of defects when the doping or its charge changes. Hence, $E_f$ is varied from zero to fundamental band gap $E_g$. By thermodynamic principles, the Gibbs free energy is often decomposed as \citep{Oba2011}
 
 \begin{align}
     G &= H^{\text{el}} + H^{\text{vib}} - TS^{\text{vib}} + PV   
@@ -350,18 +350,17 @@ where $H^{\text{el}}$ denotes the electronic contribution to the total energy; $
 \begin{equation}
     G \approx H^{\text{el}} \Longrightarrow \Delta G^f = \Delta H^f
 \end{equation}
-
-where $\Delta H^f$, shortly called the defect formation energy, is given by the general formula 
+where $\Delta H^f$, shortly called the defect formation energy, is given by the general formula \citep{Freysoldt2014}
 \begin{equation} \label{eq:formation_E}
     \Delta H^f [X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] -  \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f) + E_{\text{corr}}
 \end{equation}
 
-where the first  term is  the total energy  of a supercell containing a defect $X$ at charge $q$ and the  second term is the total energy of the defect-free supercell. The other terms retain their usual meanings given in equation \eqref{eq:gibbs_formation}. Note that $n_i > 0$ ($n_i < 0$) if the atom of type $i$ is added (removed) to form the defect. The last term $E_{\text{corr}}$ is the correction term that accounts for errors in finite k-point sampling and the electrostatic interactions between the supercell and its images. For instance, the defect formation energy, neglecting the correction term, of a positively charged Oxygen vacancy in ZnO crystal lattice is given by 
+where the first  term is  the total energy  of a supercell containing a defect $X$ at charge $q$ and the  second term is the total energy of the defect-free supercell. The other terms retain their usual meanings given in equation \eqref{eq:gibbs_formation}. Note that $n_i > 0$ ($n_i < 0$) if the atom of type $i$ is added (removed) to form the defect. The last term $E_{\text{corr}}$ is the correction term that accounts for errors in finite k-point sampling and the electrostatic interactions between the supercell and its images \citep{Leslie1985,Makov1995,Dabo2008}. For instance, the defect formation energy, neglecting the correction term, of a positively charged Oxygen vacancy in ZnO crystal lattice is given by 
 \begin{equation}
     \Delta H^f [V^{1+}_{\ch{O}}] = E_{\text{tot}}[V^{1+}_{\ch{O}}] - E_{\text{tot}}[\text{\ch{ZnO}}] - (-1) \mu_{\ch{O}} + (E_{\text{vbm}} + E_f)
 \end{equation}
 
-The formation energy of a point defect also depends on the chemical potentials of its constituent atoms. However, chemical potentials strongly depends on the experimental conditions, such as growth and annealing environments. For the case of ZnO, the chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$ can vary in Zn rich, O rich, or in between, conditions. Ultimately, different experimental scenarios can be investigated. Hence, chemical potentials should explicitly regarded as variables in the defect calculations.  However, by thermodynamic equilibrium, they are subject to bounds. These bounds are the transitions of forming new secondary phases. For \ch{ZnO}, the chemical potentials are linked together by
+The formation energy of a point defect also depends on the chemical potentials of its constituent atoms. However, chemical potentials strongly depends on the experimental conditions, such as growth and annealing environments. For the case of ZnO, the chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$ can vary in Zn rich, O rich, or in between, conditions. Ultimately, different experimental scenarios can be investigated. Hence, chemical potentials should explicitly regarded as variables in the defect calculations.  However, by thermodynamic equilibrium, they are subject to bounds. These bounds are the transitions of forming new secondary phases. For \ch{ZnO}, the chemical potentials are linked together by \citep{Freysoldt2014}
 \begin{equation}
     \mu_{\ch{Zn}} +    \mu_{\ch{O}} =     \mu_{\ch{ZnO}} \approx E_{\text{tot}}[\ch{ZnO}_{\text{unit}}]
 \end{equation}
@@ -389,35 +388,30 @@ The lower bound of $\mu_{\ch{O}}$ (O-poor) is the upper bound of $\mu_{\ch{Zn}}$
     \Delta \mu_{\ch{Zn}} &\geq \Delta H^f (\ch{ZnO}), \Delta \mu_{\ch{O}} &&\leq 0 \quad [\text{O-rich,Zn-poor}]
 \end{alignat}
 
-Using \eqref{eq:del-mu_Zn} and \eqref{eq:del-mu_O}, the above equations can be generalized as
+Using \eqref{eq:del-mu_Zn} and \eqref{eq:del-mu_O}, the above equations can be generalized as \citep{Sun2012}
 \begin{align}
     \mu_{\ch{O}} &= \mu_{\ch{O}}(\ch{O2}) + \lambda\, \Delta H^f (\ch{ZnO}) \\ 
     \mu_{\ch{Zn}} &= \mu_{\ch{Zn}}(\text{metal}) + (1 - \lambda) \Delta H^f (\ch{ZnO})
 \end{align}
 where the parameter $\lambda$ varies from zero (O-rich, Zn-poor) to unity (O-poor, Zn-rich). The parametrization form is useful since the calculation of defect formation energies in \eqref{eq:formation_E} depends on the nonstandard chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$.
 
-When two distinct charged defects of the same atom have the same formation energies, the position of the Fermi energy $E_f$ is defined to be  the defect transition level. This transition level is defined as 
+When two distinct charged defects of the same atom have the same formation energies, the position of the Fermi energy $E_f$ is defined to be  the defect transition level. This transition level is defined as \citep{Janotti2007}
 
 \begin{equation}
     \epsilon(q/q')  = \frac{\Delta H^f[X^q;E_f=0] - \Delta H^f[X^{q'};E_f=0]}{q' - q}
 \end{equation}
 
-where $\Delta H^f[X^q;E_f=0] $ is the formation energy of defect $X$ at charge state $q$ measured when the Fermi level is at the valence band maximum.  The significance of transition levels is to determine the range of Fermi levels where a given charged defect is stable. That is, for Fermi levels below $\epsilon(q/q')$, charge state $q$ is the most stable, otherwise, charge state $q'$ is the stable one. Figure \ref{fig:trans_level} illustrates the stabilities of a system with three different charge defects. The transition level defined in the above equation is the thermodynamic transition level, and should not be confused with the Kohn-Sham states resulted from the bandstructure calculations nor to be confused with the optical transition level. The thermodynamic transition level arises from the atomic relaxation of the lattice, while the optical transition level arises from optical excitations and the the atomic geometry are frozen during the transition.  In addition, the thermodynamic transition is independent of the charge transfer, i.e. it is invariant whether electron is added or removed. However, for optical transitions, adding an electron results to a higher energy level   while removing  an electron results to a lower energy level. The energy difference is related to Stokes shifts (absorption vs. emission). 
+where $\Delta H^f[X^q;E_f=0] $ is the formation energy of defect $X$ at charge state $q$ measured when the Fermi level is at the valence band maximum.  The significance of transition levels is to determine the range of Fermi levels where a given charged defect is stable. That is, for Fermi levels below $\epsilon(q/q')$, charge state $q$ is the most stable, otherwise, charge state $q'$ is the stable one. Figure \ref{fig:trans_level} illustrates the stabilities of a system with three different charge defects. The transition level defined in the above equation is the thermodynamic transition level, and should not be confused with the Kohn-Sham states resulted from the bandstructure calculations nor to be confused with the optical transition level. The thermodynamic transition level arises from the atomic relaxation of the lattice, while the optical transition level arises from optical excitations and the the atomic geometry are frozen during the transition.  In addition, the thermodynamic transition is independent of the charge transfer, i.e. it is invariant whether electron is added or removed. However, for optical transitions, adding an electron results to a higher energy level   while removing  an electron results to a lower energy level. The energy difference is related to Stokes shifts (absorption vs. emission) \citep{Freysoldt2014}. 
 
-Conventionally, if a defect transition level is situated such that it is likely to be thermally ionized at room temperature, then the transition level is called a shallow level, otherwise it is deep level. The shallow levels can occur in two scenarios: first, the transition level is near to the band edges (VBM for acceptor, CBM for donor); second, the transition level is in resonance with the valence or conduction bands (located inside in one of the bands).  For resonant states, the defect charge carrier will find a lower energy state by transferring to the band edges.  
+Conventionally, if a defect transition level is situated such that it is likely to be thermally ionized at room temperature, then the transition level is called a shallow level, otherwise it is deep level. The shallow levels can occur in two scenarios: first, the transition level is near to the band edges (VBM for acceptor, CBM for donor); second, the transition level is in resonance with the valence or conduction bands (located inside in one of the bands).  For resonant states, the defect charge carrier will find a lower energy state by transferring to the band edges \citep{Janotti2007}.  
 
 
 \begin{figure}[tbh!]
     \centering
     \includegraphics[width=0.5\linewidth]{"images/computational/trans_level"}
-    \caption[ Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1 ]{Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1. The solid lines correspond to the defect formation energy whose slope is the defect charge value as defined in Eq. \eqref{eq:formation_E}. Two transition levels can  be observed: a deep acceptor at  $\epsilon(+/0)$ and a deep donor at $\epsilon(0/-)$. The thick solid lines indicate the energetically  most stable charge state for a given Fermi level. Illustration taken from \citep{Jochym2008}.}
+    \caption[ Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1 ]{Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1. The solid lines correspond to the defect formation energy whose slope is the defect charge value as defined in Eq. \eqref{eq:formation_E}. Two transition levels can  be observed: a deep acceptor at  $\epsilon(+/0)$ and a deep donor at $\epsilon(0/-)$. The thick solid lines indicate the energetically  most stable charge state for a given Fermi level. Illustration taken from \citep{Freysoldt2014}.}
     \label{fig:trans_level}
 \end{figure}
-
-ref: First-principles calculations for point defects in solids. change the figure where $H^f$ must be $\Delta H^f$.
-
-
-
 
 
 
