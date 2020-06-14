@@ -63,7 +63,7 @@ Analysis of the total density of states (DOS) and projected density of states (P
 	\vspace{-8pt}
 	\begin{tablenotes}[para]
 		\footnotesize
-		\item[a] structural parameters were obtained from \citep{Sabine1969}, whereas the band gap value is from  \citep{Chitra2020}
+		\item[a] structural parameters were obtained from \citep{Sabine1969}, whereas the band gap value is from  \citep{Chitra2020}.
 	\end{tablenotes}
 	\end{threeparttable}
 	}
@@ -81,13 +81,70 @@ Analysis of the total density of states (DOS) and projected density of states (P
 	\begin{figure}[tbh!]
 		\centering
 		\includegraphics[width=0.7\linewidth]{"images/rnd/dos-pdos_juxtapose"}
-		\caption[h]{ a}
+		\caption[The total density of states calculated using GGA (solid) and DFT+U (dashed) shown in (a) and the partial density of states of the constituent atoms using (b) GGA and (c) DFT+U]{ The total density of states calculated using GGA (solid) and DFT+U (dashed) shown in (a) and the partial density of states of the constituent atoms using (b) GGA and (c) DFT+U.}
 		\label{fig:hubbard_pdos}
 	\end{figure}
 
 \clearpage
 
-\section{Formation Energies}
+\section{Defect Energetics}
+As discussed earlier, the defect formation energy is calculated using Eq.  \eqref{eq:formation_E}. 
+
+
+Oxygen vacancies are likely to form for all positions of Fermi level. 
+
+The calculated enthalpy of formation of \ch{ZnO}
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/rnd/O_vac-formation"}
+	\caption[Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions]{Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions. The zero of the Fermi level corresponds to the top of valence band and the dotted vertical line marks the position of the bottom of conduction band. The circles are the thermodynamic transition levels. Note that the $+$ charge state is unstable for any value of the Fermi level, hence, only $\epsilon(0/2+)$ is stable as indicated by the open circle. }
+	%\label{fig:free-electron}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/rnd/defect-formation"}
+	\caption[Defect formation energies as a function of Fermi-level position for native point defects in ZnO]{Defect formation energies as a function of Fermi-level position for native point defects in ZnO. Results for Zn-rich and O-rich conditions are shown. The zero of Fermi level corresponds to the valence band maximum. The slope of these segments indicates the defect charge state. Abrupt change in slopes indicate transitions between different charge states.}
+	%\label{fig:free-electron}
+\end{figure}
+
+\begingroup
+\setlength{\tabcolsep}{20pt}
+\begin{table}[tbh!]
+	\centering
+	\caption{Calculated defect formation energies at $E_f = 0$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions.}
+	\label{tab:E_formation}
+	\resizebox{0.9\textwidth}{!}{%m{0.2\textwidth}<{\centering}
+	\begin{tabular}{cccccc}
+	\toprule
+	Defect                & $q$  & $n_{\ch{O}}$ & $n_{\ch{Zn}}$ & $\Delta H^f$ (O-poor) & $\Delta H^f$ (O-rich) \\ \midrule
+	\multirow[t]{3}{*}{$V_{\ch{O}}$} & 0  & -1 & 0   & -0.018      & 3.589       \\
+						  & 1  & -1 & 0   & -2.950      & 0.657       \\
+						  & 2  & -1 & 0   & -6.466      & -2.859      \\
+	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}  & 0  & 0  & -1  & 9.821       & 6.214       \\
+						  & -1 & 0  & -1  & 10.474      & 6.867       \\
+						  & -2 & 0  & -1  & 12.004      & 8.396       \\
+	\ch{O}$_i$                    & 0  & 1  & 0   & 11.558      & 7.951       \\
+	\multirow[t]{3}{*}{\ch{Zn}$_i$}               & 0  & 0  & 1   & 4.277       & 7.884       \\
+						  & 1  & 0  & 1   & -0.569      & 3.038       \\
+						  & 2  & 0  & 1   & -4.481      & -0.874      \\
+	\ch{O}$_{\ch{Zn}}$                    & 0  & 1  & -1  & 15.495      & 8.281       \\
+	\ch{Zn}$_{\ch{O}}$                   & 0  & -1 & 1   & 3.561       & 10.775      \\ \bottomrule
+	\end{tabular}%
+	}
+	\end{table}
+\endgroup
+
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{"images/rnd/trans_lvl"}
+	\caption[Thermodynamic transition levels for defects in ZnO]{Thermodynamic transition levels for defects in ZnO. The horizontal dashed line is the band gap.}
+	%\label{fig:free-electron}
+\end{figure}
+
+
+
 
 \section{Vacancies}
 
