@@ -1,1 +1,2 @@
 1) Edit Bandstructure of -1 Zinc vacancy near the valence band. The fermi level does not match in DOS plot 
+2) add geometric relaxations

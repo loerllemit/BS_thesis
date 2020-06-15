@@ -88,24 +88,55 @@ Analysis of the total density of states (DOS) and projected density of states (P
 \clearpage
 
 \section{Defect Energetics}
-As discussed earlier, the defect formation energy is calculated using Eq.  \eqref{eq:formation_E}. 
+As discussed earlier, the defect formation energies are calculated using Eq.  \eqref{eq:formation_E}. The calculated enthalpy of formation of bulk \ch{ZnO} is $\Delta H^f (\ch{ZnO}) = -348.02$ kJ/mol (-3.607 eV/unit cell) which is very close to the experimental value of $-350.46$ kJ/mol (-3.632 eV/unit cell) \citep{Medvedev1989}. The value is negative as expected for stable compounds. Table \ref{tab:E_formation} compares the formation energies of various native point defects in \ch{ZnO}. The defect formation energies are calculated under  \ch{Zn}-rich (\ch{O}-poor) and \ch{O}-rich (\ch{Zn}-poor) extreme conditions. Note that the formation energies depend on the chemical potentials and the position of the Fermi level $E_f$. The chemical potentials are in turn depended on the experimental conditions (i.e. \ch{O}-rich or \ch{Zn}-rich). For both zinc-rich and oxygen-rich environments, the oxygen vacancy with a $2+$ charge defect is expected to be stable for Fermi level positions near $E_f = 0$ (vbm). For Fermi level positions near the band gap, $E_g = 3.395$ eV, the neutral oxygen vacancy is stable for zinc-rich environment while zinc vacancy with a $2-$ charge defect is stable for oxygen-rich environment. Thus, the more negative the formation energy is, the more stable it is. Oxygen vacancies are likely to form for all positions of Fermi level except near the conduction band minimum in zinc-rich environment.   
+
+To know which specific position of Fermi level will have a transition of charge stabilities for a given type of defect, a thermodynamic transition levels was calculated using Eq. \eqref{eq:trans_level}. For instance, Figure \ref{fig:O_vac-form} shows the formation energies of oxygen vacancies for various charge states under two different conditions. For Fermi level positions less than 2.932 eV, the $2+$ is the most stable otherwise the neutral charge is the most stable. Thus, $E_f = 2.932$ eV is the transition level between the neutral and $2+$ state denoted as $\epsilon(0/2+)$. Note that 1+ charge state is unstable for any position of Fermi levels. Hence the transition levels $\epsilon(1+/2+)$ and $\epsilon(0/1+)$ are unstable since a much lower formation energies are available. In addition, the defect formation energies are shifted upward in \ch{O}-rich environment. This implies that oxygen vacancies are less likely to form on the said environment. 
+
+Figure \ref{fig:defect-formE} summarizes the formation energies and transition levels of the native point defects in ZnO. The figure only includes the charge defects since transition levels require at least two different charge states. Only these charge states that are energetically the most favorable at a given Fermi level are shown for each defect. The neutral defects such as \ch{O}$_i$, \ch{O}$_{\ch{Zn}}$, \ch{Zn}$_{\ch{O}}$ are excluded in the figure. The slopes of each segment correspond to the defect charge state. Kinks, or abrupt change in slopes, indicate the transition level between two different charge states. Defects that show positive slopes, such as the oxygen vacancy and zinc interstitial,  can have positively charged defects indicating their donor-type characteristics. On the other hand, zinc vacancy have negative slopes, a direct consequence of negative charge states, indicating that it has acceptor-type defects \citep{Oba2011}. In addition, the zinc vacancy $V_{\ch{Zn}}$ formation energy is shifted upwards in zinc-rich environment, which implies that the defect is not likely to form in that environment. In contrast, oxygen vacancy $V_{\ch{O}}$ and \ch{Zn}$_i$ are likely to form in oxygen-poor (zinc-rich) environments, thus, their formation energies are more negative. In general, defects that are associated with zinc excess or oxygen deficiency such as oxygen vacancy and zinc interstitial are donor-type defects. Those associated with zinc deficiency and oxygen excess, such as zinc vacancy, are acceptor-type defects. 
+
+Another way to visualize the transition levels is through plotting the Fermi level with the type of defect, as illustrated in Figure \ref{fig:transition_level}. The line segments correspond to open circles in Figure \ref{fig:defect-formE}. It can be observed that transition levels do not change in any chemical environments (i.e. Zn-rich or O-rich). This happens because the defect formation energies are shifted by the same amount  in any chemical environment such that taking their difference, as demonstrated in Eq. \eqref{eq:trans_level}, will leave the transition level invariant. Only the formation energies are changed, hence, shifting upwards or downwards are only observed in Figures \ref{fig:O_vac-form} and \ref{fig:defect-formE}. As observed in the Figure \ref{fig:transition_level}, the most positive charge state of a defect is the one that is stable at low Fermi levels. In other words, the most positive charge state for a given defect is likely to exist near the valence band. The most negative one, on the other hand, exists near the conduction band. A peculiar feature can be observed for the zinc interstitial. Its transition levels exceed the band gap of $E_g = 3.395$ eV. This means that it is possible to form resonance states within the conduction band. These states are located inside in the conduction band but are not actually occupied by an electrons since the electrons will migrate to lower energy state by transferring to the conduction band minimum \citep{Freysoldt2014}. 
 
 
-Oxygen vacancies are likely to form for all positions of Fermi level. 
+\begingroup
+\setlength{\tabcolsep}{15pt}
+\begin{table}[tbhp!]
+	\centering
+	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ and $E_f = E_g$ for native point defects in ZnO under zinc-rich and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.}
+	\label{tab:E_formation}
+	\resizebox{0.9\textwidth}{!}{%
+	\begin{tabular}{@{}cccccccccc@{}}
+	\toprule
+	\multirow{2}{*}{Defect} & \multirow{2}{*}{q} & \multirow{2}{*}{$n_{\ch{O}}$} & \multirow{2}{*}{$n_{\ch{Zn}}$} &  & \multicolumn{2}{c}{$\Delta H^f$ (Zn-rich) (eV)} &  & \multicolumn{2}{c}{ $\Delta H^f$ (O-rich) (eV)} \\ \cmidrule(lr){6-7} \cmidrule(l){9-10} 
+							&                    &                     &                      &  & $E_f = 0$            & $E_f = E_g$           &  & $E_f = 0$           & $E_f = E_g$          \\ \midrule
+	$V_{\ch{O}}$                    & 0                  & -1                  & 0                    &  & -0.018         & -0.018         &  & 3.589          & 3.589          \\
+							& 1                  & -1                  & 0                    &  & -2.950         & 0.440          &  & 0.657          & 4.047          \\
+							& 2                  & -1                  & 0                    &  & -6.466         & 0.314          &  & -2.859         & 3.921          \\
+	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}    & 0                  & 0                   & -1                   &  & 9.821          & 9.821          &  & 6.214          & 6.214          \\
+							& -1                 & 0                   & -1                   &  & 10.474         & 7.084          &  & 6.867          & 3.477          \\
+							& -2                 & 0                   & -1                   &  & 12.004         & 5.224          &  & 8.396          & 1.616          \\
+	\ch{O}$_i$                      & 0                  & 1                   & 0                    &  & 11.558         & 11.558         &  & 7.951          & 7.951          \\
+	\multirow[t]{3}{*}{\ch{Zn}$_i$}    & 0                  & 0                   & 1                    &  & 4.277          & 4.277          &  & 7.884          & 7.884          \\
+							& 1                  & 0                   & 1                    &  & -0.569         & 2.821          &  & 3.038          & 6.428          \\
+							& 2                  & 0                   & 1                    &  & -4.481         & 2.299          &  & -0.874         & 5.906          \\
+	\ch{O}$_{\ch{Zn}}$                      & 0                  & 1                   & -1                   &  & 15.495         & 15.495         &  & 8.281          & 8.281          \\
+	\ch{Zn}$_{\ch{O}}$                    & 0                  & -1                  & 1                    &  & 3.561          & 3.561          &  & 10.775         & 10.775         \\ \bottomrule
+	\end{tabular}%
+	}
+	\end{table}
+\endgroup
 
-The calculated enthalpy of formation of \ch{ZnO}
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.65\linewidth]{"images/rnd/O_vac-formation"}
 	\caption[Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions]{Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions. The zero of the Fermi level corresponds to the top of valence band and the dotted vertical line marks the position of the bottom of conduction band. The circles are the thermodynamic transition levels. Note that the $+$ charge state is unstable for any value of the Fermi level, hence, only $\epsilon(0/2+)$ is stable as indicated by the open circle. }
-	%\label{fig:free-electron}
+	\label{fig:O_vac-form}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.65\linewidth]{"images/rnd/defect-formation"}
 	\caption[Defect formation energies as a function of Fermi-level position for native point defects in ZnO]{Defect formation energies as a function of Fermi-level position for native point defects in ZnO. Results for Zn-rich and O-rich conditions are shown. The zero of Fermi level corresponds to the valence band maximum. The slope of these segments indicates the defect charge state. Abrupt change in slopes indicate transitions between different charge states.}
-	%\label{fig:free-electron}
+	\label{fig:defect-formE}
 \end{figure}
 
 % \begingroup
@@ -135,39 +166,13 @@ The calculated enthalpy of formation of \ch{ZnO}
 % 	\end{table}
 % \endgroup
 
-\begingroup
-\setlength{\tabcolsep}{15pt}
-\begin{table}[tbhp!]
-	\centering
-	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ and $E_f = E_g$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.}
-	\label{tab:E_formation}
-	\resizebox{0.9\textwidth}{!}{%
-	\begin{tabular}{@{}cccccccccc@{}}
-	\toprule
-	\multirow{2}{*}{Defect} & \multirow{2}{*}{q} & \multirow{2}{*}{$n_{\ch{O}}$} & \multirow{2}{*}{$n_{\ch{Zn}}$} &  & \multicolumn{2}{c}{$\Delta H^f$ (O-poor) (eV)} &  & \multicolumn{2}{c}{ $\Delta H^f$ (O-rich) (eV)} \\ \cmidrule(lr){6-7} \cmidrule(l){9-10} 
-							&                    &                     &                      &  & $E_f = 0$            & $E_f = E_g$           &  & $E_f = 0$           & $E_f = E_g$          \\ \midrule
-	$V_{\ch{O}}$                    & 0                  & -1                  & 0                    &  & -0.018         & -0.018         &  & 3.589          & 3.589          \\
-							& 1                  & -1                  & 0                    &  & -2.950         & 0.440          &  & 0.657          & 4.047          \\
-							& 2                  & -1                  & 0                    &  & -6.466         & 0.314          &  & -2.859         & 3.921          \\
-	\multirow{3}{*}{$V_{\ch{Zn}}$}    & 0                  & 0                   & -1                   &  & 9.821          & 9.821          &  & 6.214          & 6.214          \\
-							& -1                 & 0                   & -1                   &  & 10.474         & 7.084          &  & 6.867          & 3.477          \\
-							& -2                 & 0                   & -1                   &  & 12.004         & 5.224          &  & 8.396          & 1.616          \\
-	\ch{O}$_i$                      & 0                  & 1                   & 0                    &  & 11.558         & 11.558         &  & 7.951          & 7.951          \\
-	\multirow{3}{*}{\ch{Zn}$_i$}    & 0                  & 0                   & 1                    &  & 4.277          & 4.277          &  & 7.884          & 7.884          \\
-							& 1                  & 0                   & 1                    &  & -0.569         & 2.821          &  & 3.038          & 6.428          \\
-							& 2                  & 0                   & 1                    &  & -4.481         & 2.299          &  & -0.874         & 5.906          \\
-	\ch{O}$_{\ch{Zn}}$                      & 0                  & 1                   & -1                   &  & 15.495         & 15.495         &  & 8.281          & 8.281          \\
-	\ch{Zn}$_{\ch{O}}$                    & 0                  & -1                  & 1                    &  & 3.561          & 3.561          &  & 10.775         & 10.775         \\ \bottomrule
-	\end{tabular}%
-	}
-	\end{table}
-\endgroup
+
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{"images/rnd/trans_lvl"}
 	\caption[Thermodynamic transition levels for defects in ZnO]{Thermodynamic transition levels for defects in ZnO. The horizontal dashed line is the band gap.}
-	%\label{fig:free-electron}
+	\label{fig:transition_level}
 \end{figure}
 
 

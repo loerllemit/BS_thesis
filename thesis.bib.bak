@@ -2481,4 +2481,30 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Sun2012,
+  author    = {Xu Sun and You-song Gu and Xue-qiang Wang and Yue Zhang},
+  journal   = {Chinese Journal of Chemical Physics},
+  title     = {Defects Energetics and Electronic Properties of Li Doped {ZnO}: A Hybrid Hartree-Fock and Density Functional Study},
+  year      = {2012},
+  month     = {jun},
+  number    = {3},
+  pages     = {261--268},
+  volume    = {25},
+  doi       = {10.1088/1674-0068/25/03/261-268},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Franck1990,
+  author    = {E. U. Franck},
+  journal   = {Berichte der Bunsengesellschaft für physikalische Chemie},
+  title     = {J. D. Cox, D. D. Wagman, V. A. Medvedev: {CODATA} - Key Values for Thermodynamics, aus der Reihe: {CODATA}, Series on Thermodynamic Properties. Hemisphere Publishing Corporation, New York, Washington, Philadelphia, London 1989. 271 Seiten, Preis: {\textsterling} 28.00},
+  year      = {1990},
+  month     = {jan},
+  number    = {1},
+  pages     = {93--93},
+  volume    = {94},
+  doi       = {10.1002/bbpc.19900940121},
+  publisher = {Wiley},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
