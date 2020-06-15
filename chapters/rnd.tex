@@ -108,33 +108,60 @@ The calculated enthalpy of formation of \ch{ZnO}
 	%\label{fig:free-electron}
 \end{figure}
 
+% \begingroup
+% \setlength{\tabcolsep}{20pt}
+% \begin{table}[tbh!]
+% 	\centering
+% 	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.} 
+% 	\label{tab:E_formation}
+% 	\resizebox{0.9\textwidth}{!}{%m{0.2\textwidth}<{\centering}
+% 	\begin{tabular}{@{}cccccc}
+% 	\toprule
+% 	Defect                & $q$  & $n_{\ch{O}}$ & $n_{\ch{Zn}}$ & $\Delta H^f$ (O-poor) (eV) & $\Delta H^f$ (O-rich) (eV) \\ \midrule
+% 	\multirow[t]{3}{*}{$V_{\ch{O}}$} & 0  & -1 & 0   & -0.018      & 3.589       \\
+% 						  & 1  & -1 & 0   & -2.950      & 0.657       \\
+% 						  & 2  & -1 & 0   & -6.466      & -2.859      \\
+% 	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}  & 0  & 0  & -1  & 9.821       & 6.214       \\
+% 						  & -1 & 0  & -1  & 10.474      & 6.867       \\
+% 						  & -2 & 0  & -1  & 12.004      & 8.396       \\
+% 	\ch{O}$_i$                    & 0  & 1  & 0   & 11.558      & 7.951       \\
+% 	\multirow[t]{3}{*}{\ch{Zn}$_i$}               & 0  & 0  & 1   & 4.277       & 7.884       \\
+% 						  & 1  & 0  & 1   & -0.569      & 3.038       \\
+% 						  & 2  & 0  & 1   & -4.481      & -0.874      \\
+% 	\ch{O}$_{\ch{Zn}}$                    & 0  & 1  & -1  & 15.495      & 8.281       \\
+% 	\ch{Zn}$_{\ch{O}}$                   & 0  & -1 & 1   & 3.561       & 10.775      \\ \bottomrule
+% 	\end{tabular}%
+% 	}
+% 	\end{table}
+% \endgroup
+
 \begingroup
-\setlength{\tabcolsep}{20pt}
-\begin{table}[tbh!]
+\setlength{\tabcolsep}{15pt}
+\begin{table}[tbhp!]
 	\centering
-	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.} 
+	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ and $E_f = E_g$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.}
 	\label{tab:E_formation}
-	\resizebox{0.9\textwidth}{!}{%m{0.2\textwidth}<{\centering}
-	\begin{tabular}{cccccc}
+	\resizebox{0.9\textwidth}{!}{%
+	\begin{tabular}{@{}cccccccccc@{}}
 	\toprule
-	Defect                & $q$  & $n_{\ch{O}}$ & $n_{\ch{Zn}}$ & $\Delta H^f$ (O-poor) (eV) & $\Delta H^f$ (O-rich) (eV) \\ \midrule
-	\multirow[t]{3}{*}{$V_{\ch{O}}$} & 0  & -1 & 0   & -0.018      & 3.589       \\
-						  & 1  & -1 & 0   & -2.950      & 0.657       \\
-						  & 2  & -1 & 0   & -6.466      & -2.859      \\
-	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}  & 0  & 0  & -1  & 9.821       & 6.214       \\
-						  & -1 & 0  & -1  & 10.474      & 6.867       \\
-						  & -2 & 0  & -1  & 12.004      & 8.396       \\
-	\ch{O}$_i$                    & 0  & 1  & 0   & 11.558      & 7.951       \\
-	\multirow[t]{3}{*}{\ch{Zn}$_i$}               & 0  & 0  & 1   & 4.277       & 7.884       \\
-						  & 1  & 0  & 1   & -0.569      & 3.038       \\
-						  & 2  & 0  & 1   & -4.481      & -0.874      \\
-	\ch{O}$_{\ch{Zn}}$                    & 0  & 1  & -1  & 15.495      & 8.281       \\
-	\ch{Zn}$_{\ch{O}}$                   & 0  & -1 & 1   & 3.561       & 10.775      \\ \bottomrule
+	\multirow{2}{*}{Defect} & \multirow{2}{*}{q} & \multirow{2}{*}{$n_{\ch{O}}$} & \multirow{2}{*}{$n_{\ch{Zn}}$} &  & \multicolumn{2}{c}{$\Delta H^f$ (O-poor) (eV)} &  & \multicolumn{2}{c}{ $\Delta H^f$ (O-rich) (eV)} \\ \cmidrule(lr){6-7} \cmidrule(l){9-10} 
+							&                    &                     &                      &  & $E_f = 0$            & $E_f = E_g$           &  & $E_f = 0$           & $E_f = E_g$          \\ \midrule
+	$V_{\ch{O}}$                    & 0                  & -1                  & 0                    &  & -0.018         & -0.018         &  & 3.589          & 3.589          \\
+							& 1                  & -1                  & 0                    &  & -2.950         & 0.440          &  & 0.657          & 4.047          \\
+							& 2                  & -1                  & 0                    &  & -6.466         & 0.314          &  & -2.859         & 3.921          \\
+	\multirow{3}{*}{$V_{\ch{Zn}}$}    & 0                  & 0                   & -1                   &  & 9.821          & 9.821          &  & 6.214          & 6.214          \\
+							& -1                 & 0                   & -1                   &  & 10.474         & 7.084          &  & 6.867          & 3.477          \\
+							& -2                 & 0                   & -1                   &  & 12.004         & 5.224          &  & 8.396          & 1.616          \\
+	\ch{O}$_i$                      & 0                  & 1                   & 0                    &  & 11.558         & 11.558         &  & 7.951          & 7.951          \\
+	\multirow{3}{*}{\ch{Zn}$_i$}    & 0                  & 0                   & 1                    &  & 4.277          & 4.277          &  & 7.884          & 7.884          \\
+							& 1                  & 0                   & 1                    &  & -0.569         & 2.821          &  & 3.038          & 6.428          \\
+							& 2                  & 0                   & 1                    &  & -4.481         & 2.299          &  & -0.874         & 5.906          \\
+	\ch{O}$_{\ch{Zn}}$                      & 0                  & 1                   & -1                   &  & 15.495         & 15.495         &  & 8.281          & 8.281          \\
+	\ch{Zn}$_{\ch{O}}$                    & 0                  & -1                  & 1                    &  & 3.561          & 3.561          &  & 10.775         & 10.775         \\ \bottomrule
 	\end{tabular}%
 	}
 	\end{table}
 \endgroup
-
 
 \begin{figure}[tbh!]
 	\centering
