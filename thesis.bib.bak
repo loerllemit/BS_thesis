@@ -2538,4 +2538,28 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Oba2008,
+  author    = {Fumiyasu Oba and Atsushi Togo and Isao Tanaka and Joachim Paier and Georg Kresse},
+  journal   = {Physical Review B},
+  title     = {Defect energetics in {ZnO}: A hybrid Hartree-Fock density functional study},
+  year      = {2008},
+  month     = {jun},
+  number    = {24},
+  volume    = {77},
+  doi       = {10.1103/physrevb.77.245202},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Tuomisto2003,
+  author    = {F. Tuomisto and V. Ranki and K. Saarinen and D C. Look},
+  journal   = {Physical Review Letters},
+  title     = {Evidence of the Zn Vacancy Acting as the Dominant Acceptor in n-type {ZnO}},
+  year      = {2003},
+  month     = {nov},
+  number    = {20},
+  volume    = {91},
+  doi       = {10.1103/physrevlett.91.205502},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

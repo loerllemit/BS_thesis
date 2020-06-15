@@ -2550,4 +2550,28 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Tuomisto2003,
+  author    = {F. Tuomisto and V. Ranki and K. Saarinen and D C. Look},
+  journal   = {Physical Review Letters},
+  title     = {Evidence of the Zn Vacancy Acting as the Dominant Acceptor in n-type {ZnO}},
+  year      = {2003},
+  month     = {nov},
+  number    = {20},
+  volume    = {91},
+  doi       = {10.1103/physrevlett.91.205502},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Tuomisto2005,
+  author    = {F. Tuomisto and K. Saarinen and D. C. Look and G. C. Farlow},
+  journal   = {Physical Review B},
+  title     = {Introduction and recovery of point defects in electron-irradiated {ZnO}},
+  year      = {2005},
+  month     = {aug},
+  number    = {8},
+  volume    = {72},
+  doi       = {10.1103/physrevb.72.085206},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
