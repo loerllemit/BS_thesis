@@ -2448,7 +2448,8 @@
     <bcf:citekey order="184">Janotti2007</bcf:citekey>
     <bcf:citekey order="185">Tuomisto2003</bcf:citekey>
     <bcf:citekey order="185">Tuomisto2005</bcf:citekey>
-    <bcf:citekey order="186">Janotti2007</bcf:citekey>
+    <bcf:citekey order="186">Erhart2005</bcf:citekey>
+    <bcf:citekey order="187">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
