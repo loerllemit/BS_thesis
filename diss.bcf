@@ -2438,7 +2438,14 @@
     <bcf:citekey order="176">Medvedev1989</bcf:citekey>
     <bcf:citekey order="177">Oba2011</bcf:citekey>
     <bcf:citekey order="178">Freysoldt2014</bcf:citekey>
-    <bcf:citekey order="179">Janotti2007</bcf:citekey>
+    <bcf:citekey order="179">Hofmann2007</bcf:citekey>
+    <bcf:citekey order="180">Lany2010</bcf:citekey>
+    <bcf:citekey order="180">Oba2008</bcf:citekey>
+    <bcf:citekey order="180">Paudel2008</bcf:citekey>
+    <bcf:citekey order="181">Lany2010</bcf:citekey>
+    <bcf:citekey order="182">Oba2011</bcf:citekey>
+    <bcf:citekey order="183">Janotti2007</bcf:citekey>
+    <bcf:citekey order="184">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
