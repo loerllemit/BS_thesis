@@ -7,15 +7,21 @@
     % \section{Intel Compilers}
     
     \section{Parallelization and Executables}
-    \textcolor{red}{include parallelization techniques, COARE 
-    }
-    All the simulations were ran in COARE BLAH BLAH
-    bands.x dos.x 
+    The Quantum Espresso code can take advantage of parallelization in which the calculations are distributed among the processors, technically called as computing cores. Parallelization can speed calculations by several magnitude in comparison to serial computations that are normally done in standard desktop computers. There are two ways to achieve parallelization, either: (1) by distributed memory computing where clusters of multicore processors are interconnected by a fast communication network or (2) by shared memory computing where parallelization takes place inside a single multicore processor. The code follows the parallelization strategy flowchart as shown in  Figure \ref{fig:code_parallel}. The total processors (computing cores) are subdivided into $n_i$ distinct images, each corresponds to a different self-consistent or linear-response calculation, loosely coupled to others. This is only useful if one needs to perform identical simulations repeated $n_i$ times to form an ensemble. Each image is further subdivided $n_k$ pools of k-points, each are independent from one another. Then each k-points are divided into $n_b$ band groups, each taking care of a group of Kohn-Sham orbitals. Lastly, when the number of processors used exceeds the number of fast fourier transform (FFT) points, a parellization  on FFT can be used such that these FFTs acting on Kohn-Sham states are redistributed to $n_t$ task groups so that each group can process several wavefunctions at the same time. A further level of parallelization can be applied on matrix diagonalization where the diagonalization is  performed in parallel using standard linear algebra operations such as Linear Algebra Package (LAPACK) and Basic Linear Algebra Subprograms (BLAS) algorithms. 
+    
+    The core subprogram of Quantum Espresso is the Plane-Wave Self-Consistent Field (PWSCF) package  used for scf and non-scf calculations. It includes other specialized packages such as PostProc (PP) package which contains various utilities for data postprocessing. The  bands.x program will create a band structure diagram based on the results of scf calculation while dos.x and projwfc.x programs will generate density of states and projected density of states, respectively. 
 
-    include total bands in the computation and total k-points used and overall number of data points. 
+  \begin{figure}[tbh!] 
+	\centering
+	\includegraphics[width=0.48\linewidth]{"images/parallelization"}
+	\caption[Code parallelization strategy used in Quantum Espresso]{Code parallelization strategy used in Quantum Espresso}
+	\label{fig:code_parallel}
+\end{figure}
+    
+   
     
     \section{Computational Details}
-    This section outlines the computational recipes of successfully simulating material properties using Density Functional Theory executed within  Quantum Espresso code. 
+    This section outlines the computational recipes of successfully simulating material properties using Density Functional Theory executed within  Quantum Espresso code version 6.5. All the simulations were ran in Computing and Archiving Research Environment (COARE) facility under DOST Advanced Science and Technology Institue (ASTI). 
 
     \subsection{Pseudopotential}
     This thesis used the Garrity-Bennett-Rabe-Vanderbilt (GBRV) ultrasoft pseudopotential library that was designed at Rutgers university \citep{Garrity2014}. The pseudopotential was generated using GGA exchange–correlation correlation functional based on Perdew-Burke-Ernzerhof (PBE) functional \citep{Perdew1996}. For the $\ch{Zn}$ atom, the pseudopotential included 3s, 3p, 3d, 4s orbitals for valence calculations  while the inner core orbitals were approximated using an ultrasoft pseudopotential. The 3s and 3p orbitals are considered as "semi-core" orbitals since they do not participate on chemical bonding but were included only in electronic structure calculations. For the O atom, only  2s and 2p orbitals were taken into account. Thus, Zn has 20 valence electrons while O has 6 valence electrons. 
