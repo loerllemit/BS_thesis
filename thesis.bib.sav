@@ -2677,4 +2677,11 @@
   publisher = {Elsevier {BV}},
 }
 
+@TechReport{Kroeger1964,
+  author      = {Kr{\"o}ger, Ferdinand Anne},
+  institution = {North-Holland Pub. Co.},
+  title       = {The chemistry of imperfect crystals},
+  year        = {1964},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
