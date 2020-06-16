@@ -396,9 +396,15 @@ INPUT /home/loer/Desktop/codes/thesis/chapters/rrl.tex
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/ZnO_unit.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/ZnO_unit.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/ZnO_unit.png
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/tetrahedral.pdf
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/tetrahedral.pdf
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/tetrahedral.pdf
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/hex.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/hex.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/hex.png
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/bands.pdf
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/bands.pdf
+INPUT /home/loer/Desktop/codes/thesis/images/rrl/bands.pdf
 OUTPUT /home/loer/Desktop/codes/thesis/chapters/theory.aux
 INPUT /home/loer/Desktop/codes/thesis/chapters/theory.tex
 INPUT /home/loer/Desktop/codes/thesis/chapters/theory.tex

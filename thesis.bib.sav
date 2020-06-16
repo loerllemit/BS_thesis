@@ -2684,4 +2684,66 @@
   year        = {1964},
 }
 
+@Article{Jain2013,
+  author    = {Anubhav Jain and Shyue Ping Ong and Geoffroy Hautier and Wei Chen and William Davidson Richards and Stephen Dacek and Shreyas Cholia and Dan Gunter and David Skinner and Gerbrand Ceder and Kristin A. Persson},
+  journal   = {{APL} Materials},
+  title     = {The Materials Project: A materials genome approach to accelerating materials innovation},
+  year      = {2013},
+  month     = {jul},
+  number    = {1},
+  pages     = {011002},
+  volume    = {1},
+  doi       = {10.1063/1.4812323},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Ong2015,
+  author    = {Shyue Ping Ong and Shreyas Cholia and Anubhav Jain and Miriam Brafman and Dan Gunter and Gerbrand Ceder and Kristin A. Persson},
+  journal   = {Computational Materials Science},
+  title     = {The Materials Application Programming Interface ({API}): A simple, flexible and efficient {API} for materials data based on {REpresentational} State Transfer ({REST}) principles},
+  year      = {2015},
+  month     = {feb},
+  pages     = {209--215},
+  volume    = {97},
+  doi       = {10.1016/j.commatsci.2014.10.037},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Slassi2014,
+  author    = {A. Slassi and S. Naji and A. Benyoussef and M. Hamedoun and A. El Kenz},
+  journal   = {Journal of Alloys and Compounds},
+  title     = {On the transparent conducting oxide Al doped {ZnO}: First Principles and Boltzmann equations study},
+  year      = {2014},
+  month     = {aug},
+  pages     = {118--123},
+  volume    = {605},
+  doi       = {10.1016/j.jallcom.2014.03.177},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Luo2014,
+  author    = {Jin-Hua Luo and Qun Liu and Li-Na Yang and Zhu-Zhu Sun and Ze-Sheng Li},
+  journal   = {Computational Materials Science},
+  title     = {First-principles study of electronic structure and optical properties of (Zr{\textendash}Al)-codoped {ZnO}},
+  year      = {2014},
+  month     = {feb},
+  pages     = {70--75},
+  volume    = {82},
+  doi       = {10.1016/j.commatsci.2013.09.021},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Kim2012,
+  author    = {Maengsuk Kim and Chul Hong Park},
+  journal   = {Journal of the Korean Physical Society},
+  title     = {Self-consistent {GW} calculation of the electronic structure of co-doped {ZnO}},
+  year      = {2012},
+  month     = {jan},
+  number    = {2},
+  pages     = {292--296},
+  volume    = {60},
+  doi       = {10.3938/jkps.60.292},
+  publisher = {Korean Physical Society},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

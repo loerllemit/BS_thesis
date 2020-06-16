@@ -3,20 +3,28 @@
 %     \subsection{Properties}
 %     \subsection{Applications of Semiconductors}
 %     \subsection{Defects in Semiconductors}
-\section{Properties of ZnO}
-% \section{Zinc Oxide}
-	describe ZnO in broad perspective
-	donors and acceptors
-	excitation in semiconductors
-\section{Crystal Structure}
-There are three possible crystal structures (phases) of \ch{ZnO}, namely: wurtzite, zinc blende, and rocksalt. The wurtzite structure belongs to the space group $C^4_{6v}$ in Schoenflies notation, $P6_3mc$ in the  Hermann–Mauguin notation, and space group number 186 in International Tables for Crystallography (ITA) notation \citep{Hahn2005}. The crystal structure of wurtzite ZnO is shown in Figure \ref{fig:ZnO_unit}. Each zinc atom is surrounded by four oxygen atoms, which are located
-at the corners of an irregular tetrahedron.
+% \section{Properties of ZnO}
+% % \section{Zinc Oxide}
+% 	describe ZnO in broad perspective
+% 	donors and acceptors
+% 	excitation in semiconductors
+\section{Crystal Structure of ZnO}
+There are three possible crystal structures (phases) of \ch{ZnO}, namely: wurtzite, zinc blende, and rocksalt as schematically shown in Figure \ref{fig:ZnO_unit}. The zinc-blende phase can be only stabilized in cubic substrates while rocksalt phase forms at relatively high pressure. The wurtzite phase is the most stable phase in ambient conditions \citep{Oezguer2005}. The wurtzite structure belongs to the space group $C^4_{6v}$ in Schoenflies notation, $P6_3mc$ in the  Hermann–Mauguin notation, and space group number 186 in International Tables for Crystallography (ITA) notation \citep{Hahn2005}. The crystal structure of wurtzite ZnO unit cell is shown in Figure \ref{fig:ZnO_unit}a. Each zinc atom is surrounded by four oxygen atoms, which are located at the corners of an irregular tetrahedron as visualized in Figure \ref{fig:tetras}. In a similar vein, the oxygen atom is surrounded by four zinc atoms but with different bond lengths. The wurtzite structure belongs to hexagonal Bravais lattice with two variable lattice constants $a$ and $c$ with a ratio of $\sqrt{8/3} \approx 1.633$ for an ideal crystal.  The wurtzite ZnO unit cell has four basis atoms located at $(0,0,0)$, $a(1/2,\sqrt{3}/6,c/2a)$ for the Zn atoms 
+ and $(0,0,uc)$, $a(1/2,\sqrt{3}/6,[2u+1]c/2a)$ for the O atoms. 
+Here  $u$ is internal parameter which denotes the shortest bond length between Zn and O atoms expressed as a fraction of $c$ ($u=$ 0.375 in  ideal crystal). However, in real ZnO crystal, the wurtzite deviates from the ideal structure either by changing the $u$ parameter or the $c/a$ ratio.
 
 \begin{figure}[tbh!] 
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rrl/ZnO_unit"}
 	\caption[Crystal structure of (a) wurtzite (b) zinc-blende and (c) rocksalt \ch{ZnO} unit cell]{Crystal structure of (a)wurtzite (b) zinc-blende and (c) rocksalt \ch{ZnO} unit cell. Figure taken from \citep{Ma2013}.}
 	\label{fig:ZnO_unit}
+\end{figure}
+
+\begin{figure}[tbh!] 
+	\centering
+	\includegraphics[width=0.3\linewidth]{"images/rrl/tetrahedral"}
+	\caption[The wurtzite crystal structure where oxygen atoms are located at the corners of the  tetrahedron enclosing the central zinc atom and vice versa ]{The wurtzite crystal structure where oxygen atoms are located at the corners of the  tetrahedron enclosing the central zinc atom and vice versa. Figure taken from \citep{Jain2013}.}
+	\label{fig:tetras}
 \end{figure}
 
 \section{Brillouin Zone Symmetry}
@@ -66,6 +74,18 @@ The first Brillouin Zone of an hexagonal lattice is also an hexagonal. For more 
 % \section{Photoluminescence Properties}
 % ZnO often exhibits green luminescence which has a peak around 2.4 and 2.5 eV.
 
+\section{Electronic band structure}
+The band structure  of a semiconductor is very important for determining its potential utility. By just looking at the band structure, one can predict whether a semiconductor will have  direct or indirect band gap. The band gap can be quantitatively measured  and the wavevectors (or k-points) $k$ for which the valence band maximum (vbm) and conduction band minimum (cbm) will occur can be determined also. Effective masses of holes and electrons can be obtained from the fitted parabola of the dispersion of the top of the valence band and the bottom of the conduction band.  Several theoretical approaches have been employed to calculate the band structure of wurtzite ZnO. These theoretical approaches are accurate enough that they agree with experimental spectroscopy  measurements such as photoelectron spectroscopy (PES) and angle-resolved photoelectron spectroscopy (ARPES). Density Functional Theory (DFT) is the usual choice for the theoretical band calculations of metals, semiconductors, and insulators in general. An open online initiative by Materials Project \citep{Jain2013,Ong2015} have databases on material properties ranging from elasticity, dielectric properties, X-ray diffraction, phonon dispersion, density of states to band structure of more than 120,000 compounds. Figure \ref{fig:bands_rrl} shows the band structure obtained from the Materials Project database. It can be shown that the top of the valence band and the bottom of the conduction band coincides at the $\Gamma$ point. Thus, the calculation predicted that wurtzite ZnO has a direct band gap. However, the calculated band gap is 0.7317 eV which is more than 75\% underestimated from the experimental band gap of 3.37 eV. This is inherent band gap problem  that is caused by the formulation of DFT itself. However, various corrections have carried out over the last several decades. A significant improvement in band gap was obtained by Slassi et al. \citep{Slassi2014} using GGA functional with approximation from Tran–Blaha modified Becke–Johnson (TB-mBJ) where they obtain a value of 2.70 eV. Another report \citep{Luo2014} obtained a value of  2.49 eV using hybrid functional GGA-PBE-HSE06. The works of Ma et al. \citep{Ma2013} using Hubbard-$U$ correction have calculated a band gap value of 3.40 eV. The $GW$ calculations, which is considered most accurate but the most computationally expensive, of Kim et al. obtained a value of 3.3 eV \citep{Kim2012}. 
+
+
+\begin{figure}[tbh!] 
+	\centering
+	\includegraphics[width=0.48\linewidth]{"images/rrl/bands"}
+	\caption[Band structure of wurtzite ZnO]{Band structure of wurtzite ZnO. Figure obtained from \citep{Ong2015}.}
+	\label{fig:bands_rrl}
+\end{figure}
+
+
 \section{Defects}
 A perfect crystal never exists in nature. Atom arrangements do not follow perfect crystalline patterns since various factors such as temperature, pressure and chemical composition substantially affect the preferred structure. In addition, atoms are relatively immobile in a solid, hence, it is difficult to eliminate whatever imperfections introduced during crystal growth. It is this reason that defects or imperfections exist at stable conditions.  Crystal defects can be classified according to the dimension. The 0-dimensional defects affect localized points in the crystal site, thus they are called point defects. The one-dimensional defects are called dislocations. They are lines along  crystal lattice where the pattern is broken. The two-dimensional defects are surface defects, which include the external surface boundary and the grain boundaries along which crystals are joined together. Lastly, three-dimensional defects changes the lattice site at a finite volume. This includes precipitates, voids, and inclusion of second-phase particles. 
 
@@ -81,11 +101,15 @@ Among these types of defects, the point defects play a vital role in semiconduct
 
 \end{itemize}
 
-Insert figure
+\textcolor{red}{Insert figure of defects}
 
-Vacancies, interstitals, Schottky, Frenkel, and antisite which do not involve the foreign atoms are called the native point defects. Otherwise, interstitals and substitutionals involving foreign atoms are called extrinsic point defects. A useful notation for dealing with point defects is the use of  Kröger-Vink notation \citep{Kroeger1964}. The general notation can  be expressed as  $X_Y^Z$ where $X$ is element symbol for an atomic species located on a site, else it is written $V$ for vacancy. The $Y$ is the type of site occupied by X; $i$ for an interstitial, otherwise, element symbol for site normally occupied by this element. Lastly $Z$ is the charge of defect normally written as $'$ or $-$ for negative charge, $\cdot$ or $+$ for positive charge, while $x$, $0$ or sometimes omitted for neutral charge. For instance, an oxygen antisite in ZnO crystal with a +2 charge state can be written as \ch{O}$_{\ch{Zn}}^{2+}$.
+Vacancies, interstitals, Schottky, Frenkel, and antisite which do not involve the foreign atoms are called the native point defects. Otherwise, interstitials and substitutionals involving foreign atoms are called extrinsic point defects. A useful notation for dealing with point defects is the use of  Kröger-Vink notation \citep{Kroeger1964}. The general notation can  be expressed as  $X_Y^Z$ where $X$ is element symbol for an atomic species located on a site, else it is written $V$ for vacancy. The $Y$ is the type of site occupied by X; $i$ for an interstitial, otherwise, element symbol for site normally occupied by this element. Lastly $Z$ is the charge of defect normally written as $'$ or $-$ for negative charge; $\cdot$ or $+$ for positive charge; while $x$, $0$ or sometimes omitted for neutral charge. For instance, an oxygen antisite in ZnO crystal with a $2-$ charge state can be written as \ch{O}$_{\ch{Zn}}^{2-}$. A +1 oxygen vacancy is expressed as $V_{\ch{O}}^{+}$.
 
-Point defects are 
+There has been a great deal of interest in studying the point defects in ZnO due to its promising features in optoelectronics. For instance, the luminescence properties of ZnO can be controlled by doping an impurity atom \citep{Musavi2019}.  However, some questions were remained unanswered or not yet convincingly addressed. The observed n-type conductivity in ZnO were 
+
+For instance, the well known green luminescence band, manifesting as a broad peak around 500-530 nm,  observed in nearly all ZnO samples regardless of the fabrication techniques have been the topic of debate whether this is caused by the native defects or due to uncontrollable impurities during growth. 
+
+
 
 
 
