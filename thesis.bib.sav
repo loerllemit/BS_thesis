@@ -2746,4 +2746,55 @@
   publisher = {Korean Physical Society},
 }
 
+@Article{Hausmann1973,
+  author    = {A. Hausmann and W. Teuerle},
+  journal   = {Zeitschrift für Physik A Hadrons and nuclei},
+  title     = {Halleffekt-messungen an reinen und kupfer dotierten zinkoxidkristallen},
+  year      = {1973},
+  month     = {apr},
+  number    = {2},
+  pages     = {189--194},
+  volume    = {259},
+  doi       = {10.1007/bf01392847},
+  publisher = {Springer Science and Business Media {LLC}},
+}
+
+@Article{Hagemark1976,
+  author    = {K.I. Hagemark},
+  journal   = {Journal of Solid State Chemistry},
+  title     = {Defect structure of Zn-doped {ZnO}},
+  year      = {1976},
+  month     = {jan},
+  number    = {3-4},
+  pages     = {293--299},
+  volume    = {16},
+  doi       = {10.1016/0022-4596(76)90044-x},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Thomas1957,
+  author    = {D.G. Thomas},
+  journal   = {Journal of Physics and Chemistry of Solids},
+  title     = {Interstitial zinc in zinc oxide},
+  year      = {1957},
+  number    = {3-4},
+  pages     = {229--237},
+  volume    = {3},
+  doi       = {10.1016/0022-3697(57)90027-6},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Harrison1954,
+  author    = {Sol E. Harrison},
+  journal   = {Physical Review},
+  title     = {Conductivity and Hall Effect of {ZnO} at Low Temperatures},
+  year      = {1954},
+  month     = {jan},
+  number    = {1},
+  pages     = {52--62},
+  volume    = {93},
+  doi       = {10.1103/physrev.93.52},
+  publisher = {American Physical Society ({APS})},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
