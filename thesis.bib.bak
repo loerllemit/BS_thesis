@@ -2600,4 +2600,81 @@
   publisher = {{IOP} Publishing},
 }
 
+@Article{Look1999,
+  author    = {D. C. Look and J. W. Hemsky and J. R. Sizelove},
+  journal   = {Physical Review Letters},
+  title     = {Residual Native Shallow Donor in {ZnO}},
+  year      = {1999},
+  month     = {mar},
+  number    = {12},
+  pages     = {2552--2555},
+  volume    = {82},
+  doi       = {10.1103/physrevlett.82.2552},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Empizo2014,
+  author    = {Melvin John F. Empizo and Kazuhito Fukuda and Ren Arita and Yuki Minami and Kohei Yamanoi and Toshihiko Shimizu and Nobuhiko Sarukura and Ray M. Vargas and Arnel A. Salvador and Roland V. Sarmago},
+  journal   = {Optical Materials},
+  title     = {Photoluminescence properties of a single {ZnO} microstructure for potential scintillator applications},
+  year      = {2014},
+  month     = {dec},
+  pages     = {256--260},
+  volume    = {38},
+  doi       = {10.1016/j.optmat.2014.10.044},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Cizek2015,
+  author    = {J. {\v C}{\' i}{\v z}ek and J. Valenta and P. Hru{\v s}ka and O. Melikhova and I. Proch{\' a}zka and M. Novotn{\'y} and J. Bul{\' i}{\v r}},
+  journal   = {Applied Physics Letters},
+  title     = {Origin of green luminescence in hydrothermally grown {ZnO} single crystals},
+  year      = {2015},
+  month     = {jun},
+  number    = {25},
+  pages     = {251902},
+  volume    = {106},
+  doi       = {10.1063/1.4922944},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Djurisic2007,
+  author    = {A B Djuri{\v s}i{\' c} and Y H Leung and K H Tam and Y F Hsu and L Ding and W K Ge and Y C Zhong and K S Wong and W K Chan and H L Tam and K W Cheah and W M Kwok and D L Phillips},
+  journal   = {Nanotechnology},
+  title     = {Defect emissions in {ZnO} nanostructures},
+  year      = {2007},
+  month     = {jan},
+  number    = {9},
+  pages     = {095702},
+  volume    = {18},
+  doi       = {10.1088/0957-4484/18/9/095702},
+  publisher = {{IOP} Publishing},
+}
+
+@Article{Lin2001,
+  author    = {Bixia Lin and Zhuxi Fu and Yunbo Jia},
+  journal   = {Applied Physics Letters},
+  title     = {Green luminescent center in undoped zinc oxide films deposited on silicon substrates},
+  year      = {2001},
+  month     = {aug},
+  number    = {7},
+  pages     = {943--945},
+  volume    = {79},
+  doi       = {10.1063/1.1394173},
+  publisher = {{AIP} Publishing},
+}
+
+@Article{Reynolds1997,
+  author    = {D.C. Reynolds and D.C. Look and B. Jogai and H. Morko{\c{c}}},
+  journal   = {Solid State Communications},
+  title     = {Similarities in the bandedge and deep-centre photoluminescence mechanisms of {ZnO} and {GaN}},
+  year      = {1997},
+  month     = {mar},
+  number    = {9},
+  pages     = {643--646},
+  volume    = {101},
+  doi       = {10.1016/s0038-1098(96)00697-7},
+  publisher = {Elsevier {BV}},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
