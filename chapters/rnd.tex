@@ -109,15 +109,15 @@ Another way to visualize the transition levels is through plotting the Fermi lev
 	\multirow{2}{*}{Defect} & \multirow{2}{*}{q} & \multirow{2}{*}{$n_{\ch{O}}$} & \multirow{2}{*}{$n_{\ch{Zn}}$} &  & \multicolumn{2}{c}{$\Delta H^f$ (Zn-rich) (eV)} &  & \multicolumn{2}{c}{ $\Delta H^f$ (O-rich) (eV)} \\ \cmidrule(lr){6-7} \cmidrule(l){9-10} 
 							&                    &                     &                      &  & $E_f = 0$            & $E_f = E_g$           &  & $E_f = 0$           & $E_f = E_g$          \\ \midrule
 	$V_{\ch{O}}$                    & 0                  & -1                  & 0                    &  & -0.018         & -0.018         &  & 3.589          & 3.589          \\
-							& 1                  & -1                  & 0                    &  & -2.950         & 0.440          &  & 0.657          & 4.047          \\
-							& 2                  & -1                  & 0                    &  & -6.466         & 0.314          &  & -2.859         & 3.921          \\
+							& +1                  & -1                  & 0                    &  & -2.950         & 0.440          &  & 0.657          & 4.047          \\
+							& +2                  & -1                  & 0                    &  & -6.466         & 0.314          &  & -2.859         & 3.921          \\
 	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}    & 0                  & 0                   & -1                   &  & 9.821          & 9.821          &  & 6.214          & 6.214          \\
 							& -1                 & 0                   & -1                   &  & 10.474         & 7.084          &  & 6.867          & 3.477          \\
 							& -2                 & 0                   & -1                   &  & 12.004         & 5.224          &  & 8.396          & 1.616          \\
 	\ch{O}$_i$                      & 0                  & 1                   & 0                    &  & 11.558         & 11.558         &  & 7.951          & 7.951          \\
 	\multirow[t]{3}{*}{\ch{Zn}$_i$}    & 0                  & 0                   & 1                    &  & 4.277          & 4.277          &  & 7.884          & 7.884          \\
-							& 1                  & 0                   & 1                    &  & -0.569         & 2.821          &  & 3.038          & 6.428          \\
-							& 2                  & 0                   & 1                    &  & -4.481         & 2.299          &  & -0.874         & 5.906          \\
+							& +1                  & 0                   & 1                    &  & -0.569         & 2.821          &  & 3.038          & 6.428          \\
+							& +2                  & 0                   & 1                    &  & -4.481         & 2.299          &  & -0.874         & 5.906          \\
 	\ch{O}$_{\ch{Zn}}$                      & 0                  & 1                   & -1                   &  & 15.495         & 15.495         &  & 8.281          & 8.281          \\
 	\ch{Zn}$_{\ch{O}}$                    & 0                  & -1                  & 1                    &  & 3.561          & 3.561          &  & 10.775         & 10.775         \\ \bottomrule
 	\end{tabular}%
@@ -339,20 +339,30 @@ Oxygen interstitials have very high defect formation energies (> 7 eV). Hence, t
 \section{Zinc Interstitials}
 % Zinc 
 
-For Zn interstitial, the octahedral site was considered in this study. The tetrahedral site is reported to be energetically less favorable or unstable. Since 
+For Zn interstitial, the octahedral site was considered in this study. The tetrahedral site is reported to be energetically less favorable or unstable \citep{Oba2001,Zhao2006,Oba2010}. With respect to formation energies, it has a high value   $\sim$ 4.277 eV under the $n$-type conditions at the  Zn-rich limit and a much higher value  $\sim$ 7.884 eV at O-rich limit. Hence, the concentration of Zn interstitial is expected to be low in $n$-type ZnO for any chemical environments. Zn interstitials are unlikely to be responsible for unintentional $n$-type conductivity observed in ZnO. For the $p$-type case, Zn interstitial has a negative defect formation energy at both Zn-rich and O-rich limit, implying that it is stable and can readily form. The excess Zn atom in the interstitial will donate electrons, thus this defect is expected to be a donor type and can serve as a a potential source of compensation in $p$-type ZnO \citep{Janotti2007}. 
+
+The calculated transition levels $\epsilon(2+/+)$ and $\epsilon(+/0)$ are all above the conduction band minimum as shown in Figure \ref{fig:transition_level}. This agrees well with the results of Janotti et al. \citep{Janotti2007} where zinc interstitials occur exclusively as a 2+ charge defect in all Fermi levels in the band gap. Hence, zinc interstitial will always donate electrons to the conduction band since it exists solely as a 2+ charge defect. This defect is also a shallow donor since it forms a  defect state near or resonant state inside the conduction band as experimentally verified in the high-energy electron irradiation measurements of Look et al. \citep{Look1999}. The electrons in the resonant state will 	migrate to lower energy state by transferring to the conduction band minimum \citep{Freysoldt2014}. 
+
+The existence of defect state near the conduction band as observed in Figure \ref{fig:band-dos_Zn_i} verifies that Zn interstitial is a shallow donor. This defect state is 0.41 eV below the conduction band minimum.  The defect state is delocalized especially in regions near the $\Gamma$ point where it follows a free electron-like dispersion. Due to this delocalized nature, the  removal of electrons does not alter the bandstructure. Hence, similar bandstructures have been observed for the + and 2+ charge states as shown in Figure 
+\ref{fig:band-dos_Zn_i-p1} and \ref{fig:band-dos_Zn_i-p2}, respectively. The defect state always exists as 2+ charge defect and the two donor electrons are located in the conduction band minimum. The possibility of the formation of resonant state cannot be guarantee by bandstructure calculations since this state is mixed in the conduction band, thus it is difficult to locate. For the neutral and charged zinc interstitials, the defect state is composed of O-2s, O-2p, Zn-4s, and Zn-3p states as shown by the Figures \ref{fig:dos-pdos_Zn_i}, \ref{fig:dos-pdos_Zn_i-p1}, and \ref{fig:dos-pdos_Zn_i-p2} for neutral, +1, and +2 charge defects, respectively.
+
+
+
+
+
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/band-dos_Zn_i"}
 	\caption[Bandstructure of Zinc interstitial]{Bandstructure of Zinc interstitial}
-	%\label{fig:free-electron}
+	\label{fig:band-dos_Zn_i}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/dos-pdos_Zn_i"}
 	\caption[Partial density of states of Zinc interstitial]{Partial density of states of Zinc interstitial}
-	%\label{fig:free-electron}
+	\label{fig:dos-pdos_Zn_i}
 \end{figure}
 
 % \begin{figure}[tbh!]
@@ -367,14 +377,14 @@ For Zn interstitial, the octahedral site was considered in this study. The tetra
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/band-dos_Zn_i-p1"}
 	\caption[Bandstructure of +1 Zinc interstitial]{Bandstructure of +1 Zinc interstitial}
-	%\label{fig:free-electron}
+	\label{fig:band-dos_Zn_i-p1}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/dos-pdos_Zn_i-p1"}
 	\caption[Partial density of states of +1 Zinc interstitial]{Partial density of states of +1 Zinc interstitial }
-	%\label{fig:free-electron}
+	\label{fig:dos-pdos_Zn_i-p1}
 \end{figure}
 
 % +2 Zinc interstitial 
@@ -383,14 +393,14 @@ For Zn interstitial, the octahedral site was considered in this study. The tetra
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/band-dos_Zn_i-p2"}
 	\caption[Bandstructure of +2 Zinc interstitial]{Bandstructure of +2 Zinc interstitial}
-	%\label{fig:free-electron}
+	\label{fig:band-dos_Zn_i-p2}
 \end{figure}
 
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{"images/rnd/dos-pdos_Zn_i-p2"}
 	\caption[Partial density of states of +2 Zinc interstitial]{Partial density of states of +2 Zinc interstitial }
-	%\label{fig:free-electron}
+	\label{fig:dos-pdos_Zn_i-p2}
 \end{figure}
 
 

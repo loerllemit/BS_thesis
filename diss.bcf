@@ -2449,7 +2449,14 @@
     <bcf:citekey order="185">Tuomisto2003</bcf:citekey>
     <bcf:citekey order="185">Tuomisto2005</bcf:citekey>
     <bcf:citekey order="186">Erhart2005</bcf:citekey>
-    <bcf:citekey order="187">Janotti2007</bcf:citekey>
+    <bcf:citekey order="187">Oba2001</bcf:citekey>
+    <bcf:citekey order="187">Zhao2006</bcf:citekey>
+    <bcf:citekey order="187">Oba2010</bcf:citekey>
+    <bcf:citekey order="188">Janotti2007</bcf:citekey>
+    <bcf:citekey order="189">Janotti2007</bcf:citekey>
+    <bcf:citekey order="190">Look1999</bcf:citekey>
+    <bcf:citekey order="191">Freysoldt2014</bcf:citekey>
+    <bcf:citekey order="192">Janotti2007</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

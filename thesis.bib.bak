@@ -2562,4 +2562,42 @@
   publisher = {American Physical Society ({APS})},
 }
 
+@Article{Tuomisto2005,
+  author    = {F. Tuomisto and K. Saarinen and D. C. Look and G. C. Farlow},
+  journal   = {Physical Review B},
+  title     = {Introduction and recovery of point defects in electron-irradiated {ZnO}},
+  year      = {2005},
+  month     = {aug},
+  number    = {8},
+  volume    = {72},
+  doi       = {10.1103/physrevb.72.085206},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Article{Oba2010,
+  author    = {Fumiyasu Oba and Minseok Choi and Atsushi Togo and Atsuto Seko and Isao Tanaka},
+  journal   = {Journal of Physics: Condensed Matter},
+  title     = {Native defects in oxide semiconductors: a density functional approach},
+  year      = {2010},
+  month     = {sep},
+  number    = {38},
+  pages     = {384211},
+  volume    = {22},
+  doi       = {10.1088/0953-8984/22/38/384211},
+  publisher = {{IOP} Publishing},
+}
+
+@Article{Zhao2006,
+  author    = {Jun-Liang Zhao and Wenqing Zhang and Xiao-Min Li and Ji-Wei Feng and Xun Shi},
+  journal   = {Journal of Physics: Condensed Matter},
+  title     = {Convergence of the formation energies of intrinsic point defects in wurtzite {ZnO}: first-principles study by projector augmented wave method},
+  year      = {2006},
+  month     = {jan},
+  number    = {5},
+  pages     = {1495--1508},
+  volume    = {18},
+  doi       = {10.1088/0953-8984/18/5/002},
+  publisher = {{IOP} Publishing},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
