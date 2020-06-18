@@ -279,29 +279,29 @@ where $\kappa$ and $\mu$ are parameters obtained from physical constraints. When
 GGA functionals retained most of the correct features of LDA with much greater accuracy \citep{Burke1997}. In addition, GGA tends to give better total energies, atomization energies, and energy barriers \citep{Becke1988,Langreth1983,Perdew1992a,Proynov1995}. However, GGA-based schemes typically fail on the region of weak interatomic interactions such as weak Hydrogen bonds, van der Waals interaction, and charge-transfer complexes \citep{Kim1994,PerezJorda1995,Ruiz1995}.
 
 \section{Corrections to DFT}
-One important limitation of DFT that matters most in solid-state physics is the underestimation of band gap in semiconductors. A good theory must successfully predict the  properties of wide range of materials including those novel materials as it is critical for applications in optoelectronics and nanotechnology. Hence, this section will discuss the inherent band gap problem and existing methods on improving the band gap.   
+One important limitation of DFT that matters most in solid-state physics is the underestimation of band gap in semiconductors. A good theory must successfully predict the  properties of wide range of materials including those novel materials as it is critical for applications in optoelectronics and nanotechnology. Hence, this section will discuss the inherent band gap problem and existing methods on improving the band gap.
 
 \subsection{Band Gap Problem}
 Given a set of eigenvalues, the band gap $E_g$ is the difference in energy between the lowest unoccupied and highest occupied states
 \begin{equation} \label{eq:band-gap}
 	E_g^{KS} = \epsilon_{\text{CBM}} - \epsilon_{\text{VBM}}
 \end{equation}
-where the CBM and VBM refer to conduction band minimum and valance band maximum, respectively. Note that $E_g^{KS}$ is obtained from the calculation of Kohn-Sham band structure. The CBM and VBM can be approximated as 
+where the CBM and VBM refer to conduction band minimum and valance band maximum, respectively. Note that $E_g^{KS}$ is obtained from the calculation of Kohn-Sham band structure. The CBM and VBM can be approximated as
 \begin{align}
-	\epsilon_{\text{CBM}} &\approx E_{N + 1} - E_{N} \label{eq:cbm}	\\
-	\epsilon_{\text{VBM}} &\approx E_{N} - E_{N - 1}	\label{eq:vbm}
+	\epsilon_{\text{CBM}} & \approx E_{N + 1} - E_{N} \label{eq:cbm} \\
+	\epsilon_{\text{VBM}} & \approx E_{N} - E_{N - 1}	\label{eq:vbm}
 \end{align}
 where $E_{N}$ and $E_{N \pm 1}$ are the ground-state total energies of the neutral system and with one electron added or removed, respectively. By combining equations \eqref{eq:band-gap}-\eqref{eq:vbm}, the band gap can be calculated as \citep{MoriSanchez2008}
 
 \begin{align} \label{eq:band-gap1}
-	E_g^{KS} &\approx (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1}) \\
-	&\approx I - A \nonumber
+	E_g^{KS} & \approx (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1}) \\
+	         & \approx I - A \nonumber
 \end{align}
-The first term is precisely the ionization energy. In the case of solids, the same quantity is referred as work function which can be measured directly from photoelectron spectroscopy (PES) experiments. The second term is the electron affinity and can similarly be measured. 
+The first term is precisely the ionization energy. In the case of solids, the same quantity is referred as work function which can be measured directly from photoelectron spectroscopy (PES) experiments. The second term is the electron affinity and can similarly be measured.
 
 The origin of the band gap problem stems from the fact that \eqref{eq:band-gap1} is an approximation to the 'quasiparticle gap' or 'electrical gap' \citep{Perdew2017}
 \begin{equation}
-	E_g^{qp} = (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1}) 
+	E_g^{qp} = (E_{N - 1} - E_{N} )  - (E_{N} - E_{N + 1})
 \end{equation}
 
 For the case of molecules and atoms, the calculation of total energies under DFT in the neutral state ($E_{N}$), cationic state ($E_{N-1}$), and anionic state ($E_{N+1}$) is possible. Therefore, $E_g^{qp}$ can be calculated directly from  differences in total energies without invoking to Kohn-Sham eigenvalues. However, in the case of extended systems such as solids, the change in electron density upon the addition or removable of one electron is extremely small ($\Delta\rho \sim 10^{-20} \rho$). By taking the limit $\Delta\rho \rightarrow 0$, it can be shown that \citep{Perdew1982,Perdew1983}
@@ -315,7 +315,7 @@ where the correction factor $\Delta_{xc}$ is given by
 	\Delta_{xc}  = \lim_{\Delta\rho \to 0}\, V_{xc}[\rho + \Delta\rho] - V_{xc}[\rho - \Delta\rho]
 \end{equation}
 This implies that quasiparticle gap and the Kohn–Sham band gap
-differs by a constant, $\Delta_{xc}$. This also means that $\Delta_{xc}$ must not be zero, suggesting $\Delta_{xc}$ has a discontinuity at the specified limit \citep{Sham1983,Baerends2017}. The problem with this formulation is that the exact exchange-correlation functional is not yet known. If LDA or GGA functional is used instead, $V_{xc}$ will be a continuous function by construction and therefore there is no discontinuity (i.e. $\Delta_{xc} = 0$). The band gap problem of DFT is a result of the Kohn-Sham formulation of DFT, and in particular to the approximations made in exchange-correlation functional.  
+differs by a constant, $\Delta_{xc}$. This also means that $\Delta_{xc}$ must not be zero, suggesting $\Delta_{xc}$ has a discontinuity at the specified limit \citep{Sham1983,Baerends2017}. The problem with this formulation is that the exact exchange-correlation functional is not yet known. If LDA or GGA functional is used instead, $V_{xc}$ will be a continuous function by construction and therefore there is no discontinuity (i.e. $\Delta_{xc} = 0$). The band gap problem of DFT is a result of the Kohn-Sham formulation of DFT, and in particular to the approximations made in exchange-correlation functional.
 
 \subsection{GW Approximation}
 The most suitable method for studying  single particle excitation spectra such as ionization energies and electron affinities of extended systems is the Green's function. The Green's function relies on the calculation of the self-energy operator which is non-local, energy dependent, and non-Hermitian \citep{Setten2012}.  The self-energy is best approximated by the so called quasiparticle $GW$ approximation, after the pioneering works of Hedin and Lundqvist \citep{Hedin1965,Hedin1970}. $GW$ stands for the single-particle Green's function ($G$) and the dynamically screened Coulomb interaction ($W$). In practice, the exchange-correlation functional is replaced by the self-energy $\Sigma$ \citep{Hybertsen1986}
@@ -358,13 +358,13 @@ where $a_0=0.20$,$a_x=0.72$, and $a_c=0.81$. The parameters were
 determined by fitting to a data of measured atomization
 energies \citep{Perdew1996a}.
 
-A critical feature of Hartree-Fock exchange is that it is nonlocal, that is, it cannot be evaluated at one particular spatial location, unless the electron density is known for all locations. Introducing nonlocality greatly increases the computational cost in solving Kohn-Sham equation. These type of functional are very difficult to apply in bulk and spatially extended systems. As a result, HF exact exchange find almost its use in quantum chemistry calculations involving molecules. 
+A critical feature of Hartree-Fock exchange is that it is nonlocal, that is, it cannot be evaluated at one particular spatial location, unless the electron density is known for all locations. Introducing nonlocality greatly increases the computational cost in solving Kohn-Sham equation. These type of functional are very difficult to apply in bulk and spatially extended systems. As a result, HF exact exchange find almost its use in quantum chemistry calculations involving molecules.
 However, progress is being done in developing the screened hybrid functionals in which the exchange interaction is split into two regions, a long-range (i.e. interstitial region) and a short-range (i.e. core region)  interaction. The HF exchange is only incorporated to the short-range portion while standard DFT exchange acts on all portion. The Heyd, Scuseria, and Ernzerhof (HSE) functional is based on this approach which is calculated as \citep{Heyd2003,Krukau2006}
 \begin{equation}
 	E_{xc}^{\text{HSE}} = \frac{1}{4} E_x^{\text{HF,SR}}(\omega) +  \frac{3}{4} E_x^{\text{PBE,SR}}(\omega) + E_x^{\text{PBE,LR}}(\omega) + E_c^{\text{PBE}}
-\end{equation} 
+\end{equation}
 where the screening parameter $\omega$ defines the separation
-range, SR and LR refer to short range and long range, respectively. 
+range, SR and LR refer to short range and long range, respectively.
 
 
 \subsection{Meta-GGA}
@@ -372,7 +372,7 @@ Meta-GGA is an extension of the GGA in which the local kinetic energy density is
 \begin{equation}
 	E^{\text{MGGA}}_{xc} [\rho]= \int \rho({\va*{r}})\, \epsilon_{xc}[\rho({\va*{r}})]\, F_{xc}[\rho({\va*{r}}),\grad \rho({\va*{r}}),\tau(\va*{r})] \,  \dd[3]{r}
 \end{equation}
-where $\tau(\va*{r})$ is  defined as 
+where $\tau(\va*{r})$ is  defined as
 \begin{equation}
 	\tau(\va*{r}) = \frac{1}{2} \sum_{i=1}^N \abs{\grad \phi_i(\va*{r})}^2
 \end{equation}
@@ -383,7 +383,7 @@ The implementation of Tao, Perdew, Staroverov, and Scuseria (TPSS) functional is
 \end{equation}
 where $\chi$ is a complicated function of $\rho({\va*{r}}),\grad \rho({\va*{r}})$, and $\tau(\va*{r})$. Other  meta-GGAs  have  also been  proposed  recently such as Tran, Blaha-modified Becke, Johnson (TB-mBJ) functional \citep{Tran2009};  Perdew, Kurth, Zupan, and Blaha functional\citep{Perdew1999}; and Strongly Constrained and Appropriately Normed Density functional (SCAN) \citep{Sun2015}.
 
-Since there are kinetic energy density corrections incorporated in the functional, the accuracy of meta-GGAs can compete with the computationally expensive hybrid or GW calculations. It is as cheap as the standard DFT such as LDA or GGA and hence can be scaled to large systems efficiently \citep{Tran2009}. It also improves the band gaps of various insulators, semiconductors, oxides and halides but it fails sometimes on materials containing $d$ and $f$ orbitals \citep{Singh2010,Singh2010a}. 
+Since there are kinetic energy density corrections incorporated in the functional, the accuracy of meta-GGAs can compete with the computationally expensive hybrid or GW calculations. It is as cheap as the standard DFT such as LDA or GGA and hence can be scaled to large systems efficiently \citep{Tran2009}. It also improves the band gaps of various insulators, semiconductors, oxides and halides but it fails sometimes on materials containing $d$ and $f$ orbitals \citep{Singh2010,Singh2010a}.
 
 
 \subsection{Hubbard-U Correction}
@@ -391,18 +391,18 @@ One of the corrective approach used in the DFT electronic band gap problem is th
 \begin{equation}
 	E_{\text{DFT}+U} [\rho({\va*{r}})] = E_{\text{DFT}} [\rho({\va*{r}})] + E_{\text{HUB}}[{n^I_{mm'}}] - E_{\text{dc}} [n^I]
 \end{equation}
-where $E_{\text{DFT}} [\rho({\va*{r}})]$ is the eigenvalue of the Kohn-Sham equation in \eqref{eq:KS}, $E_{\text{HUB}}$ is the energy of Hubbard functional that describes the correlated systems, and $E_{\text{dc}}$ is the double-counting correction when treating electronic interactions as a mean field. Based on this formulation, DFT+U energy can be expanded as 
+where $E_{\text{DFT}} [\rho({\va*{r}})]$ is the eigenvalue of the Kohn-Sham equation in \eqref{eq:KS}, $E_{\text{HUB}}$ is the energy of Hubbard functional that describes the correlated systems, and $E_{\text{dc}}$ is the double-counting correction when treating electronic interactions as a mean field. Based on this formulation, DFT+U energy can be expanded as
 \begin{equation}
-	E_{\text{DFT}+U} [\rho({\va*{r}})] = E_{\text{DFT}} [\rho({\va*{r}})] + \sum_I \left[\frac{U^I}{2} \sum_{m \neq m'}  {n^I_{m}} {n^I_{m'}} - \frac{U^I}{2} n^I (n^I - 1)\right] 
+	E_{\text{DFT}+U} [\rho({\va*{r}})] = E_{\text{DFT}} [\rho({\va*{r}})] + \sum_I \left[\frac{U^I}{2} \sum_{m \neq m'}  {n^I_{m}} {n^I_{m'}} - \frac{U^I}{2} n^I (n^I - 1)\right]
 \end{equation}
 where $n^I_{m}$ are the occupation numbers of localized orbitals identified by the atomic site index $I$ and state index $m$ (magnetic quantum number for a particular angular quantum number $l$). The occupations are computed from the projection of Kohn-Sham orbitals onto the localized basis set such as the atomic orbital states \citep{Himmetoglu2011}
 \begin{equation}
 	n^I_{mm'} = \sum_{k,i} f_{ki} \braket{\phi_{ki}}{\psi^I_m} \braket{\psi^I_{m'}}{\phi_{ki}}
 \end{equation}
-where $\phi_{ki}$ are the Kohn-Sham states (labeled by k-point $k$ and band index $i$), $f_{ki}$ represents their occupations according to Fermi-Dirac distribution, and $\psi^I_{m}$ are the atomic orbitals. In some published works, the on-site  Coulomb term $U$ is replaced by an effective potential $U_{eff} =U + J $, where $J$ is the  site exchange term that accounts for Hund's rule coupling \citep{Liechtenstein1995,Dudarev1998}. The 
-effective potential is proved to be crucial in describing strong spin-orbit coupling. 
+where $\phi_{ki}$ are the Kohn-Sham states (labeled by k-point $k$ and band index $i$), $f_{ki}$ represents their occupations according to Fermi-Dirac distribution, and $\psi^I_{m}$ are the atomic orbitals. In some published works, the on-site  Coulomb term $U$ is replaced by an effective potential $U_{eff} =U + J $, where $J$ is the  site exchange term that accounts for Hund's rule coupling \citep{Liechtenstein1995,Dudarev1998}. The
+effective potential is proved to be crucial in describing strong spin-orbit coupling.
 
-Hubbard-U calculations depend on the values of $U$, where it can be either formulated from first principles or achieved empirically by tuning it such that it agrees with the experimental results. The former can be achieved through linear response method in which the response of  the localized states to a small perturbation is calculated \citep{Cococcioni2005,Kulik2006}. The latter is usually compared to the experimental band gap. Nevertheless, the empirical tuning is much preferred because of the significant computational cost in doing linear response calculations, and also the calculated $U$ is not necessarily better than the empirical one \citep{Dompablo2011}. As stated earlier, Hubbard-U calculation can be used to correct the band gaps of strongly correlated systems. This is applicable to semiconductors containing of $d$ and $f$ orbitals such as \ch{ZnO}, \ch{CeO2}, \ch{TiO2}, etc. Figure \ref{fig:hubbard} shows the improvement of band gaps of transition-metal oxides using Hubbard-U correction. Note that the band gap of MnO is underestimated while FeO is incorrectly predicted as metallic when LDA is used. 
+Hubbard-U calculations depend on the values of $U$, where it can be either formulated from first principles or achieved empirically by tuning it such that it agrees with the experimental results. The former can be achieved through linear response method in which the response of  the localized states to a small perturbation is calculated \citep{Cococcioni2005,Kulik2006}. The latter is usually compared to the experimental band gap. Nevertheless, the empirical tuning is much preferred because of the significant computational cost in doing linear response calculations, and also the calculated $U$ is not necessarily better than the empirical one \citep{Dompablo2011}. As stated earlier, Hubbard-U calculation can be used to correct the band gaps of strongly correlated systems. This is applicable to semiconductors containing of $d$ and $f$ orbitals such as \ch{ZnO}, \ch{CeO2}, \ch{TiO2}, etc. Figure \ref{fig:hubbard} shows the improvement of band gaps of transition-metal oxides using Hubbard-U correction. Note that the band gap of MnO is underestimated while FeO is incorrectly predicted as metallic when LDA is used.
 
 \begin{figure}[tbh!]
 	\centering
@@ -411,7 +411,7 @@ Hubbard-U calculations depend on the values of $U$, where it can be either formu
 	\label{fig:hubbard}
 \end{figure}
 
-	
+
 
 % \subsection{Hamiltonian Operator}
 % \subsection{Indistinguishability of electrons}

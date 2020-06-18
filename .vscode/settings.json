@@ -18,5 +18,6 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.watch.usePolling": true,
     "latex-workshop.showContextMenu": true,
-    "latex-workshop.message.information.show": true
+    "latex-workshop.message.information.show": true,
+    "explorer.autoReveal": "focusNoScroll"
 }

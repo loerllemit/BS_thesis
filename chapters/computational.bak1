@@ -1,0 +1,445 @@
+\chapter{DFT Calculation of Solids} \label{chap:compute}
+\section{Basis Sets}
+Solving the Kohn-Sham equation in \eqref{eq:KS} requires the use of mathematical representations to describe the single-particle Kohn-Sham orbitals $\phi_i(\va*{r})$. One possibility is to express these orbitals as a basis sets that are known and numerically solvable. One starts by expressing orbitals as a linear combination of generic basis set
+
+\begin{equation} \label{eq:basis_set}
+	\phi_i(\va*{r}) = \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha}
+\end{equation}
+where $i$ is the band index, the sum runs over all the basis functions up to the dimension $M$, and $c^i_\alpha$ is the expansion coefficient of a known basis function $\ket{\chi_\alpha}$. Since $\phi_i(\va*{r})$ spans the whole infinite space, $M$ must be in principle infinite. However, in practice the basis set is truncated just enough for an accurate description of the orbital. The choice of the basis set depends on several factors such as (a) efficiency and (b) unbiased \citep{Cottenier2013}. A basis set is efficient if it resembles  $\phi_i(\va*{r})$ closely, hence requiring less expansion coefficients and smaller dimension size. However, this assumes that the solution to the problem must be known beforehand. Such basis set can never be general because it will quickly yield a solution for a specific problem but will poorly perform for other cases. The problem is that optimizing a basis set for a specific system can cause bias. This means that if a property of a system is calculated, but the basis set is optimized for only one particular system, the result will be biased towards that one \citep{Junquera2001,Louwerse2012}. It is the goal of theoretical condensed matter physics to find a basis set that is simultaneously efficient and unbiased. There are three types of basis sets that are commonly used for expansions, namely: local, nonlocal, and augmented basis.
+
+
+\subsection{Local Basis Set}
+A local basis has its peak centered on a local point and is well applicable to orbitals around individual atoms in real space. Gaussian basis sets or any atom-centered basis orbitals are examples of this type. It is a popular choice for atoms and molecules whose orbitals are highly localized around each atom.
+Hence, less than 20 basis functions per atom are sufficient enough to achieve acceptable accuracy. As an example, the Slater type basis orbitals (STO) are written as \citep{Slater1932}
+\begin{equation}
+	\ket{\chi^{\text{STO}}_\alpha} = A e^{-\alpha r}
+\end{equation}
+where $A$ is some normalization constant. Note that STO exponentially decays away from an atom centered at $\va*{r}$. On the other hand, Gaussian type basis orbitals (GTO)  are written as \citep{Boys1950}
+\begin{equation}
+	\ket{\chi^{\text{GTO}}_\alpha} = A e^{-\alpha r^2}
+\end{equation}
+GTO has the advantage that all integrals associated with it can be performed analytically. Since these basis sets are localized, they cannot properly described the long-range interaction of metals and the periodicity of crystalline solids.
+
+\subsection{Nonlocal Basis Set}
+Nonlocal basis set span the whole space. An important class of basis orbital under this category is the plane wave basis (PW) described as
+\begin{equation}
+	\ket{\chi^{\text{PW}}_\alpha} = A e^{i \alpha r}
+\end{equation}
+which can be generalized as a dot product of wavevector $\va{k}$ and position vector $\va{r}$
+\begin{equation}
+	\ket{\chi^{\text{PW}}_{\va{k}}} = A e^{i \va{k} \vdot \va{r}}
+\end{equation}
+PWs are the most commonly used in DFT  because of the following reasons: PWs are already solutions to periodic systems satisfying the Bloch condition; PWs are convenient  in taking gradients and integrals because of their exponential form; changing the domain of PWs from  real space to reciprocal space are easily executed using Fourier transformation; PWs are orthogonal which simplifies calculation; and lastly, PWs are independent of the atomic positions because of its nonlocal nature. However, there are also disadvantages of using it. It requires an enormous amount of PWs to properly describe the rapid fluctuation of orbital wavefunctions near the core region of an atom or ion. A direct fix to this problem is the application of pseudopotentials to smoothen the strong Coulomb potential of the nucleus, which will be the topic of later section \citep{Segall2002}.
+
+\subsection{Augmented Basis Set}
+Augmented basis sets are combinations of local and nonlocal basis sets. Under this category is the Augmented plane waves (APW) basis. The APW divides the space into two regions: the core region,where the orbitals are atomic-like; and the interstital region, where the orbitals  resemble plane waves \citep{Slater1953}. The basis orbitals are taken to be \citep{Sjoestedt2000}
+\begin{equation}
+	\ket{\chi^{\text{APW}}_{\va{k}}} =
+	\begin{dcases}
+		\text{atomic basis}    \quad & , \abs{\va{r}-\va{R}} \leq r_c \\
+		A e^{i \va{k} \vdot \va{r}}  & , \abs{\va{r}-\va{R}} > r_c    \\
+	\end{dcases}
+\end{equation}
+where $\va{R}$ is the center of the atom and $r_c$ is the core radius. Outside the core, the orbital wavefunction is a plane wave because the potential is constant there. Inside the core, the orbital wavefunction is atomic-like and can be solved by the appropriate Schr\"{o}dinger equation. The potential involved in this type of basis is usually called muffin-tin potential due its resemblance to muffin tins. APWs must satisfy the boundary conditions at $\abs{\va{r}-\va{R}} = r_c$. That is, the basis orbital must be continuous at the boundary value and its slope exists \citep{Andersen1975}. Augmented plane waves are very accurate because it describes both core electrons and valence electrons well. However, accuracy is always associated with computational costs.
+
+
+
+\section{Matrix Formulation for KS equation}
+The use of basis sets transforms the Kohn-Sham equation into an ordinary matrix algebra  that can be solved numerically. The Kohn-Sham equation in \eqref{eq:KS} is expanded in terms of basis sets using \eqref{eq:basis_set}
+
+\begin{equation}\label{eq:KS_basis}
+	\hat{\mathcal{H}}_{KS}\,  \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha} = \epsilon_i\,  \sum^M_\alpha c^i_\alpha \ket{\chi_\alpha}
+\end{equation}
+Left "multiply" with  $\bra{\chi_\beta}$:
+\begin{equation}
+	\sum^M_\alpha  \bra{\chi_\beta} \hat{\mathcal{H}}_{KS} \ket{\chi_\alpha} c^i_\alpha = \sum^M_\alpha \braket{\chi_\beta}{\chi_\alpha} c^i_\alpha \epsilon_i
+\end{equation}
+which can be simplified as
+\begin{equation}
+	\sum^M_\alpha  H_{\beta\alpha} c^i_\alpha = \sum^M_\alpha S_{\beta\alpha} c^i_\alpha \epsilon_i
+\end{equation}
+where $ H_{\beta\alpha}$ and $S_{\beta\alpha}$ are the energy-independent Hamiltionian and the overlap matrix, respectively \citep{Kohanoff2006}. The elements of these matrices are defined as
+
+\begin{align}
+	H_{\beta\alpha} & = \bra{\chi_\beta} \hat{\mathcal{H}}_{KS} \ket{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \hat{\mathcal{H}}_{KS}\chi_\alpha(\va*{r}) \dd[3]{r} \\
+	S_{\beta\alpha} & = \braket{\chi_\beta}{\chi_\alpha} = \int \chi^*_\beta(\va*{r}) \chi_\alpha(\va*{r}) \dd[3]{r}
+\end{align}
+The overlap matrix $S_{\beta\alpha}$ takes into account the possible non-orthogonality of the basis functions \citep{Woods2019}. Note that for plane wave (PW) basis sets, which are orthonormal, the overlap matrix $S_{\beta\alpha}$ becomes an unit matrix. The general matrix eigenvalue problem can be recast into a compact form \citep{Requist2008}
+\begin{equation} \label{eq:matrix_eigen}
+	\bm{H c =  S c \Lambda}
+\end{equation}
+where $\bm{\Lambda}$ is the diagonal matrix containing energy eigenvalues and  $\bm{c}$ has the eigenfunction (expansion coefficients of the KS orbital) as columns. In solving \eqref{eq:matrix_eigen}, the normalization condition must be taken into account
+\begin{align}
+	\int \phi_i(\va*{r}) \phi^*_i(\va*{r}) & = \int \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha \chi^*_\alpha c^i_\beta \chi_\beta \dd[3]{r} = 1    \\
+	                                       & = \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta \int \chi^*_\alpha  \chi_\beta\, \dd[3]{r} = 1 \\
+	                                       & = \sum^M_\alpha \sum^M_\beta c^{i*}_\alpha c^i_\beta S_{\alpha\beta} = 1 \label{eq:orbital_norm}
+\end{align}
+
+There are $M \times N$ elements of $\bm{c}$ needed to be solved, where $M$ is the total number of basis functions used and $N$ is the total number of lowest-energy orbitals. In addition, there are $N$ unknown energy eigenvalues to be solved. Fortunately, there are $M \times N$ independent equations in \eqref{eq:matrix_eigen} and $N$ equations coming from the normalization condition \eqref{eq:orbital_norm} so that $N(M+1)$  equations are simultaneously solved \citep{Cottenier2013}. It is obvious that increasing either $M$ or $N$ will increase the computational power needed. This does not inlude yet the  iterative self consistent field calculation, as shown in Figure \ref{fig:KS_loop}, needed to have converged electron density.
+Common numerical algorithms used in matrix diagonalization are Davidson iterative diagonalization \citep{Davidson1975,Crouzeix1994}, Residual minimization/direct inversion in the iterative subspace (RMM–DIIS) \citep{Wood1985,Rayson2008}, and Conjugate-gradient-like band-by-band diagonalization \citep{Vorst1988,Kresse1996}. Numerical algorithms must be efficient and optimized since  most DFT codes spend substantial amount of time in matrix diagonalization.
+
+\section{Pseudopotential (PP) Approach}
+The idea behind the use of pseudopotentials is to replace the strong Coulomb potential of the nucleus by an effective potential acting on the valence electrons \citep{Phillips1958,Phillips1959,Cohen1970}. When atoms bond together to form a solid, the core electrons are so localized in a deep potential well that they remain invariant. Thus, their contribution to bonding is negligible and the replacement of its potential by a simple fictitious potential is justified. Figure \ref{fig:PP} illustrates the action of pseudopotential on the wavefunction and potential of an atomic orbital. The all-electron wavefunction contains nodes which are  computationally difficult to  solve. On the other hand, pseudo wavefunction is nodeless everywhere, and therefore  it greatly reduces the number of plane waves required for the calculation by a significant amount. Note that at large distances away from the nucleus, both potential becomes constant and the wavefunction is expected to be a plane wave. By effectively neglecting the core electrons from the calculation, the Kohn-Sham orbitals needed is dramatically reduced. This will substantially reduce the computational time required to calculate orbital-dependent quantities.
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"images/computational/PP_combine"}
+	\caption[ Schematic illustration of a pseudo wavefunction pseudized from a 3s wavefunction of Si orbital]{Schematic illustration of a  (a) pseudo wavefunction pseudized from a 3s wavefunction of Si orbital and the (b) corresponding pseudo- (PP) and all-electron (AE) potentials. The all-electron approach takes into account all electrons including core and valence electrons. Illustration taken from \citep{Jochym2008}.}
+	\label{fig:PP}
+\end{figure}
+
+There are two criteria for choosing a good pseudopotential, namely: softness and transferability \citep{Troullier1990,Fuchs1999}. A pseudopotential is soft  if it requires few plane waves to model the system. This is similar to efficiency of basis sets. A pseudopotential is transferable  if it can be used in whatever environment (e.g. molecule, solid, cluster, surface, metal, insulator, etc). The choice depends on which pseudopotential is advantageous to use  and the type of calculation being done. The common pseudopotentials used in DFT codes are Norm-Conserving pseudopotential, Ultrasoft pseudopotential, and Projector Augmented Wave.
+
+\subsection{Norm-Conserving Pseudopotential (NCPP)}
+In norm-conserving pseudopotentials, the pseudopotential and all-electron charge densities are set  equal so that the norm is conserved in both potentials \citep{Hamann1979,Troullier1991}. Pseudopotentials are generated to meet this criterion
+\begin{equation}
+	\int_0^{r_c} \abs{\phi_{\text{PP}}(\va*{r})}^2 \dd{\va*{r}} = \int_0^{r_c} \abs{\phi_{\text{AE}}(\va*{r})}^2 \dd{\va*{r}}
+\end{equation}
+where $r_c$ is the chosen cutoff radius that separates the core region from the valence region. The constraint imposed on this pseudopotential leads to an improvement in transferability of potentials to different chemical environments. In addition, reducing $r_c$ improves the transferability  because in this way the pseudo wavefunction becomes closer to the all-electron result. However, the cutoff radius should be chosen outside the location of the maximum node of the all-electron wavefunction. Note that this pseudopotential gives only the valence charge density and not the total charge density. Other norm-conserving schemes were proposed by Troullier and Martin (TM) \citep{Troullier1991}, and by Rappe, Rabe, Kaxiras, and Joannopoulos (RRKJ) \citep{Rappe1990}.
+
+\subsection{Ultrasoft Pseudopotential (USPP)}
+Ultrasoft pseudopotentials were introduced in order for the calculations to have lowest numbers of plane waves basis set used since it was shown that the norm of the all-electron and pseudo wavefunction was not necessary requirement for transferability. Hence, this was done by Vanderbilt \citep{Vanderbilt1990} who showed that smoother but highly transferable pseudopotentials are possible. The cutoff radius $r_c$ is situated farther than the equivalent norm-conserving pseudopotential and the pseudo wavefunction is flatter. This leads to fewer plane waves that gives significant reduction in computational time. Similar to norm-conserving pseudopotentials, the ultrasoft pseudopotential only gives valence charge densities, not total charge
+densities.
+
+\subsection{Projector Augmented Wave (PAW)}
+The Projector Augmented Wave takes into account both all-electron and pseudo wavefunction into calculations. It aims
+for both efficiency of using pseudopotential and the accuracy of using all-electron potential \citep{Bloechl1994,Kresse1999}. However, the all-electron wavefunction is limited only on the core region and will be truncated beyond the cut-off radius $r_c$. A correction factor is added to subtract the overlapping part of the pseudo wavefunction in the core region \citep{Rostgaard2009}. Hence, the PAW wavefunction involves three terms
+\begin{equation}
+	\psi_{\text{PAW}} =  \psi_{\text{AE}} + \psi_{\text{PP}}  - \psi_{\text{net}}
+\end{equation}
+The actions of the terms in the equation above are visualized in Figure \refeq{fig:PAW}. The $\psi_{\text{PP}}$ is expanded in plane wave basis sets while $\psi_{\text{AE}}$ is only defined within the cutoff radius $r_c$. The $\psi_{\text{net}}$ subtracts the overlapping part of $\psi_{\text{PP}}$ in the core region.
+
+Note that in Kohn-Sham formulation, these wavefunctions $\psi$ become the independent Kohn-Sham orbitals $\phi$. PAW calculations are accurate as all-electron calculations with much less computational effort. Unlike the two pseudopotentials mentioned before, PAW pseudopotential returns both the core and valence charge densities.
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.48\linewidth]{"images/computational/PAW"}
+	\caption[ Schematic illustration of the wavefunctions used in PAW pseudopotential]{Schematic illustration of the wavefunctions used in PAW pseudopotential. Illustration taken from \citep{Lee2016}.}
+	\label{fig:PAW}
+\end{figure}
+
+\section{Supercells}
+Most solids are characterized by its regular repeating three-dimensional structure called a crystal lattice. Hence, it is possible to study solids by just looking at the building block, which is ordinarily called the unit cell. In order to model solids that are feasible for computational simulation, repeating unit cells that are stack together must be needed. These  stacked unit cells  are collectively called supercell. When implementing DFT, the periodic boundary conditions must be taken into account. In this case, the supercell is duplicated periodically throughout the whole space. However, the actual calculation is applied only on a single supercell while the rest (called images) simply copies it with no significant computational cost.
+
+When defects are introduced into the supercell, it forms a periodic array of defects across all the images of the supercell. A supercell must be large enough so that the calculation is independent of the location of the defect inside the supercell and also to reduce  the interaction  with its images. Thus, the Kohn-Sham equation and other pertinent calculations are solved only within  a single supercell.
+
+%add figure
+
+\section{DFT Calculation in Reciprocal Space}
+Working in reciprocal space is greatly convenient if functions are expressed in terms of plane waves. Plane waves propagate in real space but they become point in the reciprocal space, wherein each point corresponds to a particular wavevector $\va{k}$. The lattice points in real space will define the allowed wavevectors $ \va{G}$, the reciprocal lattice vector which is subset of the reciprocal space. See Appendix \ref{chap:BZ} for discussions about reciprocal lattice and Brillouin zones. Since real space and reciprocal space have inverse relationship, increasing the supercell size by a certain factor will cause the supercell in reciprocal space to shrink by  a same factor, and vice versa. Figure \ref{fig:reciprocal} illustrates this relationship. Note that no information is lost when transforming between the two spaces. In addition, bigger supercells require fewer k-points but in the expense of many atoms included in calculations.
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"images/computational/reciprocal"}
+	\caption[Relationship between a supercell in real space and reciprocal space]{Relationship between a supercell in (a) real space and the corresponding (b) reciprocal space.}
+	\label{fig:reciprocal}
+\end{figure}
+
+In previous discussions,  $\va{k}$ was defined as any wavevector in the reciprocal space. However, it can always be transform to $\va{k} \rightarrow \va{k} + \va{G} $ so that the new $\va{k}$ is in the first Brillouin zone and that any wavevectors are equivalent to the new one by a reciprocal lattice vector $\va{G}$.  This transformation will limit DFT calculations inside the first Brillouin zone instead of the whole reciprocal space.
+
+Furthermore, one can take advantage of the symmetry of the solid to reduce the first Brillouin zone into what is called irreducible Brillouin zone (IBZ). Hence, DFT calculations will be narrowed down further into this Brillouin zone. Note that each k-points will have a weight factor that depends on how many times it was folded during symmetry operations (e.g. rotation and inversion). Figure \ref{fig:dft_solid} summarizes the various techniques employed in simplifying DFT calculations in solids starting from a bulk solid, then a supercell simulation, transformed to reciprocal space confined in first Brillouin zone, and further reduced to a irreducible zone by symmetry operations. All these techniques and the pseudopotential approximations made DFT calculations computationally feasible.
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{"images/computational/dft_solid"}
+	\caption[Various techniques used in treating solids in DFT calculations.]{Various techniques used in treating solids in DFT calculations. Figure taken from \citep{Lee2016}.}
+	\label{fig:dft_solid}
+\end{figure}
+
+\section{k-point Sampling}
+It was shown that DFT calculations can be solved within the irreducible Brillouin zone. However, there are infinite numbers of k-points inside IBZ that are well qualified for a plane wave. One way to deal with this problem is to sample finite number of k-points that represent each region well. This sampling technique is justified by the fact that orbitals and other quantities vary smoothly in the IBZ. Sampling in IBZ must satisfy two goals: select few k-points as possible to reduce computational time, and select enough so that they represent the actual quantities well. Convergence tests  in which the  number of k-points are varied until quantities such as total energy does not change anymore must be conducted. The quantity is said to be converged with respect to k-points.  Convergence tests are very helpful in finding the optimum number of k-points with minimum error. Any integrated function $f(\va{r})$ can be written over the Brillouin zone
+\begin{equation}
+	f(\va{r}) = \int_{BZ} F(\va{k}) \dd{\va{k}}
+\end{equation}
+where $F(\va{k})$ is the Fourier transform of $f(\va{r})$. To evaluate computationally, the integral can be approximated by weighted sum over special k-points
+\begin{equation}\label{eq:BZ_approx}
+	\int_{BZ} F(\va{k}) \dd{\va{k}} \approx \sum_{j} w_{j}  F(\va{k}_j)
+\end{equation}
+where $w_{j}$ are the weighted factors.
+There are standard schemes for generating k-points grid mesh and probably the most popular one is the Monkhorst-Pack method.
+
+\subsection{Monkhorst-Pack method}
+The Monkhorst-Pack method generates a grid of uniform special k-points along the three lattice vectors in the reciprocal space \citep{Monkhorst1976}. The construction of the special points is based on the formula
+\begin{equation}
+	u_{r} = \frac{2r - q_r -1}{2 q_r} \qquad , r = 1, \dots, q_r
+\end{equation}
+where $q_r$ determines the number of k-points  used along one of the axis in $r = x, y, {\text{ or }} z$, and  $r$ varies from 1 to $q_r$. The k-point is given by
+\begin{equation}
+	\va{k} = u_x \va{b}_1 + u_y \va{b}_2 + u_z \va{b}_3
+\end{equation}
+wherein $\va{b}_1, \va{b}_2, \va{b}_3$ are the primitive lattice vectors of the reciprocal lattice. $u_r$ gives the fractional part of the corresponding component of the reciprocal lattice vector. For instance, in a $4 \times 4 \times 4$ grid this will correspond to $q_x = q_y = q_z = 4$ with a total number of $q_x \times q_y \times q_z = 64$ k-points. The number of k-points will be further reduced by symmetry operations inside the irreducible Brillouin zone.
+
+The center of the mesh can be centered on the origin ($\va{k} = 0  \text{ or } \Gamma$ point) or shifted by a fixed amount away from the origin. The former is important if one needs to know the electronic states at the $\Gamma$ point. The latter generally breaks the symmetry, hence, it must be use with care.
+
+
+
+\subsection{Gamma Point Sampling}
+For very large supercell, the associated first Brillouin zone are very small that it approaches the zone center or the $\Gamma$ point. Thus, it would be practical to use only one k-point  with high weight factor. Calculations based on the sampling at the $\Gamma$ point reduce significant computational cost because the real and reciprocal space coincide with each  other at the origin and the KS orbital will real quantity so that any consideration for complex numbers is not necessary. $\Gamma$ point calculation are routinely used in massive calculations.
+
+\section{Bloch Representations in DFT}
+The Bloch expression for the Kohn-Sham orbital is similar to the many-particle wavefunction derived from Schr\"{o}dinger equation. See section \ref{sec:bands} for the discussion about periodicity. Here, the Bloch form of KS orbital is
+\begin{equation}
+	\phi_{n,k}(\va{r}) = u_{n,k} (\va{r}) e^{i \va{k} \vdot \va{r}}
+\end{equation}
+where $\phi_{n,k}(\va{r})$ now depends both on the band index $n$ and the wavevector $\va{k}$ confined in the first Brillouin zone. Expanding the periodic function $u_{n,k}$ in terms of plane waves whose wavevectors are reciprocal lattice vector $\va{G}$
+\begin{equation}
+	u_{n,k} (\va{r}) =  \sum_{\va*{G}} C_{n,k}(\va{G})\, e^{i \va{G} \vdot \va{r}}
+\end{equation}
+where $C_{n,k}(\va{G})$ is the expansion coefficient of plane wave basis sets. The phase factor $\exp({i \va{G} \vdot \va{r}}) $ represents a plane wave travelling in space, perpendicular to $\va{G}$. Thus, the KS orbital can be rewritten as
+\begin{equation} \label{eq:orbital_rec}
+	\phi_{n,k}(\va{r})  = \sum_{\va*{G}} C_{n,k}(\va{G})\, e^{i (\va{k} + \va{G} ) \vdot \va{r}}
+\end{equation}
+The coefficients $C_{n,k}(\va{G})$ can be solved by taking the inverse Fourier transform of $\phi_{n,k}(\va{r}) $
+\begin{align}
+	C_{n,k}(\va{G}) & = \mathcal{F}^{-1} [\phi_{n,k}(\va{r})]                                        \\
+	                & = \int \phi_{n,k}(\va{r}) e^{- i (\va{k} + \va{G} ) \vdot \va{r}} \dd{\va*{r}} \\
+	                & = \phi_{n,k}(\va{G})
+\end{align}
+Similarly, the electron density in real space and reciprocal space are Fourier transform of each other
+\begin{align}
+	\rho({\va{r}}) & = \sum_{\va*{G}} \rho({\va{G}}) e^{i \va{G} \vdot \va{r}} \label{eq:density_rec} \\
+	\rho({\va{G}}) & = \int \rho({\va{r}}) e^{-i \va{G} \vdot \va{r}} \dd{\va*{r}}
+\end{align}
+
+
+\section{Energy Operators in Reciprocal Space}
+Since DFT calculations take place in the reciprocal space, the Hamiltonian of  the KS equation in \eqref{eq:KS} must be transform from the real space to reciprocal space. In the Kohn-Sham formulation, both non-interacting kinetic energy and Hartree potential are easily evaluated because they are local in reciprocal space. The action of the  kinetic energy operator on the KS orbital  is
+\begin{align}
+	\hat{\mathcal{T}}_{KS} \ket{\phi_{n,k}(\va{r})} & = -\frac{1}{2} \laplacian \left( \sum_{\va*{G}} C_{n,k}(\va{G})\, e^{i (\va{k} + \va{G} ) \vdot \va{r}} \right) \\
+	                                                & = \frac{1}{2} \sum_{\va*{G}} (\va{k} + \va{G} )^2 C_{n,k}(\va{G})\, e^{i (\va{k} + \va{G} ) \vdot \va{r}}
+\end{align}
+Hence, the effect of the kinetic energy operator in the reciprocal space is to multiply each coefficient by one-half times the square of its wavevector. Its matrix representation is
+\begin{align}
+	\hat{\mathcal{T}}_{KS}(\va{G},\va{G}') & = \bra{\phi_{n,k}(\va{r})} \hat{\mathcal{T}}_{KS} \ket{\phi_{n,k}(\va{r})} \\
+	                                       & = \frac{1}{2} \abs{\va{k} + \va{G}}^2 \delta_{\va{G},\va{G}'}
+\end{align}
+In the above equation, the bra-term is expanded in terms  of $\va{G}$ while the ket-term is expanded in $\va{G'}$. The Hartree potential in reciprocal space is given by
+\begin{equation}
+	\hat{\mathcal{V}}_H = \frac{1}{2} \sum_{\va*{G}} \abs{\rho({\va{G}})}^2
+\end{equation}
+which is more simple compared to its real space counterpart given in \eqref{eq:hartree_E}. Its matrix representation is given by
+\begin{align}
+	\hat{\mathcal{V}}_H(\va{G},\va{G}') & = \bra{\phi_{n,k}(\va{r})} \hat{\mathcal{V}}_H  \ket{\phi_{n,k}(\va{r})} \\
+	                                    & = \hat{\mathcal{V}}_H(\va{G} - \va{G}') \label{eq:hartree_rec}
+\end{align}
+The remaining external potential and exchange-correlation energy can be obtained from their  Fourier transform, respectively
+\begin{align}
+	\hat{\mathcal{V}}_{ext}(\va{G}) & = \int \hat{\mathcal{V}}_{ext}(\va{r}) e^{-i \va{G} \vdot \va{r}} \dd{\va*{r}} \\
+	\hat{\mathcal{V}}_{xc}(\va{G})  & = \int \hat{\mathcal{V}}_{xc}(\va{r}) e^{-i \va{G} \vdot \va{r}} \dd{\va*{r}}
+\end{align}
+Their matrix representations are similar to \eqref{eq:hartree_rec}. Taking all the derivations above, the complete Kohn-Sham equation in reciprocal space  is
+\begin{multline}\label{eq:KS_rec}
+	\sum_{\va*{G}'} \left[ \frac{1}{2} \abs{\va{k} + \va{G}}^2 \delta_{\va{G},\va{G}'} + \hat{\mathcal{V}}_{ext}(\va{G} - \va{G}') + \hat{\mathcal{V}}_H(\va{G} - \va{G}') + \hat{\mathcal{V}}_{xc}(\va{G} - \va{G}') \right] C_{n,k}(\va{G}') \\
+	= \epsilon_{n,k}\, C_{n,k}(\va{G})
+\end{multline}
+which can be rewritten as a general matrix equation
+\begin{equation}
+	\hat{\mathcal{H}}_{\va{G},\va{G}'} C_{n,k}(\va{G}') =  \epsilon_{n,k}\, C_{n,k}(\va{G})
+\end{equation}
+This is similar to \eqref{eq:matrix_eigen} but the overlapping matrix is set to identity matrix.
+
+\section{Cutoff Energy }
+The plane wave basis expansion of both KS orbital and the electron density in \eqref{eq:orbital_rec} and \eqref{eq:density_rec} is evaluated in the complete set of reciprocal lattice vector $\va{G}$, which is infinite. This means that it will take infinitely long to compute desired properties. Nevertheless, orbitals and electron densities tend to become smoothly varying at large $\va{G}$-vectors. Thus, their plane wave components become negligible for large $\va{G}$. The expansion can be truncated by introducing kinetic energy cut-off $E_{cut}$ defined as
+\begin{equation}
+	E_{cut} = \abs{\va{k} + \va{G}_{cut}}^2
+\end{equation}
+the $\va{G}_{cut}$ serves as the upper bound for the expansion series of KS orbital in \eqref{eq:orbital_rec}. This means that plane waves whose kinetic energy is less than this cut-off energy are the only ones included in DFT calculations. The cut-off radius of electron densities is usually a multiple of $E_{cut}$ quantified by
+\begin{equation}
+	m E_{cut} = \abs{\va{k} + \va{G}_{rho}}^2
+\end{equation}
+where $m$ is called a dual, a multiplier of $E_{cut}$, and $\va{G}_{rho}$ serves as the upper bound for the expansion series of electron density in \eqref{eq:density_rec}. The number of plane waves can be estimated as
+\begin{equation}
+	N_{\text{PW}} \approx \frac{1}{2 \pi^2} V E_{cut}^{3/2}
+\end{equation}
+where $V$ is the volume of the supercell. The cut-off energy that is  appropriate for a given calculation is  not usually known in advance, as it varies on the configuration of the system. However, convergence tests can be conducted  where the cut-off energies is increased until the desired properties stop changing. Note that wavevectors $\va{k}$ were discretized by using k-point sampling in the IBZ, $\va{G}$-vectors become finite by energy cutoff,  and the band index $n$ depends on the number of orbital states, which is also finite. Hence, solving Kohn-Sham in \eqref{eq:KS_rec} becomes computationally tractable.
+
+\section{Ionic Relaxation}
+For every DFT calculations, the system must be fully relaxed both electronically and structurally. The electronic relaxation is given by the self-consistent field calculation in section \ref{sec:scf}. The structural relaxation or ionic relaxation, also known as geometric optimization, computes the forces of each atom and are moved to  directions of minimum forces for the next electronic relaxation. The force on the $I$th atom  positioned at $\va{R}_I$ can be calculated from Hellman-Feynman theorem as \citep{Hellman1937,Feynman1939}
+\begin{align}
+	\va{F}_I =  - \pdv{E}{\va{R}_I} & = - \bra{\phi} \pdv{ \hat{\mathcal{H}}}{\va{R}_I} \ket{\phi} - \pdv{E_{II}}{\va{R}_I}                          \\
+	                                & = - \int \rho({\va{r}}) \pdv{\hat{\mathcal{V}}_{ext}(\va{r})}{\va{R}_I}  \dd{\va*{r}} - \pdv{E_{II}}{\va{R}_I}
+\end{align}
+Note that the calculation of forces is given strictly in terms of the electron density and the external potential, independent of electron kinetic energy, Hartree potential, and exchange-correlation terms. Thus, forces can be calculated by taking simple derivative operations on two potential terms. This is why force calculations are very fast that they are almost unnoticed in a  DFT calculation. The atoms will move in the direction of least force and the process is repeated again until the total force of the system is negligible. The schematic diagram of the complete relaxation in DFT calculations is shown in Figure \ref{fig:ionic_relax}. The inner loop bounded by dashed lines is the self-consistent field calculation that was shown previously in Figure \ref{fig:scf_loop}. The outer loop is the ionic relaxation. If the total force of the system is almost zero, then desired material properties such total energy, pressure, stress, etc. can be calculated.
+
+Common numerical algorithms used to implement ionic relaxation are the quasi-Newton method \citep{Curtis2015}, the conjugate gradient (CG) method \citep{Dai1999}, and the damped molecular dynamics method \citep{Probert2003}.
+
+
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/computational/ionic_relax"}
+	\caption[ Schematic diagram of the complete relaxation in DFT simulations]{Schematic diagram of the complete relaxation in DFT simulations.}
+	\label{fig:ionic_relax}
+\end{figure}
+
+
+
+\section{Density Mixing Schemes}
+In each iteration of the self consistent field calculation, it starts with a given electron density $\phi_i(\va*{r})$ and obtain the corresponding Kohn-Sham Hamiltonian and its eigenstates (see section \ref{sec:scf}). A new electron density can be computed from the occupied eigenstates. Afterwards, the new input density is updated from the old ones and will be used for the next iteration. The end goal is to reach the self consistent solution, i.e. $\rho_{out}({\va{r}}) = \rho_{in}({\va{r}})$, which can be thought as fixed point problem of the form $x_{n+1} = f(x_n)$. If the procedure converges, then the final value is the fixed point $\bar{x} = f(\bar{x})$. The simplest strategy is the linear mixing  scheme \citep{Kerker1981}
+\begin{equation}
+	\rho_{in}^{n+1}({\va{r}}) = \alpha \rho_{out}^{n}({\va{r}}) + (1 - \alpha) \rho_{in}^{n}({\va{r}})
+\end{equation}
+where $\alpha$ is the empirical mixing parameter adjusted to minimize the number of iterations needed for self consistency. The larger the $\alpha$, the more is contributed from the output density. The purpose of density mixing is to prevent the charge sloshing. Charge sloshing is the consistent charge overshooting, or the  large charge redistribution, that occurs from one iteration to the next. Density mixing will damp out these charge displacements leading to a better convergence \citep{Johnson1988}. Other advanced mixing schemes commonly used are Broyden mixing \citep{Broyden1965}, Thomas-Fermi charge mixing \citep{Raczkowski2001}, and Pulay mixing \citep{Pulay1980, Kresse1996}. The detailed explanations of these mixing schemes will not be discussed and interested readers are referred to the corresponding references.
+
+\section{Smearing}
+For materials that have band gap such as insulators and semiconductors, the electron densities decay smoothly near the band gap. However, metals have abrupt change of occupations from 0 to 1 at the Fermi level. This implies that any integration of functions that are discontinuous at the Fermi level will require a dense grid of k-points to achieve an acceptable accuracy. This will slow down the speed of convergence for a given set of k-points. The best way to deal with this problem is to use smearing. For instance, consider the total energy
+\begin{equation}
+	E = \sum_{i} \int_{BZ} \epsilon_{ik}\, \Theta(\epsilon_{ik} - \mu) \dd{\va{k}}
+\end{equation}
+where $\Theta(\epsilon_{ik} - \mu)$ is the Dirac step function defined as
+\begin{equation}
+	\Theta(x)=
+	\begin{dcases}
+		1   \quad & , x \leq 0 \\
+		0         & , x > 1    \\
+	\end{dcases}
+\end{equation}
+Here, $\epsilon_{ik}$ is the energy of the $i$th band state located at wavevector $\va{k}$. Due to finite computer resources, the integral can be approximated by weighted sum over special k-points similar to \eqref{eq:BZ_approx}
+\begin{equation}
+	E = \sum_{i} \sum_{k \in \text{IBZ}} w_k \epsilon_{ik} \, \Theta(\epsilon_{ik} - \mu)
+\end{equation}
+where $w_k$ are the weighted factors of each sampled k-points. The next step is to replace the Dirac step function by a smearing  function. This will result to a much faster convergence speed without destroying the accuracy. The final approximate form will be
+
+\begin{equation}
+	E =  \sum_{k \in \text{IBZ}} w_k \sum_{i} f_{ik} \epsilon_{ik}
+\end{equation}
+where $f_{ik}$ is the smearing function which is also known as the partial occupancy. In similar vein, the electron density in
+\eqref{eq:charge_dens} is reformulated to include the partial occupancy of the KS orbitals
+
+\begin{equation} \label{eq:rho_general}
+	\rho({\va*{r}}) = \sum_{k \in \text{IBZ}} w_k \sum_{i=1}^N f_{ik}\, \phi_{ik}(\va*{r})^* \phi_{ik}(\va*{r})
+\end{equation}
+The equation above implies that for a  general system, in principle, there should be a  set orbitals for every possible value of k-points. There are different smearing methods used in the literature. For example, the Fermi smearing method replaces the smearing function using Fermi-Dirac distribution \citep{Dirac1926,Fermi1926}
+\begin{equation}
+	f_{ik} = \frac{1}{\exp[(\epsilon_{ik} - E_f)/k_B T] + 1}
+\end{equation}
+where $E_f$ is the Fermi energy, $k_B$ is the Boltzmann's constant, and $T$ is the absolute temperature. The $k_B T$ is also called the broadening parameter that quantifies the degree of broadening of the Fermi-Dirac distribution. Figure \ref{fig:occupancy} illustrates the partial occupancies as a function of energy. Observe that there are eigenstates above the Fermi energy when smearing is applied. This means that eigenstates are partially filled inside the Fermi surface but the discontinuity at $E_f$ is removed by a smooth function. Note that $T$ has no physical meaning in DFT, unless the  system under study is really at finite electronic temperature. Gaussian smearing is also possible which is given by \citep{Fu1983}
+\begin{equation}
+	f_{ik} = \frac{1}{2} \left[1-erf\left(\frac{\epsilon_{ik} - E_f}{k_B T} \right)\right]
+\end{equation}
+where $erf(x)$ is the Gauss error function. The Methfessel–Paxton smearing method \citep{Methfessel1989}  approximates  the smearing function $f_{ik}$ by a hierarchy of increasingly accurate smooth functions based on Hermite polynomials. Smaller k-points are adequate to accurately describe DFT quantities.
+
+Lastly, the linear tetrahedron method divides the irreducible Brillouin zone (IBZ) into many small tetrahedrons \citep{Bloechl1994a}. The energy eigenvalues $\epsilon_{ik}$ inside each tetrahedron are  linearly
+interpolated and integrated within these tetrahedrons. This method is especially suited for  transition metals and rare earths whose delicate details of the Fermi surface requires a finer resolution. It  is also preferred method for band structure and DOS calculations of semiconductors. The smearing method can also be used to broaden the Dirac delta function. For instance, the $\delta$ function is replaced by a Gaussian distribution
+\begin{equation}
+	\delta(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp(-x^2/2\sigma^2)
+\end{equation}
+where $\sigma$ is the broadening parameter. This broadening  is very useful for calculations requiring delta functions such as density of states (DOS) in \eqref{eq:dos_lim}.
+
+As a final note, the amount of broadening of smearing function must be optimized. Too large smearing might result in large error in calculation, whereas too small smearing requires a much finer k-point mesh, a computationally demanding task.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\linewidth]{"images/computational/occupancy"}
+	\caption[ Partial occupancies near the Fermi energy using Fermi smearing ]{Partial occupancies near the Fermi energy using Fermi smearing. Illustration taken from \citep{Lee2016}.}
+	\label{fig:occupancy}
+\end{figure}
+
+\section{Defect Formation Energies}
+One of the keys in probing point defects is the Gibbs free energy of defect formation, $\Delta G^f $. It determines the stability of point defects at a given temperature, pressure, and composition. However, $\Delta G^f $ cannot be computed directly from first-principles calculations, but its electronic contribution denoted as $\Delta H^f $ is obtained from the total energy of a supercell model with appropriate approximations. Formally, under dilute defects, the Gibbs
+formation energy can be evaluated as  \citep{Zhang1991,Walle1993,}
+
+\begin{equation} \label{eq:gibbs_formation}
+	\Delta G^f = G[\text{def}] - G[\text{bulk}] - \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f)
+\end{equation}
+
+where $G[\text{def}]$ and $G[\text{bulk}]$ denote the Gibbs free energy of a simulation model containing a defect in charge state $q$ and that of the perfect-crystal supercell, respectively;  $n_i$ and $\mu_i$ are the number and the chemical potential of constituent atoms of type $i$ ($i$ = \ch{Zn}, \ch{O} for \ch{ZnO}), respectively;  $E_{\text{vbm}}$ is the absolute energy of the valence band maximum and  $E_f$ is the  chemical potential of electrons (i.e. Fermi level) measured with respect to the top of the valence band. The Fermi level is strictly not an independent parameter since it is determined from the charge neurality principle. However, for practical considerations, it is informative to examine the dependence of defect formation energy with varying $E_f$ in order to examine the behavior of defects when the doping or its charge changes. Hence, $E_f$ is varied from zero to fundamental band gap $E_g$. By thermodynamic principles, the Gibbs free energy is often decomposed as \citep{Oba2011}
+
+\begin{align}
+	G & = H^{\text{el}} + H^{\text{vib}} - TS^{\text{vib}} + PV
+\end{align}
+
+where $H^{\text{el}}$ denotes the electronic contribution to the total energy; $H^{\text{vib}}$ and $S^{\text{vib}}$  are the vibrational contributions to the total energy and entropy, respectively. $T,P$ and $V$ are the usual temperature, pressure and volume, respectively. For most calculations in solids, the vibrational contributions and the $PV$ term are negligible at moderate temperatures and atmospheric pressure. Hence, the Gibbs free energy can be approximated in terms of   $H^{\text{el}}$, which is obtained from supercell simulations.  The Gibbs free energy of defect formation is in turn given by the approximation
+\begin{equation}
+	G \approx H^{\text{el}} \Longrightarrow \Delta G^f = \Delta H^f
+\end{equation}
+where $\Delta H^f$, shortly called the defect formation energy, is given by the general formula \citep{Freysoldt2014}
+\begin{equation} \label{eq:formation_E}
+	\Delta H^f [X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] -  \sum_i n_i \mu_i + q (E_{\text{vbm}} + E_f) + E_{\text{corr}}
+\end{equation}
+
+where the first  term is  the total energy  of a supercell containing a defect $X$ at charge $q$ and the  second term is the total energy of the defect-free supercell. The other terms retain their usual meanings given in equation \eqref{eq:gibbs_formation}. Note that $n_i > 0$ ($n_i < 0$) if the atom of type $i$ is added (removed) to form the defect. The last term $E_{\text{corr}}$ is the correction term that accounts for errors in finite k-point sampling and the electrostatic interactions between the supercell and its images \citep{Leslie1985,Makov1995,Dabo2008}. For instance, the defect formation energy, neglecting the correction term, of a positively charged Oxygen vacancy in ZnO crystal lattice is given by
+\begin{equation}
+	\Delta H^f [V^{1+}_{\ch{O}}] = E_{\text{tot}}[V^{1+}_{\ch{O}}] - E_{\text{tot}}[\text{\ch{ZnO}}] - (-1) \mu_{\ch{O}} + (E_{\text{vbm}} + E_f)
+\end{equation}
+
+The formation energy of a point defect also depends on the chemical potentials of its constituent atoms. However, chemical potentials strongly depends on the experimental conditions, such as growth and annealing environments. For the case of ZnO, the chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$ can vary in Zn rich, O rich, or in between, conditions. Ultimately, different experimental scenarios can be investigated. Hence, chemical potentials should explicitly regarded as variables in the defect calculations.  However, by thermodynamic equilibrium, they are subject to bounds. These bounds are the transitions of forming new secondary phases. For \ch{ZnO}, the chemical potentials are linked together by \citep{Freysoldt2014}
+\begin{equation}
+	\mu_{\ch{Zn}} +    \mu_{\ch{O}} =     \mu_{\ch{ZnO}} \approx E_{\text{tot}}[\ch{ZnO}_{\text{unit}}]
+\end{equation}
+
+where $\mu_{\ch{ZnO}}$ is the chemical potential of ZnO taken to be the total energy of a ZnO unit cell. Usually, the atomic chemical potentials are referenced to their standard phase
+\begin{align}
+	\Delta \mu_{\ch{Zn}} & = \mu_{\ch{Zn}} - \mu_{\ch{Zn}}(\text{metal}) \label{eq:del-mu_Zn} \\
+	\Delta \mu_{\ch{O}}  & = \mu_{\ch{O}} - \mu_{\ch{Zn}}(\ch{O2}) \label{eq:del-mu_O}
+\end{align}
+such that
+\begin{align}
+	\Delta \mu_{\ch{ZnO}} & = \Delta \mu_{\ch{Zn}} +   \Delta \mu_{\ch{O}}                                          \\
+	                      & = (\mu_{\ch{Zn}} + \mu_{\ch{O}}) - \mu_{\ch{Zn}}(\text{metal}) - \mu_{\ch{Zn}}(\ch{O2}) \\
+	                      & = \mu_{\ch{ZnO}} - \mu_{\ch{Zn}}(\text{metal}) - \mu_{\ch{O}}(\ch{O2})                  \\
+	                      & = \Delta H^f (\ch{ZnO})
+\end{align}
+where $\Delta H^f (\ch{ZnO})$ is the enthalpy of formation of bulk ZnO which is negative for a stable compound. The term $\mu_{\ch{ZnO}}$ is calculated from DFT total energy of ZnO unit cell, $\mu_{\ch{Zn}}(\text{metal})$ from bulk hcp \ch{Zn} and lastly, $\mu_{\ch{O}}(\ch{O2})$ taken from half the total energy of isolated \ch{O2} molecule. The upper bound of $\mu_{\ch{Zn}}$ and  $\mu_{\ch{O}}$ is constrained by their corresponding chemical potential at the standard phase. That is,
+\begin{alignat}{2}
+	\mu_{\ch{Zn}} & \leq \mu_{\ch{Zn}}(\text{metal}) &  & \Longrightarrow \Delta \mu_{\ch{Zn}} \leq 0 \\
+	\mu_{\ch{O}}  & \leq \mu_{\ch{O}}(\ch{O2})       &  & \Longrightarrow \Delta \mu_{\ch{O}} \leq 0
+\end{alignat}
+The lower bound of $\mu_{\ch{O}}$ (O-poor) is the upper bound of $\mu_{\ch{Zn}}$ (Zn-rich) and vice versa
+\begin{alignat}{2}
+	\Delta \mu_{\ch{O}}  & \geq \Delta H^f (\ch{ZnO}), \Delta \mu_{\ch{Zn}} &  & \leq 0 \quad [\text{O-poor,Zn-rich}] \\
+	\Delta \mu_{\ch{Zn}} & \geq \Delta H^f (\ch{ZnO}), \Delta \mu_{\ch{O}}  &  & \leq 0 \quad [\text{O-rich,Zn-poor}]
+\end{alignat}
+
+Using \eqref{eq:del-mu_Zn} and \eqref{eq:del-mu_O}, the above equations can be generalized as \citep{Sun2012}
+\begin{align}
+	\mu_{\ch{O}}  & = \mu_{\ch{O}}(\ch{O2}) + \lambda\, \Delta H^f (\ch{ZnO})           \\
+	\mu_{\ch{Zn}} & = \mu_{\ch{Zn}}(\text{metal}) + (1 - \lambda) \Delta H^f (\ch{ZnO})
+\end{align}
+where the parameter $\lambda$ varies from zero (O-rich, Zn-poor) to unity (O-poor, Zn-rich). The parametrization form is useful since the calculation of defect formation energies in \eqref{eq:formation_E} depends on the nonstandard chemical potentials $\mu_{\ch{O}}$ and $\mu_{\ch{Zn}}$.
+
+When two distinct charged defects of the same atom have the same formation energies, the position of the Fermi energy $E_f$ is defined to be  the defect transition level. This transition level is defined as \citep{Janotti2007}
+
+\begin{equation} \label{eq:trans_level}
+	\epsilon(q/q')  = \frac{\Delta H^f[X^q;E_f=0] - \Delta H^f[X^{q'};E_f=0]}{q' - q}
+\end{equation}
+
+where $\Delta H^f[X^q;E_f=0] $ is the formation energy of defect $X$ at charge state $q$ measured when the Fermi level is at the valence band maximum.  The significance of transition levels is to determine the range of Fermi levels where a given charged defect is stable. That is, for Fermi levels below $\epsilon(q/q')$, charge state $q$ is the most stable, otherwise, charge state $q'$ is the stable one. Figure \ref{fig:trans_level} illustrates the stabilities of a system with three different charge defects. The transition level defined in the above equation is the thermodynamic transition level, and should not be confused with the Kohn-Sham states resulted from the bandstructure calculations nor to be confused with the optical transition level. The thermodynamic transition level arises from the atomic relaxation of the lattice, while the optical transition level arises from optical excitations and the the atomic geometry are frozen during the transition.  In addition, the thermodynamic transition is independent of the charge transfer, i.e. it is invariant whether electron is added or removed. However, for optical transitions, adding an electron results to a higher energy level   while removing  an electron results to a lower energy level. The energy difference is related to Stokes shifts (absorption vs. emission) \citep{Freysoldt2014}.
+
+Conventionally, if a defect transition level is situated such that it is likely to be thermally ionized at room temperature, then the transition level is called a shallow level, otherwise it is deep level. The shallow levels can occur in two scenarios: first, the transition level is near to the band edges (VBM for acceptor, CBM for donor); second, the transition level is in resonance with the valence or conduction bands (located inside in one of the bands).  For resonant states, the defect charge carrier will find a lower energy state by transferring to the band edges \citep{Janotti2007}.
+
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"images/computational/trans_level"}
+	\caption[ Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1 ]{Schematic illustration of defect formation energy $\Delta H^f$ dependence on the Fermi level $E_f$ for the three charge defects $q$: +1, 0, and -1. The solid lines correspond to the defect formation energy whose slope is the defect charge value as defined in Eq. \eqref{eq:formation_E}. Two transition levels can  be observed: a deep acceptor at  $\epsilon(+/0)$ and a deep donor at $\epsilon(0/-)$. The thick solid lines indicate the energetically  most stable charge state for a given Fermi level. Illustration taken from \citep{Freysoldt2014}.}
+	\label{fig:trans_level}
+\end{figure}
+
+
+
+
+
+
+%     \subsection{Basis Set}
+%         \subsubsection{Local Basis Set}
+%         \subsubsection{Plane Wave Basis Set}
+%     \subsection{Plane Wave Expansion for KS quantities}
+%         \subsubsection{Charge Density}
+%         \subsubsection{Kinetic Energy}
+%         \subsubsection{Effective Potential}
+% \section{Electronic Structure}
+%     \subsection{Band Structure of free electrons}
+%     \subsection{Band Structure of electrons in solids}
+%     \subsection{Electronic Density of States}
+
+
+
+% \subsection{Electrons in solid}
+% \subsection{Bloch Theorem in periodic systems}
+% \subsection{Fourier Expansion of Bloch representations}
+%     \subsubsection{Fourier Expansions}
+%     \subsubsection{Fast Fourier Transformation (FFT)}
+%     \subsubsection{Kohn-Sham Matrix Representations}
+% \section{Plane Wave (PW) Expansion}
+
+
+
+
