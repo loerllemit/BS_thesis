@@ -454,7 +454,7 @@
         \protect\noindent \textbf{CHAPTER}\protect\par
         \protect%\vspace{-1em}
         }
-    }
+}
 
 \newcommand{\addappheadtotoc}{
     \addtocontents{toc}{
@@ -688,7 +688,7 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     %\thispagestyle{plain}%
     \thispagestyle{empty}
     \begin{center}
-    \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Appendix}{bm:APPENDIX}
+    % \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Appendix}{bm:APPENDIX}
     \vspace*{1.575in}
     \textbf{APPENDIX}\\[2\baselineskip]
     \end{center}%
@@ -712,7 +712,7 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     \thispagestyle{plain}
     \renewcommand{\baselinestretch}{1}\small\normalsize
     \begin{center}
-    \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Acknowledgments}{bm:Acknowledge}
+    % \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Acknowledgments}{bm:Acknowledge}
     \vspace*{0.375in}
     \textbf{ACKNOWLEDGMENT}\\[3\baselineskip]
     \end{center}
@@ -730,7 +730,7 @@ of \MakeUppercase{\@Author} find it satisfactory and recommend that it be accept
     \begin{abstractenv}
     \renewcommand{\baselinestretch}{1}\small\normalsize
     \begin{center}
-    \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Abstract}{bm:Abstract}
+    % \providecommand\pdfbookmark[3][]{} \pdfbookmark[0]{Abstract}{bm:Abstract}
     \vspace*{.1in}
     \@TitleTop\\[\baselineskip]
     \@TitleMiddle\\[\baselineskip]

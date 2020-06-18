@@ -117,6 +117,10 @@ INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/reru
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bookmark.sty
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bookmark.sty
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
@@ -322,14 +326,7 @@ INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.s
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-INPUT /home/loer/Desktop/codes/thesis/diss.out
 OUTPUT /home/loer/Desktop/codes/thesis/diss.pdf
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-OUTPUT /home/loer/Desktop/codes/thesis/diss.out
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT /home/loer/Desktop/codes/thesis/diss.bcf
@@ -616,8 +613,6 @@ INPUT /home/loer/Desktop/codes/thesis/chapters/conclusion.aux
 INPUT /home/loer/Desktop/codes/thesis/chapters/conclusion.aux
 INPUT /home/loer/Desktop/codes/thesis/app.aux
 INPUT /home/loer/Desktop/codes/thesis/app.aux
-INPUT /home/loer/Desktop/codes/thesis/diss.out
-INPUT /home/loer/Desktop/codes/thesis/diss.out
 INPUT /home/loer/Desktop/codes/thesis/diss.run.xml
 OUTPUT /home/loer/Desktop/codes/thesis/diss.run.xml
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
