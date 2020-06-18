@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{xcolor}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage[newfloat=true]{minted}
+\SetupFloatingEnvironment{listing}{name=Code}
+% \SetupFloatingEnvironment{listing}{placement=htp}
+
+\begin{document}
+
+\usemintedstyle{stata-light}
+\begin{minted}[bgcolor=lightgray,linenos,frame=lines,
+    fontsize=\footnotesize,
+    framesep=2mm
+    ]{fortran}
+
+    int main() {
+    printf("hello, world");
+    return 0;
+    }
+
+\end{minted}
+\\
+
+% \begin{listing}[]
+\captionof{listing}{Example from external file}
+\inputminted[bgcolor=lightgray,linenos,frame=lines,
+	fontsize=\footnotesize,
+    framesep=2mm,
+    firstline=1, lastline=119,
+    breaklines=true,
+    breakanywhere=true,
+    ]{fortran}{../codes/scf.Zn_i-p1.in}
+% \end{listing}
+
+\end{document}
+

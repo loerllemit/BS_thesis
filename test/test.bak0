@@ -1,0 +1,27 @@
+\documentclass[12pt]{article}
+\usepackage{xcolor}
+\usepackage{minted}
+
+\begin{document}
+
+\usemintedstyle{stata-light}
+\begin{minted}[bgcolor=lightgray,linenos,frame=lines,
+    fontsize=\footnotesize,
+    framesep=2mm
+    ]{fortran}
+
+    int main() {
+    printf("hello, world");
+    return 0;
+    }
+
+\end{minted}
+
+\inputminted[bgcolor=lightgray,linenos,frame=lines,
+        fontsize=\footnotesize,
+        framesep=2mm]{fortran}{../codes/scf.Zn_i-p1.in}
+
+
+
+\end{document}
+
