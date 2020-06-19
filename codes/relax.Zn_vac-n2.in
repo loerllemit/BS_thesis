@@ -1,50 +1,60 @@
+! relaxation of Zinc vacancy with minus 2 charge defect
 &CONTROL
-calculation     =  'vc-relax',
-etot_conv_thr   =  1.d-5,
-forc_conv_thr   =  1.d-4,
-outdir          =  '/scratch1/christian.llemit/tmp/ZnO/relax/Zn_vac-n2',
-prefix          =  'Zn_vac-n2',
-pseudo_dir      =  '/home/christian.llemit/pseudopotentials/GBRV',
-tprnfor         =  .true.,
-tstress         =  .true.,
-verbosity       =  'high',
+calculation    =  'vc-relax', ! variable-cell relaxation
+etot_conv_thr  =  1.d-5,      ! total energy convergence in Ry
+forc_conv_thr  =  1.d-4,      ! net force convergence in Ry/bohr
+outdir         =  '/scratch1/christian.llemit/tmp/ZnO/relax/Zn_vac-n2',
+prefix         =  'Zn_vac-n2',
+pseudo_dir     =  '/home/christian.llemit/PP/GBRV',
+tprnfor        =  .true.,
+tstress        =  .true.,
+verbosity      =  'high',
 /
 
 &SYSTEM
-celldm(1)       =  18.61865901,
-degauss         =  0.01,
-ecutrho         =  720.0,
-ecutwfc         =  90,
-ibrav           =  0,
-nat             =  71,
-ntyp            =  2,
-occupations     =  'smearing',
-smearing        =  'gauss',
-tot_charge      =  -2,
+celldm(1)   =  18.61865901, ! first crystallographic constant in bohr
+degauss     =  0.001,
+ecutrho     =  720.0,
+ecutwfc     =  90,
+ibrav       =  0,  ! crystal axis provided in CELL_PARAMETERS
+nat         =  71, ! 72 atoms -> perfect crystal
+ntyp        =  2,
+occupations =  'smearing',
+smearing    =  'gauss',  ! smearing type
+tot_charge  =  -2,       ! 0 -> neutral system; +x -> x electrons removed; else -> x electrons added                       
 /
 
 &ELECTRONS
-conv_thr        =  1.00000e-06,
-mixing_beta     =  7.00000e-01,
+conv_thr      =  1d-06,
+mixing_mode   = 'plain'  ! charge density Broyden mixing
+mixing_beta   =  0.4d0,
+startingpot   = 'atomic' ! starting potential from atomic charge superposition
+startingwfc   = 'atomic+random' ! starting KS orbital from superposition of atomic orbitals plus a superimposed "randomization" of atomic orbitals
+diagonalization = 'david'       ! Davidson iterative scf matrix diagonalization with overlapping
 /
 
-&IONS
+&IONS                    ! needed if calculation = 'vc-relax'
+ion_dynamics   = 'bfgs'  ! optimization using BFGS quasi-newton algorithm
+pot_extrapolation = 'atomic' ! extrapolate potential from preceding ionic steps as a sum of atomic-like orbitals
 /
 
-&CELL
+&CELL                    ! needed if calculation = 'vc-relax'
+cell_dynamics = 'bfgs'   ! same as ion_dynamics but acting on unit/supercell
+cell_dofree   = 'all'    ! all lattice axis and angles are moved
+press_conv_thr = 0.5d0   ! convergence threshold on the pressure in kbar
 /
 
 ATOMIC_SPECIES 
 Zn    65.39   zn_pbe_v1.uspp.F.UPF 
 O    15.9994   o_pbe_v1.2.uspp.F.UPF 
 
+CELL_PARAMETERS alat ! needed if ibrav = 0
+!primitive lattice vectors in units of alat = celldm(1)
+ 0.9992341179999   0.0000032780000  -0.0000021060000
+-0.4996142200000   0.8653637700000   0.0000021060000
+-0.0000022630000   0.0000013060000   1.0762002420000
 
-CELL_PARAMETERS alat
- 0.9992341179999999   0.0000032780000000  -0.0000021060000000
--0.4996142200000000   0.8653637700000000   0.0000021060000000
--0.0000022630000000   0.0000013060000000   1.0762002420000001
-
-ATOMIC_POSITIONS crystal
+ATOMIC_POSITIONS crystal ! 3×3×2 supercell  w/ 1 Zn atom removed
 Zn       0.225724334000   0.114469544000   0.491450723000
 Zn       0.111704132000   0.222521937000   0.241987109000
 O        0.221485939000   0.110948003000   0.180189772000

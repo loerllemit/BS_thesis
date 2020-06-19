@@ -1,0 +1,42 @@
+&CONTROL
+calculation   =  'scf',               ! self-consistent field calculation
+outdir        =  '/scratch1/christian.llemit/tmp/ZnO/DFT-U', ! output folder
+prefix        =  'ZnO',               ! name prepended to input/output filenames
+pseudo_dir    =  "/home/christian.llemit/PP/GBRV", ! folder containg pseudopotentials
+tprnfor       =  .true.,              ! calculate force and print to output      
+tstress       =  .true.,              ! calculate stress and print to output 
+verbosity     =  'high',              ! set level of output's verbosity 
+/
+
+&SYSTEM
+A             =  3.24900,             ! lattice parameter 'a' in angstrom
+C             =  5.20700,             ! lattice parameter 'c' in angstrom
+ecutrho       =  720.0,               ! energy cutoff of the electron density in Ry
+ecutwfc       =  90,                  ! energy cutoff of the KS orbital in Ry
+ibrav         =  4,                   ! Bravais lattice '4' -> hexagonal
+nat           =  4,                   ! # of atoms
+ntyp          =  2,                   ! # of types of atoms
+occupations   =  'smearing',          ! smearing used in occupations; default->gaussian
+degauss       =  0.001                ! smearing broadening parameter in Ry
+/
+
+&ELECTRONS
+conv_thr        =  1d-06,             ! scf convergence threshold in Ry
+mixing_beta     =  0.4d0,             ! 0.4 new + 0.7 old electron densities
+/
+
+ATOMIC_SPECIES 
+O    15.9994   o_pbe_v1.2.uspp.F.UPF  ! atomic symbol, atomic mass, pseudopotential name
+Zn    65.39   zn_pbe_v1.uspp.F.UPF    ! must agree with ntyp
+
+ATOMIC_POSITIONS crystal              ! basis atoms in fractional coordinates (x,y,z) 
+Zn       0.666666666667   0.333333333333   0.000000000000    
+Zn       0.333333333333   0.666666666667   0.500000000000
+O        0.666666666667   0.333333333333   0.345000000000
+O        0.333333333333   0.666666666667   0.845000000000
+
+K_POINTS automatic                    ! automatic -> Monkhorst-Pack grid
+11.0    11.0   6   0   0   0          ! k_x * k_y * k_z -> grids; 0 0 0 -> no offset  
+
+
+

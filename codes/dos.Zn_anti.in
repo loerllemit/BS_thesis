@@ -1,0 +1,9 @@
+ ! postprocessing of data from nscf calculation of Zinc antisite
+ ! create a ready to plot dos data
+&DOS
+  fildos   =  '/scratch1/christian.llemit/codes/ZnO/supercell/DOS-Zn_anti/dos.Zn_anti.dat', ! file name for dos output 
+  outdir   =  '/scratch1/christian.llemit/tmp/ZnO/Zn_anti/dos',
+  prefix   =  'Zn_anti',
+/
+
+

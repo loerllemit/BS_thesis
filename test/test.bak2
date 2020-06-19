@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}
+\usepackage{xcolor}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage[newfloat=true]{minted}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+\SetupFloatingEnvironment{listing}{placement=htpb!}
+
+\begin{document}
+
+\usemintedstyle{stata-light}
+% \begin{minted}[bgcolor=lightgray,linenos,frame=lines,
+%     fontsize=\footnotesize,
+%     framesep=2mm
+%     ]{fortran}
+
+%     int main() {
+%     printf("hello, world");
+%     return 0;
+%     }
+
+% \end{minted}
+
+
+\begin{code}
+	% \captionof{listing}{Example from external file}
+	\caption{Hello World}
+	\inputminted[bgcolor=lightgray,linenos,frame=lines,
+		fontsize=\footnotesize,
+		framesep=2mm,
+		firstline=1, lastline=119,
+		breaklines=true,
+		breakanywhere=true,
+	]{fortran}{../codes/scf.Zn_i-p1.in}
+	\label{lst:my_func}
+\end{code}
+
+\end{document}
+

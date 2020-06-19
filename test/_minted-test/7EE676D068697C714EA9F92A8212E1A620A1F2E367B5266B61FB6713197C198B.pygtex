@@ -1,0 +1,121 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ \PYG{p}{\PYGZam{}}\PYG{n}{CONTROL}
+   \PYG{n}{calculation}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}scf\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{outdir}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/Zn\PYGZus{}i\PYGZhy{}p1/bands\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{prefix}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}Zn\PYGZus{}i\PYGZhy{}p1\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{pseudo\PYGZus{}dir}      \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/home/christian.llemit/pseudopotentials/GBRV\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{tprnfor}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+   \PYG{n}{tstress}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+   \PYG{n}{verbosity}       \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}high\PYGZsq{}}\PYG{p}{,}
+ \PYG{o}{/}
+
+ \PYG{p}{\PYGZam{}}\PYG{n+nb}{SYSTEM}
+\PYG{n+nb}{   }\PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{7}\PYG{p}{,}
+   \PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{15}\PYG{p}{,}
+   \PYG{n}{degauss}         \PYG{o}{=}  \PYG{l+m+mf}{0.001}\PYG{p}{,}
+   \PYG{n}{ecutrho}         \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+   \PYG{n}{ecutwfc}         \PYG{o}{=}  \PYG{l+m+mi}{90}\PYG{p}{,}
+   \PYG{n}{ibrav}           \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}
+   \PYG{n}{lda\PYGZus{}plus\PYGZus{}U}      \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+   \PYG{n}{lda\PYGZus{}plus\PYGZus{}u\PYGZus{}kind} \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}
+   \PYG{n}{nat}             \PYG{o}{=}  \PYG{l+m+mi}{73}\PYG{p}{,}
+   \PYG{n}{nbnd}            \PYG{o}{=}  \PYG{l+m+mi}{955}\PYG{p}{,}
+   \PYG{n}{ntyp}            \PYG{o}{=}  \PYG{l+m+mi}{2}\PYG{p}{,}
+   \PYG{n}{occupations}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}smearing\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{smearing}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}gauss\PYGZsq{}}\PYG{p}{,}
+   \PYG{n}{tot\PYGZus{}charge}      \PYG{o}{=}  \PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}
+ \PYG{o}{/}
+
+ \PYG{p}{\PYGZam{}}\PYG{n}{ELECTRONS}
+   \PYG{n}{conv\PYGZus{}thr}        \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{07}\PYG{p}{,}
+   \PYG{n}{mixing\PYGZus{}beta}     \PYG{o}{=}  \PYG{l+m+mf}{0.4d0}\PYG{p}{,}
+ \PYG{o}{/}
+
+\PYG{n}{ATOMIC\PYGZus{}SPECIES} 
+  \PYG{n}{O}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{5.9994}   \PYG{n}{o\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{l+m+mf}{2.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+  \PYG{n}{Zn}    \PYG{l+m+mi}{6}\PYG{l+m+mf}{5.39}   \PYG{n}{zn\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+
+
+\PYG{n}{CELL\PYGZus{}PARAMETERS} \PYG{n}{angstrom}
+    \PYG{l+m+mf}{9.8400836900}   \PYG{l+m+mf}{0.0001330800}   \PYG{l+m+mf}{0.00012622900}
+   \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.9199289190}   \PYG{l+m+mf}{8.52192797200}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.00020238800}
+    \PYG{l+m+mf}{0.0000715790}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000367300}   \PYG{l+m+mi}{1}\PYG{l+m+mf}{0.58872744600}
+
+\PYG{n}{ATOMIC\PYGZus{}POSITIONS} \PYG{n}{crystal}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221911745800}   \PYG{l+m+mf}{0.111229691400}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.012667771600}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221022617000}   \PYG{l+m+mf}{0.112120860600}   \PYG{l+m+mf}{0.492073082100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.218275460100}   \PYG{l+m+mf}{0.442221973100}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.003589824100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221449396100}   \PYG{l+m+mf}{0.443831983000}   \PYG{l+m+mf}{0.491247851100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221927988300}   \PYG{l+m+mf}{0.776845208400}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.012656918500}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221044920200}   \PYG{l+m+mf}{0.775085343400}   \PYG{l+m+mf}{0.492071201200}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.556305426100}   \PYG{l+m+mf}{0.111217979300}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.012659961700}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.558070464200}   \PYG{l+m+mf}{0.112104739800}   \PYG{l+m+mf}{0.492071733500}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.554571511400}   \PYG{l+m+mf}{0.442166315600}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.004201058800}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.544937912400}   \PYG{l+m+mf}{0.422995822000}   \PYG{l+m+mf}{0.471789947100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.554596752500}   \PYG{l+m+mf}{0.778557668200}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.004228994400}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.545047255800}   \PYG{l+m+mf}{0.788143943400}   \PYG{l+m+mf}{0.471880323500}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.890931247300}   \PYG{l+m+mf}{0.114878951500}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.003598004000}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.889341437700}   \PYG{l+m+mf}{0.111733105100}   \PYG{l+m+mf}{0.491243581900}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.890926799500}   \PYG{l+m+mf}{0.442225134200}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.003568443100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.889308476200}   \PYG{l+m+mf}{0.443855893300}   \PYG{l+m+mf}{0.491259045300}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.890974017500}   \PYG{l+m+mf}{0.778575869000}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.004208862900}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.910134971900}   \PYG{l+m+mf}{0.788223087200}   \PYG{l+m+mf}{0.471815401200}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.111709527700}   \PYG{l+m+mf}{0.221457809900}   \PYG{l+m+mf}{0.242225907400}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.111101857100}   \PYG{l+m+mf}{0.222041345400}   \PYG{l+m+mf}{0.742634380600}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.111700036500}   \PYG{l+m+mf}{0.556457204400}   \PYG{l+m+mf}{0.242235778300}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.111100098700}   \PYG{l+m+mf}{0.555195346500}   \PYG{l+m+mf}{0.742645606200}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.116392112700}   \PYG{l+m+mf}{0.891290223600}   \PYG{l+m+mf}{0.233701818800}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.112051325700}   \PYG{l+m+mf}{0.889079744300}   \PYG{l+m+mf}{0.740393708300}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.441861010400}   \PYG{l+m+mf}{0.216752936700}   \PYG{l+m+mf}{0.233694385000}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.444049886100}   \PYG{l+m+mf}{0.221072991500}   \PYG{l+m+mf}{0.740396377200}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.443543093300}   \PYG{l+m+mf}{0.554881059300}   \PYG{l+m+mf}{0.240095692800}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.426568079800}   \PYG{l+m+mf}{0.546323670100}   \PYG{l+m+mf}{0.756304121200}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.441883057800}   \PYG{l+m+mf}{0.891274386000}   \PYG{l+m+mf}{0.233721153300}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.444068749200}   \PYG{l+m+mf}{0.889066064500}   \PYG{l+m+mf}{0.740386503900}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.776705029900}   \PYG{l+m+mf}{0.221464773700}   \PYG{l+m+mf}{0.242233069400}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.777947009600}   \PYG{l+m+mf}{0.222042604600}   \PYG{l+m+mf}{0.742642447400}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.778271660800}   \PYG{l+m+mf}{0.554894325900}   \PYG{l+m+mf}{0.240116282700}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.786788279800}   \PYG{l+m+mf}{0.546338325600}   \PYG{l+m+mf}{0.756342179300}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.778289893600}   \PYG{l+m+mf}{0.889632847800}   \PYG{l+m+mf}{0.240087907700}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.786808698800}   \PYG{l+m+mf}{0.906570010400}   \PYG{l+m+mf}{0.756289569000}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.666743213400}   \PYG{l+m+mf}{0.666349306500}   \PYG{l+m+mf}{0.597519542000}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.221260692300}   \PYG{l+m+mf}{0.111887159500}   \PYG{l+m+mf}{0.176178376400}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.222112325300}   \PYG{l+m+mf}{0.111016223700}   \PYG{l+m+mf}{0.680381712900}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.221792657200}   \PYG{l+m+mf}{0.443999619500}   \PYG{l+m+mf}{0.184493205000}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.219391632900}   \PYG{l+m+mf}{0.442762465600}   \PYG{l+m+mf}{0.680138896100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.221281225700}   \PYG{l+m+mf}{0.775568476600}   \PYG{l+m+mf}{0.176188552100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.222129316200}   \PYG{l+m+mf}{0.777215354100}   \PYG{l+m+mf}{0.680381970900}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.557590883100}   \PYG{l+m+mf}{0.111872382700}   \PYG{l+m+mf}{0.176185702600}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.555922683900}   \PYG{l+m+mf}{0.111003919900}   \PYG{l+m+mf}{0.680381914200}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.555093869000}   \PYG{l+m+mf}{0.443232528900}   \PYG{l+m+mf}{0.185258709100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.559432536600}   \PYG{l+m+mf}{0.451844919900}   \PYG{l+m+mf}{0.679041975200}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.555117245100}   \PYG{l+m+mf}{0.778045504300}   \PYG{l+m+mf}{0.185224916600}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.559471931600}   \PYG{l+m+mf}{0.773665422000}   \PYG{l+m+mf}{0.679019554500}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.889167664200}   \PYG{l+m+mf}{0.111379415400}   \PYG{l+m+mf}{0.184485394600}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.890380769400}   \PYG{l+m+mf}{0.113752876700}   \PYG{l+m+mf}{0.680135407500}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.889150206300}   \PYG{l+m+mf}{0.444012301900}   \PYG{l+m+mf}{0.184513634100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.890375802300}   \PYG{l+m+mf}{0.442766033900}   \PYG{l+m+mf}{0.680148016500}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.889917214100}   \PYG{l+m+mf}{0.778062382500}   \PYG{l+m+mf}{0.185249266700}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.881270627900}   \PYG{l+m+mf}{0.773693902700}   \PYG{l+m+mf}{0.679035805800}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.111138383100}   \PYG{l+m+mf}{0.222036472600}   \PYG{l+m+mf}{0.431631645300}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.110449988500}   \PYG{l+m+mf}{0.222707394300}   \PYG{l+m+mf}{0.930778396900}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.111103643900}   \PYG{l+m+mf}{0.555285086500}   \PYG{l+m+mf}{0.431639728500}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.110438053900}   \PYG{l+m+mf}{0.553906760400}   \PYG{l+m+mf}{0.930790205100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.123556692000}   \PYG{l+m+mf}{0.894861206200}   \PYG{l+m+mf}{0.424387453000}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.109413198900}   \PYG{l+m+mf}{0.887780992900}   \PYG{l+m+mf}{0.928212041400}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.438280121500}   \PYG{l+m+mf}{0.209575057800}   \PYG{l+m+mf}{0.424381749400}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.445363717800}   \PYG{l+m+mf}{0.223729637900}   \PYG{l+m+mf}{0.928215586300}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.448524373700}   \PYG{l+m+mf}{0.557356662800}   \PYG{l+m+mf}{0.434527748400}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.443357685200}   \PYG{l+m+mf}{0.554751711400}   \PYG{l+m+mf}{0.939040973700}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.438314739000}   \PYG{l+m+mf}{0.894836169300}   \PYG{l+m+mf}{0.424402351700}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.445370076700}   \PYG{l+m+mf}{0.887776392600}   \PYG{l+m+mf}{0.928202605700}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.777870624000}   \PYG{l+m+mf}{0.222061648800}   \PYG{l+m+mf}{0.431637505600}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.779244097400}   \PYG{l+m+mf}{0.222716024500}   \PYG{l+m+mf}{0.930786885100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.775754408100}   \PYG{l+m+mf}{0.557403023700}   \PYG{l+m+mf}{0.434568563100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.778379048600}   \PYG{l+m+mf}{0.554766464900}   \PYG{l+m+mf}{0.939067243100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.775818344100}   \PYG{l+m+mf}{0.884668218600}   \PYG{l+m+mf}{0.434512210900}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.778399548700}   \PYG{l+m+mf}{0.889799320600}   \PYG{l+m+mf}{0.939030963300}
+
+\PYG{n}{K\PYGZus{}POINTS} \PYG{n}{automatic}
+  \PYG{l+m+mi}{3}   \PYG{l+m+mi}{3}   \PYG{l+m+mi}{3}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0} 
+\end{Verbatim}

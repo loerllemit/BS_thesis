@@ -1,0 +1,65 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{! bands calculation of Oxygen antisite}
+\PYG{p}{\PYGZam{}}\PYG{n}{CONTROL}
+\PYG{n}{calculation}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}bands\PYGZsq{}}\PYG{p}{,}  \PYG{c}{! bands calculation at fixed potential}
+\PYG{n}{outdir}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/O\PYGZus{}anti/bands\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{prefix}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}O\PYGZus{}anti\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{pseudo\PYGZus{}dir}      \PYG{o}{=}  \PYG{l+s+s2}{\PYGZdq{}/home/christian.llemit/PP/GBRV\PYGZdq{}}\PYG{p}{,}
+\PYG{n}{tprnfor}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{tstress}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{verbosity}       \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}high\PYGZsq{}}\PYG{p}{,}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n+nb}{SYSTEM}
+\PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{7}\PYG{p}{,}
+\PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{15}\PYG{p}{,}
+\PYG{n}{ecutrho}         \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+\PYG{n}{ecutwfc}         \PYG{o}{=}  \PYG{l+m+mi}{90}\PYG{p}{,}
+\PYG{n}{ibrav}           \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{n}{lda\PYGZus{}plus\PYGZus{}U}      \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{lda\PYGZus{}plus\PYGZus{}u\PYGZus{}kind} \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{n}{nat}             \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{p}{,}
+\PYG{n}{nbnd}            \PYG{o}{=}  \PYG{l+m+mi}{922}\PYG{p}{,}
+\PYG{n}{ntyp}            \PYG{o}{=}  \PYG{l+m+mi}{2}\PYG{p}{,}
+\PYG{n}{occupations}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}fixed\PYGZsq{}}\PYG{p}{,} \PYG{c}{! useful for semiconductors with a gap}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{ELECTRONS}
+\PYG{n}{conv\PYGZus{}thr}        \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{06}\PYG{p}{,}
+\PYG{n}{mixing\PYGZus{}beta}     \PYG{o}{=}  \PYG{l+m+mf}{0.4d0}\PYG{p}{,}
+\PYG{o}{/}
+
+\PYG{n}{ATOMIC\PYGZus{}SPECIES} 
+\PYG{n}{O}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{5.9994}   \PYG{n}{o\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{l+m+mf}{2.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+\PYG{n}{Zn}    \PYG{l+m+mi}{6}\PYG{l+m+mf}{5.39}   \PYG{n}{zn\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+
+
+\PYG{n}{CELL\PYGZus{}PARAMETERS} \PYG{n}{angstrom}
+   \PYG{l+m+mf}{9.8265383879999995}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000000000000000}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000000000000000}
+  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.9132691939999997}   \PYG{l+m+mf}{8.5100319629999994}   \PYG{l+m+mf}{0.0000000000000000}
+   \PYG{l+m+mf}{0.0000000000000000}   \PYG{l+m+mf}{0.0000000000000000}  \PYG{l+m+mi}{1}\PYG{l+m+mf}{0.6554541759999992}
+
+\PYG{n}{ATOMIC\PYGZus{}POSITIONS} \PYG{n}{crystal}
+\PYG{c}{! Zn atom is replaced by O atom}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.223288807900}   \PYG{l+m+mf}{0.114260900700}   \PYG{l+m+mf}{0.493587626200}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.110443668700}   \PYG{l+m+mf}{0.221888334300}   \PYG{l+m+mf}{0.242428282600}
+\PYG{n}{O}        \PYG{l+m+mf}{0.221288037000}   \PYG{l+m+mf}{0.110609154000}   \PYG{l+m+mf}{0.183134477000}
+\PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}
+\PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}
+\PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}  
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.777268067300}   \PYG{l+m+mf}{0.887869134600}   \PYG{l+m+mf}{0.743200560100}
+\PYG{n}{O}        \PYG{l+m+mf}{0.889592969900}   \PYG{l+m+mf}{0.778170061800}   \PYG{l+m+mf}{0.679957006200}
+\PYG{n}{O}        \PYG{l+m+mf}{0.777893715900}   \PYG{l+m+mf}{0.889120431900}   \PYG{l+m+mf}{0.931485268000}
+
+\PYG{n}{K\PYGZus{}POINTS} \PYG{n}{crystal\PYGZus{}b}  \PYG{c}{! in terms of the high symmetry (HS)points}
+\PYG{l+m+mi}{8}                                         \PYG{c}{! \PYGZsh{} HS points }
+\PYG{c}{!   k\PYGZus{}x              k\PYGZus{}y        k\PYGZus{}z   wk \PYGZhy{}\PYGZgt{} weights}
+\PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}     \PYG{l+m+mi}{16}  \PYG{c}{! Gamma }
+\PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}               \PYG{l+m+mf}{0.5}   \PYG{l+m+mi}{16}  \PYG{c}{! A}
+\PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mf}{0.5}   \PYG{l+m+mi}{16}  \PYG{c}{! H}
+\PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mi}{0}     \PYG{l+m+mi}{16}  \PYG{c}{! K}
+\PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}     \PYG{l+m+mi}{16}  \PYG{c}{! Gamma}
+\PYG{l+m+mf}{0.5}             \PYG{l+m+mi}{0}               \PYG{l+m+mi}{0}     \PYG{l+m+mi}{16}  \PYG{c}{! M}
+\PYG{l+m+mf}{0.5}             \PYG{l+m+mi}{0}               \PYG{l+m+mf}{0.5}   \PYG{l+m+mi}{16}  \PYG{c}{! L}
+\PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mf}{0.3333333333}    \PYG{l+m+mf}{0.5}   \PYG{l+m+mi}{1}   \PYG{c}{! H}
+\end{Verbatim}

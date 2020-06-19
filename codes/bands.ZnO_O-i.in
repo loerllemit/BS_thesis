@@ -1,0 +1,10 @@
+! postprocessing of data from bands calculation of oxygen interstitial
+! create a ready to plot band structure data
+&BANDS
+  filband =  'bands_ZnO_O-i.dat ', ! file name for band output 
+  lsym    =  .true.,    ! classify bands according to irreducible representations
+  outdir  =  '/scratch1/christian.llemit/tmp/ZnO/O_i/bands',
+  prefix  =  'O_i',
+/
+
+

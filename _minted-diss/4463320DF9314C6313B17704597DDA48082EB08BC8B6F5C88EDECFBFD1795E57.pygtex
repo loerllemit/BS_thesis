@@ -1,0 +1,57 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{! calculation for Zinc interstitial with plus one charge defect}
+\PYG{p}{\PYGZam{}}\PYG{n}{CONTROL}
+\PYG{n}{calculation}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}scf\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{outdir}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/Zn\PYGZus{}i\PYGZhy{}p1/bands\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{prefix}          \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}Zn\PYGZus{}i\PYGZhy{}p1\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{pseudo\PYGZus{}dir}      \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/home/christian.llemit/PP/GBRV\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{tprnfor}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{tstress}         \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{verbosity}       \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}high\PYGZsq{}}\PYG{p}{,}
+ \PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n+nb}{SYSTEM}
+\PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{7}\PYG{p}{,}    \PYG{c}{! Hubbard U parameter for atom species i}
+\PYG{n}{Hubbard\PYGZus{}U}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}    \PYG{o}{=}  \PYG{l+m+mi}{15}\PYG{p}{,}   \PYG{c}{! order is important as given in ATOMIC\PYGZus{}SPECIES }
+\PYG{n}{degauss}         \PYG{o}{=}  \PYG{l+m+mf}{0.001}\PYG{p}{,}
+\PYG{n}{ecutrho}         \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+\PYG{n}{ecutwfc}         \PYG{o}{=}  \PYG{l+m+mi}{90}\PYG{p}{,}
+\PYG{n}{ibrav}           \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{n}{lda\PYGZus{}plus\PYGZus{}U}      \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}  \PYG{c}{! enable DFT+U calculations}
+\PYG{n}{lda\PYGZus{}plus\PYGZus{}u\PYGZus{}kind} \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}  \PYG{c}{! using Cococcioni and de Gironcoli method}
+\PYG{n}{nat}         \PYG{o}{=}  \PYG{l+m+mi}{73}\PYG{p}{,}     \PYG{c}{!  + 1 Zn interstitial}
+\PYG{n}{nbnd}        \PYG{o}{=}  \PYG{l+m+mi}{955}\PYG{p}{,}    \PYG{c}{! \PYGZsh{} electronic states/bands to be calculated}
+\PYG{n}{ntyp}        \PYG{o}{=}  \PYG{l+m+mi}{2}\PYG{p}{,}
+\PYG{n}{occupations}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}smearing\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{smearing}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}gauss\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{tot\PYGZus{}charge}      \PYG{o}{=}  \PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}      \PYG{c}{! one electron removed }
+ \PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{ELECTRONS}
+\PYG{n}{conv\PYGZus{}thr}        \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{06}\PYG{p}{,}
+\PYG{n}{mixing\PYGZus{}beta}     \PYG{o}{=}  \PYG{l+m+mf}{0.4d0}\PYG{p}{,}
+ \PYG{o}{/}
+
+\PYG{n}{ATOMIC\PYGZus{}SPECIES} 
+\PYG{n}{O}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{5.9994}   \PYG{n}{o\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{l+m+mf}{2.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF}  \PYG{c}{! Hubbard\PYGZus{}U(1) on O atom}
+\PYG{n}{Zn}    \PYG{l+m+mi}{6}\PYG{l+m+mf}{5.39}   \PYG{n}{zn\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF}    \PYG{c}{! Hubbard\PYGZus{}U(2) on Zn atom}
+
+\PYG{n}{CELL\PYGZus{}PARAMETERS} \PYG{n}{angstrom}
+  \PYG{l+m+mf}{9.8400836900}   \PYG{l+m+mf}{0.0001330800}   \PYG{l+m+mf}{0.00012622900}
+  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.9199289190}   \PYG{l+m+mf}{8.5219279720}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.00020238800}
+  \PYG{l+m+mf}{0.0000715790}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000367300}  \PYG{l+m+mi}{1}\PYG{l+m+mf}{0.58872744600}
+
+\PYG{n}{ATOMIC\PYGZus{}POSITIONS} \PYG{n}{crystal}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221911745800}   \PYG{l+m+mf}{0.111229691400}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.012667771600}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.221022617000}   \PYG{l+m+mf}{0.112120860600}   \PYG{l+m+mf}{0.492073082100}
+  \PYG{n}{Zn}       \PYG{l+m+mf}{0.218275460100}   \PYG{l+m+mf}{0.442221973100}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.003589824100}
+  \PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}
+  \PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}
+  \PYG{p}{.}              \PYG{p}{.}                 \PYG{p}{.}                \PYG{p}{.}                                                  
+  \PYG{n}{O}        \PYG{l+m+mf}{0.778379048600}   \PYG{l+m+mf}{0.554766464900}   \PYG{l+m+mf}{0.939067243100}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.775818344100}   \PYG{l+m+mf}{0.884668218600}   \PYG{l+m+mf}{0.434512210900}
+  \PYG{n}{O}        \PYG{l+m+mf}{0.778399548700}   \PYG{l+m+mf}{0.889799320600}   \PYG{l+m+mf}{0.939030963300}
+
+\PYG{n}{K\PYGZus{}POINTS} \PYG{n}{automatic}
+  \PYG{l+m+mi}{2}   \PYG{l+m+mi}{2}   \PYG{l+m+mi}{2}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0} 
+\end{Verbatim}

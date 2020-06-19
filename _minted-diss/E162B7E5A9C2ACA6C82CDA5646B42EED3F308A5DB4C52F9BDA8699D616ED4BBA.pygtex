@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZam{}}\PYG{n}{CONTROL}
+\PYG{n}{calculation}   \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}scf\PYGZsq{}}\PYG{p}{,}               \PYG{c}{! self\PYGZhy{}consistent field calculation}
+\PYG{n}{outdir}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/DFT\PYGZhy{}U\PYGZsq{}}\PYG{p}{,} \PYG{c}{! output folder}
+\PYG{n}{prefix}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}ZnO\PYGZsq{}}\PYG{p}{,}               \PYG{c}{! name prepended to input/output filenames}
+\PYG{n}{pseudo\PYGZus{}dir}    \PYG{o}{=}  \PYG{l+s+s2}{\PYGZdq{}/home/christian.llemit/PP/GBRV\PYGZdq{}}\PYG{p}{,} \PYG{c}{! folder containg pseudopotentials}
+\PYG{n}{tprnfor}       \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}              \PYG{c}{! calculate force and print to output      }
+\PYG{n}{tstress}       \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}              \PYG{c}{! calculate stress and print to output }
+\PYG{n}{verbosity}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}high\PYGZsq{}}\PYG{p}{,}              \PYG{c}{! set level of output\PYGZsq{}s verbosity }
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n+nb}{SYSTEM}
+\PYG{n}{A}             \PYG{o}{=}  \PYG{l+m+mf}{3.24900}\PYG{p}{,}             \PYG{c}{! lattice parameter \PYGZsq{}a\PYGZsq{} in angstrom}
+\PYG{n}{C}             \PYG{o}{=}  \PYG{l+m+mf}{5.20700}\PYG{p}{,}             \PYG{c}{! lattice parameter \PYGZsq{}c\PYGZsq{} in angstrom}
+\PYG{n}{ecutrho}       \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{l+m+mf}{0.0}\PYG{p}{,}               \PYG{c}{! energy cutoff of the electron density in Ry}
+\PYG{n}{ecutwfc}       \PYG{o}{=}  \PYG{l+m+mi}{90}\PYG{p}{,}                  \PYG{c}{! energy cutoff of the KS orbital in Ry}
+\PYG{n}{ibrav}         \PYG{o}{=}  \PYG{l+m+mi}{4}\PYG{p}{,}                   \PYG{c}{! Bravais lattice \PYGZsq{}4\PYGZsq{} \PYGZhy{}\PYGZgt{} hexagonal}
+\PYG{n}{nat}           \PYG{o}{=}  \PYG{l+m+mi}{4}\PYG{p}{,}                   \PYG{c}{! \PYGZsh{} of atoms}
+\PYG{n}{ntyp}          \PYG{o}{=}  \PYG{l+m+mi}{2}\PYG{p}{,}                   \PYG{c}{! \PYGZsh{} of types of atoms}
+\PYG{n}{occupations}   \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}smearing\PYGZsq{}}\PYG{p}{,}          \PYG{c}{! smearing used in occupations; default\PYGZhy{}\PYGZgt{}gaussian}
+\PYG{n}{degauss}       \PYG{o}{=}  \PYG{l+m+mf}{0.001}                \PYG{c}{! smearing broadening parameter in Ry}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{ELECTRONS}
+\PYG{n}{conv\PYGZus{}thr}        \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{06}\PYG{p}{,}             \PYG{c}{! scf convergence threshold in Ry}
+\PYG{n}{mixing\PYGZus{}beta}     \PYG{o}{=}  \PYG{l+m+mf}{0.4d0}\PYG{p}{,}             \PYG{c}{! 0.4 new + 0.7 old electron densities}
+\PYG{o}{/}
+
+\PYG{n}{ATOMIC\PYGZus{}SPECIES} 
+\PYG{n}{O}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{5.9994}   \PYG{n}{o\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{l+m+mf}{2.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF}  \PYG{c}{! atomic symbol, atomic mass, pseudopotential name}
+\PYG{n}{Zn}    \PYG{l+m+mi}{6}\PYG{l+m+mf}{5.39}   \PYG{n}{zn\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF}    \PYG{c}{! must agree with ntyp}
+
+\PYG{n}{ATOMIC\PYGZus{}POSITIONS} \PYG{n}{crystal}              \PYG{c}{! basis atoms in fractional coordinates (x,y,z) }
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.666666666667}   \PYG{l+m+mf}{0.333333333333}   \PYG{l+m+mf}{0.000000000000}    
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.333333333333}   \PYG{l+m+mf}{0.666666666667}   \PYG{l+m+mf}{0.500000000000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.666666666667}   \PYG{l+m+mf}{0.333333333333}   \PYG{l+m+mf}{0.345000000000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.333333333333}   \PYG{l+m+mf}{0.666666666667}   \PYG{l+m+mf}{0.845000000000}
+
+\PYG{n}{K\PYGZus{}POINTS} \PYG{n}{automatic}                    \PYG{c}{! automatic \PYGZhy{}\PYGZgt{} Monkhorst\PYGZhy{}Pack grid}
+\PYG{l+m+mi}{1}\PYG{l+m+mf}{1.0}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{1.0}   \PYG{l+m+mi}{6}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0}          \PYG{c}{! k\PYGZus{}x * k\PYGZus{}y * k\PYGZus{}z \PYGZhy{}\PYGZgt{} grids; 0 0 0 \PYGZhy{}\PYGZgt{} no offset  }
+\end{Verbatim}

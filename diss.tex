@@ -11,19 +11,27 @@
 \usepackage{bookmark}
 %\usepackage{hyperref}
 %\hypersetup{colorlinks=true,citecolor=blue}
-\usepackage{minted}
-\usepackage{physics}
-\usepackage{chemformula}
-\usepackage{mathtools}
-\usepackage{nicefrac}
+\usepackage[pass]{geometry}
+% \usepackage{showframe}
+\usepackage{layout,layouts}
+\usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{multicol,multirow}
+\usepackage{newfloat}
+\usepackage[newfloat=true]{minted}
+\usepackage{physics,chemformula}
+\usepackage{mathtools,nicefrac}
 \usepackage{xcolor}
 \usepackage{bm}
 \usepackage{booktabs}
-\usepackage{tabulary}
-\usepackage{array}
+\usepackage{array,tabulary}
 \usepackage{threeparttable}
-\usepackage{multirow}
+
+% custom environment settings
 \newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+\SetupFloatingEnvironment{listing}{placement=htpb!}
 
 % Make chapter numbers into string words 1 -> ONE
 \usepackage{fmtcount}

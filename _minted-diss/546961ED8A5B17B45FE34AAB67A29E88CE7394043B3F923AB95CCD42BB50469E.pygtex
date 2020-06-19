@@ -1,0 +1,133 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{! relaxation of Zinc vacancy with minus 2 charge defect}
+\PYG{p}{\PYGZam{}}\PYG{n}{CONTROL}
+\PYG{n}{calculation}    \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}vc\PYGZhy{}relax\PYGZsq{}}\PYG{p}{,} \PYG{c}{! variable\PYGZhy{}cell relaxation}
+\PYG{n}{etot\PYGZus{}conv\PYGZus{}thr}  \PYG{o}{=}  \PYG{l+m+mf}{1.d\PYGZhy{}5}\PYG{p}{,}      \PYG{c}{! total energy convergence in Ry}
+\PYG{n}{forc\PYGZus{}conv\PYGZus{}thr}  \PYG{o}{=}  \PYG{l+m+mf}{1.d\PYGZhy{}4}\PYG{p}{,}      \PYG{c}{! net force convergence in Ry/bohr}
+\PYG{n}{outdir}         \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/relax/Zn\PYGZus{}vac\PYGZhy{}n2\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{prefix}         \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}Zn\PYGZus{}vac\PYGZhy{}n2\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{pseudo\PYGZus{}dir}     \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/home/christian.llemit/PP/GBRV\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{tprnfor}        \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{tstress}        \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}
+\PYG{n}{verbosity}      \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}high\PYGZsq{}}\PYG{p}{,}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n+nb}{SYSTEM}
+\PYG{n}{celldm}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}   \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{l+m+mf}{8.61865901}\PYG{p}{,} \PYG{c}{! first crystallographic constant in bohr}
+\PYG{n}{degauss}     \PYG{o}{=}  \PYG{l+m+mf}{0.001}\PYG{p}{,}
+\PYG{n}{ecutrho}     \PYG{o}{=}  \PYG{l+m+mi}{72}\PYG{l+m+mf}{0.0}\PYG{p}{,}
+\PYG{n}{ecutwfc}     \PYG{o}{=}  \PYG{l+m+mi}{90}\PYG{p}{,}
+\PYG{n}{ibrav}       \PYG{o}{=}  \PYG{l+m+mi}{0}\PYG{p}{,}  \PYG{c}{! crystal axis provided in CELL\PYGZus{}PARAMETERS}
+\PYG{n}{nat}         \PYG{o}{=}  \PYG{l+m+mi}{71}\PYG{p}{,} \PYG{c}{! 72 atoms \PYGZhy{}\PYGZgt{} perfect crystal}
+\PYG{n}{ntyp}        \PYG{o}{=}  \PYG{l+m+mi}{2}\PYG{p}{,}
+\PYG{n}{occupations} \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}smearing\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{smearing}    \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}gauss\PYGZsq{}}\PYG{p}{,}  \PYG{c}{! smearing type}
+\PYG{n}{tot\PYGZus{}charge}  \PYG{o}{=}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,}       \PYG{c}{! 0 \PYGZhy{}\PYGZgt{} neutral system; +x \PYGZhy{}\PYGZgt{} x electrons removed; else \PYGZhy{}\PYGZgt{} x electrons added                       }
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{ELECTRONS}
+\PYG{n}{conv\PYGZus{}thr}      \PYG{o}{=}  \PYG{l+m+mi}{1}\PYG{n}{d}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{06}\PYG{p}{,}
+\PYG{n}{mixing\PYGZus{}mode}   \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}plain\PYGZsq{}}  \PYG{c}{! charge density Broyden mixing}
+\PYG{n}{mixing\PYGZus{}beta}   \PYG{o}{=}  \PYG{l+m+mf}{0.4d0}\PYG{p}{,}
+\PYG{n}{startingpot}   \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}atomic\PYGZsq{}} \PYG{c}{! starting potential from atomic charge superposition}
+\PYG{n}{startingwfc}   \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}atomic+random\PYGZsq{}} \PYG{c}{! starting KS orbital from superposition of atomic orbitals plus a superimposed \PYGZdq{}randomization\PYGZdq{} of atomic orbitals}
+\PYG{n}{diagonalization} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}david\PYGZsq{}}       \PYG{c}{! Davidson iterative scf matrix diagonalization with overlapping}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{IONS}                    \PYG{c}{! needed if calculation = \PYGZsq{}vc\PYGZhy{}relax\PYGZsq{}}
+\PYG{n}{ion\PYGZus{}dynamics}   \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}bfgs\PYGZsq{}}  \PYG{c}{! optimization using BFGS quasi\PYGZhy{}newton algorithm}
+\PYG{n}{pot\PYGZus{}extrapolation} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}atomic\PYGZsq{}} \PYG{c}{! extrapolate potential from preceding ionic steps as a sum of atomic\PYGZhy{}like orbitals}
+\PYG{o}{/}
+
+\PYG{p}{\PYGZam{}}\PYG{n}{CELL}                    \PYG{c}{! needed if calculation = \PYGZsq{}vc\PYGZhy{}relax\PYGZsq{}}
+\PYG{n}{cell\PYGZus{}dynamics} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}bfgs\PYGZsq{}}   \PYG{c}{! same as ion\PYGZus{}dynamics but acting on unit/supercell}
+\PYG{n}{cell\PYGZus{}dofree}   \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}all\PYGZsq{}}    \PYG{c}{! all lattice axis and angles are moved}
+\PYG{n}{press\PYGZus{}conv\PYGZus{}thr} \PYG{o}{=} \PYG{l+m+mf}{0.5d0}   \PYG{c}{! convergence threshold on the pressure in kbar}
+\PYG{o}{/}
+
+\PYG{n}{ATOMIC\PYGZus{}SPECIES} 
+\PYG{n}{Zn}    \PYG{l+m+mi}{6}\PYG{l+m+mf}{5.39}   \PYG{n}{zn\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+\PYG{n}{O}    \PYG{l+m+mi}{1}\PYG{l+m+mf}{5.9994}   \PYG{n}{o\PYGZus{}pbe\PYGZus{}v1}\PYG{p}{.}\PYG{l+m+mf}{2.}\PYG{n}{uspp}\PYG{p}{.}\PYG{n}{F}\PYG{p}{.}\PYG{n}{UPF} 
+
+\PYG{n}{CELL\PYGZus{}PARAMETERS} \PYG{n}{alat} \PYG{c}{! needed if ibrav = 0}
+\PYG{c}{!primitive lattice vectors in units of alat = celldm(1)}
+ \PYG{l+m+mf}{0.9992341179999}   \PYG{l+m+mf}{0.0000032780000}  \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000021060000}
+\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.4996142200000}   \PYG{l+m+mf}{0.8653637700000}   \PYG{l+m+mf}{0.0000021060000}
+\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.0000022630000}   \PYG{l+m+mf}{0.0000013060000}   \PYG{l+m+mf}{1.0762002420000}
+
+\PYG{n}{ATOMIC\PYGZus{}POSITIONS} \PYG{n}{crystal} \PYG{c}{! 3×3×2 supercell  w/ 1 Zn atom removed}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.225724334000}   \PYG{l+m+mf}{0.114469544000}   \PYG{l+m+mf}{0.491450723000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.111704132000}   \PYG{l+m+mf}{0.222521937000}   \PYG{l+m+mf}{0.241987109000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.221485939000}   \PYG{l+m+mf}{0.110948003000}   \PYG{l+m+mf}{0.180189772000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.110322337000}   \PYG{l+m+mf}{0.221831003000}   \PYG{l+m+mf}{0.431825913000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.222194323000}   \PYG{l+m+mf}{0.110873993000}   \PYG{l+m+mf}{0.991530280000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.111630968000}   \PYG{l+m+mf}{0.222483807000}   \PYG{l+m+mf}{0.741620488000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.221473888000}   \PYG{l+m+mf}{0.110568370000}   \PYG{l+m+mf}{0.681197816000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.110750331000}   \PYG{l+m+mf}{0.222042093000}   \PYG{l+m+mf}{0.930996932000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.225735420000}   \PYG{l+m+mf}{0.444605150000}   \PYG{l+m+mf}{0.491445304000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.110604765000}   \PYG{l+m+mf}{0.554533468000}   \PYG{l+m+mf}{0.243231178000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.221485737000}   \PYG{l+m+mf}{0.443871409000}   \PYG{l+m+mf}{0.180188013000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.110456814000}   \PYG{l+m+mf}{0.554251379000}   \PYG{l+m+mf}{0.432423130000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.222195830000}   \PYG{l+m+mf}{0.444655023000}   \PYG{l+m+mf}{0.991530030000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.111325965000}   \PYG{l+m+mf}{0.555980387000}   \PYG{l+m+mf}{0.741094871000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.221473355000}   \PYG{l+m+mf}{0.444238883000}   \PYG{l+m+mf}{0.681196210000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.111388717000}   \PYG{l+m+mf}{0.556109046000}   \PYG{l+m+mf}{0.930719707000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.222226193000}   \PYG{l+m+mf}{0.777773807000}   \PYG{l+m+mf}{0.489436477000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.110602814000}   \PYG{l+m+mf}{0.889397186000}   \PYG{l+m+mf}{0.243228014000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.222224168000}   \PYG{l+m+mf}{0.777775832000}   \PYG{l+m+mf}{0.182605934000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.110458475000}   \PYG{l+m+mf}{0.889541525000}   \PYG{l+m+mf}{0.432424563000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.222225582000}   \PYG{l+m+mf}{0.777774418000}   \PYG{l+m+mf}{0.992901807000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.111325600000}   \PYG{l+m+mf}{0.888674400000}   \PYG{l+m+mf}{0.741096833000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.222223945000}   \PYG{l+m+mf}{0.777776055000}   \PYG{l+m+mf}{0.679955230000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.111389522000}   \PYG{l+m+mf}{0.888610478000}   \PYG{l+m+mf}{0.930721053000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.555406396000}   \PYG{l+m+mf}{0.114461929000}   \PYG{l+m+mf}{0.491451180000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.446011020000}   \PYG{l+m+mf}{0.225358036000}   \PYG{l+m+mf}{0.243518273000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.556128831000}   \PYG{l+m+mf}{0.110947502000}   \PYG{l+m+mf}{0.180190445000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.433589789000}   \PYG{l+m+mf}{0.200513843000}   \PYG{l+m+mf}{0.424119728000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.555347233000}   \PYG{l+m+mf}{0.110870398000}   \PYG{l+m+mf}{0.991531865000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.445373083000}   \PYG{l+m+mf}{0.224080234000}   \PYG{l+m+mf}{0.738636233000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.555762155000}   \PYG{l+m+mf}{0.110568197000}   \PYG{l+m+mf}{0.681198094000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.443016927000}   \PYG{l+m+mf}{0.219364979000}   \PYG{l+m+mf}{0.931407379000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.446006031000}   \PYG{l+m+mf}{0.553993969000}   \PYG{l+m+mf}{0.243530794000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.555552891000}   \PYG{l+m+mf}{0.444447109000}   \PYG{l+m+mf}{0.176450783000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.433585923000}   \PYG{l+m+mf}{0.566414077000}   \PYG{l+m+mf}{0.424117600000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.555553130000}   \PYG{l+m+mf}{0.444446870000}   \PYG{l+m+mf}{0.985217120000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.445371021000}   \PYG{l+m+mf}{0.554628979000}   \PYG{l+m+mf}{0.738630029000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.555553941000}   \PYG{l+m+mf}{0.444446059000}   \PYG{l+m+mf}{0.702884490000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.443014501000}   \PYG{l+m+mf}{0.556985499000}   \PYG{l+m+mf}{0.931403488000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.555394850000}   \PYG{l+m+mf}{0.774264580000}   \PYG{l+m+mf}{0.491445304000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.445466532000}   \PYG{l+m+mf}{0.889395235000}   \PYG{l+m+mf}{0.243231178000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.556128591000}   \PYG{l+m+mf}{0.778514263000}   \PYG{l+m+mf}{0.180188013000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.445748621000}   \PYG{l+m+mf}{0.889543186000}   \PYG{l+m+mf}{0.432423130000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.555344977000}   \PYG{l+m+mf}{0.777804170000}   \PYG{l+m+mf}{0.991530030000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.444019613000}   \PYG{l+m+mf}{0.888674035000}   \PYG{l+m+mf}{0.741094871000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.555761117000}   \PYG{l+m+mf}{0.778526645000}   \PYG{l+m+mf}{0.681196210000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.443890954000}   \PYG{l+m+mf}{0.888611283000}   \PYG{l+m+mf}{0.930719707000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.888887602000}   \PYG{l+m+mf}{0.111112398000}   \PYG{l+m+mf}{0.492361738000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.777484497000}   \PYG{l+m+mf}{0.222515503000}   \PYG{l+m+mf}{0.241984281000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.888889591000}   \PYG{l+m+mf}{0.111110409000}   \PYG{l+m+mf}{0.181750148000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.778171989000}   \PYG{l+m+mf}{0.221828011000}   \PYG{l+m+mf}{0.431825379000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.888889985000}   \PYG{l+m+mf}{0.111110015000}   \PYG{l+m+mf}{0.992266090000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.777520237000}   \PYG{l+m+mf}{0.222479763000}   \PYG{l+m+mf}{0.741623020000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.888889311000}   \PYG{l+m+mf}{0.111110689000}   \PYG{l+m+mf}{0.681763702000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.777959329000}   \PYG{l+m+mf}{0.222040671000}   \PYG{l+m+mf}{0.930997750000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.885538071000}   \PYG{l+m+mf}{0.444593604000}   \PYG{l+m+mf}{0.491451180000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.774641964000}   \PYG{l+m+mf}{0.553988980000}   \PYG{l+m+mf}{0.243518273000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.889052498000}   \PYG{l+m+mf}{0.443871169000}   \PYG{l+m+mf}{0.180190445000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.799486157000}   \PYG{l+m+mf}{0.566410211000}   \PYG{l+m+mf}{0.424119728000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.889129602000}   \PYG{l+m+mf}{0.444652767000}   \PYG{l+m+mf}{0.991531865000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.775919766000}   \PYG{l+m+mf}{0.554626917000}   \PYG{l+m+mf}{0.738636233000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.889431803000}   \PYG{l+m+mf}{0.444237845000}   \PYG{l+m+mf}{0.681198094000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.780635021000}   \PYG{l+m+mf}{0.556983073000}   \PYG{l+m+mf}{0.931407379000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.885530456000}   \PYG{l+m+mf}{0.774275666000}   \PYG{l+m+mf}{0.491450723000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.777478063000}   \PYG{l+m+mf}{0.888295868000}   \PYG{l+m+mf}{0.241987109000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.889051997000}   \PYG{l+m+mf}{0.778514061000}   \PYG{l+m+mf}{0.180189772000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.778168997000}   \PYG{l+m+mf}{0.889677663000}   \PYG{l+m+mf}{0.431825913000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.889126007000}   \PYG{l+m+mf}{0.777805677000}   \PYG{l+m+mf}{0.991530280000}
+\PYG{n}{Zn}       \PYG{l+m+mf}{0.777516193000}   \PYG{l+m+mf}{0.888369032000}   \PYG{l+m+mf}{0.741620488000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.889431630000}   \PYG{l+m+mf}{0.778526112000}   \PYG{l+m+mf}{0.681197816000}
+\PYG{n}{O}        \PYG{l+m+mf}{0.777957907000}   \PYG{l+m+mf}{0.889249669000}   \PYG{l+m+mf}{0.930996932000}
+
+\PYG{n}{K\PYGZus{}POINTS} \PYG{n}{automatic}
+\PYG{l+m+mi}{2}   \PYG{l+m+mi}{2}   \PYG{l+m+mi}{2}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0}   \PYG{l+m+mi}{0} 
+\end{Verbatim}

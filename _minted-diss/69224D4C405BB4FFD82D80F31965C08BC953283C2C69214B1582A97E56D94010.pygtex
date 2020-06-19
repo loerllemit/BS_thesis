@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ \PYG{c}{! postprocessing of data from nscf calculation of Zinc antisite}
+ \PYG{c}{! create a ready to plot dos data}
+\PYG{p}{\PYGZam{}}\PYG{n}{DOS}
+  \PYG{n}{fildos}   \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/codes/ZnO/supercell/DOS\PYGZhy{}Zn\PYGZus{}anti/dos.Zn\PYGZus{}anti.dat\PYGZsq{}}\PYG{p}{,} \PYG{c}{! file name for dos output }
+  \PYG{n}{outdir}   \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/Zn\PYGZus{}anti/dos\PYGZsq{}}\PYG{p}{,}
+  \PYG{n}{prefix}   \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}Zn\PYGZus{}anti\PYGZsq{}}\PYG{p}{,}
+\PYG{o}{/}
+\end{Verbatim}

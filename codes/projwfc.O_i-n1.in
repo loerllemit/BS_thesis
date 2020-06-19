@@ -1,0 +1,11 @@
+! postprocessing of data from nscf calculation of Zinc antisite
+! create a ready to plot projected dos data
+&PROJWFC ! projects KS orbitals onto orthogonalized atomic wavefunctions
+  filpdos  =  '/scratch1/christian.llemit/codes/ZnO/supercell/DOS-O_i-n1/projwfc.O_i-n1', ! file name for pdos output
+  kresolveddos  =  .false., ! k-resolved DOS is not needed
+  lsym          =  .true.,  ! projections are symmetrized
+  outdir        =  '/scratch1/christian.llemit/tmp/ZnO/O_i-n1/dos',
+  prefix        =  'O_i-n1',
+/
+
+

@@ -1,37 +1,62 @@
 \documentclass[12pt]{article}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{xcolor}
-\usepackage{newfloat}
 \usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{multicol}
+\usepackage{newfloat}
 \usepackage[newfloat=true]{minted}
+\newenvironment{code}{\captionsetup{type=listing}}{}
 \SetupFloatingEnvironment{listing}{name=Code}
-% \SetupFloatingEnvironment{listing}{placement=htp}
+\SetupFloatingEnvironment{listing}{placement=htpb!}
 
 \begin{document}
 
 \usemintedstyle{stata-light}
-\begin{minted}[bgcolor=lightgray,linenos,frame=lines,
-    fontsize=\footnotesize,
-    framesep=2mm
-    ]{fortran}
+\begin{landscape}
+\begin{multicols}{2}
+\begin{code}
+	% \captionof{listing}{Example from external files}
+	\caption{Hello World}
+    \inputminted[linenos,frame=leftline,
+    % bgcolor=lightgray,
+		fontsize=\footnotesize,
+		% framesep=2mm,
+		% firstline=1, lastline=119,
+		breaklines=true,
+		breakanywhere=true,
+	]{fortran}{../codes/scf.Zn_i-p1.in}
+	% \label{lst:my_func}
+\end{code}
 
-    int main() {
-    printf("hello, world");
-    return 0;
-    }
 
-\end{minted}
-\\
+\begin{code}
+	% \captionof{listing}{Example from external files}
+	\caption{Hello World}
+    \inputminted[linenos,frame=leftline,
+    % bgcolor=lightgray,
+		fontsize=\footnotesize,
+        %  framesep=10mm,
+        % numbers=right,
+        % firstline=1, lastline=119,
+        rulecolor = gray,
+        % stepnumber = 2,
+		breaklines=true,
+		breakanywhere=true,
+	]{fortran}{../codes/relax.Zn_vac-n2.in}
+	% \label{lst:my_func}
+\end{code}
+\end{multicols}
 
-% \begin{listing}[]
-\captionof{listing}{Example from external file}
-\inputminted[bgcolor=lightgray,linenos,frame=lines,
-	fontsize=\footnotesize,
-    framesep=2mm,
-    firstline=1, lastline=119,
-    breaklines=true,
-    breakanywhere=true,
-    ]{fortran}{../codes/scf.Zn_i-p1.in}
-% \end{listing}
+
+
+
+\end{landscape}
+
+
+
+
+
 
 \end{document}
 

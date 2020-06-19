@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{! postprocessing of data from nscf calculation of Zinc antisite}
+\PYG{c}{! create a ready to plot projected dos data}
+\PYG{p}{\PYGZam{}}\PYG{n}{PROJWFC} \PYG{c}{! projects KS orbitals onto orthogonalized atomic wavefunctions}
+  \PYG{n}{filpdos}  \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/codes/ZnO/supercell/DOS\PYGZhy{}O\PYGZus{}i\PYGZhy{}n1/projwfc.O\PYGZus{}i\PYGZhy{}n1\PYGZsq{}}\PYG{p}{,} \PYG{c}{! file name for pdos output}
+  \PYG{n}{kresolveddos}  \PYG{o}{=}  \PYG{p}{.}\PYG{n}{false}\PYG{p}{.,} \PYG{c}{! k\PYGZhy{}resolved DOS is not needed}
+  \PYG{n}{lsym}          \PYG{o}{=}  \PYG{p}{.}\PYG{n}{true}\PYG{p}{.,}  \PYG{c}{! projections are symmetrized}
+  \PYG{n}{outdir}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}/scratch1/christian.llemit/tmp/ZnO/O\PYGZus{}i\PYGZhy{}n1/dos\PYGZsq{}}\PYG{p}{,}
+  \PYG{n}{prefix}        \PYG{o}{=}  \PYG{l+s+s1}{\PYGZsq{}O\PYGZus{}i\PYGZhy{}n1\PYGZsq{}}\PYG{p}{,}
+\PYG{o}{/}
+\end{Verbatim}
