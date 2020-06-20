@@ -102,7 +102,7 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
 		\end{code}
 
 		\begin{code}
-			\caption{Postprocessing of data from bands calculation}
+			\caption{Postprocessing of bands data}
 			\inputminted[linenos,frame=leftline,
 				fontsize=\footnotesize,
 				breaklines=true,
@@ -112,7 +112,7 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
         \bigskip
 
 		\begin{code}
-			\caption{Postprocessing of data from nscf calculation}
+			\caption{Postprocessing of DOS data}
 			\inputminted[linenos,frame=leftline,
 				fontsize=\footnotesize,
 				breaklines=true,
@@ -122,15 +122,25 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
 		\bigskip
 
 		\begin{code}
-			\caption{Postprocessing of data  calculation}
+			\caption{Postprocessing of PDOS data }
 			\inputminted[linenos,frame=leftline,
 				fontsize=\footnotesize,
 				breaklines=true,
 				breakanywhere=true,
 			]{fortran}{./codes/projwfc.O_i-n1.in}
 		\end{code}
+		\vfill\null
+		\columnbreak
 
-
+			\begin{code}
+				\caption{Sample batch script to run in Linux Terminal}
+				\inputminted[linenos,frame=leftline,
+					fontsize=\footnotesize,
+					breaklines=true,
+					breakafter=/,
+				]{slurm}{./codes/O_i-n2.slurm}
+			\end{code}
+		
 	\end{multicols}
 \end{landscape}
 \endgroup
