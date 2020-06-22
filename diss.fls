@@ -165,6 +165,8 @@ INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/l
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/tools/layout.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/layouts/layouts.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/layouts/layouts.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/lscape.sty
@@ -547,6 +549,12 @@ INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/defect-formation.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/trans_lvl.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/trans_lvl.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/trans_lvl.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-band.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-band.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-band.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-dos.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-dos.pdf
+INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/O_v-dos.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/band-dos_O_vac.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/band-dos_O_vac.pdf
 INPUT /scratch1/christian.llemit/codes/thesis/images/rnd/band-dos_O_vac.pdf

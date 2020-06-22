@@ -73,7 +73,7 @@ Analysis of the total density of states (DOS) and projected density of states (P
 \begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"images/rnd/band-dos_juxtapose"}
-	\caption[Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines)with $U_d =15$ and $U_p= 7$]{Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines) with $U_d =15$ and $U_p= 7$. Fermi level is shifted to zero indicated as horizontal dotted line. }
+	\caption[Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines)with $U_d =15$ and $U_p= 7$]{Energy bandstructures and total density of states obtained from standard DFT-GGA calculation (blue dashed lines) and DFT+U calculation (red solid lines) with $U_d =15$ and $U_p= 7$. Fermi level is shifted to zero as indicated by a horizontal dotted line. }
 	\label{fig:hubbard_band-dos}
 \end{figure}
 
@@ -96,6 +96,26 @@ Figure \ref{fig:defect-formE} summarizes the formation energies and transition l
 
 Another way to visualize the transition levels is through plotting the Fermi level with the type of defect, as illustrated in Figure \ref{fig:transition_level}. The line segments correspond to open circles in Figure \ref{fig:defect-formE}. It can be observed that transition levels do not change in any chemical environments (i.e. Zn-rich or O-rich). This happens because the defect formation energies are shifted by the same amount  in any chemical environment such that taking their difference, as demonstrated in Eq. \eqref{eq:trans_level}, will leave the transition level invariant. Only the formation energies are changed, hence, shifting upwards or downwards are only observed in Figures \ref{fig:O_vac-form} and \ref{fig:defect-formE}. As observed in the Figure \ref{fig:transition_level}, the most positive charge state of a defect is the one that is stable at low Fermi levels. In other words, the most positive charge state for a given defect is likely to exist near the valence band. The most negative one, on the other hand, exists near the conduction band. A peculiar feature can be observed for the zinc interstitial. Its transition levels exceed the band gap of $E_g = 3.395$ eV. This means that it is possible to form resonance states within the conduction band. These states are located inside in the conduction band but are not actually occupied by an electrons since the electrons will migrate to lower energy state by transferring to the conduction band minimum \citep{Freysoldt2014}.
 
+\begin{figure}[tbph!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/rnd/O_vac-formation"}
+	\caption[Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions]{Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions. The zero of the Fermi level corresponds to the top of valence band and the dotted vertical line marks the position of the bottom of conduction band. The circles are the thermodynamic transition levels. Note that the $+$ charge state is unstable for any value of the Fermi level, hence, only $\epsilon(0/2+)$ is stable as indicated by the open circle. }
+	\label{fig:O_vac-form}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.65\linewidth]{"images/rnd/defect-formation"}
+	\caption[Defect formation energies as a function of Fermi-level position for native point defects in ZnO]{Defect formation energies as a function of Fermi-level position for native point defects in ZnO. Results for Zn-rich and O-rich conditions are shown. The zero of Fermi level corresponds to the valence band maximum. The dotted vertical line corresponds to the conduction band minimum. The slope of these segments indicates the defect charge state. Abrupt change in slopes indicate transitions between different charge states.}
+	\label{fig:defect-formE}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=0.45\linewidth]{"images/rnd/trans_lvl"}
+	\caption[Thermodynamic transition levels for native point defects in ZnO]{Thermodynamic transition levels for native point defects in ZnO. The horizontal dashed line is the band gap. VBM is set at zero Fermi level while CBM is set at the band gap.}
+	\label{fig:transition_level}
+\end{figure}
 
 \begingroup
 \setlength{\tabcolsep}{15pt}
@@ -127,57 +147,6 @@ Another way to visualize the transition levels is through plotting the Fermi lev
 \end{table}
 \endgroup
 
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=0.65\linewidth]{"images/rnd/O_vac-formation"}
-	\caption[Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions]{Calculated defect formation energies of oxygen vacancy in Zn-rich and O-rich conditions. The zero of the Fermi level corresponds to the top of valence band and the dotted vertical line marks the position of the bottom of conduction band. The circles are the thermodynamic transition levels. Note that the $+$ charge state is unstable for any value of the Fermi level, hence, only $\epsilon(0/2+)$ is stable as indicated by the open circle. }
-	\label{fig:O_vac-form}
-\end{figure}
-
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=0.65\linewidth]{"images/rnd/defect-formation"}
-	\caption[Defect formation energies as a function of Fermi-level position for native point defects in ZnO]{Defect formation energies as a function of Fermi-level position for native point defects in ZnO. Results for Zn-rich and O-rich conditions are shown. The zero of Fermi level corresponds to the valence band maximum. The slope of these segments indicates the defect charge state. Abrupt change in slopes indicate transitions between different charge states.}
-	\label{fig:defect-formE}
-\end{figure}
-
-% \begingroup
-% \setlength{\tabcolsep}{20pt}
-% \begin{table}[tbh!]
-% 	\centering
-% 	\caption{Calculated defect formation energies $\Delta H^f$ at $E_f = 0$ for native point defects in ZnO under oxygen-poor and oxygen-rich conditions. Also shown in this table are the defect charge state $q$ and the number of constituent atoms, $n_{\ch{O}}$ and $n_{\ch{Zn}}$, added or removed in the defect supercell.} 
-% 	\label{tab:E_formation}
-% 	\resizebox{0.9\textwidth}{!}{%m{0.2\textwidth}<{\centering}
-% 	\begin{tabular}{@{}cccccc}
-% 	\toprule
-% 	Defect                & $q$  & $n_{\ch{O}}$ & $n_{\ch{Zn}}$ & $\Delta H^f$ (O-poor) (eV) & $\Delta H^f$ (O-rich) (eV) \\ \midrule
-% 	\multirow[t]{3}{*}{$V_{\ch{O}}$} & 0  & -1 & 0   & -0.018      & 3.589       \\
-% 						  & 1  & -1 & 0   & -2.950      & 0.657       \\
-% 						  & 2  & -1 & 0   & -6.466      & -2.859      \\
-% 	\multirow[t]{3}{*}{$V_{\ch{Zn}}$}  & 0  & 0  & -1  & 9.821       & 6.214       \\
-% 						  & -1 & 0  & -1  & 10.474      & 6.867       \\
-% 						  & -2 & 0  & -1  & 12.004      & 8.396       \\
-% 	\ch{O}$_i$                    & 0  & 1  & 0   & 11.558      & 7.951       \\
-% 	\multirow[t]{3}{*}{\ch{Zn}$_i$}               & 0  & 0  & 1   & 4.277       & 7.884       \\
-% 						  & 1  & 0  & 1   & -0.569      & 3.038       \\
-% 						  & 2  & 0  & 1   & -4.481      & -0.874      \\
-% 	\ch{O}$_{\ch{Zn}}$                    & 0  & 1  & -1  & 15.495      & 8.281       \\
-% 	\ch{Zn}$_{\ch{O}}$                   & 0  & -1 & 1   & 3.561       & 10.775      \\ \bottomrule
-% 	\end{tabular}%
-% 	}
-% 	\end{table}
-% \endgroup
-
-
-
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=0.4\linewidth]{"images/rnd/trans_lvl"}
-	\caption[Thermodynamic transition levels for native point defects in ZnO]{Thermodynamic transition levels for native point defects in ZnO. The horizontal dashed line is the band gap. VBM is set at zero Fermi level while CBM is set at the band gap.}
-	\label{fig:transition_level}
-\end{figure}
-
-
 \clearpage
 
 \section{Oxygen Vacancies}
@@ -186,6 +155,20 @@ The stable transition level $\epsilon(0/2+)$ is located around 0.171 eV below th
 
 
 The neutral \ch{O} vacancy induces a deep and localized one-electron (Kohn-Sham) state in the band gap as shown in Figure \ref{fig:band-dos_O_vac}. The state is located 1.34 eV above the valence band maximum (2.055 eV below the band gap). Note that Kohn-Sham states do not correspond directly to the thermodynamic transition levels since the latter is calculated in the basis of Eq. \eqref{eq:formation_E}. The partial density of states shown in Figure \ref{fig:dos-pdos_O_vac} verified that this state is attributed to the 2p orbital of oxygen. For the +1 charge defect state, the localized electronic state is shifted upwards with 2.35 eV above the valence band as shown in Figure  \ref{fig:band-dos_O_vac-p1}.  While +2 charge state has a electronic state located 3.10 eV above the valence band as shown in Figure \ref{fig:band-dos_O_vac-p2}. Note that the electronic state follows the dispersion of the conduction band particularly near the $\Gamma$ point. Thus this state is not localized anymore in +2 charge defect state of \ch{O} vacancy. Both electronic states in the charge defect states +1 and +2 are attributed to O 2p orbitals as shown in Figure \ref{fig:dos-pdos_O_vac-p1} and \ref{fig:dos-pdos_O_vac-p2}, respectively.
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=1\textwidth]{"images/rnd/O_v-band"}
+	\caption[Band structure of Oxygen vacancy with its possible defect charge states]{Band structure of Oxygen vacancy with its possible defect charge states. }
+	\label{fig:blah_band}
+\end{figure}
+
+\begin{figure}[tbh!]
+	\centering
+	\includegraphics[width=1\textwidth]{"images/rnd/O_v-dos"}
+	\caption[Total density of states (TDOS) and partial density of states (PDOS) of Oxygen vacancy in different  defect charge states]{Total density of states (TDOS) and partial density of states (PDOS) of Oxygen vacancy in different  defect charge states.}
+	\label{fig:blah_dos}
+\end{figure}
 
 
 \begin{figure}[tbh!]
