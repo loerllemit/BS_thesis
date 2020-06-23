@@ -1,0 +1,105 @@
+% Change to 'masters' to produces the masters thesis preliminary pages
+\documentclass[oneside,bachelor,etd]{WSUclass}
+
+\usepackage{import}
+% preamble contains title page, signature page, acknowledgment and abstract texts
+\usepackage{preamble}
+% Packages used
+\usepackage[utf8]{inputenc} % Remove warning on ascii conversion
+\usepackage[T1]{fontenc} % Remove warning on ascii conversion
+\usepackage[backend=biber,refsection=part,style=nature,natbib=true]{biblatex}
+\usepackage{bookmark}
+%\usepackage{hyperref}
+%\hypersetup{colorlinks=true,citecolor=blue}
+\usepackage[pass]{geometry}
+% \usepackage{showframe}
+\usepackage{layout,layouts}
+\usepackage{caption,subcaption}
+\usepackage{pdflscape}
+\usepackage{multicol,multirow}
+\usepackage{newfloat}
+\usepackage[newfloat=true]{minted}
+\usepackage{physics,chemformula}
+\usepackage{mathtools,nicefrac}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array,tabulary}
+\usepackage{threeparttable}
+
+% custom environment settings
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+\SetupFloatingEnvironment{listing}{placement=htpb!}
+
+% Make chapter numbers into string words 1 -> ONE
+\usepackage{fmtcount}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{\vspace *{40\p@ }{\parindent \z@ 
+\raggedright \normalfont \ifnum \c@secnumdepth >\m@ne \Huge \bfseries 
+\@chapapp \space \Numberstring{chapter} \vskip 10\p@ \fi #1\par \nobreak \vskip 30\p@ }}
+\makeatother
+
+\addbibresource{thesis.bib}
+
+\begin{document}
+
+\hypersetup{breaklinks=true}
+
+% Start page counting in roman numerals
+\frontmatter
+
+% This command makes the formal preliminary pages.
+% You can comment it out during the drafting process if you want to save paper.
+\makepreliminarypages
+
+\doublespace
+% Make the table of contents.
+\tableofcontents
+\thispagestyle{plain}
+
+% Make the list of tables
+\mylistoftables
+\thispagestyle{plain}
+
+% Make the list of figures
+\mylistoffigures
+\thispagestyle{plain}
+
+% This page is OPTIONAL. To remove, comment out and \dedicationpage in diss.tex
+%  \dedicationpage
+\clearemptydoublepage
+
+% Start regular page counting at page 1
+\mainmatter
+
+% OK. Everything is set up. Type your thesis here.
+
+\currentpdfbookmark{CHAPTER}{CHAPTER}
+
+\include{chapters/introduction}
+\include{chapters/rrl}
+\include{chapters/theory}
+\include{chapters/computational}
+\include{chapters/implementation}
+\include{chapters/rnd}
+\include{chapters/conclusion}
+%\include{maintext}
+
+% Bibliography
+\begingroup
+\setlength\bibitemsep{10pt}
+\linespread{1}\selectfont
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{REFERENCES}
+\printbibliography[title=REFERENCES]
+\endgroup
+
+
+
+% Appendices
+\include{app}
+
+\end{document}

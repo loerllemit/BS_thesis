@@ -1,0 +1,153 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} run this file using sbatch command in the Linux terminal}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} e.g.:  sbatch O\PYGZus{}i\PYGZhy{}n2.slurm}
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} see SlURM sbatch command online manual  for details}
+
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}job\PYGZhy{}name O\PYGZus{}i\PYGZhy{}n2}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}output O\PYGZus{}i\PYGZhy{}n2.log}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}ntasks=104        \PYGZsh{}\PYGZsh{} number of computing cores}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}spread\PYGZhy{}job}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}distribution=cyclic}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}mem=180G}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}partition=batch }
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}qos=240c\PYGZhy{}1h\PYGZus{}batch}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}mail\PYGZhy{}user loerllemit@gmail.com}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}mail\PYGZhy{}type ALL}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}requeue}
+\PYG{k+kp}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}verbose}
+\PYG{n+nb}{ulimit} \PYGZhy{}s unlimited
+
+\PYG{n+nb}{source} \PYGZti{}/scratch1/intel/compilers\PYGZus{}and\PYGZus{}libraries\PYGZus{}2019.0.117/linux/bin/compilervars.sh intel64
+\PYG{n+nb}{source} \PYGZti{}/scratch1/intel/compilers\PYGZus{}and\PYGZus{}libraries\PYGZus{}2019.0.117/linux/mkl/bin/mklvars.sh intel64
+\PYG{n+nb}{source} \PYGZti{}/scratch1/intel/compilers\PYGZus{}and\PYGZus{}libraries\PYGZus{}2019.0.117/linux/mpi/intel64/bin/mpivars.sh
+\PYG{n+nb}{export} \PYG{n+nv}{I\PYGZus{}MPI\PYGZus{}DEBUG}\PYG{o}{=}\PYGZhy{}5,pid,datetime,host,level
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}JOBID    = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}JOBID}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}JOB\PYGZus{}NAME = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}JOB\PYGZus{}NAME}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}NTASKS   = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}NTASKS}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}NODELIST = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}NODELIST}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}NNODES   = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}NNODES}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}MEM\PYGZus{}PER\PYGZus{}NODE   = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}MEM\PYGZus{}PER\PYGZus{}NODE}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURM\PYGZus{}TASKS\PYGZus{}PER\PYGZus{}NODE = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}TASKS\PYGZus{}PER\PYGZus{}NODE}
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}SLURMTMPDIR    = \PYGZdq{}} \PYG{n+nv}{\PYGZdl{}SLURMTMPDIR}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{} QUANTUM ESPRESSO EXECUTABLES \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+\PYG{n+nv}{path}\PYG{o}{=}/scratch1/christian.llemit/codes/ZnO/supercell 
+\PYG{n+nv}{prefix}\PYG{o}{=}O\PYGZus{}i\PYGZhy{}n2
+\PYG{n+nv}{relaxpath}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}path}/relaxation
+\PYG{n+nv}{bandpath}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}path}/BANDS\PYGZhy{}\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{dospath}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}path}/DOS\PYGZhy{}\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{tempdir}\PYG{o}{=}/scratch1/christian.llemit/tmp/ZnO
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} create file directory}
+mkdir \PYGZhy{}p \PYG{n+nv}{\PYGZdl{}bandpath}
+mkdir \PYGZhy{}p \PYG{n+nv}{\PYGZdl{}dospath}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} create output directory}
+mkdir \PYGZhy{}p \PYG{n+nv}{\PYGZdl{}tempdir}/relax/\PYG{n+nv}{\PYGZdl{}prefix}/\PYG{n+nv}{\PYGZdl{}prefix}.save
+mkdir \PYGZhy{}p \PYG{n+nv}{\PYGZdl{}tempdir}/\PYG{n+nv}{\PYGZdl{}prefix}/bands/\PYG{n+nv}{\PYGZdl{}prefix}.save
+mkdir \PYGZhy{}p \PYG{n+nv}{\PYGZdl{}tempdir}/\PYG{n+nv}{\PYGZdl{}prefix}/dos/\PYG{n+nv}{\PYGZdl{}prefix}.save
+
+\PYG{n+nv}{relax}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}relaxpath}/relax.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{scf}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}bandpath}/scf.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{pw\PYGZus{}bands}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}bandpath}/pw.bands.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{bands}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}bandpath}/bands.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{kresproj}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}bandpath}/kresprojwfc.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{nscf}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}dospath}/nscf.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{dos}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}dospath}/dos.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{proj}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}dospath}/projwfc.\PYG{n+nv}{\PYGZdl{}prefix}
+\PYG{n+nv}{sumpdos\PYGZus{}kres}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}bandpath}
+\PYG{n+nv}{sumpdos}\PYG{o}{=}\PYG{n+nv}{\PYGZdl{}dospath}
+
+cat \PYGZgt{}\PYGZgt{}  \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}JOB\PYGZus{}NAME}.log \PYG{l+s}{\PYGZlt{}\PYGZlt{} EOL}
+\PYG{l+s}{Bin Library:}
+\PYG{l+s}{    \PYGZdl{}QE\PYGZus{}PATH}
+
+\PYG{l+s}{Output file directory:}
+\PYG{l+s}{    \PYGZdl{}relax.out}
+\PYG{l+s}{    \PYGZdl{}scf.out}
+\PYG{l+s}{    \PYGZdl{}\PYGZob{}pw\PYGZus{}bands\PYGZcb{}.out}
+\PYG{l+s}{    \PYGZdl{}bands.out}
+\PYG{l+s}{    \PYGZdl{}kresproj.out}
+\PYG{l+s}{    \PYGZdl{}nscf.out}
+\PYG{l+s}{    \PYGZdl{}dos.out}
+\PYG{l+s}{    \PYGZdl{}proj.out}
+\PYG{l+s}{    \PYGZdl{}sumpdos/atom\PYGZus{}***.dat}
+
+\PYG{l+s}{Temporary directory:}
+\PYG{l+s}{    \PYGZdl{}tempdir}
+
+\PYG{l+s}{Log file directory:}
+\PYG{l+s}{EOL}
+
+scontrol show jobid \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}JOBID} \PYG{p}{|} grep \PYGZhy{}A4 \PYG{l+s+s2}{\PYGZdq{}Command\PYGZdq{}} \PYGZgt{}\PYGZgt{} \PYG{n+nv}{\PYGZdl{}SLURM\PYGZus{}JOB\PYGZus{}NAME}.log
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    Relaxation running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun pw.x \PYGZhy{}nk \PYG{l+m}{4} \PYGZhy{}ndiag \PYG{l+m}{1}  \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}relax}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}relax}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    SCF running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun pw.x \PYGZhy{}nk \PYG{l+m}{4} \PYGZhy{}ndiag \PYG{l+m}{1}   \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}scf}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}scf}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    BANDS\PYGZhy{}NSCF running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun pw.x \PYGZhy{}nk \PYG{l+m}{8} \PYGZhy{}ndiag \PYG{l+m}{1} \PYGZhy{}i \PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{pw\PYGZus{}bands}\PYG{l+s+si}{\PYGZcb{}}.in \PYGZgt{} \PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{pw\PYGZus{}bands}\PYG{l+s+si}{\PYGZcb{}}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    BANDS running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun bands.x \PYGZhy{}nk \PYG{l+m}{8} \PYGZhy{}ndiag \PYG{l+m}{1} \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}bands}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}bands}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    NSCF running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun pw.x \PYGZhy{}nk \PYG{l+m}{8} \PYGZhy{}ndiag \PYG{l+m}{1}  \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}nscf}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}nscf}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    DOS running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun dos.x \PYGZhy{}nk \PYG{l+m}{8} \PYGZhy{}ndiag \PYG{l+m}{1}  \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}dos}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}dos}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    PROJWFC running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+mpirun projwfc.x \PYGZhy{}nk \PYG{l+m}{8} \PYGZhy{}ndiag \PYG{l+m}{1}  \PYGZhy{}i \PYG{n+nv}{\PYGZdl{}proj}.in \PYGZgt{} \PYG{n+nv}{\PYGZdl{}proj}.out
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                    SUMPDOS running}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}Zn\PYG{l+s+se}{\PYGZbs{})}*      \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}Zn\PYGZus{}tot.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}Zn\PYG{l+s+se}{\PYGZbs{})}*\PYG{l+s+se}{\PYGZbs{}(}s\PYG{l+s+se}{\PYGZbs{})} \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}Zn\PYGZus{}s.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}Zn\PYG{l+s+se}{\PYGZbs{})}*\PYG{l+s+se}{\PYGZbs{}(}p\PYG{l+s+se}{\PYGZbs{})} \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}Zn\PYGZus{}p.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}Zn\PYG{l+s+se}{\PYGZbs{})}*\PYG{l+s+se}{\PYGZbs{}(}d\PYG{l+s+se}{\PYGZbs{})} \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}Zn\PYGZus{}d.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}O\PYG{l+s+se}{\PYGZbs{})}*       \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}O\PYGZus{}tot.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}O\PYG{l+s+se}{\PYGZbs{})}*\PYG{l+s+se}{\PYGZbs{}(}s\PYG{l+s+se}{\PYGZbs{})}  \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}O\PYGZus{}s.dat
+sumpdos.x \PYG{n+nv}{\PYGZdl{}sumpdos}/*\PYG{l+s+se}{\PYGZbs{}(}O\PYG{l+s+se}{\PYGZbs{})}*\PYG{l+s+se}{\PYGZbs{}(}p\PYG{l+s+se}{\PYGZbs{})}  \PYGZgt{}  \PYG{n+nv}{\PYGZdl{}sumpdos}/atom\PYGZus{}O\PYGZus{}p.dat
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{                          END OF JOB}
+\PYG{l+s+s2}{=\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}=}
+\PYG{l+s+s2}{\PYGZdq{}}
+\end{Verbatim}

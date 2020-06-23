@@ -120,10 +120,10 @@ The exact many-particle Hamiltonian is consist of five operators which can be ex
 \end{equation}
 where the $\hat{\mathcal{T}}$ and $\hat{\mathcal{V}}$ refer to kinetic energy and potential energy, respectively, and the labels $e$ and $n$ denotes the electronic and nuclear coordinates and their derivatives, respectively.  This equation can be expanded as
 \begin{multline} \label{eq:many_se}
-	\hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_I \frac{\laplacian_{\va*{R_I}}}{M_I} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r_i}}}{m_e} \\
-	- \frac{1}{4 \pi \epsilon_0} \sum_{I,i} \frac{e^2 Z_I}{\abs{\va*{R_I} - \va*{r_i}}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r_i} - \va*{r_j}}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R_I} - \va*{R_J}}}
+	\hat{\mathcal{H}}  = - \frac{\hbar^2}{2} \sum_I \frac{\laplacian_{\va*{R}_I}}{M_I} - \frac{\hbar^2}{2} \sum_i \frac{\laplacian_{\va*{r}_i}}{m_e} \\
+	- \frac{1}{4 \pi \epsilon_0} \sum_{I,i} \frac{e^2 Z_I}{\abs{\va*{R}_I - \va*{r}_i}} + \frac{1}{8 \pi \epsilon_0} \sum_{i\neq j} \frac{e^2}{\abs{\va*{r}_i - \va*{r}_j}} + \frac{1}{8 \pi \epsilon_0} \sum_{I\neq J} \frac{e^2 Z_I Z_J}{\abs{\va*{R}_I - \va*{R}_J}}
 \end{multline}
-where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R_I}$, and electrons have mass $m_e$  located at site $\va*{r_i}$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
+where $M_I$ is the mass of the $I$th nuclei (or usually ions) with charge $Z_I$ located at site $\va*{R}_I$, and electrons have mass $m_e$  located at site $\va*{r}_i$. The first and second terms are the kinetic energy of the atomic nuclei and electrons, respectively. The last three terms
 describe the Coulomb interaction between electrons and nuclei, between electrons and other electrons, and between nuclei and other nuclei.
 
 \subsection{Simplifying Assumptions}
@@ -136,7 +136,7 @@ The first level of approximation is the Born-Oppenheimer approximation or the Ad
 and using Hartree atomic units $\hbar = m_e = e = 4 \pi / \epsilon_0 =1$ for simplicity
 
 \begin{equation} \label{eq:se_simple}
-	\hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r_i}} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r_i} - \va*{r_j}}} + \sum_{i} V_{I}(\abs{\va*{R_I} - \va*{r_j}})
+	\hat{\mathcal{H}}  = - \frac{1}{2} \sum_i \laplacian_{\va*{r}_i} + \frac{1}{2} \sum_{i\neq j} \frac{1}{\abs{\va*{r}_i - \va*{r}_j}} + \sum_{i} V_{I}(\abs{\va*{R}_I - \va*{r}_j})
 \end{equation}
 \subsection{Hartree Method}
 Since the second term in \eqref{eq:se_simple} includes electron-electron interaction which is difficult to evaluate, Hartree (1928) had proposed a simplified model where he treated each electrons to be independent and interacts with others in an averaged way \citep{Hartree1928}.This implies that each  electron does not recognize others as single entities but rather as a mean Coulomb field. The second term will be replaced by Hartree energy given as
@@ -158,10 +158,10 @@ Hartree model successfully predicts the ground-state energy of Hydrogen atom to 
 \subsection{Hartree-Fock Method}
 Due to the limitations of Hartree Model, Fock (1930) has taken into account the antisymmetric property of electron wavefunctions \citep{Fock1930}. Pauli's exclusion principle posits that no two fermions can occupy the same quantum state because the wavefunction is antisymmetric upon particle exchange \citep{Pauli1925}. The many-electron wavefunction will be expressed in terms of Slater determinant \citep{Slater1929}
 \begin{equation}
-	\mathbf{\Psi} = \frac{1}{\sqrt{N!}} \mdet{\Psi_1({\va*{r_1}}) & \Psi_2({\va*{r_1}}) & \cdots & \Psi_N({\va*{r_1}})  \\
-		\Psi_1({\va*{r_2}}) & \Psi_2({\va*{r_2}}) & \cdots & \Psi_N({\va*{r_2}})\\
+	\mathbf{\Psi} = \frac{1}{\sqrt{N!}} \mdet{\Psi_1({\va*{r}_1}) & \Psi_2({\va*{r}_1}) & \cdots & \Psi_N({\va*{r}_1})  \\
+		\Psi_1({\va*{r}_2}) & \Psi_2({\va*{r}_2}) & \cdots & \Psi_N({\va*{r}_2})\\
 		\vdots & \vdots & \vdots & \vdots \\
-		\Psi_1({\va*{r_N}}) & \Psi_2({\va*{r_N}}) & \cdots & \Psi_N({\va*{r_N}})
+		\Psi_1({\va*{r}_N}) & \Psi_2({\va*{r}_N}) & \cdots & \Psi_N({\va*{r}_N})
 	}
 \end{equation}
 Using the Slater determinant form of the wavefunction, the Hamiltonian can be written as before with the addition of exchange term

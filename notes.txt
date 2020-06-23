@@ -2,3 +2,6 @@
 2) add geometric relaxations
 3) add dft parallelization in software implementation 
 4) explain n-type conductivity and nonstoichiometry and add references
+
+## layouts errors
+1) subsubsection has no numbers
