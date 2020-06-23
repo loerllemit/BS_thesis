@@ -54,11 +54,15 @@
 \newif\if@dedicate \@dedicatefalse
 \newif\if@acknowledge \@acknowledgefalse
 
+
+
 %% setting size of paper to be used..
 %% So far, CS has set a standard of US letter
 \setlength\paperheight {11in}%
 \setlength\paperwidth  {8.5in}%
 \setlength\textwidth   {6in}%
+
+
 
 \if@compatibility
   \renewcommand\@ptsize{0}
@@ -222,6 +226,8 @@
 \def\acknowledgments#1{\gdef\@acknowledgments{#1} \@acknowledgetrue}
 \newcommand\acknowledgmentsp{ %% acknowledgments page
    \topmargin 0in \headsep 0in
+   \cleardoublepage
+   \phantomsection
    \chapter*{Acknowledgments}
    \addcontentsline{toc}{chapter}{Acknowledgments}
    \par\expandafter{\@acknowledgments}
@@ -230,7 +236,9 @@
 %% abstract page.
 \def\abstract#1{\gdef\@abstract{#1} \@withabstracttrue}
 \newcommand\abstractp{%
-\typeout{Creating NIP abstract..}
+  \cleardoublepage
+  \phantomsection
+  \typeout{Creating NIP abstract..}
    \addcontentsline{toc}{chapter}{Abstract}
    \topmargin 0in \headsep 0in
    \begin{center}
@@ -675,7 +683,12 @@ This is to certify that this undergraduate thesis entitled \textbf{\expandafter{
 \newcommand\@pnumwidth{1.55em}
 \newcommand\@tocrmarg{2.55em}
 \newcommand\@dotsep{4.5}
-\setcounter{tocdepth}{2}
+
+% Format table of contents
+% \RequirePackage{tocloft}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
 \newcommand\tableofcontents{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -704,6 +717,7 @@ This is to certify that this undergraduate thesis entitled \textbf{\expandafter{
     \endgroup
   \fi}
 \newcommand*\l@chapter[2]{%
+% \@dottedtocline{0}{0}{2.3em}
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
     \vskip 1.0em \@plus\p@
@@ -724,6 +738,9 @@ This is to certify that this undergraduate thesis entitled \textbf{\expandafter{
 \newcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \newcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 \newcommand\listoffigures{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Figures}
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
@@ -737,6 +754,9 @@ This is to certify that this undergraduate thesis entitled \textbf{\expandafter{
     }
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand\listoftables{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Tables}
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else

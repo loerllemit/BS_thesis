@@ -5,3 +5,4 @@
 
 ## layouts errors
 1) subsubsection has no numbers
+2) decimal points  in convergence results are too large

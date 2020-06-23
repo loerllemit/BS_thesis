@@ -101,6 +101,23 @@ linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
 \SetupFloatingEnvironment{listing}{name=Code}
 \SetupFloatingEnvironment{listing}{placement=htpb!}
 
+% custom commands
+\newcommand{\addchapheadtotoc}{
+    \addtocontents{toc}{
+        \protect\vspace{1.0em}
+        \protect\noindent \textbf{CHAPTER}\protect\par
+        \protect%\vspace{-1em}
+        }
+}
+
+\renewcommand{\addappheadtotoc}{
+    \addtocontents{toc}{
+        \protect\vspace{1.0em}
+        \protect\noindent \textbf{APPENDIX}\protect\par
+        \protect%\vspace{-1em}
+        }
+	}
+	
 \definecolor{listinggray}{gray}{0.9}
 \definecolor{lbcolor}{rgb}{1,1,1}
 \lstset{
@@ -164,7 +181,10 @@ linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
 
 %% Preliminary pages' contents input here..
 %\dedication{ \input{dedication.tex} }%% optional, see dedication.tex for sample content.
+
 \acknowledgments{ \input{acknowledge} } %% optional, see acknowledgment.tex for sample content.
+\cleardoublepage
+\phantomsection
 \abstract{\input{abstract}} %% see abstract.tex
 % \pacs{81.20.Ev, 82.70.Kj, 81.15.-z, 68.55.-a}
 
@@ -184,7 +204,6 @@ linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
 \include{chapters/rnd}
 \include{chapters/conclusion}
 
-
 % Bibliography
 \begingroup
 \cleardoublepage
@@ -195,7 +214,7 @@ linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
 \endgroup
 
 % Appendices
-% \addcontentsline{toc}{chapter}{Appendix}
+% \addcontentsline{toc}{part}{Appendix}
 \include{app}
 
 \end{document}
