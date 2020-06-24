@@ -2784,4 +2784,28 @@
   publisher = {Elsevier {BV}},
 }
 
+@Article{Harrison1954,
+  author    = {Sol E. Harrison},
+  journal   = {Physical Review},
+  title     = {Conductivity and Hall Effect of {ZnO} at Low Temperatures},
+  year      = {1954},
+  month     = {jan},
+  number    = {1},
+  pages     = {52--62},
+  volume    = {93},
+  doi       = {10.1103/physrev.93.52},
+  publisher = {American Physical Society ({APS})},
+}
+
+@Misc{Guthrie2020,
+  author    = {Guthrie, William F.},
+  title     = {{NIST/SEMATECH} e-Handbook of Statistical Methods ({NIST} Handbook 151)},
+  year      = {2020},
+  copyright = {License Information for NIST data},
+  doi       = {10.18434/M32189},
+  keywords  = {Statistics, experimental design, time series, analysis of variance, quality control, reliability, graphics, exploratory data analysis, process characterization, regression, statistical modeling, model validation, uncertaintyanalysis},
+  language  = {en-US},
+  publisher = {National Institute of Standards and Technology},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

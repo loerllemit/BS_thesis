@@ -41,6 +41,7 @@
    %% square-bracketed, numbered, sorted, and compressed citations
    %% for more info: http://merkel.zoneo.net/Latex/natbib.php
 \usepackage{verbatim,lipsum} %% for \verbatiminput
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx} %% for the graphics environment
 \usepackage[centertags]{amsmath}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
@@ -209,7 +210,7 @@ linkcolor=blue,citecolor=red,urlcolor=blue]{hyperref}
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{unsrt}
-\bibliography{refs} %% see file: "biblio.bib"
+\bibliography{thesis} %% see file: "biblio.bib"
 \endgroup
 
 % Appendices
