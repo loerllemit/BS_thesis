@@ -389,8 +389,6 @@ INPUT /scratch1/christian.llemit/codes/thesis/acknowledge.tex
 INPUT /scratch1/christian.llemit/codes/thesis/acknowledge.tex
 INPUT /scratch1/christian.llemit/codes/thesis/abstract.tex
 INPUT /scratch1/christian.llemit/codes/thesis/abstract.tex
-INPUT /scratch1/christian.llemit/codes/thesis/diss.toc
-INPUT /scratch1/christian.llemit/codes/thesis/diss.toc
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -426,6 +424,8 @@ INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /home/christian.llemit/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
+INPUT /scratch1/christian.llemit/codes/thesis/diss.toc
+INPUT /scratch1/christian.llemit/codes/thesis/diss.toc
 OUTPUT /scratch1/christian.llemit/codes/thesis/diss.toc
 INPUT /scratch1/christian.llemit/codes/thesis/diss.lof
 INPUT /scratch1/christian.llemit/codes/thesis/diss.lof
