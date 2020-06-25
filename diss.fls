@@ -457,6 +457,7 @@ INPUT /home/loer/Desktop/codes/thesis/images/rrl/bands.pdf
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/perfect.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/perfect.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/perfect.png
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/vacancy.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/vacancy.png
 INPUT /home/loer/Desktop/codes/thesis/images/rrl/vacancy.png
@@ -714,6 +715,7 @@ INPUT /home/loer/Desktop/codes/thesis/app.aux
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb

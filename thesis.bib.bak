@@ -2808,4 +2808,14 @@
   publisher = {National Institute of Standards and Technology},
 }
 
+@InCollection{Smith2003,
+  author    = {Steven W. Smith},
+  booktitle = {Digital Signal Processing},
+  publisher = {Elsevier},
+  title     = {Moving Average Filters},
+  year      = {2003},
+  pages     = {277--284},
+  doi       = {10.1016/b978-0-7506-7444-7/50052-2},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
