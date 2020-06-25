@@ -58,6 +58,7 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
 
 \newgeometry{top=0.25in, bottom=0.75in, left=1in, right=0.5in}
 \begingroup
+\pagestyle{plain}
 \setlength{\abovecaptionskip}{-10pt}
 \setlength{\belowcaptionskip}{-10pt}
 
@@ -101,6 +102,7 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
 				breakanywhere=true,
 			]{fortran}{./codes/nscf.O_vac-p2.in}
 		\end{code}
+		\bigskip
 
 		\begin{code}
 			\caption{Postprocessing of bands data}
@@ -130,8 +132,8 @@ Brillouin zone plays a vital role in calculation of periodic systems. Owing to t
 				breakanywhere=true,
 			]{fortran}{./codes/projwfc.O_i-n1.in}
 		\end{code}
-		\vfill\null
-		\columnbreak
+		% \vfill\null
+		% \columnbreak
 
 			\begin{code}
 				\caption{Sample batch script to run in Linux terminal}
