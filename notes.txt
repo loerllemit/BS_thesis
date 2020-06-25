@@ -1,8 +1,8 @@
 1) Edit Bandstructure of -1 Zinc vacancy near the valence band. The fermi level does not match in DOS plot  (adjusted)
 2) add geometric relaxations (no more time)
 
-4) explain n-type conductivity and nonstoichiometry and add references
-5) add Oxygen interstitials explanation
-6) add Eq. when referencing equations
+4) explain n-type conductivity and nonstoichiometry and add references (will make discussion complicated)
+5) add Oxygen interstitials explanation (done)
+6) add Eq. when referencing equations  (not needed. will make the page more cluttered)
 ## layouts errors
-1) code annotations have a line near the page border 
+1) code annotations have a line near the page border (corrected)

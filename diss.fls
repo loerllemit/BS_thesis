@@ -383,10 +383,12 @@ INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbxti10.
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /home/loer/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /home/loer/Desktop/codes/thesis/acknowledge.tex
-INPUT /home/loer/Desktop/codes/thesis/acknowledge.tex
+INPUT /home/loer/Desktop/codes/thesis/images/dost-asti-logo.png
+INPUT /home/loer/Desktop/codes/thesis/images/dost-asti-logo.png
+INPUT /home/loer/Desktop/codes/thesis/images/dost-asti-logo.png
+INPUT /home/loer/Desktop/codes/thesis/images/coare.png
+INPUT /home/loer/Desktop/codes/thesis/images/coare.png
+INPUT /home/loer/Desktop/codes/thesis/images/coare.png
 INPUT /home/loer/Desktop/codes/thesis/abstract.tex
 INPUT /home/loer/Desktop/codes/thesis/abstract.tex
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
@@ -424,6 +426,8 @@ INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbsy10.t
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/latex-fonts/lasyb10.tfm
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /home/loer/usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/loer/Desktop/codes/thesis/diss.toc
 INPUT /home/loer/Desktop/codes/thesis/diss.toc
 OUTPUT /home/loer/Desktop/codes/thesis/diss.toc

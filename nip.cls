@@ -52,6 +52,7 @@
 \newif\if@iprr \@iprrfalse
 \newif\if@certproposal \@certproposalfalse
 \newif\if@dedicate \@dedicatefalse
+\newif\if@sponsor \@sponsorfalse
 \newif\if@acknowledge \@acknowledgefalse
 
 
@@ -222,6 +223,15 @@
 %   \par\expandafter{\@certproposal}
 %} %% cert proposal page
 
+% %% sponsor page
+\def\sponsor#1{\gdef\@sponsor{#1} \@sponsortrue}
+\newcommand\sponsorp{ %% sponsor page
+\topmargin 0in \headsep 0in
+\cleardoublepage
+\phantomsection
+\par\expandafter{\@sponsor}
+}
+
 %% acknowledgement page.
 \def\acknowledgments#1{\gdef\@acknowledgments{#1} \@acknowledgetrue}
 \newcommand\acknowledgmentsp{ %% acknowledgments page
@@ -346,6 +356,7 @@ This is to certify that this undergraduate thesis entitled \textbf{\expandafter{
 
       
       \if@dedicate \dedicationp \newpage \fi
+      \if@sponsor \sponsorp \newpage \fi
       \if@acknowledge \acknowledgmentsp \newpage \fi%
       %\if@withcv \cv \fi%
    \fi %% draft case
